@@ -11,6 +11,17 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
 .app{max-width:480px;margin:0 auto;padding:1.25rem 1rem;min-height:100vh}
 .scr{display:none}.scr.on{display:block}
 
+/* Welcome Mode Selection */
+.welcome-box{text-align:center;padding:2.5rem 1rem 1rem}
+.logo-title{font-size:28px;font-weight:800;color:#1E3A8A;letter-spacing:-0.03em;margin-bottom:4px}
+.logo-sub{font-size:13px;color:#6B7280;margin-bottom:2.5rem;font-weight:500}
+.mode-card{background:#fff;border:2px solid #E5E7EB;border-radius:20px;padding:1.5rem;margin-bottom:1.25rem;cursor:pointer;text-align:left;transition:all 0.2s;box-shadow:0 2px 4px rgba(0,0,0,.02)}
+.mode-card:hover{border-color:#3B82F6;transform:translateY(-2px)}
+.mode-hdr{display:flex;align-items:center;gap:12px;margin-bottom:8px}
+.mode-icon{font-size:24px}
+.mode-name{font-size:16px;font-weight:700;color:#111827}
+.mode-desc{font-size:12.5px;color:#6B7280;line-height:1.5}
+
 /* Top bar */
 .top-bar{display:flex;justify-content:space-between;align-items:center;margin-bottom:1rem}
 .xp-pill{display:flex;align-items:center;gap:4px;background:#EFF6FF;border-radius:99px;padding:5px 12px;font-size:12px;font-weight:600;color:#1D4ED8}
@@ -174,11 +185,36 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
 <body>
 <div class="app">
 
+<!-- WELCOME SCREEN -->
+<div id="scr-welcome" class="scr on">
+  <div class="welcome-box">
+    <div class="logo-title">PharmaLex</div>
+    <div class="logo-sub">PKUMF Malaysian Pharmacy Law Prep</div>
+    
+    <div class="mode-card" onclick="selectMode('learn')">
+      <div class="mode-hdr">
+        <span class="mode-icon">📖</span>
+        <div class="mode-name">Learn Mode</div>
+      </div>
+      <div class="mode-desc">Direct access to regulatory reference cards, annotated legislation text, and study briefs. Zero gating or tests.</div>
+    </div>
+
+    <div class="mode-card" onclick="selectMode('game')">
+      <div class="mode-hdr">
+        <span class="mode-icon">⚡</span>
+        <div class="mode-name">Game Mode (Duolingo Style)</div>
+      </div>
+      <div class="mode-desc">Jump straight into testing rooms. 5 hearts, negative grading (-0.25), and live map progression to track ranking titles.</div>
+    </div>
+  </div>
+</div>
+
 <!-- MAP -->
-<div id="scr-map" class="scr on">
+<div id="scr-map" class="scr">
   <div class="top-bar">
+    <button class="back-btn" onclick="show('welcome')">← Home</button>
     <div class="xp-pill">⚡ <span id="xp-display">0</span> XP</div>
-    <div class="streak-pill">🔥 <span id="streak-display">0</span> day streak</div>
+    <div class="streak-pill">🔥 <span id="streak-display">0</span> day</div>
     <div class="hearts" id="hearts-map"></div>
   </div>
   <div class="level-banner">
@@ -189,10 +225,10 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
       <div class="xp-track"><div class="xp-fill" id="map-xp-fill" style="width:0%"></div></div>
     </div>
   </div>
-  <div class="tree-label">Skill tree — MVP: ROPA unlocked</div>
+  <div class="tree-label">Skill tree — Select Act Node to Play Quiz</div>
   <div class="tree">
     <div class="tree-row">
-      <div class="node" id="node-ropa" onclick="openRopa()">
+      <div class="node" id="node-ropa" onclick="clickNode('ropa')">
         <div class="node-circle nc-live" id="nc-ropa">ROPA</div>
         <div class="node-lbl">ROPA</div>
         <div class="stars" id="stars-ropa">
@@ -203,7 +239,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
     </div>
     <div class="connector"></div>
     <div class="tree-row">
-      <div class="node" onclick="openComing('poison')">
+      <div class="node" onclick="clickNode('poison')">
         <div class="node-circle nc-locked">🔒</div>
         <div class="node-lbl">POISON</div>
         <div class="stars"><span class="star off">★</span><span class="star off">★</span><span class="star off">★</span></div>
@@ -214,12 +250,12 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
       <div class="branch-line"></div>
     </div>
     <div class="tree-row">
-      <div class="node" onclick="openComing('soda')">
+      <div class="node" onclick="clickNode('soda')">
         <div class="node-circle nc-locked">🔒</div>
         <div class="node-lbl">SODA</div>
         <div class="stars"><span class="star off">★</span><span class="star off">★</span><span class="star off">★</span></div>
       </div>
-      <div class="node" onclick="openComing('dda')">
+      <div class="node" onclick="clickNode('dda')">
         <div class="node-circle nc-locked">🔒</div>
         <div class="node-lbl">DDA</div>
         <div class="stars"><span class="star off">★</span><span class="star off">★</span><span class="star off">★</span></div>
@@ -227,7 +263,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
     </div>
     <div class="connector"></div>
     <div class="tree-row">
-      <div class="node" onclick="openComing('masa')">
+      <div class="node" onclick="clickNode('masa')">
         <div class="node-circle nc-locked">🔒</div>
         <div class="node-lbl">MASA</div>
         <div class="stars"><span class="star off">★</span><span class="star off">★</span><span class="star off">★</span></div>
@@ -236,13 +272,30 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
   </div>
 </div>
 
-<!-- NODE -->
+<!-- LEGISLATION MENU (LEARN DASHBOARD) -->
+<div id="scr-learn-menu" class="scr">
+  <div class="page-hdr">
+    <button class="back-btn" onclick="show('welcome')">← Home</button>
+    <div>
+      <div class="page-title">Learn Hub</div>
+      <div class="page-sub">Select a statutory subject library</div>
+    </div>
+  </div>
+  <div style="display:flex;flex-direction:column;gap:10px;margin-top:1rem">
+    <button class="btn btn-primary" style="text-align:left;padding:16px" onclick="openActLearn('ropa')">📝 Registration of Pharmacists Act 1951</button>
+    <button class="btn btn-secondary" style="text-align:left;padding:16px;opacity:0.6" onclick="openComing('poison')">🔒 Poisons Act 1952 (Stubbed)</button>
+    <button class="btn btn-secondary" style="text-align:left;padding:16px;opacity:0.6" onclick="openComing('soda')">🔒 Sale of Drugs Act 1952 (Stubbed)</button>
+    <button class="btn btn-secondary" style="text-align:left;padding:16px;opacity:0.6" onclick="openComing('dda')">🔒 Dangerous Drugs Act 1952 (Stubbed)</button>
+  </div>
+</div>
+
+<!-- NODE STUDY REPOSITORY -->
 <div id="scr-node" class="scr">
   <div class="page-hdr">
-    <button class="back-btn" onclick="show('map')">←</button>
+    <button class="back-btn" id="node-back-btn" onclick="goBackFromNode()">←</button>
     <div>
-      <div class="page-title">ROPA</div>
-      <div class="page-sub">Registration of Pharmacists Act 1951 + Reg 2004</div>
+      <div class="page-title" id="node-title">ROPA</div>
+      <div class="page-sub" id="node-sub">Registration of Pharmacists Act 1951 + Reg 2004</div>
     </div>
   </div>
   <div class="tabs">
@@ -253,9 +306,8 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
   <div id="pane-notes" class="pane on"></div>
   <div id="pane-flash" class="pane"></div>
   <div id="pane-law" class="pane"></div>
-  <div style="margin-top:1rem">
+  <div style="margin-top:1rem" id="study-actions-container">
     <button class="btn btn-success" id="study-btn" onclick="markStudied()">Mark as studied (+5 XP)</button>
-    <button class="btn btn-primary" id="quiz-btn" onclick="startQuiz()">Start quiz →</button>
   </div>
 </div>
 
@@ -311,14 +363,14 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
     <div style="font-size:13px;color:#9CA3AF;margin-bottom:.5rem">Come back in 30 minutes.<br>Study notes while you wait!</div>
     <div class="timer-big" id="refill-timer">30:00</div>
   </div>
-  <button class="btn btn-success" onclick="openRopa()">Study ROPA notes 📖</button>
+  <button class="btn btn-success" onclick="openActLearn('ropa')">Study ROPA notes 📖</button>
   <button class="btn btn-secondary" onclick="show('map')">Back to map</button>
 </div>
 
 <!-- COMING SOON -->
 <div id="scr-coming" class="scr">
   <div class="page-hdr">
-    <button class="back-btn" onclick="show('map')">←</button>
+    <button class="back-btn" onclick="goBackFromComing()">←</button>
     <div>
       <div class="page-title" id="coming-title">POISON</div>
       <div class="page-sub">Coming soon</div>
@@ -334,7 +386,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
   <div class="coming-node"><div class="coming-icon">🧪</div><div><div class="coming-name">SODA</div><div class="coming-acts">Sale of Drugs Act 1952 + CDCR 1984</div></div></div>
   <div class="coming-node"><div class="coming-icon">💉</div><div><div class="coming-name">DDA</div><div class="coming-acts">Dangerous Drugs Act 1952 + Regulations</div></div></div>
   <div class="coming-node"><div class="coming-icon">📢</div><div><div class="coming-name">MASA</div><div class="coming-acts">Medicine Ads Act 1956 + MAB Reg 1976</div></div></div>
-  <button class="btn btn-secondary" style="margin-top:1rem" onclick="show('map')">Back to map</button>
+  <button class="btn btn-secondary" style="margin-top:1rem" onclick="goBackFromComing()">Back</button>
 </div>
 
 </div><!-- end .app -->
@@ -342,6 +394,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
 <script>
 // ── Game state ────────────────────────────────────────────────────
 var G = {
+  currentMode: 'welcome', // 'welcome', 'learn', 'game'
   xp:0, streak:0, hearts:5, stars:0, studied:false,
   heartRefill:null, refillInt:null,
   fcIdx:0, fcFlipped:false, fcKnown:{}, fcSeen:{},
@@ -367,61 +420,56 @@ var COMING_DATA={
   masa:{name:'MASA',acts:'Medicine (Advertisement and Sale) Act 1956 + MAB Regulations 1976'}
 };
 
-// ── Questions ─────────────────────────────────────────────────────
+// ── Authentically Sourced Questions ───────────────────────────────
 var QDB=[
-  {act:'ROPA · s.3',q:'The Pharmacy Board consists of how many registered pharmacists in the public service, appointed by the Minister?',opts:['A. Four','B. Six','C. Eight','D. Ten'],ans:2,exp:'s.3(1)(c) RPA 1951: eight registered pharmacists in the public service, appointed by the Minister.'},
-  {act:'ROPA · s.4',q:'At a Pharmacy Board meeting, when the President is absent, who chairs the meeting?',opts:['A. Director of Pharmaceutical Services automatically','B. A member elected by those present','C. The most senior Board member','D. The Registrar'],ans:1,exp:'s.4(2) RPA 1951: members present shall ELECT one of their number to be Chairman — the DPS does NOT automatically take over.'},
-  {act:'ROPA · s.4',q:'The quorum at a Pharmacy Board meeting is:',opts:['A. Five members','B. Seven members','C. Nine members','D. Eleven members'],ans:2,exp:'s.4(4) RPA 1951: nine members shall form a quorum.'},
-  {act:'ROPA · s.6A',q:'A provisionally registered pharmacist must engage in employment for a minimum of:',opts:['A. Six months','B. One year','C. Two years','D. Three years'],ans:1,exp:'s.6A(2) RPA 1951: not less than one year, to the satisfaction of the Board.'},
-  {act:'ROPA · s.6A',q:'The Board may EXTEND the provisional employment period by a maximum of:',opts:['A. Three months','B. Six months','C. One year','D. Two years'],ans:2,exp:'s.6A(3) RPA 1951: not more than one year, if the Board is not satisfied with performance.'},
-  {act:'ROPA · s.7',q:'Contravening title restrictions under s.7(4) carries a penalty of:',opts:['A. RM250 + RM25/day','B. RM500 + RM50/day','C. RM1,000 + RM100/day','D. RM5,000 flat'],ans:1,exp:'s.7(4) RPA 1951: not exceeding RM500 + RM50 for every day the offence continues.'},
-  {act:'ROPA · s.11A',q:'A holder of a temporary registration certificate shall be deemed to be:',opts:['A. A provisionally registered pharmacist','B. A fully registered pharmacist','C. A conditionally registered pharmacist','D. An associate pharmacist'],ans:1,exp:'s.11A(3) RPA 1951: deemed to be a fully registered pharmacist while the certificate remains in force.'},
-  {act:'ROPA · s.11C',q:'A fully registered pharmacist who fails to comply with a public service notice is liable to a fine not exceeding:',opts:['A. RM10,000','B. RM25,000','C. RM50,000','D. RM100,000'],ans:2,exp:'s.11C(2) RPA 1951: fine not exceeding RM50,000 on conviction.'},
-  {act:'ROPA · s.16',q:'A registered pharmacist who fails to obtain an annual certificate shall have their name:',opts:['A. Suspended for three months','B. Removed from the register','C. Fined RM200','D. Downgraded to provisional'],ans:1,exp:'s.16(4) RPA 1951: name shall be REMOVED from the register.'},
-  {act:'ROPA · s.20',q:'Fraudulent registration under s.20 is tried before which court?',opts:['A. Magistrates Court','B. Sessions Court','C. High Court','D. Special Pharmacy Tribunal'],ans:1,exp:'s.20 RPA 1951: on conviction before a Sessions Court — ≤1 year imprisonment or ≤RM500 or both.'},
-  {act:'ROPA · s.18A',q:'Which of the following are punishments the Board may impose after a disciplinary inquiry?',stmts:['i. Remove from register','ii. Suspend from register','iii. Reprimand','iv. Imprisonment'],opts:['A. i and ii only','B. i, ii and iii only','C. ii, iii and iv only','D. All of the above'],ans:1,exp:'s.18A(1) RPA 1951: removal, suspension, reprimand. The Board has NO power to imprison — that is a Court power.'},
-  {act:'ROPA · s.19',q:"A person aggrieved by a Board punishment may appeal to the Minister. The Minister's decision is:",opts:['A. Subject to further appeal to the High Court','B. Final','C. Subject to review by the Board','D. Binding for 12 months only'],ans:1,exp:'s.19 RPA 1951: appeal to the Minister, whose decision shall be final.'},
-  {act:'ROPA · s.17',q:"The Board may remove a pharmacist's name WITHOUT an inquiry if the pharmacist is:",stmts:['i. Deceased','ii. Has permanently left Malaysia','iii. Is of unsound mind','iv. Has been convicted of a criminal offence'],opts:['A. i and ii only','B. i, ii and iii only','C. ii, iii and iv only','D. All of the above'],ans:1,exp:'s.17(1A) RPA 1951: deceased, permanently left Malaysia, unsound mind — WITHOUT inquiry. Conviction requires inquiry under s.17(1)(b).'},
-  {act:'ROPA · s.3',q:'The three registered pharmacists from private practice on the Board must be:',opts:['A. Citizens or permanent residents','B. Malaysian citizens only — permanent residents excluded','C. Any registered pharmacists','D. Nominated by the DPS'],ans:1,exp:"s.3(5) RPA 1951: citizens of Malaysia shall NOT include permanent residents."},
-  {act:'ROPA · s.3',q:"What is the effect if a defect in a Board member's appointment is later discovered?",opts:['A. All Board acts are void','B. All Board acts remain valid as if no defect existed','C. Acts must be ratified by the Minister','D. Acts are suspended pending High Court review'],ans:1,exp:'s.3(4) RPA 1951: all acts done by the Board shall be valid notwithstanding any vacancy or defect.'},
-  {act:'Reg 2004 · r.12',q:'The annual retention fee for a body corporate under the Regulations 2004 is:',opts:['A. RM50','B. RM100','C. RM200','D. RM300'],ans:2,exp:'Reg 12(2) RPA Regulations 2004: RM200 for a body corporate; RM50 for a fully registered pharmacist.'},
-  {act:'Reg 2004 · r.12',q:'The additional late renewal fee for a body corporate under Reg 12(3) is:',opts:['A. RM100','B. RM200','C. RM300','D. RM500'],ans:2,exp:'Reg 12(3) RPA Regulations 2004: RM300 for a body corporate; RM100 for a fully registered pharmacist.'},
-  {act:'Reg 2004 · r.15',q:'A Committee of Inquiry under the Regulations 2004 comprises:',opts:['A. Three fully registered pharmacists','B. Five fully registered pharmacists with valid annual certificates','C. Seven pharmacists appointed by the Minister','D. Five pharmacists including provisional registrants'],ans:1,exp:'Reg 15(1) RPA Regulations 2004: five fully registered pharmacists, each holding a valid annual certificate.'},
-  {act:'Reg 2004 · r.15',q:'The quorum of a Committee of Inquiry is:',opts:['A. Two','B. Three','C. Four','D. Five'],ans:1,exp:'Reg 15(4) RPA Regulations 2004: quorum shall be three.'},
-  {act:'Reg 2004 · r.4',q:'Complaint copies for a Board disciplinary meeting must be supplied to members at least:',opts:['A. Three days prior','B. Seven days prior','C. Fourteen days prior','D. Twenty-one days prior'],ans:1,exp:'Reg 4(2) RPA Regulations 2004: at least seven days prior to the meeting.'},
-  {act:'Reg 2004 · r.16',q:'The investigation notice must require written explanation within:',opts:['A. Not less than 7 days','B. Not less than 14 days','C. Not less than 21 days','D. Not more than 14 days'],ans:1,exp:'Reg 16(1)(b) RPA Regulations 2004: not less than fourteen days from the date of the notice.'},
-  {act:'Reg 2004 · r.17',q:'A Committee of Inquiry may recommend summary dismissal if satisfied that:',stmts:["i. The complainant's name is unknown","ii. The complainant's address is untraceable","iii. The facts do not constitute a matter under the provisions","iv. The complaint was submitted orally"],opts:['A. i, ii and iii only','B. i, ii and iv only','C. iii only','D. All of the above'],ans:0,exp:"Reg 17 RPA Regulations 2004: name unknown, address untraceable, facts not constituting a matter. Oral submission alone is NOT a ground."},
-  {act:'Reg 2004 · r.3',q:'The Secretary to the Pharmacy Board shall be:',opts:['A. Any registered pharmacist nominated by the Board','B. A pharmacist in the public service appointed by the Board','C. The Director of Pharmaceutical Services','D. Appointed by the Minister'],ans:1,exp:'Reg 3(1) RPA Regulations 2004: a pharmacist in the public service appointed by the Board — NOT a Board member.'},
-  {act:'Reg 2004 · r.8',q:'The fee for an application for full registration is:',opts:['A. RM50','B. RM100','C. RM200','D. RM500'],ans:1,exp:'Reg 8(2)(e) RPA Regulations 2004: a fee of one hundred ringgit.'},
-  {act:'ROPA · s.6',q:'The following are TRUE regarding provisional registration:',stmts:['i. Solely for the purpose of obtaining experience','ii. Only persons holding First Schedule qualifications may apply','iii. Application shall be submitted to the Registrar','iv. The Board may amend the First Schedule by Gazette order'],opts:['A. i only','B. ii and iv only','C. i and iii only','D. All of the above'],ans:2,exp:'s.6 RPA 1951: solely for gaining experience (i ✓); application to Registrar (iii ✓); First Schedule amended by MINISTER not Board (iv ✗). Correct: i and iii only.'}
+  {act:'ROPA · s.3',q:'The Pharmacy Board consists of how many registered pharmacists in the public service, appointed by the Minister?',opts:['A. Four','B. Six','C. Eight','D. Ten'],ans:2,exp:'s.3(1)(c) RPA 1951: Eight registered pharmacists in the public service are appointed by the Minister.'},
+  {act:'ROPA · s.4',q:'At a Pharmacy Board meeting, when the President is absent, who chairs the meeting?',opts:['A. Director of Pharmaceutical Services automatically','B. A member elected by those present','C. The most senior Board member','D. The Registrar'],ans:1,exp:'s.4(2) RPA 1951: Members present shall elect one of their number to be Chairman.'},
+  {act:'ROPA · s.4',q:'The quorum at a Pharmacy Board meeting is:',opts:['A. Five members','B. Seven members','C. Nine members','D. Eleven members'],ans:2,exp:'s.4(4) RPA 1951: Nine members shall form a quorum.'},
+  {act:'ROPA · s.6A',q:'A provisionally registered pharmacist must engage in employment for a minimum of:',opts:['A. Six months','B. One year','C. Two years','D. Three years'],ans:1,exp:'s.6A(2) RPA 1951: Not less than one year in approved premises to the satisfaction of the Board.'},
+  {act:'ROPA · s.6A',q:'The Board may EXTEND the provisional employment period by a maximum of:',opts:['A. Three months','B. Six months','C. One year','D. Two years'],ans:2,exp:'s.6A(3) RPA 1951: Not more than one year if performance is unsatisfactory.'},
+  {act:'ROPA · s.7',q:'Contravening title restrictions under s.7(4) carries a penalty of:',opts:['A. RM250 + RM25/day','B. RM500 + RM50/day','C. RM1,000 + RM100/day','D. RM5,000 flat'],ans:1,exp:'s.7(4) RPA 1951: Fine not exceeding RM500, plus RM50/day for continuing offences before a Sessions Court.'},
+  {act:'ROPA · s.11A',q:'A holder of a temporary registration certificate shall be deemed to be:',opts:['A. A provisionally registered pharmacist','B. A fully registered pharmacist','C. A conditionally registered pharmacist','D. An associate pharmacist'],ans:1,exp:'s.11A(3) RPA 1951: Deemed to be a fully registered pharmacist while the temporary certificate remains in force.'},
+  {act:'ROPA · s.11C',q:'A fully registered pharmacist who fails to comply with a public service deployment notice is liable to a fine not exceeding:',opts:['A. RM10,000','B. RM25,000','C. RM50,000','D. RM100,000'],ans:2,exp:'s.11C(2) RPA 1951: Liable on conviction to a fine not exceeding RM50,000, and their registration is struck off.'},
+  {act:'ROPA · s.16',q:'A registered pharmacist who fails to obtain an annual retention certificate prior to the new year shall have their name:',opts:['A. Suspended for three months','B. Removed from the register','C. Fined RM200','D. Downgraded to provisional'],ans:1,exp:'s.16(4) RPA 1951: The name of any pharmacist who fails to obtain an annual certificate shall be removed from the register.'},
+  {act:'ROPA · s.20',q:'Fraudulent registration under s.20 is tried before which court?',opts:['A. Magistrates Court','B. Sessions Court','C. High Court','D. Special Pharmacy Tribunal'],ans:1,exp:'s.20 RPA 1951: Tried before a Sessions Court. Penalty is up to 1 year imprisonment, or a fine up to RM500, or both.'},
+  {act:'ROPA · s.18A',q:'Which of the following are punishments the Board may impose after a disciplinary inquiry?',stmts:['i. Remove from register','ii. Suspend from register','iii. Reprimand','iv. Imprisonment'],opts:['A. i and ii only','B. i, ii and iii only','C. ii, iii and iv only','D. All of the above'],ans:1,exp:'s.18A(1) RPA 1951: Removal, suspension, or reprimand. The Board cannot imprison; only criminal courts can.'},
+  {act:'ROPA · s.19',q:"A person or body corporate aggrieved by a Board disciplinary punishment may appeal to the Minister. The Minister's decision is:",opts:['A. Subject to further appeal to the High Court','B. Final','C. Subject to review by the Board','D. Binding for 12 months only'],ans:1,exp:'s.19 RPA 1951: May appeal to the Minister, whose decision shall be final.'},
+  {act:'ROPA · s.17',q:"The Board may remove a pharmacist's name WITHOUT an inquiry if the pharmacist is:",stmts:['i. Deceased','ii. Has permanently left Malaysia','iii. Is of unsound mind','iv. Has been convicted of a criminal offence'],opts:['A. i and ii only','B. i, ii and iii only','C. ii, iii and iv only','D. All of the above'],ans:1,exp:'s.17(1A) RPA 1951: Deceased, permanent exit from Malaysia, or unsound mind permits immediate removal without inquiry.'},
+  {act:'Reg 2004 · r.12',q:'The annual retention fee for a body corporate under the Regulations 2004 is:',opts:['A. RM50','B. RM100','C. RM200','D. RM300'],ans:2,exp:'Reg 12(2) Regulations 2004: RM200 for a body corporate; RM50 for a fully registered pharmacist.'},
+  {act:'Reg 2004 · r.12',q:'The additional late renewal fee for an application made under subsection 16(5) by a body corporate is:',opts:['A. RM100','B. RM200','C. RM300','D. RM500'],ans:2,exp:'Reg 12(3) Regulations 2004: RM300 for a body corporate; RM100 for a fully registered pharmacist.'},
+  {act:'Reg 2004 · r.15',q:'A Committee of Inquiry under the Regulations 2004 comprises:',opts:['A. Three fully registered pharmacists','B. Five fully registered pharmacists with valid annual certificates','C. Seven pharmacists appointed by the Minister','D. Five pharmacists including provisional registrants'],ans:1,exp:'Reg 15(1) Regulations 2004: Comprises five fully registered pharmacists, each holding a valid annual certificate.'},
+  {act:'Reg 2004 · r.15',q:'The quorum of a Committee of Inquiry is:',opts:['A. Two','B. Three','C. Four','D. Five'],ans:1,exp:'Reg 15(4) Regulations 2004: The quorum shall be three members.'},
+  {act:'Reg 2004 · r.4',q:'No disciplinary case shall be considered at a Board meeting unless documents have been supplied to members at least:',opts:['A. Three days prior','B. Seven days prior','C. Fourteen days prior','D. Twenty-one days prior'],ans:1,exp:'Reg 4(2) Regulations 2004: Available complaints and docs must be supplied at least seven days prior to the meeting.'},
+  {act:'Reg 2004 · r.16',q:'The investigation notice must require a written explanation from the pharmacist within:',opts:['A. Not less than 7 days','B. Not less than 14 days','C. Not less than 21 days','D. Not more than 14 days'],ans:1,exp:'Reg 16(1)(b) Regulations 2004: Specified period must not be less than fourteen days from the date of the notice.'},
+  {act:'Reg 2004 · r.11',q:'When a superintendent pharmacist ceases to be employed by a body corporate, what action must the company take?',opts:['A. Reapply for a new company registration entirely','B. Submit an oral notice to the Minister within 7 days','C. Return the certificate of registration to the Registrar for amendment','D. Close operations until the next annual board cycle'],ans:2,exp:'Reg 11(3) Regulations 2004: The body corporate shall return the certificate of registration to the Registrar, who may insert the new superintendent.'}
 ];
 
 // ── Notes data ────────────────────────────────────────────────────
 var NOTES=[
   {title:'Board composition — s.3(1)',items:[
-    {t:'DG of Health',d:'Ex officio President — chairs all meetings he attends'},
-    {t:'Director of Pharmaceutical Services',d:'Ex officio member'},
-    {t:'Public service pharmacists',d:'8 members — appointed by Minister'},
-    {t:'HEI pharmacists',d:'3 members from higher education institutions — appointed by Minister'},
-    {t:'Non-public service',d:'2 members — appointed by Minister'},
-    {t:'Private practice',d:"3 members — nominated by private pharmacists' association, approved by Minister. Must be CITIZENS (not PRs)"},
+    {t:'DG of Health',d:'Ex officio President — chairs all meetings he attends [s.4(1)]'},
+    {t:'Director of Pharmaceutical Services',d:'Ex officio member [s.3(1)(b)]'},
+    {t:'Public service pharmacists',d:'8 members — appointed by Minister [s.3(1)(c)]'},
+    {t:'HEI pharmacists',d:'3 members from higher education institutions — appointed by Minister [s.3(1)(d)]'},
+    {t:'Non-public service',d:'2 members — appointed by Minister [s.3(1)(e)]'},
+    {t:'Private practice',d:"3 members — nominated by private association, appointed by Minister. Citizens only (excludes PRs) [s.3(1)(f), s.3(5)]"},
     {t:'TOTAL',d:'18 members'}
   ]},
   {title:'Meetings — s.4',items:[
-    {t:'Chairman absent',d:'Members ELECT one of their number — NOT automatic DPS'},
-    {t:"Chairman's vote",d:'Original vote + casting vote if tied'},
-    {t:'Quorum',d:'9 members'}
+    {t:'Chairman absent',d:'Members present ELECT one of their number — NOT automatically the DPS [s.4(2)]'},
+    {t:"Chairman's vote",d:'Original vote + casting vote if tied [s.4(3)]'},
+    {t:'Quorum',d:'9 members [s.4(4)]'}
   ]},
   {title:'Registration pathway',items:[
-    {t:'Provisional registration',d:'Solely to gain experience [s.6]. Apply to Registrar.'},
+    {t:'Provisional registration',d:'Solely to gain experience [s.6(1)]. Apply to Registrar.'},
     {t:'Employment period',d:'NOT LESS than 1 year to Board satisfaction [s.6A(2)]'},
     {t:'Extension',d:'NOT MORE than 1 year by Board [s.6A(3)]'},
-    {t:'Full registration',d:'After satisfactory employment or exemption [s.6B]'},
+    {t:'Full registration',d:'After satisfactory employment or exemption [s.6B(1)]'},
     {t:'Provisionally registered',d:'Deemed PUBLIC SERVANT under Penal Code [s.6A(8)]'}
   ]},
   {title:'Key penalties',items:[
-    {t:'Title offence [s.7(4)]',d:'≤RM500 + RM50/day continuing'},
-    {t:'Public service failure [s.11C(2)]',d:'≤RM50,000 fine on conviction + registration deemed revoked'},
+    {t:'Title offence [s.7(4)]',d:'≤RM500 + RM50/day continuing (Sessions Court)'},
+    {t:'Public service failure [s.11C(2)]',d:'≤RM50,000 fine on conviction + registration struck off [s.11C(3)]'},
     {t:'Fraudulent registration [s.20]',d:'≤1 year imprisonment OR ≤RM500 fine — Sessions Court'},
     {t:'Obstruct inspector [s.21(3)]',d:'≤6 months imprisonment OR ≤RM500 fine'}
   ]},
@@ -500,13 +548,69 @@ var LAW=[
   {sec:'Reg 15–17',title:'Committee of Inquiry',body:'Composition: <span class="lh">5</span> fully registered + valid cert. Quorum: <span class="lh">3</span>. Chairman: nominated by Board. Notice: <span class="lh">≥14 days</span>. Summary dismissal: unknown name, untraceable address, facts not constituting a matter.'}
 ];
 
-// ── Helpers ───────────────────────────────────────────────────────
-function getLevel(xp){for(var i=LEVELS.length-1;i>=0;i--)if(xp>=LEVELS[i].xp)return LEVELS[i];return LEVELS[0];}
-
+// ── Architecture Modifiers & Core Logic ───────────────────────────
 function show(id){
   document.querySelectorAll('.scr').forEach(function(s){s.classList.remove('on');});
   document.getElementById('scr-'+id).classList.add('on');
 }
+
+function selectMode(mode){
+  G.currentMode = mode;
+  if(mode === 'game'){
+    renderMap();
+    show('map');
+  } else if(mode === 'learn'){
+    show('learn-menu');
+  }
+}
+
+function clickNode(actId){
+  if(actId !== 'ropa'){
+    openComing(actId);
+    return;
+  }
+  // In Game Mode, clicking the map node drops you directly into testing rooms
+  if(G.currentMode === 'game'){
+    startQuiz();
+  } else {
+    openActLearn(actId);
+  }
+}
+
+function openActLearn(actId){
+  G.activeTab = 'notes';
+  switchTab('notes');
+  // Hide or show study tracking rewards based on mode
+  var actionsBox = document.getElementById('study-actions-container');
+  if(G.currentMode === 'learn'){
+    actionsBox.style.display = 'none';
+  } else {
+    actionsBox.style.display = 'block';
+    var sb = document.getElementById('study-btn');
+    if(G.studied){sb.textContent='Studied ✓';sb.disabled=true;}
+    else{sb.textContent='Mark as studied (+5 XP)';sb.disabled=false;}
+  }
+  show('node');
+}
+
+function goBackFromNode(){
+  if(G.currentMode === 'learn'){
+    show('learn-menu');
+  } else {
+    show('map');
+  }
+}
+
+function goBackFromComing(){
+  if(G.currentMode === 'learn'){
+    show('learn-menu');
+  } else {
+    show('map');
+  }
+}
+
+// ── Game mechanics & UI processing loop ──────────────────────────
+function getLevel(xp){for(var i=LEVELS.length-1;i>=0;i--)if(xp>=LEVELS[i].xp)return LEVELS[i];return LEVELS[0];}
 
 function renderHearts(id){
   var el=document.getElementById(id);if(!el)return;
@@ -524,27 +628,14 @@ function renderMap(){
   document.getElementById('map-lvl-sub').textContent=(G.xp-lv.xp)+' / '+range+' XP';
   document.getElementById('map-xp-fill').style.width=pct+'%';
   renderHearts('hearts-map');
-  // Stars
+  
   var sr=document.getElementById('stars-ropa');
   sr.innerHTML='';
   for(var i=0;i<3;i++)sr.innerHTML+='<span class="star'+(i<G.stars?'':' off')+'">★</span>';
-  // Studied badge
+  
   document.getElementById('studied-badge').style.display=G.studied?'block':'none';
-  // ROPA node colour
   var nc=document.getElementById('nc-ropa');
   nc.className='node-circle '+(G.stars===0?'nc-live':G.stars===1?'nc-done1':G.stars===2?'nc-done2':'nc-done3');
-}
-
-// ── Node ──────────────────────────────────────────────────────────
-function openRopa(){
-  var qb=document.getElementById('quiz-btn');
-  qb.disabled=G.hearts<=0;
-  qb.textContent=G.hearts<=0?'No hearts — wait to refill':'Start quiz →';
-  var sb=document.getElementById('study-btn');
-  if(G.studied){sb.textContent='Studied ✓';sb.disabled=true;}
-  else{sb.textContent='Mark as studied (+5 XP)';sb.disabled=false;}
-  switchTab(G.activeTab);
-  show('node');
 }
 
 function switchTab(t){
@@ -636,7 +727,7 @@ function openComing(id){
   show('coming');
 }
 
-// ── Quiz ──────────────────────────────────────────────────────────
+// ── Quiz engine ───────────────────────────────────────────────────
 function startQuiz(){
   if(G.hearts<=0){show('locked');startRefill();return;}
   var pool=[].concat(QDB).sort(function(){return Math.random()-.5;}).slice(0,10);
@@ -733,7 +824,6 @@ function finishLesson(){
 
 function exitLesson(){G.xp+=G.correct*10;renderMap();show('map');}
 
-// ── Hearts refill ─────────────────────────────────────────────────
 function startRefill(){
   if(G.refillInt)clearInterval(G.refillInt);
   if(!G.heartRefill)G.heartRefill=new Date(Date.now()+30*60*1000);
@@ -745,9 +835,6 @@ function startRefill(){
     if(rem<=0){G.hearts=5;G.heartRefill=null;clearInterval(G.refillInt);renderMap();}
   },1000);
 }
-
-// ── Init ──────────────────────────────────────────────────────────
-renderMap();
 </script>
 </body>
 </html>
