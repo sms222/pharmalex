@@ -284,8 +284,10 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
   </div>
   <div style="display:flex;flex-direction:column;gap:10px;margin-top:1rem">
     <button class="btn btn-primary" style="text-align:left;padding:16px" onclick="openActLearn('ROPA')">📝 Registration of Pharmacists Act 1951</button>
-    <button class="btn btn-primary" style="text-align:left;padding:16px" onclick="openActLearn('SODA')">🧪 Sale of Drugs Act 1952</button>
+    <button class="btn btn-primary" style="text-align:left;padding:16px" onclick="openActLearn('SODA')">🧪 Sale of Drugs Act 1952 + CDCR</button>
     <button class="btn btn-primary" style="text-align:left;padding:16px" onclick="openActLearn('MASA')">📢 Medicine Ads Act 1956</button>
+    <button class="btn btn-secondary" style="text-align:left;padding:16px;opacity:0.6" onclick="openComing('poison')">🔒 Poisons Act 1952 (Coming Soon)</button>
+    <button class="btn btn-secondary" style="text-align:left;padding:16px;opacity:0.6" onclick="openComing('dda')">🔒 Dangerous Drugs Act 1952 (Coming Soon)</button>
   </div>
 </div>
 
@@ -374,15 +376,158 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
   <button class="btn btn-secondary" onclick="show('game-dash')">Back to Dashboard</button>
 </div>
 
+<!-- COMING SOON -->
+<div id="scr-coming" class="scr">
+  <div class="page-hdr">
+    <button class="back-btn" onclick="goBackFromComing()">← <span>Back</span></button>
+    <div>
+      <div class="page-title" id="coming-title">POISON</div>
+      <div class="page-sub">Coming soon</div>
+    </div>
+  </div>
+  <div style="text-align:center;padding:2rem 0 1.5rem">
+    <div style="font-size:3rem;margin-bottom:.75rem">🚧</div>
+    <div style="font-size:16px;font-weight:700;color:#111827;margin-bottom:.4rem" id="coming-name">POISON</div>
+    <div style="font-size:13px;color:#9CA3AF" id="coming-acts"></div>
+  </div>
+  <button class="btn btn-secondary" style="margin-top:1rem" onclick="goBackFromComing()">Back</button>
+</div>
+
 </div><!-- end .app -->
 
-<!-- DYNAMIC DATA INJECTIONS (Must be local files in your folder) -->
-<script src="data/ropa.js"></script>
-<script src="data/soda.js"></script>
-<script src="data/masa.js"></script>
-<!-- You will add ethics.js and dunas.js here later! -->
-
 <script>
+// ── INJECTED DATA: ROPA ──────────────────────────────────────────
+window.ROPA_DATA = {
+  questions: [
+    {act:'ROPA · s.3',q:'The Pharmacy Board consists of how many registered pharmacists in the public service, appointed by the Minister?',opts:['A. Four','B. Six','C. Eight','D. Ten'],ans:2,exp:'s.3(1)(c) RPA 1951: Eight registered pharmacists in the public service are appointed by the Minister.'},
+    {act:'ROPA · s.4',q:'At a Pharmacy Board meeting, when the President is absent, who chairs the meeting?',opts:['A. Director of Pharmaceutical Services automatically','B. A member elected by those present','C. The most senior Board member','D. The Registrar'],ans:1,exp:'s.4(2) RPA 1951: Members present shall elect one of their number to be Chairman.'},
+    {act:'ROPA · s.6A',q:'A provisionally registered pharmacist must engage in employment for a minimum of:',opts:['A. Six months','B. One year','C. Two years','D. Three years'],ans:1,exp:'s.6A(2) RPA 1951: Not less than one year in approved premises.'},
+    {act:'ROPA · s.7',q:'Contravening title restrictions under s.7(4) carries a penalty of:',opts:['A. RM250 + RM25/day','B. RM500 + RM50/day','C. RM1,000 + RM100/day','D. RM5,000 flat'],ans:1,exp:'s.7(4) RPA 1951: Fine not exceeding RM500, plus RM50/day.'},
+    {act:'ROPA · s.16',q:'A registered pharmacist who fails to obtain an annual retention certificate prior to the new year shall have their name:',opts:['A. Suspended for three months','B. Removed from the register','C. Fined RM200','D. Downgraded to provisional'],ans:1,exp:'s.16(4) RPA 1951: The name shall be removed from the register.'},
+    {act:'ROPA · s.18A',q:'Which of the following are punishments the Board may impose after a disciplinary inquiry?',stmts:['i. Remove from register','ii. Suspend from register','iii. Reprimand','iv. Imprisonment'],opts:['A. i and ii only','B. i, ii and iii only','C. ii, iii and iv only','D. All of the above'],ans:1,exp:'s.18A(1) RPA 1951: Removal, suspension, or reprimand. The Board cannot imprison.'},
+    {act:'Reg 2004 · r.12',q:'The annual retention fee for a body corporate under the Regulations 2004 is:',opts:['A. RM50','B. RM100','C. RM200','D. RM300'],ans:2,exp:'Reg 12(2) Regulations 2004: RM200 for a body corporate; RM50 for a fully registered pharmacist.'},
+    {act:'Reg 2004 · r.15',q:'The quorum of a Committee of Inquiry is:',opts:['A. Two','B. Three','C. Four','D. Five'],ans:1,exp:'Reg 15(4) Regulations 2004: The quorum shall be three members.'},
+    {act:'Reg 2004 · r.16',q:'The investigation notice must require a written explanation from the pharmacist within:',opts:['A. Not less than 7 days','B. Not less than 14 days','C. Not less than 21 days','D. Not more than 14 days'],ans:1,exp:'Reg 16(1)(b) Regulations 2004: Period must not be less than fourteen days.'},
+    {act:'Reg 2004 · r.11',q:'When a superintendent pharmacist ceases to be employed by a body corporate, what action must the company take?',opts:['A. Reapply for a new company registration entirely','B. Submit an oral notice to the Minister within 7 days','C. Return the certificate of registration to the Registrar for amendment','D. Close operations until the next annual board cycle'],ans:2,exp:'Reg 11(3) Regulations 2004: Return the certificate to the Registrar to insert the new superintendent.'}
+  ],
+  notes: [
+    {title:'Board composition — s.3(1)',items:[
+      {t:'DG of Health',d:'Ex officio President — chairs all meetings he attends'},
+      {t:'Director of Pharmaceutical Services',d:'Ex officio member'},
+      {t:'Public service pharmacists',d:'8 members — appointed by Minister'},
+      {t:'HEI pharmacists',d:'3 members from higher education institutions — appointed by Minister'},
+      {t:'Non-public service',d:'2 members — appointed by Minister'},
+      {t:'Private practice',d:"3 members — nominated by private practice, appointed by Minister. Citizens only (no PRs)"}
+    ]},
+    {title:'Key penalties',items:[
+      {t:'Title offence [s.7(4)]',d:'≤RM500 + RM50/day continuing'},
+      {t:'Public service failure [s.11C(2)]',d:'≤RM50,000 fine on conviction + registration struck off'},
+      {t:'Fraudulent registration [s.20]',d:'≤1 year imprisonment OR ≤RM500 fine — Sessions Court'}
+    ]}
+  ],
+  flashcards: [
+    {q:'Who keeps and maintains the register of pharmacists?',a:'Director of Pharmaceutical Services (the Registrar)',ref:'s.5 RPA 1951'},
+    {q:'Quorum of the Pharmacy Board',a:'9 members',ref:'s.4(4) RPA 1951'},
+    {q:'Fee for annual retention — body corporate',a:'RM200',ref:'Reg 12(2) RPA Reg 2004'},
+    {q:'Committee of Inquiry — quorum',a:'3',ref:'Reg 15(4) RPA Reg 2004'}
+  ],
+  law: [
+    {sec:'s.4',title:'President and meetings',body:'DG Health = President. Absence → members <span class="lh">elect</span> chairman. Quorum: <span class="lh">9</span>.'},
+    {sec:'s.16',title:'Annual certificate',body:'Renew before year end + pay fee. Failure = <span class="lh">removed from register</span>. Restoration: application + <span class="lk">additional fee</span>.'}
+  ]
+};
+
+// ── INJECTED DATA: SODA + CDCR ───────────────────────────────────
+window.SODA_DATA = {
+  questions: [
+    {act:'SODA · s.2',q:'Under the Sale of Drugs Act 1952, "medicinal purpose" includes which of the following?',stmts:['i. Contraception','ii. Inducing anaesthesia','iii. Controlling body weight','iv. Cleaning the teeth and mucous membranes'],opts:['A. i, ii and iii only','B. ii, iii and iv only','C. i and iv only','D. All of the above'],ans:0,exp:'s.2 SODA 1952: Medicinal purpose includes contraception, inducing anaesthesia, and controlling body weight. Cleaning teeth refers to the definition of a cosmetic.'},
+    {act:'SODA · s.4',q:'An officer under the Sale of Drugs Act 1952 may seize any drug which appears to be unwholesome. What happens if no complaint is made within forty-eight hours of the seizure?',opts:['A. The drug is returned to the owner','B. The drug becomes the property of the Government and shall be destroyed','C. The officer must apply to the Magistrate for a destruction order','D. The drug is sold at auction'],ans:1,exp:'s.4(4) SODA 1952: If no complaint is made within 48 hours, the article seized becomes Government property and shall be destroyed or disposed of.'},
+    {act:'SODA · s.7',q:'When an officer purchases a sample of a drug for analysis under the Sale of Drugs Act 1952, he must divide the sample into how many parts?',opts:['A. Two','B. Three','C. Four','D. Five'],ans:1,exp:'s.7(2) SODA 1952: The officer shall divide the sample into three parts, offering one to the seller, delivering one to the analyst, and retaining the third.'},
+    {act:'SODA · s.12',q:'What is the general penalty for a first offence committed by a body corporate under the Sale of Drugs Act 1952 where no penalty is expressly provided?',opts:['A. Fine not exceeding RM25,000','B. Fine not exceeding RM50,000','C. Fine not exceeding RM100,000','D. Fine not exceeding RM500,000'],ans:1,exp:'s.12(2) SODA 1952: A body corporate committing a first offence where no penalty is expressly provided is liable to a fine not exceeding RM50,000.'},
+    {act:'CDCR · r.7',q:'Under the Control of Drugs and Cosmetics Regulations 1984, which of the following actions is prohibited regarding a registered product?',stmts:['i. Mixing it with another registered product','ii. Labelling it with an additional name other than the registered name','iii. Possessing written information describing an unapproved indication','iv. Mixing it with a substance not intended for reconstitution'],opts:['A. i and ii only','B. ii and iv only','C. i, ii and iii only','D. All of the above'],ans:3,exp:'Reg 7(1A) & 7(1B) CDCR 1984: All these acts are explicitly prohibited, including possessing documents describing unapproved indications.'},
+    {act:'CDCR · r.8',q:'What is the processing fee for an application to register a product OTHER than a traditional medicine under the CDCR 1984?',opts:['A. RM50','B. RM200','C. RM500','D. RM1,000'],ans:3,exp:'Reg 8(2)(c) CDCR 1984: A processing fee of RM1000.00 is required for products other than traditional medicines.'},
+    {act:'CDCR · r.12',q:'Which licence under the CDCR 1984 is restricted to including ONLY ONE product?',opts:['A. Manufacturer\'s licence','B. Wholesaler\'s licence','C. Import licence','D. Clinical trial import licence'],ans:3,exp:'Reg 12(2) CDCR 1984: Any number of registered products may be included in any licence OTHER than a clinical trial import licence, which shall include only one product.'},
+    {act:'CDCR · r.15',q:'Who is exempted from holding a manufacturing license when dispensing a drug for a specific patient\'s medical treatment?',stmts:['i. A pharmacist in a retail pharmacy','ii. A fully registered medical practitioner','iii. A veterinary practitioner','iv. A person acting in the course of duties in a Government hospital'],opts:['A. i and ii only','B. i, ii and iii only','C. ii, iii and iv only','D. All of the above'],ans:3,exp:'Reg 15(2) CDCR 1984: Pharmacists in retail, medical/dental/veterinary practitioners, and hospital staff are exempted when dispensing for specific treatment.'},
+    {act:'CDCR · r.18A',q:'For a notified cosmetic, the person responsible for placing it in the market must:',stmts:['i. Maintain proper records','ii. Report serious adverse events to the Director of Pharmaceutical Services','iii. Recall the product immediately if it contravenes guidelines','iv. Apply for a clinical trial import licence'],opts:['A. i, ii and iii only','B. i and ii only','C. ii, iii and iv only','D. All of the above'],ans:0,exp:'Reg 18A(9), (11), & (13) CDCR 1984: Responsible persons must report adverse events, maintain records, and recall non-compliant cosmetics. Clinical trial licenses do not apply.'},
+    {act:'CDCR · Sch. (Tab II)',q:'Which of the following substances is PROHIBITED in traditional medicine under the CDCR 1984?',opts:['A. Caffeine','B. Paracetamol','C. Any poison within the meaning of the Poisons Act 1952','D. All of the above'],ans:3,exp:'Table II CDCR 1984: Caffeine, Nicotinamide, Paracetamol, and Poisons under the Poisons Act 1952 are strictly prohibited in traditional medicine.'}
+  ],
+  notes: [
+    {title:'Interpretation — s.2',items:[
+      {t:'Medicinal purpose',d:'Includes contraception, inducing anaesthesia, and controlling body weight.'}
+    ]},
+    {title:'Officer Powers & Sampling',items:[
+      {t:'Seizure [s.4(4)]',d:'If no complaint within 48h, seized items become Government property and destroyed.'},
+      {t:'Sampling [s.7(2)]',d:'Samples must be divided into 3 parts: seller, analyst, retained.'}
+    ]},
+    {title:'CDCR 1984 Licences & Fees',items:[
+      {t:'Traditional Med Reg Fee',d:'RM500'},
+      {t:'Other Products Reg Fee',d:'RM1,000'},
+      {t:'Clinical trial import licence',d:'Restricted to ONE product only [Reg 12(2)].'}
+    ]},
+    {title:'Cosmetics (r.18A)',items:[
+      {t:'Responsibility',d:'Maintain records, report serious adverse events, and immediately recall non-compliant cosmetics.'}
+    ]},
+    {title:'Exam traps ⚠️',warn:[
+      'Cleaning teeth or gums is a "cosmetic" purpose, not a "medicinal" purpose under SODA.',
+      'Caffeine and Paracetamol are strictly prohibited in traditional medicines.',
+      'Body corporate general penalty is RM50,000 (first offence), not RM25,000.'
+    ]}
+  ],
+  flashcards: [
+    {q:'Under SODA, how many parts must a sample be divided into?',a:'Three parts',ref:'s.7(2) SODA'},
+    {q:'Unwholesome drug seized under SODA. How long before it is destroyed if no complaint is made?',a:'48 hours',ref:'s.4(4) SODA'},
+    {q:'Processing fee for registering a non-traditional product under CDCR?',a:'RM1,000',ref:'Reg 8(2) CDCR'},
+    {q:'Which CDCR licence is restricted to only one product?',a:'Clinical Trial Import Licence',ref:'Reg 12(2) CDCR'}
+  ],
+  law: [
+    {sec:'s.4(4)',title:'Disposal of seized items',body:'If within forty-eight hours after such seizure no complaint has been made... the article seized shall become the property of the Government and shall be destroyed.'},
+    {sec:'Reg 18A',title:'Cosmetics Notification',body:'No person shall manufacture, sell, supply, import... any cosmetic unless the cosmetic is a notified cosmetic. Must maintain proper records and report adverse events.'}
+  ]
+};
+
+// ── INJECTED DATA: MASA ──────────────────────────────────────────
+window.MASA_DATA = {
+  questions: [
+    {act:'MASA · s.3',q:'Under the Medicines (Advertisement and Sale) Act 1956, it is prohibited to advertise an article as a remedy for preventing or treating which of the following diseases?',stmts:['i. Asthma','ii. Cancer','iii. Diabetes','iv. Headaches'],opts:['A. i and ii only','B. i, ii and iii only','C. ii, iii and iv only','D. All of the above'],ans:1,exp:'Schedule to MASA 1956: Asthma, Cancer, and Diabetes are explicitly listed. Headaches are not.'},
+    {act:'MASA · s.4A',q:'Which of the following may publish an advertisement referring to a skill or service relating to the treatment of a disease, provided they have approval from the Medicine Advertisements Board?',opts:['A. A private hospital','B. A traditional medicine practitioner','C. A retail pharmacy','D. A health supplement manufacturer'],ans:0,exp:'s.4A(bb) MASA 1956: The prohibition does not apply to ads published with MAB approval by a private hospital, private clinic, or medical laboratory.'},
+    {act:'MASA · s.3',q:'In proceedings for contravening the prohibition on disease advertisements, it is a valid defence if the advertisement was published ONLY to which class of persons?',opts:['A. Members of the general public over 18 years old','B. Registered nurses and midwives','C. Licensed traditional healers','D. Managers of health food stores'],ans:1,exp:'s.3(2)(e) MASA 1956: It is a defence to prove the ad was published only to certain classes of professionals, including registered nurses and midwives.'},
+    {act:'MASA · s.6',q:'When selling a substance recommended as a medicine by retail, what must be written on the article or label?',opts:['A. The appropriate designation of the active constituents and their quantitative particulars','B. The full name and address of the patient','C. The side effects and contraindications','D. The MAB approval serial number only'],ans:0,exp:'s.6(1) MASA 1956: The appropriate designation of the substance or active constituents and quantitative particulars must be written.'},
+    {act:'MASA · s.6A & 6F',q:'Who may authorize a pharmacist in the public service to exercise the powers of an authorized officer under the MASA 1956, and who must sanction prosecutions?',opts:['A. Authorized by the Director General of Health; Sanctioned by the Pharmacy Board','B. Authorized by the Minister; Sanctioned by the Public Prosecutor','C. Authorized by the MAB; Sanctioned by the Minister','D. Authorized by the Director of Pharmaceutical Services; Sanctioned by the Magistrate'],ans:1,exp:'s.6A & s.6F(1) MASA 1956: The Minister authorizes officers in writing, and prosecutions require the written sanction of the Public Prosecutor.'},
+    {act:'MAB Regs · r.3',q:'Who is the Chairman of the Medicine Advertisements Board?',opts:['A. The Director of Pharmaceutical Services','B. The Minister of Health','C. The Director-General of Health','D. A pharmacologist appointed by the Minister'],ans:2,exp:'Reg 3(1) MAB Regulations 1976: The Director-General of Health shall be the Chairman of the Board.'},
+    {act:'MAB Regs · r.3',q:'What is the quorum required for a meeting of the Medicine Advertisements Board?',opts:['A. Three members including the Chairman','B. Five members including the Chairman','C. Seven members','D. Nine members'],ans:0,exp:'Reg 3(2) MAB Regulations 1976: At any meeting three members including the Chairman or member presiding shall form a quorum.'},
+    {act:'MAB Regs · r.7',q:'When an approved medicine advertisement is published in print, what MUST be legibly displayed?',stmts:['i. The approval serial number','ii. The expiry date of the approval','iii. The names of the Board members who approved it','iv. The quantitative particulars of the medicine'],opts:['A. i only','B. i and ii only','C. i, ii and iv only','D. All of the above'],ans:1,exp:'Reg 7(2) MAB Regulations 1976: The approval serial number and expiry date shall be legibly displayed.'},
+    {act:'MAB Regs · r.8',q:'What is the non-refundable fee required for every application for approval of an advertisement by the MAB?',opts:['A. RM100','B. RM200','C. RM300','D. RM500'],ans:2,exp:'Reg 8(3) MAB Regulations 1976: Every application for approval of advertisement shall be accompanied by a fee of RM300.'},
+    {act:'MASA · s.4',q:'Under the MASA 1956, taking part in the publication of an advertisement referring to an article for procuring the miscarriage of women is:',opts:['A. Allowed if approved by the Medicine Advertisements Board','B. Allowed if advertised only to married women','C. Strictly prohibited','D. Allowed if the article is a registered product'],ans:2,exp:'s.4 MASA 1956: Absolute prohibition. No person shall take any part in the publication of any advertisement referring to any article for procuring miscarriage.'}
+  ],
+  notes: [
+    {title:'Advertising Prohibitions (s.3 & s.4)',items:[
+      {t:'Absolute Prohibition',d:'Advertisements procuring miscarriage of women [s.4].'},
+      {t:'Specific Diseases',d:'Asthma, Cancer, Diabetes, Leprosy, Tuberculosis, Deafness [s.3 Schedule].'}
+    ]},
+    {title:'Medicine Advertisements Board (MAB)',items:[
+      {t:'Chairman',d:'Director-General of Health [Reg 3(1)]'},
+      {t:'Quorum',d:'3 members including Chairman [Reg 3(2)]'},
+      {t:'Application Fee',d:'RM300 (non-refundable) [Reg 8(3)]'},
+      {t:'Print Requirements',d:'Approval serial number and expiry date must be legibly displayed [Reg 7(2)]'}
+    ]},
+    {title:'Exam traps ⚠️',warn:[
+      'Abortion ads are absolutely prohibited — MAB cannot approve them.',
+      'Prosecutions require written sanction from the Public Prosecutor, not the Board.'
+    ]}
+  ],
+  flashcards: [
+    {q:'Can you advertise a cure for Asthma to the general public?',a:'No (Asthma is listed in the s.3 Schedule)',ref:'MASA s.3'},
+    {q:'Are abortion ads ever permitted if approved by MAB?',a:'No, it is an absolute prohibition.',ref:'MASA s.4'},
+    {q:'What must be disclosed on a retailed medicine label?',a:'Active constituents and their quantitative particulars.',ref:'MASA s.6(1)'},
+    {q:'MAB application fee?',a:'RM300',ref:'MAB Regs r.8'},
+    {q:'What must be displayed on a printed approved ad?',a:'Approval serial number and expiry date',ref:'MAB Regs r.7(2)'}
+  ],
+  law: [
+    {sec:'s.3',title:'Prohibition relating to certain diseases',body:'No person shall take any part in the publication of any advertisement... for the purpose of prevention or treatment of the diseases and conditions specified in the Schedule (e.g., Cancer, Diabetes, Asthma).'},
+    {sec:'s.4',title:'Prohibition relating to abortion',body:'No person shall take any part in the publication of any advertisement... for procuring the miscarriage of women.'}
+  ]
+};
+
 // ── Game state ────────────────────────────────────────────────────
 var G = {
   currentAppMode: 'welcome',
@@ -413,7 +558,7 @@ function selectAppMode(mode){
 
 function openModeSelect(actId){
   if(!window[actId + '_DATA'] && actId !== 'ALL') {
-    alert(actId + " module not loaded yet! Check your JS files.");
+    openComing(actId.toLowerCase());
     return;
   }
   G.selectedAct = actId;
@@ -423,7 +568,7 @@ function openModeSelect(actId){
 
 function openActLearn(actId){
   if(!window[actId + '_DATA']) {
-    alert(actId + " module not loaded yet!");
+    openComing(actId.toLowerCase());
     return;
   }
   G.selectedAct = actId;
@@ -431,6 +576,16 @@ function openActLearn(actId){
   G.activeTab = 'notes';
   switchTab('notes');
   show('node');
+}
+
+function openComing(id){
+  document.getElementById('coming-name').textContent=id.toUpperCase();
+  document.getElementById('coming-title').textContent=id.toUpperCase();
+  show('coming');
+}
+
+function goBackFromComing(){
+  show(G.currentAppMode === 'learn' ? 'learn-menu' : 'game-dash');
 }
 
 function renderDash(){
@@ -474,7 +629,6 @@ function switchTab(t){
   }
   
   if(t==='flash'){
-    // Reset flashcard state when switching tabs
     G.fcIdx=0; G.fcFlipped=false;
     renderFlash();
   }
@@ -529,7 +683,6 @@ function initQuiz(timingMode){
   
   var pool = [];
   if(G.selectedAct === 'ALL') {
-    // Merge all available data files
     if(window.ROPA_DATA) pool = pool.concat(window.ROPA_DATA.questions);
     if(window.SODA_DATA) pool = pool.concat(window.SODA_DATA.questions);
     if(window.MASA_DATA) pool = pool.concat(window.MASA_DATA.questions);
@@ -539,13 +692,15 @@ function initQuiz(timingMode){
   
   pool.sort(function(){return Math.random()-.5;});
   
-  // Constraints
   if(timingMode === 'casual'){
     G.lesQ = pool.slice(0, 10);
     G.timeRemaining = null;
   } else if (timingMode === 'sprint'){
     G.lesQ = pool.slice(0, 10);
-    G.timeRemaining = 18 * 60; // 18 minutes in seconds
+    G.timeRemaining = 18 * 60; 
+  } else if (timingMode === 'mock'){
+    G.lesQ = pool; 
+    G.timeRemaining = 180 * 60; 
   }
 
   G.lesIdx=0; G.correct=0; G.wrong=0; G.skipped=0;
