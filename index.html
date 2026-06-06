@@ -67,7 +67,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
 .tab.on{color:#2563EB;border-bottom-color:#3B82F6;font-weight:600}
 .pane{display:none}.pane.on{display:block}
 
-/* Notes, Flashcards, Law Text ... [Preserved styles] */
+/* Notes, Flashcards, Law Text */
 .note-section{margin-bottom:1.1rem}
 .note-title{font-size:12px;font-weight:600;color:#374151;margin-bottom:.5rem;display:flex;align-items:center;gap:5px}
 .note-card{background:#fff;border:1px solid #F3F4F6;border-radius:12px;padding:12px 14px;margin-bottom:.4rem}
@@ -193,7 +193,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
   </div>
 </div>
 
-<!-- GAME DASHBOARD (Replaces Tree) -->
+<!-- GAME DASHBOARD -->
 <div id="scr-game-dash" class="scr">
   <div class="top-bar">
     <button class="back-btn" onclick="show('welcome')">← <span>Home</span></button>
@@ -203,7 +203,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
   <div class="page-hdr" style="margin-bottom:1.5rem">
     <div>
       <div class="page-title">Game Dashboard</div>
-      <div class="page-sub">Select an Act to test your knowledge</div>
+      <div class="page-sub">Select a subject to test your knowledge</div>
     </div>
   </div>
 
@@ -223,14 +223,14 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
       <div class="act-title">SODA</div>
       <div class="act-sub">Sale of Drugs Act 1952</div>
     </div>
-    <div class="act-btn" onclick="openModeSelect('DDA')">
-      <div class="act-icon">💉</div>
-      <div class="act-title">DDA</div>
-      <div class="act-sub">Dangerous Drugs 1952</div>
+    <div class="act-btn" onclick="openModeSelect('MASA')">
+      <div class="act-icon">📢</div>
+      <div class="act-title">MASA</div>
+      <div class="act-sub">Medicine Ads Act 1956</div>
     </div>
     <div class="act-btn full-width" onclick="openModeSelect('ALL')">
       <div class="act-icon">🎓</div>
-      <div class="act-title">Full Mock Exam (All Acts)</div>
+      <div class="act-title">Full Mock Exam</div>
       <div class="act-sub">Test across the entire syllabus</div>
     </div>
   </div>
@@ -241,7 +241,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
   <div class="page-hdr">
     <button class="back-btn" onclick="show('game-dash')">← <span>Back</span></button>
     <div>
-      <div class="page-title" id="mode-act-title">ROPA Testing</div>
+      <div class="page-title" id="mode-act-title">Testing</div>
       <div class="page-sub">Choose your timing constraint</div>
     </div>
   </div>
@@ -271,19 +271,6 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
       </div>
     </div>
   </div>
-
-  <div class="timing-opt" onclick="initQuiz('mock')">
-    <div class="timing-icon">📜</div>
-    <div class="timing-info">
-      <div class="timing-name">Exam Simulator (Endurance)</div>
-      <div class="timing-desc">The ultimate test. Maximum questions available, full 3-hour timer, exact PKUMF scoring rules.</div>
-      <div class="timing-tags">
-        <span class="tag tag-blue">Max Questions</span>
-        <span class="tag tag-red">180 Mins</span>
-        <span class="tag tag-red">-0.25 Penalty</span>
-      </div>
-    </div>
-  </div>
 </div>
 
 <!-- LEGISLATION MENU (LEARN DASHBOARD) -->
@@ -296,10 +283,9 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
     </div>
   </div>
   <div style="display:flex;flex-direction:column;gap:10px;margin-top:1rem">
-    <button class="btn btn-primary" style="text-align:left;padding:16px" onclick="openActLearn('ropa')">📝 Registration of Pharmacists Act 1951</button>
-    <button class="btn btn-secondary" style="text-align:left;padding:16px;opacity:0.6" onclick="openComing('poison')">🔒 Poisons Act 1952 (Stubbed)</button>
-    <button class="btn btn-secondary" style="text-align:left;padding:16px;opacity:0.6" onclick="openComing('soda')">🔒 Sale of Drugs Act 1952 (Stubbed)</button>
-    <button class="btn btn-secondary" style="text-align:left;padding:16px;opacity:0.6" onclick="openComing('dda')">🔒 Dangerous Drugs Act 1952 (Stubbed)</button>
+    <button class="btn btn-primary" style="text-align:left;padding:16px" onclick="openActLearn('ROPA')">📝 Registration of Pharmacists Act 1951</button>
+    <button class="btn btn-primary" style="text-align:left;padding:16px" onclick="openActLearn('SODA')">🧪 Sale of Drugs Act 1952</button>
+    <button class="btn btn-primary" style="text-align:left;padding:16px" onclick="openActLearn('MASA')">📢 Medicine Ads Act 1956</button>
   </div>
 </div>
 
@@ -308,8 +294,8 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
   <div class="page-hdr">
     <button class="back-btn" id="node-back-btn" onclick="show('learn-menu')">← <span>Back</span></button>
     <div>
-      <div class="page-title" id="node-title">ROPA</div>
-      <div class="page-sub" id="node-sub">Registration of Pharmacists Act 1951 + Reg 2004</div>
+      <div class="page-title" id="node-title">ACT</div>
+      <div class="page-sub" id="node-sub">Reference Materials</div>
     </div>
   </div>
   <div class="tabs">
@@ -329,14 +315,13 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
     <div class="les-track"><div class="les-fill" id="les-fill" style="width:0%"></div></div>
     
     <div class="les-hud-box">
-      <!-- Displayed dynamically based on mode -->
       <div class="score-pill" id="hud-score" style="display:none">Score: 0.00</div>
       <div class="timer-pill" id="hud-timer" style="display:none">⏱️ 00:00</div>
       <div class="les-hearts" id="hearts-les" style="display:none"></div>
     </div>
   </div>
   <div class="q-num" id="q-num">Question 1 of 10</div>
-  <div class="act-chip" id="q-act">ROPA · s.3</div>
+  <div class="act-chip" id="q-act">ACT · Sec</div>
   <div class="q-card">
     <div class="q-text" id="q-text"></div>
     <div class="stmts" id="q-stmts" style="display:none"></div>
@@ -389,33 +374,22 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
   <button class="btn btn-secondary" onclick="show('game-dash')">Back to Dashboard</button>
 </div>
 
-<!-- COMING SOON -->
-<div id="scr-coming" class="scr">
-  <div class="page-hdr">
-    <button class="back-btn" onclick="goBackFromComing()">← <span>Back</span></button>
-    <div>
-      <div class="page-title" id="coming-title">POISON</div>
-      <div class="page-sub">Coming soon</div>
-    </div>
-  </div>
-  <div style="text-align:center;padding:2rem 0 1.5rem">
-    <div style="font-size:3rem;margin-bottom:.75rem">🚧</div>
-    <div style="font-size:16px;font-weight:700;color:#111827;margin-bottom:.4rem" id="coming-name">POISON</div>
-    <div style="font-size:13px;color:#9CA3AF" id="coming-acts"></div>
-  </div>
-  <button class="btn btn-secondary" style="margin-top:1rem" onclick="goBackFromComing()">Back</button>
-</div>
-
 </div><!-- end .app -->
+
+<!-- DYNAMIC DATA INJECTIONS (Must be local files in your folder) -->
+<script src="data/ropa.js"></script>
+<script src="data/soda.js"></script>
+<script src="data/masa.js"></script>
+<!-- You will add ethics.js and dunas.js here later! -->
 
 <script>
 // ── Game state ────────────────────────────────────────────────────
 var G = {
-  currentAppMode: 'welcome', // 'welcome', 'learn', 'game'
+  currentAppMode: 'welcome',
   selectedAct: null,
-  timingMode: null, // 'casual', 'sprint', 'mock'
+  timingMode: null,
   
-  xp:0, hearts:5, studied:false,
+  xp:0, hearts:5,
   heartRefill:null, refillInt:null,
   timerInt:null, timeRemaining:0,
   pkumfScore:0,
@@ -426,43 +400,6 @@ var G = {
   answered:false, selAns:null, wasSkipped:false
 };
 
-var COMING_DATA={
-  poison:{name:'POISON',acts:'Poisons Act 1952 + Psychotropic Substances Regulations 1989'},
-  soda:{name:'SODA',acts:'Sale of Drugs Act 1952 + Control of Drugs and Cosmetics Regulations 1984'},
-  dda:{name:'DDA',acts:'Dangerous Drugs Act 1952 + Dangerous Drugs Regulations'},
-  masa:{name:'MASA',acts:'Medicine (Advertisement and Sale) Act 1956 + MAB Regulations 1976'}
-};
-
-// ── Authentically Sourced Questions ───────────────────────────────
-var QDB=[
-  {act:'ROPA · s.3',q:'The Pharmacy Board consists of how many registered pharmacists in the public service, appointed by the Minister?',opts:['A. Four','B. Six','C. Eight','D. Ten'],ans:2,exp:'s.3(1)(c) RPA 1951: Eight registered pharmacists in the public service are appointed by the Minister.'},
-  {act:'ROPA · s.4',q:'At a Pharmacy Board meeting, when the President is absent, who chairs the meeting?',opts:['A. Director of Pharmaceutical Services automatically','B. A member elected by those present','C. The most senior Board member','D. The Registrar'],ans:1,exp:'s.4(2) RPA 1951: Members present shall elect one of their number to be Chairman.'},
-  {act:'ROPA · s.4',q:'The quorum at a Pharmacy Board meeting is:',opts:['A. Five members','B. Seven members','C. Nine members','D. Eleven members'],ans:2,exp:'s.4(4) RPA 1951: Nine members shall form a quorum.'},
-  {act:'ROPA · s.6A',q:'A provisionally registered pharmacist must engage in employment for a minimum of:',opts:['A. Six months','B. One year','C. Two years','D. Three years'],ans:1,exp:'s.6A(2) RPA 1951: Not less than one year in approved premises to the satisfaction of the Board.'},
-  {act:'ROPA · s.6A',q:'The Board may EXTEND the provisional employment period by a maximum of:',opts:['A. Three months','B. Six months','C. One year','D. Two years'],ans:2,exp:'s.6A(3) RPA 1951: Not more than one year if performance is unsatisfactory.'},
-  {act:'ROPA · s.7',q:'Contravening title restrictions under s.7(4) carries a penalty of:',opts:['A. RM250 + RM25/day','B. RM500 + RM50/day','C. RM1,000 + RM100/day','D. RM5,000 flat'],ans:1,exp:'s.7(4) RPA 1951: Fine not exceeding RM500, plus RM50/day for continuing offences before a Sessions Court.'},
-  {act:'ROPA · s.11A',q:'A holder of a temporary registration certificate shall be deemed to be:',opts:['A. A provisionally registered pharmacist','B. A fully registered pharmacist','C. A conditionally registered pharmacist','D. An associate pharmacist'],ans:1,exp:'s.11A(3) RPA 1951: Deemed to be a fully registered pharmacist while the temporary certificate remains in force.'},
-  {act:'ROPA · s.11C',q:'A fully registered pharmacist who fails to comply with a public service deployment notice is liable to a fine not exceeding:',opts:['A. RM10,000','B. RM25,000','C. RM50,000','D. RM100,000'],ans:2,exp:'s.11C(2) RPA 1951: Liable on conviction to a fine not exceeding RM50,000, and their registration is struck off.'},
-  {act:'ROPA · s.16',q:'A registered pharmacist who fails to obtain an annual retention certificate prior to the new year shall have their name:',opts:['A. Suspended for three months','B. Removed from the register','C. Fined RM200','D. Downgraded to provisional'],ans:1,exp:'s.16(4) RPA 1951: The name of any pharmacist who fails to obtain an annual certificate shall be removed from the register.'},
-  {act:'ROPA · s.20',q:'Fraudulent registration under s.20 is tried before which court?',opts:['A. Magistrates Court','B. Sessions Court','C. High Court','D. Special Pharmacy Tribunal'],ans:1,exp:'s.20 RPA 1951: Tried before a Sessions Court. Penalty is up to 1 year imprisonment, or a fine up to RM500, or both.'},
-  {act:'ROPA · s.18A',q:'Which of the following are punishments the Board may impose after a disciplinary inquiry?',stmts:['i. Remove from register','ii. Suspend from register','iii. Reprimand','iv. Imprisonment'],opts:['A. i and ii only','B. i, ii and iii only','C. ii, iii and iv only','D. All of the above'],ans:1,exp:'s.18A(1) RPA 1951: Removal, suspension, or reprimand. The Board cannot imprison; only criminal courts can.'},
-  {act:'ROPA · s.19',q:"A person or body corporate aggrieved by a Board disciplinary punishment may appeal to the Minister. The Minister's decision is:",opts:['A. Subject to further appeal to the High Court','B. Final','C. Subject to review by the Board','D. Binding for 12 months only'],ans:1,exp:'s.19 RPA 1951: May appeal to the Minister, whose decision shall be final.'},
-  {act:'ROPA · s.17',q:"The Board may remove a pharmacist's name WITHOUT an inquiry if the pharmacist is:",stmts:['i. Deceased','ii. Has permanently left Malaysia','iii. Is of unsound mind','iv. Has been convicted of a criminal offence'],opts:['A. i and ii only','B. i, ii and iii only','C. ii, iii and iv only','D. All of the above'],ans:1,exp:'s.17(1A) RPA 1951: Deceased, permanent exit from Malaysia, or unsound mind permits immediate removal without inquiry.'},
-  {act:'Reg 2004 · r.12',q:'The annual retention fee for a body corporate under the Regulations 2004 is:',opts:['A. RM50','B. RM100','C. RM200','D. RM300'],ans:2,exp:'Reg 12(2) Regulations 2004: RM200 for a body corporate; RM50 for a fully registered pharmacist.'},
-  {act:'Reg 2004 · r.12',q:'The additional late renewal fee for an application made under subsection 16(5) by a body corporate is:',opts:['A. RM100','B. RM200','C. RM300','D. RM500'],ans:2,exp:'Reg 12(3) Regulations 2004: RM300 for a body corporate; RM100 for a fully registered pharmacist.'},
-  {act:'Reg 2004 · r.15',q:'A Committee of Inquiry under the Regulations 2004 comprises:',opts:['A. Three fully registered pharmacists','B. Five fully registered pharmacists with valid annual certificates','C. Seven pharmacists appointed by the Minister','D. Five pharmacists including provisional registrants'],ans:1,exp:'Reg 15(1) Regulations 2004: Comprises five fully registered pharmacists, each holding a valid annual certificate.'},
-  {act:'Reg 2004 · r.15',q:'The quorum of a Committee of Inquiry is:',opts:['A. Two','B. Three','C. Four','D. Five'],ans:1,exp:'Reg 15(4) Regulations 2004: The quorum shall be three members.'},
-  {act:'Reg 2004 · r.4',q:'No disciplinary case shall be considered at a Board meeting unless documents have been supplied to members at least:',opts:['A. Three days prior','B. Seven days prior','C. Fourteen days prior','D. Twenty-one days prior'],ans:1,exp:'Reg 4(2) Regulations 2004: Available complaints and docs must be supplied at least seven days prior to the meeting.'},
-  {act:'Reg 2004 · r.16',q:'The investigation notice must require a written explanation from the pharmacist within:',opts:['A. Not less than 7 days','B. Not less than 14 days','C. Not less than 21 days','D. Not more than 14 days'],ans:1,exp:'Reg 16(1)(b) Regulations 2004: Specified period must not be less than fourteen days from the date of the notice.'},
-  {act:'Reg 2004 · r.11',q:'When a superintendent pharmacist ceases to be employed by a body corporate, what action must the company take?',opts:['A. Reapply for a new company registration entirely','B. Submit an oral notice to the Minister within 7 days','C. Return the certificate of registration to the Registrar for amendment','D. Close operations until the next annual board cycle'],ans:2,exp:'Reg 11(3) Regulations 2004: The body corporate shall return the certificate of registration to the Registrar, who may insert the new superintendent.'}
-];
-
-// ── Notes, Flashcards, Law Text Data [Truncated for brevity, assuming standard from previous setup] ──
-var NOTES=[{title:'Registration pathway',items:[{t:'Provisional registration',d:'Solely to gain experience [s.6(1)]. Apply to Registrar.'}]}];
-var FLASHCARDS=[{q:'Quorum of the Pharmacy Board',a:'9 members',ref:'s.4(4) RPA 1951'}];
-var LAW=[{sec:'s.4',title:'President and meetings',body:'DG Health = President. Quorum: 9.'}];
-
-// ── Architecture Modifiers & Core Logic ───────────────────────────
 function show(id){
   document.querySelectorAll('.scr').forEach(function(s){s.classList.remove('on');});
   document.getElementById('scr-'+id).classList.add('on');
@@ -470,17 +407,13 @@ function show(id){
 
 function selectAppMode(mode){
   G.currentAppMode = mode;
-  if(mode === 'game'){
-    renderDash();
-    show('game-dash');
-  } else if(mode === 'learn'){
-    show('learn-menu');
-  }
+  if(mode === 'game'){ renderDash(); show('game-dash'); }
+  else if(mode === 'learn'){ show('learn-menu'); }
 }
 
 function openModeSelect(actId){
-  if(actId !== 'ROPA' && actId !== 'ALL'){
-    openComing(actId.toLowerCase());
+  if(!window[actId + '_DATA'] && actId !== 'ALL') {
+    alert(actId + " module not loaded yet! Check your JS files.");
     return;
   }
   G.selectedAct = actId;
@@ -489,16 +422,17 @@ function openModeSelect(actId){
 }
 
 function openActLearn(actId){
+  if(!window[actId + '_DATA']) {
+    alert(actId + " module not loaded yet!");
+    return;
+  }
+  G.selectedAct = actId;
+  document.getElementById('node-title').textContent = actId;
   G.activeTab = 'notes';
   switchTab('notes');
   show('node');
 }
 
-function goBackFromComing(){
-  show(G.currentAppMode === 'learn' ? 'learn-menu' : 'game-dash');
-}
-
-// ── Game & Dashboard Utilities ──────────────────────────
 function renderDash(){
   document.getElementById('dash-xp').textContent=G.xp;
   renderHearts('dash-hearts');
@@ -510,14 +444,6 @@ function renderHearts(id){
   el.innerHTML=h;
 }
 
-function openComing(id){
-  var c=COMING_DATA[id]||{name:id.toUpperCase(),acts:'Coming soon'};
-  document.getElementById('coming-title').textContent=c.name;
-  document.getElementById('coming-name').textContent=c.name;
-  document.getElementById('coming-acts').textContent=c.acts;
-  show('coming');
-}
-
 // ── Learn Mod UI ──────────────────────────
 function switchTab(t){
   G.activeTab=t;
@@ -525,10 +451,71 @@ function switchTab(t){
     document.getElementById('tab-'+x).classList.toggle('on',x===t);
     document.getElementById('pane-'+x).classList.toggle('on',x===t);
   });
-  if(t==='notes') document.getElementById('pane-notes').innerHTML = '<i>Notes content placeholder</i>';
-  if(t==='flash') document.getElementById('pane-flash').innerHTML = '<i>Flashcards content placeholder</i>';
-  if(t==='law') document.getElementById('pane-law').innerHTML = '<i>Law text content placeholder</i>';
+  
+  var actData = window[G.selectedAct + '_DATA'] || {notes:[], flashcards:[], law:[]};
+  
+  if(t==='notes'){
+    var html='';
+    actData.notes.forEach(function(sec){
+      html+='<div class="note-section"><div class="note-title"><span style="color:#60A5FA">🔖</span>'+sec.title+'</div>';
+      if(sec.items){
+        html+='<div class="note-card">';
+        sec.items.forEach(function(it){
+          html+='<div class="note-item"><div class="ndot"></div><div><span class="nterm">'+it.t+':</span> <span class="nval">'+it.d+'</span></div></div>';
+        });
+        html+='</div>';
+      }
+      if(sec.warn){
+        sec.warn.forEach(function(w){ html+='<div class="warn-item"><span style="flex-shrink:0;margin-top:1px">⚠️</span><span>'+w+'</span></div>'; });
+      }
+      html+='</div>';
+    });
+    document.getElementById('pane-notes').innerHTML = html || '<i>No notes available.</i>';
+  }
+  
+  if(t==='flash'){
+    // Reset flashcard state when switching tabs
+    G.fcIdx=0; G.fcFlipped=false;
+    renderFlash();
+  }
+  
+  if(t==='law'){
+    var html='';
+    actData.law.forEach(function(sec,i){
+      var open=G.lawOpen[i];
+      html+='<div class="law-row"><div class="law-hdr" onclick="toggleLaw('+i+')">';
+      html+='<span class="law-sec">'+sec.sec+'</span><span class="law-title">'+sec.title+'</span>';
+      html+='<div class="law-body'+(open?' open':'')+'">'+sec.body+'</div></div>';
+    });
+    document.getElementById('pane-law').innerHTML = html || '<i>No law text available.</i>';
+  }
 }
+
+function renderFlash(){
+  var actData = window[G.selectedAct + '_DATA'];
+  if(!actData || !actData.flashcards || actData.flashcards.length === 0){
+    document.getElementById('pane-flash').innerHTML = '<i>No flashcards available.</i>';
+    return;
+  }
+  
+  var el=document.getElementById('pane-flash');
+  var cards=actData.flashcards, idx=G.fcIdx, total=cards.length;
+  G.fcSeen[idx]=true;
+  var card=cards[idx], flipped=G.fcFlipped;
+  
+  var html='<div class="fc-nav"><button class="fc-btn" onclick="prevFC()" '+(idx===0?'disabled':'')+'>← Prev</button><span class="fc-ctr">'+(idx+1)+' / '+total+'</span><button class="fc-btn" onclick="nextFC()" '+(idx===total-1?'disabled':'')+'>Next →</button></div>';
+  html+='<div class="fc-card'+(flipped?' flipped':'')+'" onclick="flipFC()"><div class="fc-side">'+(flipped?'Answer':'Question')+'</div>';
+  html+='<div class="'+(flipped?'fc-back':'fc-front')+'">'+(flipped?card.a:card.q)+'</div>';
+  if(flipped)html+='<div class="fc-ref">'+card.ref+'</div>';
+  else html+='<div class="fc-hint">Tap to reveal answer</div>';
+  html+='</div>';
+  el.innerHTML=html;
+}
+function flipFC(){G.fcFlipped=!G.fcFlipped;renderFlash();}
+function nextFC(){if(G.fcIdx<window[G.selectedAct + '_DATA'].flashcards.length-1){G.fcIdx++;G.fcFlipped=false;renderFlash();}}
+function prevFC(){if(G.fcIdx>0){G.fcIdx--;G.fcFlipped=false;renderFlash();}}
+
+function toggleLaw(i){G.lawOpen[i]=!G.lawOpen[i];switchTab('law');}
 
 // ── Quiz Engine ───────────────────────────────────────────────────
 function initQuiz(timingMode){
@@ -540,22 +527,25 @@ function initQuiz(timingMode){
     return;
   }
   
-  var pool = [].concat(QDB);
-  if(G.selectedAct !== 'ALL') {
-    pool = pool.filter(function(q){ return q.act.indexOf(G.selectedAct) > -1; });
+  var pool = [];
+  if(G.selectedAct === 'ALL') {
+    // Merge all available data files
+    if(window.ROPA_DATA) pool = pool.concat(window.ROPA_DATA.questions);
+    if(window.SODA_DATA) pool = pool.concat(window.SODA_DATA.questions);
+    if(window.MASA_DATA) pool = pool.concat(window.MASA_DATA.questions);
+  } else {
+    pool = [].concat(window[G.selectedAct + '_DATA'].questions);
   }
+  
   pool.sort(function(){return Math.random()-.5;});
   
-  // Apply constraints based on mode
+  // Constraints
   if(timingMode === 'casual'){
     G.lesQ = pool.slice(0, 10);
     G.timeRemaining = null;
   } else if (timingMode === 'sprint'){
     G.lesQ = pool.slice(0, 10);
     G.timeRemaining = 18 * 60; // 18 minutes in seconds
-  } else if (timingMode === 'mock'){
-    G.lesQ = pool; // 100 questions (or max available)
-    G.timeRemaining = 180 * 60; // 3 hours
   }
 
   G.lesIdx=0; G.correct=0; G.wrong=0; G.skipped=0;
@@ -582,7 +572,7 @@ function setupHUD(){
 function tickTimer(){
   if(G.timeRemaining <= 0){
     clearInterval(G.timerInt);
-    finishLesson(true); // Force finish due to timeout
+    finishLesson(true);
     return;
   }
   G.timeRemaining--;
@@ -651,7 +641,7 @@ function pickAns(idx){
       if(G.hearts===0) G.heartRefill=new Date(Date.now()+30*60*1000);
       renderHearts('hearts-les');
     } else {
-      G.pkumfScore -= 0.25; // Negative marking
+      G.pkumfScore -= 0.25;
     }
     
     fb.className='fb fb-bad shake';
@@ -675,7 +665,6 @@ function doSkip(){
   if(G.answered)return;
   G.answered=true;G.wasSkipped=true;
   G.skipped++;
-  // Skip is 0 marks (no penalty)
   
   var q=G.lesQ[G.lesIdx];
   document.querySelectorAll('.opt').forEach(function(b,i){b.classList.add('locked');if(i===q.ans)b.classList.add('correct');});
@@ -700,7 +689,6 @@ function finishLesson(timeOut){
   var total=G.lesQ.length;
   var isCasual = G.timingMode === 'casual';
   
-  // Calculate final score
   if(isCasual){
     var bonus=G.correct===total?20:0;
     G.xp += bonus;
@@ -715,9 +703,7 @@ function finishLesson(timeOut){
   
   document.getElementById('r-icon').textContent= timeOut ? '⏱️' : (G.correct===total?'🏆':'🎉');
   document.getElementById('r-title').textContent= timeOut ? 'Time\'s Up!' : (G.correct===total?'Perfect!':'Session complete!');
-  
-  var subTxt = G.correct+' of '+total+' correct';
-  document.getElementById('r-sub').textContent=subTxt;
+  document.getElementById('r-sub').textContent=G.correct+' of '+total+' correct';
   
   document.getElementById('r-ok').textContent=G.correct;
   document.getElementById('r-bad').textContent=G.wrong;
@@ -727,6 +713,8 @@ function finishLesson(timeOut){
   show('result');
   if(isCasual && G.hearts<=0) startRefill();
 }
+
+function exitLesson(){ clearInterval(G.timerInt); show('game-dash'); }
 
 function startRefill(){
   if(G.refillInt)clearInterval(G.refillInt);
