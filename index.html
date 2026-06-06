@@ -32,7 +32,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
 /* Game Dashboard Grid */
 .dash-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:1.5rem}
 .act-btn{background:#fff;border:2px solid #E5E7EB;border-radius:16px;padding:16px 12px;text-align:center;cursor:pointer;transition:all 0.15s;box-shadow:0 1px 2px rgba(0,0,0,.02)}
-.act-btn:hover{border-color:#93C5FD;background:#EFF6FF;transform:translateY(-2px)}
+.act-btn:hover{border-color:#3B82F6;background:#EFF6FF;transform:translateY(-2px)}
 .act-btn.full-width{grid-column:1 / -1;background:#F5F3FF;border-color:#DDD6FE}
 .act-btn.full-width:hover{background:#EDE9FE;border-color:#C4B5FD}
 .act-icon{font-size:28px;margin-bottom:8px}
@@ -67,7 +67,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
 .tab.on{color:#2563EB;border-bottom-color:#3B82F6;font-weight:600}
 .pane{display:none}.pane.on{display:block}
 
-/* Notes, Flashcards, Law Text */
+/* Notes, Flashcards, Law Text Layouts */
 .note-section{margin-bottom:1.1rem}
 .note-title{font-size:12px;font-weight:600;color:#374151;margin-bottom:.5rem;display:flex;align-items:center;gap:5px}
 .note-card{background:#fff;border:1px solid #F3F4F6;border-radius:12px;padding:12px 14px;margin-bottom:.4rem}
@@ -81,19 +81,17 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
 .fc-nav{display:flex;justify-content:space-between;align-items:center;margin-bottom:.65rem}
 .fc-ctr{font-size:12px;color:#9CA3AF}
 .fc-btn{background:none;border:1px solid #E5E7EB;border-radius:8px;padding:6px 14px;font-size:12px;cursor:pointer;color:#374151;transition:all .15s}
+.fc-btn:disabled{opacity:0.3;cursor:default}
 .fc-dots{display:flex;gap:4px;flex-wrap:wrap;margin-bottom:.65rem}
 .fcdot{width:8px;height:8px;border-radius:50%;background:#E5E7EB;cursor:pointer;border:none;padding:0}
 .fcdot.seen{background:#BFDBFE}.fcdot.known{background:#16A34A}
-.fc-card{background:#fff;border:1px solid #E5E7EB;border-radius:16px;padding:1.5rem 1.25rem;min-height:150px;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;cursor:pointer;box-shadow:0 1px 3px rgba(0,0,0,.05)}
+.fc-card{background:#fff;border:1px solid #E5E7EB;border-radius:16px;padding:1.5rem 1.25rem;min-height:150px;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;cursor:pointer;box-shadow:0 1px 3px rgba(0,0,0,.05);width:100%}
 .fc-card.flipped{background:#F9FAFB}
 .fc-side{font-size:10px;font-weight:600;color:#9CA3AF;text-transform:uppercase;letter-spacing:.06em;margin-bottom:.65rem}
 .fc-front{font-size:15px;font-weight:600;color:#111827;line-height:1.5}
 .fc-back{font-size:13px;color:#111827;line-height:1.6}
 .fc-ref{background:#EFF6FF;color:#1D4ED8;border-radius:99px;padding:3px 12px;font-size:11px;font-weight:600;margin-top:.65rem;display:inline-block}
 .fc-hint{font-size:11px;color:#9CA3AF;margin-top:.4rem}
-.fc-actions{display:flex;gap:8px;margin-top:.65rem}
-.fc-bad{flex:1;background:#FEF2F2;color:#991B1B;border:1px solid #FECACA;border-radius:10px;padding:8px;font-size:12px;font-weight:500;cursor:pointer}
-.fc-good{flex:1;background:#F0FDF4;color:#166534;border:1px solid #BBF7D0;border-radius:10px;padding:8px;font-size:12px;font-weight:500;cursor:pointer}
 
 .law-row{border-bottom:1px solid #F3F4F6}
 .law-hdr{display:flex;justify-content:space-between;align-items:center;padding:12px 0;cursor:pointer;gap:8px}
@@ -108,11 +106,10 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
 .btn{width:100%;border:none;border-radius:14px;padding:13px;font-size:14px;font-weight:600;cursor:pointer;transition:all .15s;margin-bottom:.5rem}
 .btn:last-child{margin-bottom:0}
 .btn-primary{background:#3B82F6;color:#fff}.btn-primary:hover{background:#2563EB}
-.btn-primary:disabled{opacity:.38;cursor:not-allowed}
 .btn-success{background:#15803D;color:#fff}.btn-success:hover{background:#166534}
 .btn-secondary{background:#F3F4F6;color:#374151}.btn-secondary:hover{background:#E5E7EB}
 
-/* Lesson */
+/* Testing Arena Layout */
 .les-hdr{display:flex;align-items:center;gap:10px;margin-bottom:1rem}
 .les-close{background:none;border:none;cursor:pointer;color:#9CA3AF;font-size:18px;padding:4px;line-height:1}
 .les-close:hover{color:#374151}
@@ -144,7 +141,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
 .fb-exp{font-size:12px;line-height:1.6}
 .fb-exp.ok{color:#15803D}.fb-exp.bad{color:#B91C1C}.fb-exp.skip{color:#6B7280}
 
-/* Result */
+/* Results Card Layout */
 .res-card{background:#fff;border:1px solid #E5E7EB;border-radius:20px;padding:1.5rem;text-align:center;margin-bottom:1rem;box-shadow:0 1px 3px rgba(0,0,0,.05)}
 .res-icon{font-size:40px;margin-bottom:.65rem}
 .res-title{font-size:20px;font-weight:700;color:#111827;margin-bottom:.3rem}
@@ -156,7 +153,6 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
 .sv{font-size:18px;font-weight:700;color:#111827}
 .sl{font-size:10px;color:#9CA3AF;margin-top:2px}
 
-/* Locked / Coming Soon */
 .locked-center{text-align:center;padding:2rem 0}
 .timer-big{font-size:2rem;font-weight:700;color:#92400E;margin:.5rem 0}
 
@@ -376,159 +372,290 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
   <button class="btn btn-secondary" onclick="show('game-dash')">Back to Dashboard</button>
 </div>
 
-<!-- COMING SOON -->
-<div id="scr-coming" class="scr">
-  <div class="page-hdr">
-    <button class="back-btn" onclick="goBackFromComing()">← <span>Back</span></button>
-    <div>
-      <div class="page-title" id="coming-title">POISON</div>
-      <div class="page-sub">Coming soon</div>
-    </div>
-  </div>
-  <div style="text-align:center;padding:2rem 0 1.5rem">
-    <div style="font-size:3rem;margin-bottom:.75rem">🚧</div>
-    <div style="font-size:16px;font-weight:700;color:#111827;margin-bottom:.4rem" id="coming-name">POISON</div>
-    <div style="font-size:13px;color:#9CA3AF" id="coming-acts"></div>
-  </div>
-  <button class="btn btn-secondary" style="margin-top:1rem" onclick="goBackFromComing()">Back</button>
-</div>
-
 </div><!-- end .app -->
 
 <script>
-// ── INJECTED DATA: ROPA ──────────────────────────────────────────
+// ── MASTER INJECTED DATA: ROPA ──────────────────────────────────
 window.ROPA_DATA = {
   questions: [
-    {act:'ROPA · s.3',q:'The Pharmacy Board consists of how many registered pharmacists in the public service, appointed by the Minister?',opts:['A. Four','B. Six','C. Eight','D. Ten'],ans:2,exp:'s.3(1)(c) RPA 1951: Eight registered pharmacists in the public service are appointed by the Minister.'},
-    {act:'ROPA · s.4',q:'At a Pharmacy Board meeting, when the President is absent, who chairs the meeting?',opts:['A. Director of Pharmaceutical Services automatically','B. A member elected by those present','C. The most senior Board member','D. The Registrar'],ans:1,exp:'s.4(2) RPA 1951: Members present shall elect one of their number to be Chairman.'},
-    {act:'ROPA · s.6A',q:'A provisionally registered pharmacist must engage in employment for a minimum of:',opts:['A. Six months','B. One year','C. Two years','D. Three years'],ans:1,exp:'s.6A(2) RPA 1951: Not less than one year in approved premises.'},
-    {act:'ROPA · s.7',q:'Contravening title restrictions under s.7(4) carries a penalty of:',opts:['A. RM250 + RM25/day','B. RM500 + RM50/day','C. RM1,000 + RM100/day','D. RM5,000 flat'],ans:1,exp:'s.7(4) RPA 1951: Fine not exceeding RM500, plus RM50/day.'},
-    {act:'ROPA · s.16',q:'A registered pharmacist who fails to obtain an annual retention certificate prior to the new year shall have their name:',opts:['A. Suspended for three months','B. Removed from the register','C. Fined RM200','D. Downgraded to provisional'],ans:1,exp:'s.16(4) RPA 1951: The name shall be removed from the register.'},
-    {act:'ROPA · s.18A',q:'Which of the following are punishments the Board may impose after a disciplinary inquiry?',stmts:['i. Remove from register','ii. Suspend from register','iii. Reprimand','iv. Imprisonment'],opts:['A. i and ii only','B. i, ii and iii only','C. ii, iii and iv only','D. All of the above'],ans:1,exp:'s.18A(1) RPA 1951: Removal, suspension, or reprimand. The Board cannot imprison.'},
-    {act:'Reg 2004 · r.12',q:'The annual retention fee for a body corporate under the Regulations 2004 is:',opts:['A. RM50','B. RM100','C. RM200','D. RM300'],ans:2,exp:'Reg 12(2) Regulations 2004: RM200 for a body corporate; RM50 for a fully registered pharmacist.'},
-    {act:'Reg 2004 · r.15',q:'The quorum of a Committee of Inquiry is:',opts:['A. Two','B. Three','C. Four','D. Five'],ans:1,exp:'Reg 15(4) Regulations 2004: The quorum shall be three members.'},
-    {act:'Reg 2004 · r.16',q:'The investigation notice must require a written explanation from the pharmacist within:',opts:['A. Not less than 7 days','B. Not less than 14 days','C. Not less than 21 days','D. Not more than 14 days'],ans:1,exp:'Reg 16(1)(b) Regulations 2004: Period must not be less than fourteen days.'},
-    {act:'Reg 2004 · r.11',q:'When a superintendent pharmacist ceases to be employed by a body corporate, what action must the company take?',opts:['A. Reapply for a new company registration entirely','B. Submit an oral notice to the Minister within 7 days','C. Return the certificate of registration to the Registrar for amendment','D. Close operations until the next annual board cycle'],ans:2,exp:'Reg 11(3) Regulations 2004: Return the certificate to the Registrar to insert the new superintendent.'}
+    {act:'ROPA · s.3',q:'The Pharmacy Board consists of how many registered pharmacists in the public service, appointed by the Minister?',opts:['A. Four','B. Six','C. Eight','D. Ten'],ans:2,exp:'s.3(1)(c) RPA 1951: Eight registered pharmacists in the public service are appointed by the Minister[cite: 2].'},
+    {act:'ROPA · s.4',q:'At a Pharmacy Board meeting, when the President is absent, who chairs the meeting?',opts:['A. Director of Pharmaceutical Services automatically','B. A member elected by those present','C. The most senior Board member','D. The Registrar'],ans:1,exp:'s.4(2) RPA 1951: Members present shall elect one of their number to be Chairman[cite: 2].'},
+    {act:'ROPA · s.4',q:'The quorum at a Pharmacy Board meeting is:',opts:['A. Five members','B. Seven members','C. Nine members','D. Eleven members'],ans:2,exp:'s.4(4) RPA 1951: Nine members shall form a quorum at any meeting[cite: 2].'},
+    {act:'ROPA · s.6A',q:'A provisionally registered pharmacist must engage in employment for a minimum of:',opts:['A. Six months','B. One year','C. Two years','D. Three years'],ans:1,exp:'s.6A(2) RPA 1951: Not less than one year in approved premises listed in the Second Schedule[cite: 2].'},
+    {act:'ROPA · s.6A',q:'The Board may EXTEND the provisional employment period by a maximum of:',opts:['A. Three months','B. Six months','C. One year','D. Two years'],ans:2,exp:'s.6A(3) RPA 1951: Not more than one year if the Board is not satisfied with performance[cite: 2].'},
+    {act:'ROPA · s.7',q:'Contravening title restrictions under s.7(4) carries a penalty of:',opts:['A. RM250 + RM25/day','B. RM500 + RM50/day','C. RM1,000 + RM100/day','D. RM5,000 flat'],ans:1,exp:'s.7(4) RPA 1951: On conviction before a Sessions Court, liable to a penalty ≤ RM500, plus RM50 for every day the offence continues[cite: 2].'},
+    {act:'ROPA · s.11A',q:'A holder of a temporary registration certificate shall be deemed to be:',opts:['A. A provisionally registered pharmacist','B. A fully registered pharmacist','C. A conditionally registered pharmacist','D. An associate pharmacist'],ans:1,exp:'s.11A(3) RPA 1951: Deemed to be a fully registered pharmacist while the certificate remains in force[cite: 2].'},
+    {act:'ROPA · s.11C',q:'A fully registered pharmacist who fails to comply with a public service notice is liable to a fine not exceeding:',opts:['A. RM10,000','B. RM25,000','C. RM50,000','D. RM100,000'],ans:2,exp:'s.11C(2) RPA 1951: Fine not exceeding fifty thousand ringgit on conviction[cite: 2].'},
+    {act:'ROPA · s.16',q:'A registered pharmacist who fails to obtain an annual certificate shall have their name:',opts:['A. Suspended for three months','B. Removed from the register','C. Fined RM200','D. Downgraded to provisional'],ans:1,exp:'s.16(4) RPA 1951: Name shall be removed from the register[cite: 2].'},
+    {act:'ROPA · s.20',q:'Fraudulent registration under s.20 is tried before which court?',opts:['A. Magistrates Court','B. Sessions Court','C. High Court','D. Special Pharmacy Tribunal'],ans:1,exp:'s.20 RPA 1951: On conviction before a Sessions Court — liable to ≤ 1 year imprisonment or ≤ RM500 or both[cite: 2].'},
+    {act:'ROPA · s.18A',q:'Which of the following are punishments the Board may impose after a disciplinary inquiry?',stmts:['i. Remove from register','ii. Suspend from register','iii. Reprimand','iv. Imprisonment'],opts:['A. i and ii only','B. i, ii and iii only','C. ii, iii and iv only','D. All of the above'],ans:1,exp:'s.18A(1) RPA 1951: Removal, suspension, or reprimand. The Board cannot sentence to imprisonment[cite: 2].'},
+    {act:'ROPA · s.19',q:"A person aggrieved by a Board punishment may appeal to the Minister. The Minister's decision is:",opts:['A. Subject to further appeal to the High Court','B. Final','C. Subject to review by the Board','D. Binding for 12 months only'],ans:1,exp:'s.19 RPA 1951: Appeal to the Minister, whose decision shall be final[cite: 2].'},
+    {act:'ROPA · s.17',q:"The Board may remove a pharmacist's name WITHOUT an inquiry if the pharmacist is:",stmts:['i. Deceased','ii. Has permanently left Malaysia','iii. Is of unsound mind','iv. Has been convicted of a criminal offence'],opts:['A. i and ii only','B. i, ii and iii only','C. ii, iii and iv only','D. All of the above'],ans:1,exp:'s.17(1A) RPA 1951: Deceased, left Malaysia permanently, or unsound mind — allowed without inquiry[cite: 2].'},
+    {act:'ROPA · s.3',q:'The three registered pharmacists from private practice on the Board must be:',opts:['A. Citizens or permanent residents','B. Malaysian citizens only — permanent residents excluded','C. Any registered pharmacists','D. Nominated by the DPS'],ans:1,exp:"s.3(5) RPA 1951: Citizens of Malaysia shall not include permanent residents for this appointment[cite: 2]."},
+    {act:'ROPA · s.3',q:"What is the effect if a defect in a Board member's appointment is later discovered?",opts:['A. All Board acts are void','B. All Board acts remain valid as if no defect existed','C. Acts must be ratified by the Minister','D. Acts are suspended pending High Court review'],ans:1,exp:'s.3(4) RPA 1951: All acts done by the Board shall be valid notwithstanding any vacancy or defect[cite: 2].'},
+    {act:'Reg 2004 · r.12',q:'The annual retention fee for a body corporate under the Regulations 2004 is:',opts:['A. RM50','B. RM100','C. RM200','D. RM300'],ans:2,exp:'Reg 12(2) RPA Regulations 2004: RM200 for a body corporate; RM50 for a fully registered pharmacist[cite: 3].'},
+    {act:'Reg 2004 · r.12',q:'The additional late renewal fee for a body corporate under Reg 12(3) is:',opts:['A. RM100','B. RM200','C. RM300','D. RM500'],ans:2,exp:'Reg 12(3) RPA Regulations 2004: RM300 for a body corporate; RM100 for a fully registered pharmacist[cite: 3].'},
+    {act:'Reg 2004 · r.15',q:'A Committee of Inquiry under the Regulations 2004 comprises:',opts:['A. Three fully registered pharmacists','B. Five fully registered pharmacists with valid annual certificates','C. Seven pharmacists appointed by the Minister','D. Five pharmacists including provisional registrants'],ans:1,exp:'Reg 15(1) RPA Regulations 2004: Five fully registered pharmacists, each holding a valid annual certificate[cite: 3].'},
+    {act:'Reg 2004 · r.15',q:'The quorum of a Committee of Inquiry is:',opts:['A. Two','B. Three','C. Four','D. Five'],ans:1,exp:'Reg 15(4) RPA Regulations 2004: Quorum shall be three[cite: 3].'},
+    {act:'Reg 2004 · r.4',q:'Complaint copies for a Board disciplinary meeting must be supplied to members at least:',opts:['A. Three days prior','B. Seven days prior','C. Fourteen days prior','D. Twenty-one days prior'],ans:1,exp:'Reg 4(2) RPA Regulations 2004: At least seven days prior to the meeting[cite: 3].'},
+    {act:'Reg 2004 · r.16',q:'The investigation notice must require written explanation within:',opts:['A. Not less than 7 days','B. Not less than 14 days','C. Not less than 21 days','D. Not more than 14 days'],ans:1,exp:'Reg 16(1)(b) RPA Regulations 2004: Not less than fourteen days from the date of the notice[cite: 3].'},
+    {act:'Reg 2004 · r.17',q:'A Committee of Inquiry may recommend summary dismissal if satisfied that:',stmts:["i. The complainant's name is unknown","ii. The complainant's address is untraceable","iii. The facts do not constitute a matter under the provisions","iv. The complaint was submitted orally"],opts:['A. i, ii and iii only','B. i, ii and iv only','C. iii only','D. All of the above'],ans:0,exp:"Reg 17 RPA Regulations 2004: Name unknown, address untraceable, or facts not constituting an issue. Oral filing alone is not a summary ground[cite: 3]."},
+    {act:'Reg 2004 · r.3',q:'The Secretary to the Pharmacy Board shall be:',opts:['A. Any registered pharmacist nominated by the Board','B. A pharmacist in the public service appointed by the Board','C. The Director of Pharmaceutical Services','D. Appointed by the Minister'],ans:1,exp:'Reg 3(1) RPA Regulations 2004: A pharmacist in the public service appointed by the Board who is NOT a Board member[cite: 3].'},
+    {act:'Reg 2004 · r.8',q:'The fee for an application for full registration is:',opts:['A. RM50','B. RM100','C. RM200','D. RM500'],ans:1,exp:'Reg 8(2)(e) RPA Regulations 2004: A fee of one hundred ringgit[cite: 3].'},
+    {act:'ROPA · s.6',q:'The following are TRUE regarding provisional registration:',stmts:['i. Solely for the purpose of obtaining experience','ii. Only persons holding First Schedule qualifications may apply','iii. Application shall be submitted to the Registrar','iv. The Board may amend the First Schedule by Gazette order'],opts:['A. i only','B. ii and iv only','C. i and iii only','D. All of the above'],ans:2,exp:'s.6 RPA 1951: Solely for experience (i); application to Registrar (iii). First Schedule is amended by the MINISTER, not the Board (iv)[cite: 2].'}
   ],
   notes: [
     {title:'Board composition — s.3(1)',items:[
-      {t:'DG of Health',d:'Ex officio President — chairs all meetings he attends'},
-      {t:'Director of Pharmaceutical Services',d:'Ex officio member'},
-      {t:'Public service pharmacists',d:'8 members — appointed by Minister'},
-      {t:'HEI pharmacists',d:'3 members from higher education institutions — appointed by Minister'},
-      {t:'Non-public service',d:'2 members — appointed by Minister'},
-      {t:'Private practice',d:"3 members — nominated by private practice, appointed by Minister. Citizens only (no PRs)"}
+      {t:'DG of Health',d:'Ex officio President — chairs all meetings he attends[cite: 2]'},
+      {t:'Director of Pharmaceutical Services',d:'Ex officio member[cite: 2]'},
+      {t:'Public service pharmacists',d:'8 members — appointed by Minister[cite: 2]'},
+      {t:'HEI pharmacists',d:'3 members from higher education institutions — appointed by Minister[cite: 2]'},
+      {t:'Non-public service',d:'2 members — appointed by Minister[cite: 2]'},
+      {t:'Private practice',d:"3 members — nominated by private pharmacists' association, approved by Minister. Must be CITIZENS (not PRs)[cite: 2]"},
+      {t:'TOTAL',d:'18 members[cite: 2]'}
+    ]},
+    {title:'Meetings — s.4',items:[
+      {t:'Chairman absent',d:'Members present ELECT one of their number — NOT automatic DPS[cite: 2]'},
+      {t:"Chairman's vote",d:'Original vote + casting vote if tied[cite: 2]'},
+      {t:'Quorum',d:'9 members[cite: 2]'}
+    ]},
+    {title:'Registration pathway',items:[
+      {t:'Provisional registration',d:'Solely to gain experience [s.6]. Apply to Registrar[cite: 2].'},
+      {t:'Employment period',d:'NOT LESS than 1 year to Board satisfaction [s.6A(2)][cite: 2]'},
+      {t:'Extension',d:'NOT MORE than 1 year by Board [s.6A(3)][cite: 2]'},
+      {t:'Full registration',d:'After satisfactory employment or exemption [s.6B][cite: 2]'},
+      {t:'Provisionally registered',d:'Deemed PUBLIC SERVANT under Penal Code [s.6A(8)][cite: 2]'}
     ]},
     {title:'Key penalties',items:[
-      {t:'Title offence [s.7(4)]',d:'≤RM500 + RM50/day continuing'},
-      {t:'Public service failure [s.11C(2)]',d:'≤RM50,000 fine on conviction + registration struck off'},
-      {t:'Fraudulent registration [s.20]',d:'≤1 year imprisonment OR ≤RM500 fine — Sessions Court'}
+      {t:'Title offence [s.7(4)]',d:'≤RM500 + RM50/day continuing[cite: 2]'},
+      {t:'Public service failure [s.11C(2)]',d:'≤RM50,000 fine on conviction + registration deemed revoked[cite: 2]'},
+      {t:'Fraudulent registration [s.20]',d:'≤1 year imprisonment OR ≤RM500 fine — Sessions Court[cite: 2]'},
+      {t:'Obstruct inspector [s.21(3)]',d:'≤6 months imprisonment OR ≤RM500 fine[cite: 2]'}
+    ]},
+    {title:'Regulations 2004 — key fees',items:[
+      {t:'Full registration [Reg 8]',d:'RM100[cite: 3]'},
+      {t:'Annual retention — pharmacist [Reg 12(2)]',d:'RM50[cite: 3]'},
+      {t:'Annual retention — body corporate [Reg 12(2)]',d:'RM200[cite: 3]'},
+      {t:'Late renewal — pharmacist [Reg 12(3)]',d:'RM100 additional[cite: 3]'},
+      {t:'Late renewal — body corporate [Reg 12(3)]',d:'RM300 additional[cite: 3]'}
+    ]},
+    {title:'Committee of Inquiry — Reg 2004',items:[
+      {t:'Composition',d:'5 fully registered pharmacists with valid annual certificates [Reg 15(1)][cite: 3]'},
+      {t:'Quorum',d:'3 [Reg 15(4)][cite: 3]'},
+      {t:'Chairman',d:'Nominated by the Board [Reg 15(3)][cite: 3]'},
+      {t:'Decisions',d:'By majority [Reg 15(6)][cite: 3]'},
+      {t:'Secretary',d:'Pharmacist in public service — NOT a Board member [Reg 3][cite: 3]'},
+      {t:'Board meeting documents',d:'Copies of complaints sent ≥7 days before meeting [Reg 4(2)][cite: 3]'},
+      {t:'Investigation notice',d:'Written explanation ≥14 days from notice [Reg 16(1)(b)]. Sent by registered post[cite: 3].'}
+    ]},
+    {title:'Disciplinary & appeals',items:[
+      {t:'Without inquiry',d:'Deceased / permanently left Malaysia / unsound mind [s.17(1A)][cite: 2]'},
+      {t:'With inquiry',d:'Fraud, conviction, infamous conduct [s.17(1)][cite: 2]'},
+      {t:'Punishments [s.18A]',d:'Remove / Suspend / Reprimand. NO imprisonment[cite: 2].'},
+      {t:'Appeal [s.19]',d:'To Minister — decision is FINAL[cite: 2]'}
+    ]},
+    {title:'Exam traps ⚠️',warn:[
+      'First Schedule amended by MINISTER — not the Board [s.6(3)][cite: 2]',
+      'Employment satisfies the BOARD — not the Minister [s.6A(2)][cite: 2]',
+      'President absent → members ELECT chairman — DPS is NOT automatic [s.4(2)][cite: 2]',
+      'Annual cert failure = REMOVED from register — not suspended [s.16(4)][cite: 2]',
+      'Temporary registration = deemed FULLY registered while cert in force [s.11A(3)][cite: 2]',
+      'Secretary of Board is NOT a Board member [Reg 3(2)][cite: 3]',
+      'Disciplinary meeting: 7 days. Investigation notice: 14 days. Different![cite: 3]',
+      'Board CANNOT imprison — imprisonment only via Court [s.18A][cite: 2]',
+      'Summary dismissal: 3 grounds only — unknown name, untraceable address, facts not constituting a matter [Reg 17][cite: 3]'
     ]}
   ],
   flashcards: [
-    {q:'Who keeps and maintains the register of pharmacists?',a:'Director of Pharmaceutical Services (the Registrar)',ref:'s.5 RPA 1951'},
-    {q:'Quorum of the Pharmacy Board',a:'9 members',ref:'s.4(4) RPA 1951'},
-    {q:'Fee for annual retention — body corporate',a:'RM200',ref:'Reg 12(2) RPA Reg 2004'},
-    {q:'Committee of Inquiry — quorum',a:'3',ref:'Reg 15(4) RPA Reg 2004'}
+    {q:'Who keeps and maintains the register of pharmacists?',a:'Director of Pharmaceutical Services (the Registrar)',ref:'s.5 RPA 1951[cite: 2]'},
+    {q:'What is the SOLE purpose of provisional registration?',a:'To enable the person to obtain the experience specified in s.6A',ref:'s.6(1) RPA 1951[cite: 2]'},
+    {q:'What happens if a provisionally registered pharmacist fails to engage in employment?',a:'Provisional registration shall be REVOKED',ref:'s.6A(4) RPA 1951[cite: 2]'},
+    {q:'Is the DPS automatically the chairman when the President is absent?',a:'NO — members present shall ELECT one of their number as Chairman',ref:'s.4(2) RPA 1951[cite: 2]'},
+    {q:'Total number of Pharmacy Board members',a:'18 (DG Health + DPS + 8 + 3 + 2 + 3)',ref:'s.3(1) RPA 1951[cite: 2]'},
+    {q:'Quorum of the Pharmacy Board',a:'9 members',ref:'s.4(4) RPA 1951[cite: 2]'},
+    {q:'Term of appointment for non-ex-officio Board members',a:'3 years — eligible for reappointment',ref:'s.3(2) RPA 1951[cite: 2]'},
+    {q:'Can permanent residents be the 3 private practice Board members?',a:'NO — must be CITIZENS; explicitly excludes permanent residents',ref:'s.3(5) RPA 1951[cite: 2]'},
+    {q:'Annual certificate — what happens if NOT renewed before year end?',a:'Name shall be REMOVED from the register',ref:'s.16(4) RPA 1951[cite: 2]'},
+    {q:'Three punishments the Board may impose after disciplinary inquiry',a:'(1) Remove from register  (2) Suspend from register  (3) Reprimand',ref:'s.18A(1) RPA 1951[cite: 2]'},
+    {q:'Can the Board impose imprisonment?',a:'NO — imprisonment is a Court power only',ref:'s.18A RPA 1951[cite: 2]'},
+    {q:'Who does a person appeal to against a Board punishment?',a:'The MINISTER — and the decision is FINAL',ref:'s.19 RPA 1951[cite: 2]'},
+    {q:'Fee for annual retention — body corporate',a:'RM200',ref:'Reg 12(2) RPA Reg 2004[cite: 3]'},
+    {q:'Committee of Inquiry — quorum',a:'3',ref:'Reg 15(4) RPA Reg 2004[cite: 3]'},
+    {q:'Who signs all certificates under the Regulations?',a:'The Registrar',ref:'Reg 5 RPA Reg 2004[cite: 3]'},
+    {q:'Minimum notice period for written explanation in investigation',a:'Not less than 14 days from date of notice',ref:'Reg 16(1)(b) RPA Reg 2004[cite: 3]'},
+    {q:"Grounds for summary dismissal of a complaint",a:"(1) Name unknown  (2) Address untraceable  (3) Facts don't constitute a matter",ref:'Reg 17 RPA Reg 2004[cite: 3]'},
+    {q:'Days before Board disciplinary meeting that complaint copies must be supplied',a:'7 days prior',ref:'Reg 4(2) RPA Reg 2004[cite: 3]'},
+    {q:'Temporary registration — what status does the holder have?',a:'Deemed FULLY REGISTERED while the certificate is in force',ref:'s.11A(3) RPA 1951[cite: 2]'},
+    {q:'Penalty for obstruction of an Inspector',a:'≤6 months imprisonment OR ≤RM500 fine',ref:'s.21(3) RPA 1951[cite: 2]'}
   ],
   law: [
-    {sec:'s.4',title:'President and meetings',body:'DG Health = President. Absence → members <span class="lh">elect</span> chairman. Quorum: <span class="lh">9</span>.'},
-    {sec:'s.16',title:'Annual certificate',body:'Renew before year end + pay fee. Failure = <span class="lh">removed from register</span>. Restoration: application + <span class="lk">additional fee</span>.'}
+    {sec:'s.3(1)',title:'Board composition',body:'18 members: <span class="lk">DG Health</span> + <span class="lk">DPS</span> (ex officio); <span class="lh">8</span> public service; <span class="lh">3</span> HEI; <span class="lh">2</span> non-public service; <span class="lh">3</span> private practice (must be <span class="lh">citizens — not PRs</span>). All non-ex-officio appointed by Minister[cite: 2].'},
+    {sec:'s.3(2)–(5)',title:'Appointment rules',body:'Term: <span class="lh">3 years</span>, renewable. Acts remain <span class="lk">valid</span> despite defect or vacancy. Citizens excludes <span class="lh">permanent residents</span>[cite: 2].'},
+    {sec:'s.4',title:'President and meetings',body:'DG Health = President. Absence → members <span class="lh">elect</span> chairman. Chairman has <span class="lk">original vote + casting vote</span> if tied. Quorum: <span class="lh">9</span>[cite: 2].'},
+    {sec:'s.6–6B',title:'Registration pathway',body:'Provisional: solely for gaining experience. Employment: <span class="lh">≥1 year</span>, Board satisfaction. Extension: <span class="lh">≤1 year</span>. Fail → <span class="lh">revoked</span>. Provisional = <span class="lk">public servant</span> (Penal Code)[cite: 2].'},
+    {sec:'s.7(4)',title:'Title offence penalty',body:'Conviction: <span class="lh">≤RM500</span> + <span class="lh">RM50/day</span> continuing[cite: 2].'},
+    {sec:'s.11A–11C',title:'Temporary registration & public service',body:'Temporary → deemed <span class="lk">fully registered</span> while cert in force. Public service failure: <span class="lh">≤RM50,000</span> + <span class="lh">registration revoked</span>[cite: 2].'},
+    {sec:'s.16',title:'Annual certificate',body:'Renew before year end + pay fee. Failure = <span class="lh">removed from register</span>. Restoration: application + <span class="lk">additional fee</span>[cite: 2].'},
+    {sec:'s.17–18A',title:'Disciplinary and punishments',body:'Without inquiry: deceased, permanently left, unsound mind. Punishments: <span class="lk">remove / suspend / reprimand</span> — <span class="lh">no imprisonment</span>. Appeal: <span class="lk">Minister</span> — final[cite: 2].'},
+    {sec:'s.20–21',title:'Fraudulent registration & inspection',body:'Fraudulent: <span class="lh">≤1 year OR ≤RM500</span> — Sessions Court. Obstruct inspector: <span class="lh">≤6 months OR ≤RM500</span>[cite: 2].'},
+    {sec:'Reg 3–5',title:'Secretary, meetings, certificates',body:'Secretary: public service pharmacist — <span class="lh">NOT a Board member</span>. Complaint docs: <span class="lh">≥7 days</span> before meeting. Certificates signed by <span class="lk">Registrar</span>[cite: 3].'},
+    {sec:'Reg 8 & 12',title:'Fees',body:'Full registration: <span class="lh">RM100</span>. Annual: pharmacist <span class="lh">RM50</span>, body corporate <span class="lh">RM200</span>. Late: <span class="lh">RM100 / RM300</span>. Public service pharmacists: <span class="lk">exempted</span>[cite: 3].'},
+    {sec:'Reg 15–17',title:'Committee of Inquiry',body:'Composition: <span class="lh">5</span> fully registered + valid cert. Quorum: <span class="lh">3</span>. Chairman: nominated by Board. Notice: <span class="lh">≥14 days</span>. Summary dismissal: unknown name, untraceable address, facts not constituting a matter[cite: 3].'}
   ]
 };
 
-// ── INJECTED DATA: SODA + CDCR ───────────────────────────────────
+// ── MASTER INJECTED DATA: SODA + CDCR 1984 ───────────────────────
 window.SODA_DATA = {
   questions: [
-    {act:'SODA · s.2',q:'Under the Sale of Drugs Act 1952, "medicinal purpose" includes which of the following?',stmts:['i. Contraception','ii. Inducing anaesthesia','iii. Controlling body weight','iv. Cleaning the teeth and mucous membranes'],opts:['A. i, ii and iii only','B. ii, iii and iv only','C. i and iv only','D. All of the above'],ans:0,exp:'s.2 SODA 1952: Medicinal purpose includes contraception, inducing anaesthesia, and controlling body weight. Cleaning teeth refers to the definition of a cosmetic.'},
-    {act:'SODA · s.4',q:'An officer under the Sale of Drugs Act 1952 may seize any drug which appears to be unwholesome. What happens if no complaint is made within forty-eight hours of the seizure?',opts:['A. The drug is returned to the owner','B. The drug becomes the property of the Government and shall be destroyed','C. The officer must apply to the Magistrate for a destruction order','D. The drug is sold at auction'],ans:1,exp:'s.4(4) SODA 1952: If no complaint is made within 48 hours, the article seized becomes Government property and shall be destroyed or disposed of.'},
-    {act:'SODA · s.7',q:'When an officer purchases a sample of a drug for analysis under the Sale of Drugs Act 1952, he must divide the sample into how many parts?',opts:['A. Two','B. Three','C. Four','D. Five'],ans:1,exp:'s.7(2) SODA 1952: The officer shall divide the sample into three parts, offering one to the seller, delivering one to the analyst, and retaining the third.'},
-    {act:'SODA · s.12',q:'What is the general penalty for a first offence committed by a body corporate under the Sale of Drugs Act 1952 where no penalty is expressly provided?',opts:['A. Fine not exceeding RM25,000','B. Fine not exceeding RM50,000','C. Fine not exceeding RM100,000','D. Fine not exceeding RM500,000'],ans:1,exp:'s.12(2) SODA 1952: A body corporate committing a first offence where no penalty is expressly provided is liable to a fine not exceeding RM50,000.'},
-    {act:'CDCR · r.7',q:'Under the Control of Drugs and Cosmetics Regulations 1984, which of the following actions is prohibited regarding a registered product?',stmts:['i. Mixing it with another registered product','ii. Labelling it with an additional name other than the registered name','iii. Possessing written information describing an unapproved indication','iv. Mixing it with a substance not intended for reconstitution'],opts:['A. i and ii only','B. ii and iv only','C. i, ii and iii only','D. All of the above'],ans:3,exp:'Reg 7(1A) & 7(1B) CDCR 1984: All these acts are explicitly prohibited, including possessing documents describing unapproved indications.'},
-    {act:'CDCR · r.8',q:'What is the processing fee for an application to register a product OTHER than a traditional medicine under the CDCR 1984?',opts:['A. RM50','B. RM200','C. RM500','D. RM1,000'],ans:3,exp:'Reg 8(2)(c) CDCR 1984: A processing fee of RM1000.00 is required for products other than traditional medicines.'},
-    {act:'CDCR · r.12',q:'Which licence under the CDCR 1984 is restricted to including ONLY ONE product?',opts:['A. Manufacturer\'s licence','B. Wholesaler\'s licence','C. Import licence','D. Clinical trial import licence'],ans:3,exp:'Reg 12(2) CDCR 1984: Any number of registered products may be included in any licence OTHER than a clinical trial import licence, which shall include only one product.'},
-    {act:'CDCR · r.15',q:'Who is exempted from holding a manufacturing license when dispensing a drug for a specific patient\'s medical treatment?',stmts:['i. A pharmacist in a retail pharmacy','ii. A fully registered medical practitioner','iii. A veterinary practitioner','iv. A person acting in the course of duties in a Government hospital'],opts:['A. i and ii only','B. i, ii and iii only','C. ii, iii and iv only','D. All of the above'],ans:3,exp:'Reg 15(2) CDCR 1984: Pharmacists in retail, medical/dental/veterinary practitioners, and hospital staff are exempted when dispensing for specific treatment.'},
-    {act:'CDCR · r.18A',q:'For a notified cosmetic, the person responsible for placing it in the market must:',stmts:['i. Maintain proper records','ii. Report serious adverse events to the Director of Pharmaceutical Services','iii. Recall the product immediately if it contravenes guidelines','iv. Apply for a clinical trial import licence'],opts:['A. i, ii and iii only','B. i and ii only','C. ii, iii and iv only','D. All of the above'],ans:0,exp:'Reg 18A(9), (11), & (13) CDCR 1984: Responsible persons must report adverse events, maintain records, and recall non-compliant cosmetics. Clinical trial licenses do not apply.'},
-    {act:'CDCR · Sch. (Tab II)',q:'Which of the following substances is PROHIBITED in traditional medicine under the CDCR 1984?',opts:['A. Caffeine','B. Paracetamol','C. Any poison within the meaning of the Poisons Act 1952','D. All of the above'],ans:3,exp:'Table II CDCR 1984: Caffeine, Nicotinamide, Paracetamol, and Poisons under the Poisons Act 1952 are strictly prohibited in traditional medicine.'}
+    {act:'SODA · s.2',q:'Under the Sale of Drugs Act 1952, "medicinal purpose" includes which of the following?',stmts:['i. Contraception','ii. Inducing anaesthesia','iii. Controlling body weight','iv. Cleaning the teeth and mucous membranes'],opts:['A. i, ii and iii only','B. ii, iii and iv only','C. i and iv only','D. All of the above'],ans:0,exp:'s.2 SODA 1952: Medicinal purpose explicitly includes contraception, inducing anaesthesia, and controlling body weight. Teeth cleaning fits the statutory definition of a cosmetic[cite: 5, 9].'},
+    {act:'SODA · s.4',q:'An officer under the Sale of Drugs Act 1952 may seize any drug which appears to be unwholesome. What happens if no complaint is made within forty-eight hours of the seizure?',opts:['A. The drug is returned to the owner','B. The drug becomes the property of the Government and shall be destroyed','C. The officer must apply to the Magistrate for a destruction order','D. The drug is sold at auction'],ans:1,exp:'s.4(4) SODA 1952: If no complaint is filed within 48 hours, the article becomes the property of the Government and shall be destroyed or disposed of[cite: 9].'},
+    {act:'SODA · s.7',q:'When an officer purchases a sample of a drug for analysis under the Sale of Drugs Act 1952, he must divide the sample into how many parts?',opts:['A. Two','B. Three','C. Four','D. Five'],ans:1,exp:'s.7(2) SODA 1952: The officer must divide the sample into three parts, marking and sealing or fastening up each part[cite: 9].'},
+    {act:'SODA · s.12',q:'What is the general penalty for a first offence committed by a body corporate under the Sale of Drugs Act 1952 where no penalty is expressly provided?',opts:['A. Fine not exceeding RM25,000','B. Fine not exceeding RM50,000','C. Fine not exceeding RM100,000','D. Fine not exceeding RM500,000'],ans:1,exp:'s.12(2) SODA 1952: A body corporate found guilty of an offence where no penalty is expressly specified shall be liable to a fine ≤ RM50,000[cite: 9].'},
+    {act:'CDCR · r.7',q:'Under the Control of Drugs and Cosmetics Regulations 1984, which of the following actions is prohibited regarding a registered product?',stmts:['i. Mixing it with another registered product','ii. Labelling it with an additional name other than the registered name','iii. Possessing written information describing an unapproved indication','iv. Mixing it with a substance not intended for reconstitution'],opts:['A. i and ii only','B. ii and iv only','C. i, ii and iii only','D. All of the above'],ans:3,exp:'Reg 7(1A) & 7(1B) CDCR 1984: All these acts are explicitly prohibited, including possessing documents describing unapproved indications[cite: 5].'},
+    {act:'CDCR · r.8',q:'What is the processing fee for an application to register a product OTHER than a traditional medicine under the CDCR 1984?',opts:['A. RM50','B. RM200','C. RM500','D. RM1,000'],ans:3,exp:'Reg 8(2)(c) CDCR 1984: A processing fee of RM1000.00 is required for products other than traditional medicines[cite: 5].'},
+    {act:'CDCR · r.12',q:'Which licence under the CDCR 1984 is restricted to including ONLY ONE product?',opts:['A. Manufacturer\'s licence','B. Wholesaler\'s licence','C. Import licence','D. Clinical trial import licence'],ans:3,exp:'Reg 12(2) CDCR 1984: Any number of registered products may be included in standard licenses, but a clinical trial import licence includes only one product[cite: 5].'},
+    {act:'CDCR · r.15',q:'Who is exempted from holding a manufacturing license when dispensing a drug for a specific patient\'s medical treatment?',stmts:['i. A pharmacist in a retail pharmacy','ii. A fully registered medical practitioner','iii. A veterinary practitioner','iv. A person acting in the course of duties in a Government hospital'],opts:['A. i and ii only','B. i, ii and iii only','C. ii, iii and iv only','D. All of the above'],ans:3,exp:'Reg 15(2) CDCR 1984: Retail pharmacists, registered medical/dental/veterinary practitioners, and public/estate hospital staff are fully exempted when dispensing for specific care[cite: 5].'},
+    {act:'CDCR · r.18A',q:'For a notified cosmetic, the person responsible for placing it in the market must:',stmts:['i. Maintain proper records','ii. Report serious adverse events to the Director of Pharmaceutical Services','iii. Recall the product immediately if it contravenes guidelines','iv. Apply for a clinical trial import licence'],opts:['A. i, ii and iii only','B. i and ii only','C. ii, iii and iv only','D. All of the above'],ans:0,exp:'Reg 18A(9), (11), & (13) CDCR 1984: Responsible entities must report adverse events, keep files, and recall non-compliant lots. Clinical trial frameworks apply strictly to non-registered drug investigations[cite: 5].'},
+    {act:'CDCR · Sch. (Tab II)',q:'Which of the following substances is PROHIBITED in traditional medicine under the CDCR 1984?',opts:['A. Caffeine','B. Paracetamol','C. Any poison within the meaning of the Poisons Act 1952','D. All of the above'],ans:3,exp:'Table II CDCR 1984: Caffeine, Nicotinamide, Paracetamol, and generic Poisons under the Poisons Act 1952 are prohibited inside traditional medicine lines[cite: 5].'}
   ],
   notes: [
-    {title:'Interpretation — s.2',items:[
-      {t:'Medicinal purpose',d:'Includes contraception, inducing anaesthesia, and controlling body weight.'}
+    {title:'Interpretation & Core Scope — s.2',items:[
+      {t:'Drug Definition',d:'Any substance unit purposed for internal or external human/animal medicinal use[cite: 9]'},
+      {t:'Medicinal Purposes',d:'Alleviating, treating, curing/preventing disease; diagnosis; contraception; anaesthesia; body weight control; general health maintenance[cite: 9]'},
+      {t:'Appliance',d:'Utensils, machinery, apparatus or instruments used in the making, keeping, or preparation of any drug[cite: 9]'}
     ]},
-    {title:'Officer Powers & Sampling',items:[
-      {t:'Seizure [s.4(4)]',d:'If no complaint within 48h, seized items become Government property and destroyed.'},
-      {t:'Sampling [s.7(2)]',d:'Samples must be divided into 3 parts: seller, analyst, retained.'}
+    {title:'Appointments & Authority — s.3',items:[
+      {t:'Analysts',d:'Appointed by the Yang di-Pertuan Agong as necessary for national enforcement[cite: 9]'},
+      {t:'Officers & Inspectors',d:'Chief Minister appoints numbers within a state[cite: 9]'},
+      {t:'Status',d:'All appointed figures are legally public servants under the Penal Code[cite: 9]'}
     ]},
-    {title:'CDCR 1984 Licences & Fees',items:[
-      {t:'Traditional Med Reg Fee',d:'RM500'},
-      {t:'Other Products Reg Fee',d:'RM1,000'},
-      {t:'Clinical trial import licence',d:'Restricted to ONE product only [Reg 12(2)].'}
+    {title:'Enforcement & Seizures — s.4',items:[
+      {t:'Destruction',d:'An officer can directly destroy any drug found to be decayed or putrefied[cite: 9]'},
+      {t:'Seizure Constraint',d:'Unwholesome or deleterious items may be seized[cite: 9]'},
+      {t:'Magistrate Timeline',d:'Claims against seizure must be filed as a complaint to a Magistrate within 48 hours, or the items forfeit to government[cite: 9]'}
     ]},
-    {title:'Cosmetics (r.18A)',items:[
-      {t:'Responsibility',d:'Maintain records, report serious adverse events, and immediately recall non-compliant cosmetics.'}
+    {title:'Statutory Sampling Protocols — s.5 & s.7',items:[
+      {t:'Package Sales [s.5(3)]',d:'Retail drug kept in unopened pack cannot be forced into fractional sale; inspector buys whole unit[cite: 9]'},
+      {t:'Division Rule [s.7(2)]',d:'The sample must be divided into 3 parts, marked, and sealed. One part to seller, one to analyst, one retained[cite: 9]'}
     ]},
-    {title:'Exam traps ⚠️',warn:[
-      'Cleaning teeth or gums is a "cosmetic" purpose, not a "medicinal" purpose under SODA.',
-      'Caffeine and Paracetamol are strictly prohibited in traditional medicines.',
-      'Body corporate general penalty is RM50,000 (first offence), not RM25,000.'
+    {title:'Offences & Penal Provisos — s.10 & s.12',items:[
+      {t:'Prohibited Additions',d:'Sells adulterated items without notice, false markings, or containing methyl/isopropyl/denatured alcohol for internal use[cite: 9]'},
+      {t:'Non-Corporate Caps',d:'First conviction: ≤ RM25,000 fine / 3 years prison. Subsequent: ≤ RM50,000 / 5 years[cite: 9]'},
+      {t:'Corporate Caps',d:'First conviction: ≤ RM50,000 fine. Subsequent: ≤ RM100,000 fine[cite: 9]'}
+    ]},
+    {title:'Court Timelines & Warranty Defences',items:[
+      {t:'summons Return [s.18]',d:'summons must not be returnable in less than 14 days from service date; copy of analyst cert must accompany it[cite: 9]'},
+      {t:'Expiry Limit',d:'No proceedings can be brought after 60 days from sample collection date[cite: 9]'},
+      {t:'Warranty Clause [s.20]',d:'Written warranty from seller is a defence if copy given to prosecutor within 7 days of summons service[cite: 9]'}
+    ]},
+    {title:'Drug Control Authority (DCA) Structure',items:[
+      {t:'Ex Officio Trio',d:'Director-General of Health (Chairman) + Director of Pharmaceutical Services (Alternate Chairman) + Director of NPCB[cite: 5]'},
+      {t:'Ministerial Appointees',d:'8 members: public service physician & pharmacist, 3 local university science experts, 2 medical practitioners, 1 public veterinary surgeon[cite: 5]'},
+      {t:'Quorum',d:'4 members form a valid quorum[cite: 5]'},
+      {t:'Secretary',d:'Public service pharmacist appointed after consultation; non-member, zero voting rights[cite: 5]'}
+    ]},
+    {title:'CDCR 1984 Gating & Fees',items:[
+      {t:'Traditional Medicine Reg',d:'Processing fee of RM500. Variants cost RM50[cite: 5]'},
+      {t:'Other Products Reg',d:'Processing fee of RM1,000[cite: 5]'},
+      {t:'Manufacturer Licence',d:'Processing fee of RM1,000. Wholesaler or Importer licenses cost RM500[cite: 5]'},
+      {t:'Clinical Trial Import',d:'Form 4 license, valid up to 3 years, restricted to ONE product unit only[cite: 5]'}
+    ]},
+    {title:'Cosmetics Protocols — r.18A',items:[
+      {t:'Market Placement',d:'Must be a notified cosmetic linked to an authorized responsible person[cite: 5]'},
+      {t:'Recall Orders',d:'DPS may issue directive for safety lot recall. If responsible person knows of a breach, they must pull items immediately[cite: 5]'},
+      {t:'Records Transaction',d:'Every wholesaler, importer, or responsible entity must maintain ledger details for not less than 5 years[cite: 5]'}
+    ]},
+    {title:'Traditional Med Prohibitions & Metal Caps',items:[
+      {t:'Arsenic Max Level',d:'5.0 mg/kg or 5.0 ppm maximum tolerance[cite: 5]'},
+      {t:'Cadmium Max Level',d:'0.3 mg/kg or 0.3 ppm maximum tolerance[cite: 5]'},
+      {t:'Lead Max Level',d:'10.0 mg/kg or 10.0 ppm maximum tolerance[cite: 5]'},
+      {t:'Mercury Max Level',d:'0.5 mg/kg or 0.5 ppm maximum tolerance[cite: 5]'},
+      {t:'Table II Banned Items',d:'Caffeine, Nicotinamide, Paracetamol, or generic Poisons are totally forbidden inside traditional registrations[cite: 5]'}
+    ]},
+    {title:'SODA Exam Traps ⚠️',warn:[
+      'Yang di-Pertuan Agong appoints Analysts; Chief Ministers appoint Officers & Inspectors[cite: 9].',
+      'The summary court trial window is strictly capped at 60 days from sample capture date[cite: 9].',
+      'Certificate of analysis copy can NEVER be used or displayed as commercial advertisement[cite: 9].',
+      'DCA Secretary must be a public pharmacist but cannot be an active voting member of the board[cite: 5].',
+      'Clinical trial import licenses are valid up to 3 years but restricted to exactly ONE product entry[cite: 5].',
+      'Caffeine, Paracetamol, and registered Poisons are completely illegal additions within natural traditional remedies[cite: 5].',
+      'The Certificate of Analysis form layout is specified inside the dedicated 1997 subsidiary regulations[cite: 8].'
     ]}
   ],
   flashcards: [
-    {q:'Under SODA, how many parts must a sample be divided into?',a:'Three parts',ref:'s.7(2) SODA'},
-    {q:'Unwholesome drug seized under SODA. How long before it is destroyed if no complaint is made?',a:'48 hours',ref:'s.4(4) SODA'},
-    {q:'Processing fee for registering a non-traditional product under CDCR?',a:'RM1,000',ref:'Reg 8(2) CDCR'},
-    {q:'Which CDCR licence is restricted to only one product?',a:'Clinical Trial Import Licence',ref:'Reg 12(2) CDCR'}
+    {q:'Who has statutory authority to appoint chemical and drug Analysts under SODA?',a:'The Yang di-Pertuan Agong',ref:'s.3(1) SODA 1952[cite: 9]'},
+    {q:'Who holds the power to appoint state-level enforcement Officers and Inspectors?',a:'The Chief Minister of the respective state',ref:'s.3(2) SODA 1952[cite: 9]'},
+    {q:'What happens if no formal magistrate complaint is raised within 48 hours of an officer drug seizure?',a:'The drug instantly forfeits to Government ownership and is destroyed',ref:'s.4(4) SODA 1952[cite: 9]'},
+    {q:'Can an inspector demand to purchase half of the contents of an unopened retail product unit package?',a:'No, for unopened packages the seller cannot be required to sell less than the whole unit',ref:'s.5(3) SODA 1952[cite: 9]'},
+    {q:'What are the precise divisions required when a procurement inspector takes an analytical drug sample?',a:'Must divide into three parts: one to seller, one to analyst, one retained',ref:'s.7(2) SODA 1952[cite: 9]'},
+    {q:'What is the statutory deadline for launching prosecution procedures following a test sample purchase?',a:'Must be initiated within 60 days from purchase collection date',ref:'s.18(4) SODA 1952[cite: 9]'},
+    {q:'What is the corporate penalty ceiling for a baseline first offence under SODA?',a:'A fine not exceeding fifty thousand ringgit (RM50,000)',ref:'s.12(2) SODA 1952[cite: 9]'},
+    {q:'What is the corporate fine cap for secondary repeat offences under SODA?',a:'A fine not exceeding one hundred thousand ringgit (RM100,000)',ref:'s.12(2) SODA 1952[cite: 9]'},
+    {q:'What is the standard quorum configuration for a Drug Control Authority (DCA) meeting?',a:'Four members including the Chairman or presiding alternate',ref:'Reg 5(4) CDCR 1984[cite: 5]'},
+    {q:'What is the application processing fee for a standard non-traditional medical product registration?',a:'One thousand ringgit (RM1,000)',ref:'Reg 8(2) CDCR 1984[cite: 5]'},
+    {q:'What is the operational validity timeline for a Clinical Trial Import Licence, and what is its product limit?',a:'Valid for up to 3 years, but strictly limited to ONE product line only',ref:'Reg 12(2)&(5) CDCR 1984[cite: 5]'},
+    {q:'How long must transaction records be archived by licensed importers and wholesalers under CDCR?',a:'For a period of not less than five years from the transaction date',ref:'Reg 27(1) CDCR 1984[cite: 5]'},
+    {q:'What is the maximum permitted proportion of Lead contaminant inside a traditional medicine line?',a:'10.0 mg/kg or 10.0 ppm maximum',ref:'Table I CDCR 1984[cite: 5]'},
+    {q:'What is the maximum permitted proportion of Mercury contaminant inside traditional products?',a:'0.5 mg/kg or 0.5 ppm maximum',ref:'Table I CDCR 1984[cite: 5]'},
+    {q:'Are baseline chemicals like Caffeine or Paracetamol allowed inside traditional herbal registrations?',a:'No, they are strictly prohibited chemical additions',ref:'Table II CDCR 1984[cite: 5]'},
+    {q:'What is the standard processing fee for an application to obtain a pharmaceutical Manufacturer Licence?',a:'One thousand ringgit (RM1,000)',ref:'Reg 13(1) CDCR 1984[cite: 5]'},
+    {q:'What is the timeframe within which a person must appeal a DCA licensing rejection to the Minister?',a:'Written appeal must be filed within 14 days of decision notification',ref:'Reg 18 CDCR 1984[cite: 5]'},
+    {q:'What is the statutory penalty value for an inspector breaking an official preservation mark or seal?',a:'A fine of five hundred ringgit (RM500)',ref:'s.11 SODA 1952[cite: 9]'},
+    {q:'If a drug sale violation is executed by an acting employee or agent, who bears liability?',a:'The principal or employer shares identical liability as if they sold it personally',ref:'s.16(2) SODA 1952[cite: 9]'},
+    {q:'Which specific piece of subsidiary legislation prescribes the physical layout of the analyst document output?',a:'The Sale of Drugs (Certificate of Analysis) Regulations 1997',ref:'Reg 2 COA Regs 1997[cite: 8]'}
   ],
   law: [
-    {sec:'s.4(4)',title:'Disposal of seized items',body:'If within forty-eight hours after such seizure no complaint has been made... the article seized shall become the property of the Government and shall be destroyed.'},
-    {sec:'Reg 18A',title:'Cosmetics Notification',body:'No person shall manufacture, sell, supply, import... any cosmetic unless the cosmetic is a notified cosmetic. Must maintain proper records and report adverse events.'}
+    {sec:'s.2',title:'Statutory Definitions',body:'"Drug" includes any substancepurposed or claimed capable of use on humans/animals internally or externally for a medicinal purpose. Scope details diagnosis, contraception, anaesthesia, weight controls, and health promotion[cite: 9].'},
+    {sec:'s.4',title:'Seizure Mechanics',body:'Officers may seize unwholesome items or destroy decayed items. Restitution actions must be launched via a Magistrate Court complaint within 48 hours or items become state property[cite: 9].'},
+    {sec:'s.7',title:'Sampling Routine',body:'Procuring inspectors must notify the seller of analytical intent, split samples into 3 parts, seal them, and deliver one part to seller, one to analyst, and retain the third[cite: 9].'},
+    {sec:'s.12',title:'General Sanctions',body:'Non-Corporate First: ≤ RM25,000 / 3 years. Subsequent: ≤ RM50,000 / 5 years. Corporate First: ≤ RM50,000 fine. Subsequent Corporate: ≤ RM100,000 fine[cite: 9].'},
+    {sec:'s.18',title:'Court Rules',body:'Initiated inside summary Sessions or First Class Magistrate spaces. No actions allowed past 60 days from original collection date. summons requires ≥ 14 days response layout[cite: 9].'},
+    {sec:'Reg 3',title:'DCA Constitution',body:'DG Health (Chair), DPS (Alt Chair), NPCB Director, plus 8 members (physician, pharmacist, 3 academic experts, 2 doctors, 1 vet). Secretary is a non-member public pharmacist[cite: 5].'},
+    {sec:'Reg 12',title:'Licence Profiles',body:'Manufacturer (Form 2), Wholesaler (Form 3), Clinical Trial Import (Form 4), Import (Form 5). Clinical trial holds 3-year ceiling and max 1 product constraint[cite: 5].'},
+    {sec:'Reg 18A',title:'Cosmetic Actions',body:'Restricted to notified items linked to authorized market channels. DPS holds absolute authority to order safety batch recalls. Records must span ≥ 5 years[cite: 5].'},
+    {sec:'Tab I & II',title:'Traditional Remedy Limits',body:'Max heavy metal ppm caps: Arsenic 5.0, Cadmium 0.3, Lead 10.0, Mercury 0.5. Synthetic additions like Caffeine, Nicotinamide, or Paracetamol are illegal[cite: 5].'}
   ]
 };
 
 // ── INJECTED DATA: MASA ──────────────────────────────────────────
 window.MASA_DATA = {
   questions: [
-    {act:'MASA · s.3',q:'Under the Medicines (Advertisement and Sale) Act 1956, it is prohibited to advertise an article as a remedy for preventing or treating which of the following diseases?',stmts:['i. Asthma','ii. Cancer','iii. Diabetes','iv. Headaches'],opts:['A. i and ii only','B. i, ii and iii only','C. ii, iii and iv only','D. All of the above'],ans:1,exp:'Schedule to MASA 1956: Asthma, Cancer, and Diabetes are explicitly listed. Headaches are not.'},
-    {act:'MASA · s.4A',q:'Which of the following may publish an advertisement referring to a skill or service relating to the treatment of a disease, provided they have approval from the Medicine Advertisements Board?',opts:['A. A private hospital','B. A traditional medicine practitioner','C. A retail pharmacy','D. A health supplement manufacturer'],ans:0,exp:'s.4A(bb) MASA 1956: The prohibition does not apply to ads published with MAB approval by a private hospital, private clinic, or medical laboratory.'},
-    {act:'MASA · s.3',q:'In proceedings for contravening the prohibition on disease advertisements, it is a valid defence if the advertisement was published ONLY to which class of persons?',opts:['A. Members of the general public over 18 years old','B. Registered nurses and midwives','C. Licensed traditional healers','D. Managers of health food stores'],ans:1,exp:'s.3(2)(e) MASA 1956: It is a defence to prove the ad was published only to certain classes of professionals, including registered nurses and midwives.'},
-    {act:'MASA · s.6',q:'When selling a substance recommended as a medicine by retail, what must be written on the article or label?',opts:['A. The appropriate designation of the active constituents and their quantitative particulars','B. The full name and address of the patient','C. The side effects and contraindications','D. The MAB approval serial number only'],ans:0,exp:'s.6(1) MASA 1956: The appropriate designation of the substance or active constituents and quantitative particulars must be written.'},
-    {act:'MASA · s.6A & 6F',q:'Who may authorize a pharmacist in the public service to exercise the powers of an authorized officer under the MASA 1956, and who must sanction prosecutions?',opts:['A. Authorized by the Director General of Health; Sanctioned by the Pharmacy Board','B. Authorized by the Minister; Sanctioned by the Public Prosecutor','C. Authorized by the MAB; Sanctioned by the Minister','D. Authorized by the Director of Pharmaceutical Services; Sanctioned by the Magistrate'],ans:1,exp:'s.6A & s.6F(1) MASA 1956: The Minister authorizes officers in writing, and prosecutions require the written sanction of the Public Prosecutor.'},
-    {act:'MAB Regs · r.3',q:'Who is the Chairman of the Medicine Advertisements Board?',opts:['A. The Director of Pharmaceutical Services','B. The Minister of Health','C. The Director-General of Health','D. A pharmacologist appointed by the Minister'],ans:2,exp:'Reg 3(1) MAB Regulations 1976: The Director-General of Health shall be the Chairman of the Board.'},
-    {act:'MAB Regs · r.3',q:'What is the quorum required for a meeting of the Medicine Advertisements Board?',opts:['A. Three members including the Chairman','B. Five members including the Chairman','C. Seven members','D. Nine members'],ans:0,exp:'Reg 3(2) MAB Regulations 1976: At any meeting three members including the Chairman or member presiding shall form a quorum.'},
-    {act:'MAB Regs · r.7',q:'When an approved medicine advertisement is published in print, what MUST be legibly displayed?',stmts:['i. The approval serial number','ii. The expiry date of the approval','iii. The names of the Board members who approved it','iv. The quantitative particulars of the medicine'],opts:['A. i only','B. i and ii only','C. i, ii and iv only','D. All of the above'],ans:1,exp:'Reg 7(2) MAB Regulations 1976: The approval serial number and expiry date shall be legibly displayed.'},
-    {act:'MAB Regs · r.8',q:'What is the non-refundable fee required for every application for approval of an advertisement by the MAB?',opts:['A. RM100','B. RM200','C. RM300','D. RM500'],ans:2,exp:'Reg 8(3) MAB Regulations 1976: Every application for approval of advertisement shall be accompanied by a fee of RM300.'},
-    {act:'MASA · s.4',q:'Under the MASA 1956, taking part in the publication of an advertisement referring to an article for procuring the miscarriage of women is:',opts:['A. Allowed if approved by the Medicine Advertisements Board','B. Allowed if advertised only to married women','C. Strictly prohibited','D. Allowed if the article is a registered product'],ans:2,exp:'s.4 MASA 1956: Absolute prohibition. No person shall take any part in the publication of any advertisement referring to any article for procuring miscarriage.'}
+    {act:'MASA · s.3',q:'Under the Medicines (Advertisement and Sale) Act 1956, it is prohibited to advertise an article as a remedy for preventing or treating which of the following diseases?',stmts:['i. Asthma','ii. Cancer','iii. Diabetes','iv. Headaches'],opts:['A. i and ii only','B. i, ii and iii only','C. ii, iii and iv only','D. All of the above'],ans:1,exp:'Schedule to MASA 1956: Asthma, Cancer, and Diabetes are explicitly listed. Headaches are not[cite: 6].'},
+    {act:'MASA · s.4A',q:'Which of the following may publish an advertisement referring to a skill or service relating to the treatment of a disease, provided they have approval from the Medicine Advertisements Board?',opts:['A. A private hospital','B. A traditional medicine practitioner','C. A retail pharmacy','D. A health supplement manufacturer'],ans:0,exp:'s.4A(bb) MASA 1956: The prohibition does not apply to ads published with MAB approval by a private hospital, private clinic, or medical laboratory[cite: 6].'},
+    {act:'MASA · s.3',q:'In proceedings for contravening the prohibition on disease advertisements, it is a valid defence if the advertisement was published ONLY to which class of persons?',opts:['A. Members of the general public over 18 years old','B. Registered nurses and midwives','C. Licensed traditional healers','D. Managers of health food stores'],ans:1,exp:'s.3(2)(e) MASA 1956: It is a defence to prove the ad was published only to certain classes of professionals, including registered nurses and midwives[cite: 6].'},
+    {act:'MASA · s.6',q:'When selling a substance recommended as a medicine by retail, what must be written on the article or label?',opts:['A. The appropriate designation of the active constituents and their quantitative particulars','B. The full name and address of the patient','C. The side effects and contraindications','D. The MAB approval serial number only'],ans:0,exp:'s.6(1) MASA 1956: The appropriate designation of the substance or active constituents and quantitative particulars must be written[cite: 6].'},
+    {act:'MASA · s.6A & 6F',q:'Who may authorize a pharmacist in the public service to exercise the powers of an authorized officer under the MASA 1956, and who must sanction prosecutions?',opts:['A. Authorized by the Director General of Health; Sanctioned by the Pharmacy Board','B. Authorized by the Minister; Sanctioned by the Public Prosecutor','C. Authorized by the MAB; Sanctioned by the Minister','D. Authorized by the Director of Pharmaceutical Services; Sanctioned by the Magistrate'],ans:1,exp:'s.6A & s.6F(1) MASA 1956: The Minister authorizes officers in writing, and prosecutions require the written sanction of the Public Prosecutor[cite: 6].'},
+    {act:'MAB Regs · r.3',q:'Who is the Chairman of the Medicine Advertisements Board?',opts:['A. The Director of Pharmaceutical Services','B. The Minister of Health','C. The Director-General of Health','D. A pharmacologist appointed by the Minister'],ans:2,exp:'Reg 3(1) MAB Regulations 1976: The Director-General of Health shall be the Chairman of the Board[cite: 7].'},
+    {act:'MAB Regs · r.3',q:'What is the quorum required for a meeting of the Medicine Advertisements Board?',opts:['A. Three members including the Chairman','B. Five members including the Chairman','C. Seven members','D. Nine members'],ans:0,exp:'Reg 3(2) MAB Regulations 1976: At any meeting three members including the Chairman or member presiding shall form a quorum[cite: 7].'},
+    {act:'MAB Regs · r.7',q:'When an approved medicine advertisement is published in print, what MUST be legibly displayed?',stmts:['i. The approval serial number','ii. The expiry date of the approval','iii. The names of the Board members who approved it','iv. The quantitative particulars of the medicine'],opts:['A. i only','B. i and ii only','C. i, ii and iv only','D. All of the above'],ans:1,exp:'Reg 7(2) MAB Regulations 1976: The approval serial number and expiry date shall be legibly displayed[cite: 7].'},
+    {act:'MAB Regs · r.8',q:'What is the non-refundable fee required for every application for approval of an advertisement by the MAB?',opts:['A. RM100','B. RM200','C. RM300','D. RM500'],ans:2,exp:'Reg 8(3) MAB Regulations 1976: Every application for approval of advertisement shall be accompanied by a fee of RM300[cite: 7].'},
+    {act:'MASA · s.4',q:'Under the MASA 1956, taking part in the publication of an advertisement referring to an article for procuring the miscarriage of women is:',opts:['A. Allowed if approved by the Medicine Advertisements Board','B. Allowed if advertised only to married women','C. Strictly prohibited','D. Allowed if the article is a registered product'],ans:2,exp:'s.4 MASA 1956: Absolute prohibition. No person shall take any part in the publication of any advertisement referring to any article for procuring miscarriage[cite: 6].'}
   ],
   notes: [
     {title:'Advertising Prohibitions (s.3 & s.4)',items:[
-      {t:'Absolute Prohibition',d:'Advertisements procuring miscarriage of women [s.4].'},
-      {t:'Specific Diseases',d:'Asthma, Cancer, Diabetes, Leprosy, Tuberculosis, Deafness [s.3 Schedule].'}
+      {t:'Absolute Prohibition',d:'Advertisements procuring miscarriage of women [s.4][cite: 6].'},
+      {t:'Specific Diseases',d:'Asthma, Cancer, Diabetes, Leprosy, Tuberculosis, Deafness [s.3 Schedule][cite: 6].'}
     ]},
     {title:'Medicine Advertisements Board (MAB)',items:[
-      {t:'Chairman',d:'Director-General of Health [Reg 3(1)]'},
-      {t:'Quorum',d:'3 members including Chairman [Reg 3(2)]'},
-      {t:'Application Fee',d:'RM300 (non-refundable) [Reg 8(3)]'},
-      {t:'Print Requirements',d:'Approval serial number and expiry date must be legibly displayed [Reg 7(2)]'}
-    ]},
-    {title:'Exam traps ⚠️',warn:[
-      'Abortion ads are absolutely prohibited — MAB cannot approve them.',
-      'Prosecutions require written sanction from the Public Prosecutor, not the Board.'
+      {t:'Chairman',d:'Director-General of Health [Reg 3(1)][cite: 7]'},
+      {t:'Quorum',d:'3 members including Chairman [Reg 3(2)][cite: 7]'},
+      {t:'Application Fee',d:'RM300 (non-refundable) [Reg 8(3)][cite: 7]'},
+      {t:'Print Requirements',d:'Approval serial number and expiry date must be legibly displayed [Reg 7(2)][cite: 7]'}
     ]}
   ],
   flashcards: [
-    {q:'Can you advertise a cure for Asthma to the general public?',a:'No (Asthma is listed in the s.3 Schedule)',ref:'MASA s.3'},
-    {q:'Are abortion ads ever permitted if approved by MAB?',a:'No, it is an absolute prohibition.',ref:'MASA s.4'},
-    {q:'What must be disclosed on a retailed medicine label?',a:'Active constituents and their quantitative particulars.',ref:'MASA s.6(1)'},
-    {q:'MAB application fee?',a:'RM300',ref:'MAB Regs r.8'},
-    {q:'What must be displayed on a printed approved ad?',a:'Approval serial number and expiry date',ref:'MAB Regs r.7(2)'}
+    {q:'Can you advertise a cure for Asthma to the general public?',a:'No (Asthma is listed in the s.3 Schedule)',ref:'MASA s.3[cite: 6]'},
+    {q:'Are abortion ads ever permitted if approved by MAB?',a:'No, it is an absolute prohibition.',ref:'MASA s.4[cite: 6]'},
+    {q:'What must be disclosed on a retailed medicine label?',a:'Active constituents and their quantitative particulars.',ref:'MASA s.6(1)[cite: 6]'},
+    {q:'MAB application fee?',a:'RM300',ref:'MAB Regs r.8[cite: 7]'}
   ],
   law: [
-    {sec:'s.3',title:'Prohibition relating to certain diseases',body:'No person shall take any part in the publication of any advertisement... for the purpose of prevention or treatment of the diseases and conditions specified in the Schedule (e.g., Cancer, Diabetes, Asthma).'},
-    {sec:'s.4',title:'Prohibition relating to abortion',body:'No person shall take any part in the publication of any advertisement... for procuring the miscarriage of women.'}
+    {sec:'s.3',title:'Prohibition relating to certain diseases',body:'No person shall take any part in the publication of any advertisement... for the purpose of prevention or treatment of the diseases and conditions specified in the Schedule (e.g., Cancer, Diabetes, Asthma)[cite: 6].'},
+    {sec:'s.4',title:'Prohibition relating to abortion',body:'No person shall take any part in the publication of any advertisement... for procuring the miscarriage of women[cite: 6].'}
   ]
 };
 
-// ── Game state ────────────────────────────────────────────────────
+// ── CORE GAME ENGINE LOGIC ───────────────────────────────────────
 var G = {
   currentAppMode: 'welcome',
   selectedAct: null,
@@ -599,7 +726,6 @@ function renderHearts(id){
   el.innerHTML=h;
 }
 
-// ── Learn Mod UI ──────────────────────────
 function switchTab(t){
   G.activeTab=t;
   ['notes','flash','law'].forEach(function(x){
@@ -671,10 +797,9 @@ function prevFC(){if(G.fcIdx>0){G.fcIdx--;G.fcFlipped=false;renderFlash();}}
 
 function toggleLaw(i){G.lawOpen[i]=!G.lawOpen[i];switchTab('law');}
 
-// ── Quiz Engine ───────────────────────────────────────────────────
 function initQuiz(timingMode){
   G.timingMode = timingMode;
-  G.initialHearts = G.hearts; // Snapshot hearts to refund if user quits
+  G.initialHearts = G.hearts;
   
   if(timingMode === 'casual' && G.hearts <= 0){
     show('locked');
@@ -699,9 +824,6 @@ function initQuiz(timingMode){
   } else if (timingMode === 'sprint'){
     G.lesQ = pool.slice(0, 10);
     G.timeRemaining = 18 * 60; 
-  } else if (timingMode === 'mock'){
-    G.lesQ = pool; 
-    G.timeRemaining = 180 * 60; 
   }
 
   G.lesIdx=0; G.correct=0; G.wrong=0; G.skipped=0;
@@ -740,7 +862,6 @@ function tickTimer(){
 
 function updateScoreHUD(){
   if(G.timingMode !== 'casual'){
-    // Calculate and display mid-game, but don't save permanently yet.
     var dynamicScore = G.correct - (G.wrong * 0.25);
     document.getElementById('hud-score').textContent = 'Score: ' + dynamicScore.toFixed(2);
   }
@@ -787,7 +908,6 @@ function pickAns(idx){
   
   if(ok){
     G.correct++;
-    
     fb.className='fb fb-ok pop';
     fb.innerHTML='<div class="fb-title ok">Correct!</div><div class="fb-exp ok">'+q.exp+'</div>';
   } else {
@@ -843,12 +963,10 @@ function finishLesson(timeOut){
   var total=G.lesQ.length;
   var isCasual = G.timingMode === 'casual';
   
-  // Calculate and apply final points only at the very end
   if(isCasual){
     var baseXP = G.correct * 10;
     var bonus = (G.correct === total) ? 20 : 0;
     var totalEarnedXP = baseXP + bonus;
-    
     G.xp += totalEarnedXP;
     
     document.getElementById('r-xp').style.display = 'inline-flex';
@@ -856,7 +974,6 @@ function finishLesson(timeOut){
     document.getElementById('r-pkumf-box').style.display = 'none';
   } else {
     G.pkumfScore = G.correct - (G.wrong * 0.25);
-    
     document.getElementById('r-xp').style.display = 'none';
     document.getElementById('r-pkumf-box').style.display = 'block';
     document.getElementById('r-pkumf').textContent = G.pkumfScore.toFixed(2) + ' / ' + total;
@@ -878,18 +995,14 @@ function finishLesson(timeOut){
 function exitLesson(){ 
   if(confirm("Are you sure you want to quit? Your progress and points for this session will be lost.")) {
     clearInterval(G.timerInt); 
-    
-    // Abort session and refund hearts if playing casual
     if(G.timingMode === 'casual') {
       G.hearts = G.initialHearts; 
-      // Stop the refill timer if they got their hearts back
       if(G.hearts > 0 && G.refillInt) {
         clearInterval(G.refillInt);
         G.refillInt = null;
         G.heartRefill = null;
       }
     }
-    
     renderDash();
     show('game-dash'); 
   }
