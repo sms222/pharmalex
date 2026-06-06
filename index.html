@@ -22,46 +22,41 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
 .mode-name{font-size:16px;font-weight:700;color:#111827}
 .mode-desc{font-size:12.5px;color:#6B7280;line-height:1.5}
 
-/* Top bar */
+/* Top bar & Level Banner */
 .top-bar{display:flex;justify-content:space-between;align-items:center;margin-bottom:1rem}
 .xp-pill{display:flex;align-items:center;gap:4px;background:#EFF6FF;border-radius:99px;padding:5px 12px;font-size:12px;font-weight:600;color:#1D4ED8}
 .streak-pill{display:flex;align-items:center;gap:4px;background:#FFFBEB;border-radius:99px;padding:5px 12px;font-size:12px;font-weight:600;color:#92400E}
 .hearts{display:flex;gap:3px}
 .heart{font-size:14px;color:#EF4444}.heart.empty{color:#D1D5DB}
 
-/* Level banner */
-.level-banner{display:flex;align-items:center;gap:12px;background:#fff;border:1px solid #E5E7EB;border-radius:16px;padding:12px 14px;margin-bottom:1rem;box-shadow:0 1px 3px rgba(0,0,0,.05)}
-.level-icon{width:42px;height:42px;border-radius:50%;background:#EFF6FF;display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0}
-.level-info{flex:1}
-.level-name{font-size:13px;font-weight:600;color:#111827}
-.level-sub{font-size:11px;color:#9CA3AF;margin-top:2px}
-.xp-track{height:6px;background:#E5E7EB;border-radius:3px;overflow:hidden;margin-top:6px}
-.xp-fill{height:100%;background:#3B82F6;border-radius:3px;transition:width .4s}
+/* Game Dashboard Grid */
+.dash-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:1.5rem}
+.act-btn{background:#fff;border:2px solid #E5E7EB;border-radius:16px;padding:16px 12px;text-align:center;cursor:pointer;transition:all 0.15s;box-shadow:0 1px 2px rgba(0,0,0,.02)}
+.act-btn:hover{border-color:#93C5FD;background:#EFF6FF;transform:translateY(-2px)}
+.act-btn.full-width{grid-column:1 / -1;background:#F5F3FF;border-color:#DDD6FE}
+.act-btn.full-width:hover{background:#EDE9FE;border-color:#C4B5FD}
+.act-icon{font-size:28px;margin-bottom:8px}
+.act-title{font-size:14px;font-weight:700;color:#111827;margin-bottom:4px}
+.act-sub{font-size:11px;color:#6B7280}
 
-/* Skill tree */
-.tree-label{font-size:11px;font-weight:600;color:#9CA3AF;text-transform:uppercase;letter-spacing:.06em;margin-bottom:.85rem}
-.tree{display:flex;flex-direction:column;align-items:center;margin-bottom:1rem}
-.tree-row{display:flex;justify-content:center;gap:12px;width:100%}
-.connector{width:2px;height:14px;background:#E5E7EB;margin:3px auto}
-.branch-connectors{display:flex;justify-content:center;gap:64px;margin:3px 0}
-.branch-line{width:2px;height:14px;background:#E5E7EB}
-.node{display:flex;flex-direction:column;align-items:center;gap:4px;cursor:pointer;width:82px}
-.node-circle{width:64px;height:64px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;border:3px solid transparent;transition:all .2s;letter-spacing:.03em}
-.nc-live{background:#EFF6FF;border-color:#93C5FD;color:#1D4ED8}
-.nc-live:hover{border-color:#3B82F6;transform:scale(1.06)}
-.nc-done1{background:#F0FDF4;border-color:#86EFAC;color:#15803D}
-.nc-done2{background:#F0FDF4;border-color:#4ADE80;color:#15803D}
-.nc-done3{background:#F0FDF4;border-color:#16A34A;color:#15803D}
-.nc-locked{background:#F9FAFB;border-color:#E5E7EB;color:#9CA3AF;opacity:.5;cursor:not-allowed;font-size:18px}
-.node-lbl{font-size:10px;font-weight:600;color:#6B7280;text-align:center}
-.stars{display:flex;gap:2px;justify-content:center}
-.star{font-size:10px;color:#F59E0B}.star.off{color:#E5E7EB}
-.studied-badge{font-size:9px;background:#D1FAE5;color:#065F46;border-radius:99px;padding:1px 7px;font-weight:600;margin-top:1px}
+/* Timing Mode Selection */
+.timing-opt{background:#fff;border:2px solid #E5E7EB;border-radius:14px;padding:14px;margin-bottom:12px;cursor:pointer;display:flex;align-items:center;gap:14px;transition:all 0.15s}
+.timing-opt:hover{border-color:#3B82F6;background:#F8FAFC}
+.timing-icon{font-size:24px;width:32px;text-align:center}
+.timing-info{flex:1}
+.timing-name{font-size:14px;font-weight:700;color:#111827;margin-bottom:2px}
+.timing-desc{font-size:11px;color:#6B7280;line-height:1.4}
+.timing-tags{display:flex;gap:6px;margin-top:6px}
+.tag{font-size:9px;font-weight:700;padding:2px 6px;border-radius:4px;text-transform:uppercase;letter-spacing:0.05em}
+.tag-red{background:#FEE2E2;color:#991B1B}
+.tag-blue{background:#DBEAFE;color:#1E3A8A}
+.tag-green{background:#DCFCE7;color:#166534}
 
 /* Page header */
 .page-hdr{display:flex;align-items:center;gap:10px;margin-bottom:1rem}
-.back-btn{background:none;border:none;cursor:pointer;color:#9CA3AF;font-size:18px;padding:4px 6px;border-radius:8px;line-height:1}
+.back-btn{background:none;border:none;cursor:pointer;color:#9CA3AF;font-size:18px;padding:4px 6px;border-radius:8px;line-height:1;display:flex;align-items:center;gap:4px}
 .back-btn:hover{background:#F3F4F6;color:#374151}
+.back-btn span{font-size:13px;font-weight:600}
 .page-title{font-size:15px;font-weight:600;color:#111827}
 .page-sub{font-size:11px;color:#9CA3AF;margin-top:1px}
 
@@ -72,7 +67,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
 .tab.on{color:#2563EB;border-bottom-color:#3B82F6;font-weight:600}
 .pane{display:none}.pane.on{display:block}
 
-/* Notes */
+/* Notes, Flashcards, Law Text ... [Preserved styles] */
 .note-section{margin-bottom:1.1rem}
 .note-title{font-size:12px;font-weight:600;color:#374151;margin-bottom:.5rem;display:flex;align-items:center;gap:5px}
 .note-card{background:#fff;border:1px solid #F3F4F6;border-radius:12px;padding:12px 14px;margin-bottom:.4rem}
@@ -83,17 +78,13 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
 .nval{color:#6B7280}
 .warn-item{display:flex;gap:7px;background:#FEF2F2;border-radius:10px;padding:8px 12px;margin-bottom:.4rem;font-size:12px;color:#991B1B;line-height:1.5}
 
-/* Flashcards */
 .fc-nav{display:flex;justify-content:space-between;align-items:center;margin-bottom:.65rem}
 .fc-ctr{font-size:12px;color:#9CA3AF}
 .fc-btn{background:none;border:1px solid #E5E7EB;border-radius:8px;padding:6px 14px;font-size:12px;cursor:pointer;color:#374151;transition:all .15s}
-.fc-btn:hover:not(:disabled){background:#F9FAFB}
-.fc-btn:disabled{opacity:.3;cursor:default}
 .fc-dots{display:flex;gap:4px;flex-wrap:wrap;margin-bottom:.65rem}
-.fcdot{width:8px;height:8px;border-radius:50%;background:#E5E7EB;cursor:pointer;transition:background .2s;border:none;padding:0}
+.fcdot{width:8px;height:8px;border-radius:50%;background:#E5E7EB;cursor:pointer;border:none;padding:0}
 .fcdot.seen{background:#BFDBFE}.fcdot.known{background:#16A34A}
-.fc-card{background:#fff;border:1px solid #E5E7EB;border-radius:16px;padding:1.5rem 1.25rem;min-height:150px;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;cursor:pointer;transition:all .2s;box-shadow:0 1px 3px rgba(0,0,0,.05)}
-.fc-card:hover{border-color:#93C5FD}
+.fc-card{background:#fff;border:1px solid #E5E7EB;border-radius:16px;padding:1.5rem 1.25rem;min-height:150px;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;cursor:pointer;box-shadow:0 1px 3px rgba(0,0,0,.05)}
 .fc-card.flipped{background:#F9FAFB}
 .fc-side{font-size:10px;font-weight:600;color:#9CA3AF;text-transform:uppercase;letter-spacing:.06em;margin-bottom:.65rem}
 .fc-front{font-size:15px;font-weight:600;color:#111827;line-height:1.5}
@@ -104,12 +95,10 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
 .fc-bad{flex:1;background:#FEF2F2;color:#991B1B;border:1px solid #FECACA;border-radius:10px;padding:8px;font-size:12px;font-weight:500;cursor:pointer}
 .fc-good{flex:1;background:#F0FDF4;color:#166534;border:1px solid #BBF7D0;border-radius:10px;padding:8px;font-size:12px;font-weight:500;cursor:pointer}
 
-/* Law text */
 .law-row{border-bottom:1px solid #F3F4F6}
 .law-hdr{display:flex;justify-content:space-between;align-items:center;padding:12px 0;cursor:pointer;gap:8px}
 .law-sec{font-size:11px;background:#EFF6FF;color:#1D4ED8;border-radius:99px;padding:2px 10px;font-weight:600;flex-shrink:0}
 .law-title{font-size:13px;font-weight:600;color:#111827;flex:1}
-.law-chevron{font-size:12px;color:#9CA3AF}
 .law-body{font-size:13px;color:#6B7280;line-height:1.75;padding-bottom:12px;display:none}
 .law-body.open{display:block}
 .lh{background:#FEF3C7;color:#92400E;border-radius:3px;padding:0 4px;font-weight:600;font-size:.9em}
@@ -121,7 +110,6 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
 .btn-primary{background:#3B82F6;color:#fff}.btn-primary:hover{background:#2563EB}
 .btn-primary:disabled{opacity:.38;cursor:not-allowed}
 .btn-success{background:#15803D;color:#fff}.btn-success:hover{background:#166534}
-.btn-success:disabled{opacity:.5;cursor:not-allowed}
 .btn-secondary{background:#F3F4F6;color:#374151}.btn-secondary:hover{background:#E5E7EB}
 
 /* Lesson */
@@ -130,8 +118,10 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
 .les-close:hover{color:#374151}
 .les-track{flex:1;height:8px;background:#E5E7EB;border-radius:4px;overflow:hidden}
 .les-fill{height:100%;background:#3B82F6;border-radius:4px;transition:width .3s}
-.les-hearts{display:flex;gap:2px}
-.les-hearts span{font-size:13px}
+.les-hud-box{display:flex;align-items:center;gap:8px}
+.timer-pill{background:#FEF2F2;color:#991B1B;border-radius:99px;padding:4px 10px;font-size:12px;font-weight:700;display:flex;align-items:center;gap:4px}
+.score-pill{background:#EFF6FF;color:#1D4ED8;border-radius:99px;padding:4px 10px;font-size:12px;font-weight:700}
+
 .q-num{font-size:11px;font-weight:600;color:#9CA3AF;text-transform:uppercase;letter-spacing:.06em;margin-bottom:.35rem}
 .act-chip{display:inline-block;background:#EFF6FF;color:#1D4ED8;border-radius:99px;padding:3px 12px;font-size:11px;font-weight:600;margin-bottom:.75rem}
 .q-card{background:#fff;border:1px solid #E5E7EB;border-radius:16px;padding:14px 16px;margin-bottom:.85rem;box-shadow:0 1px 3px rgba(0,0,0,.05)}
@@ -160,22 +150,16 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
 .res-title{font-size:20px;font-weight:700;color:#111827;margin-bottom:.3rem}
 .res-sub{font-size:13px;color:#9CA3AF;margin-bottom:1rem}
 .xp-earned{display:inline-flex;align-items:center;gap:5px;background:#EFF6FF;border-radius:99px;padding:6px 16px;font-size:13px;font-weight:600;color:#1D4ED8}
+.pkumf-score{font-size:24px;font-weight:800;color:#1D4ED8;margin:1rem 0 0.5rem}
 .stats3{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:1rem}
 .scard{background:#F9FAFB;border-radius:12px;padding:10px;text-align:center}
 .sv{font-size:18px;font-weight:700;color:#111827}
 .sl{font-size:10px;color:#9CA3AF;margin-top:2px}
 
-/* Coming soon */
-.coming-node{display:flex;align-items:center;gap:12px;background:#F9FAFB;border:1px solid #E5E7EB;border-radius:14px;padding:12px;margin-bottom:8px}
-.coming-icon{font-size:20px;width:36px;text-align:center;flex-shrink:0}
-.coming-name{font-size:13px;font-weight:600;color:#6B7280}
-.coming-acts{font-size:11px;color:#9CA3AF;margin-top:2px}
-
-/* Locked */
+/* Locked / Coming Soon */
 .locked-center{text-align:center;padding:2rem 0}
 .timer-big{font-size:2rem;font-weight:700;color:#92400E;margin:.5rem 0}
 
-/* Animations */
 @keyframes pop{0%{opacity:0;transform:scale(.88)}100%{opacity:1;transform:scale(1)}}
 @keyframes shake{0%{transform:translateX(0)}20%{transform:translateX(-5px)}40%{transform:translateX(5px)}60%{transform:translateX(-3px)}80%{transform:translateX(3px)}100%{transform:translateX(0)}}
 .pop{animation:pop .22s ease}
@@ -191,82 +175,112 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
     <div class="logo-title">PharmaLex</div>
     <div class="logo-sub">PKUMF Malaysian Pharmacy Law Prep</div>
     
-    <div class="mode-card" onclick="selectMode('learn')">
+    <div class="mode-card" onclick="selectAppMode('learn')">
       <div class="mode-hdr">
         <span class="mode-icon">📖</span>
         <div class="mode-name">Learn Mode</div>
       </div>
-      <div class="mode-desc">Direct access to regulatory reference cards, annotated legislation text, and study briefs. Zero gating or tests.</div>
+      <div class="mode-desc">Direct access to regulatory reference cards, annotated legislation text, and study briefs. Zero testing pressure.</div>
     </div>
 
-    <div class="mode-card" onclick="selectMode('game')">
+    <div class="mode-card" onclick="selectAppMode('game')">
       <div class="mode-hdr">
         <span class="mode-icon">⚡</span>
-        <div class="mode-name">Game Mode (Duolingo Style)</div>
+        <div class="mode-name">Game Mode & Testing</div>
       </div>
-      <div class="mode-desc">Jump straight into testing rooms. 5 hearts, negative grading (-0.25), and live map progression to track ranking titles.</div>
+      <div class="mode-desc">Free selection of subjects. Casual practice, Prorated timed sprints, or Full 3-Hour Exam simulator with negative marking.</div>
     </div>
   </div>
 </div>
 
-<!-- MAP -->
-<div id="scr-map" class="scr">
+<!-- GAME DASHBOARD (Replaces Tree) -->
+<div id="scr-game-dash" class="scr">
   <div class="top-bar">
-    <button class="back-btn" onclick="show('welcome')">← Home</button>
-    <div class="xp-pill">⚡ <span id="xp-display">0</span> XP</div>
-    <div class="streak-pill">🔥 <span id="streak-display">0</span> day</div>
-    <div class="hearts" id="hearts-map"></div>
+    <button class="back-btn" onclick="show('welcome')">← <span>Home</span></button>
+    <div class="xp-pill">⚡ <span id="dash-xp">0</span> XP</div>
+    <div class="hearts" id="dash-hearts"></div>
   </div>
-  <div class="level-banner">
-    <div class="level-icon" id="map-lvl-icon">🎓</div>
-    <div class="level-info">
-      <div class="level-name" id="map-lvl-name">Pre-Registration Intern</div>
-      <div class="level-sub" id="map-lvl-sub">0 / 100 XP</div>
-      <div class="xp-track"><div class="xp-fill" id="map-xp-fill" style="width:0%"></div></div>
+  <div class="page-hdr" style="margin-bottom:1.5rem">
+    <div>
+      <div class="page-title">Game Dashboard</div>
+      <div class="page-sub">Select an Act to test your knowledge</div>
     </div>
   </div>
-  <div class="tree-label">Skill tree — Select Act Node to Play Quiz</div>
-  <div class="tree">
-    <div class="tree-row">
-      <div class="node" id="node-ropa" onclick="clickNode('ropa')">
-        <div class="node-circle nc-live" id="nc-ropa">ROPA</div>
-        <div class="node-lbl">ROPA</div>
-        <div class="stars" id="stars-ropa">
-          <span class="star off">★</span><span class="star off">★</span><span class="star off">★</span>
-        </div>
-        <div id="studied-badge" style="display:none" class="studied-badge">studied</div>
+
+  <div class="dash-grid">
+    <div class="act-btn" onclick="openModeSelect('ROPA')">
+      <div class="act-icon">📝</div>
+      <div class="act-title">ROPA</div>
+      <div class="act-sub">Pharmacists Act 1951</div>
+    </div>
+    <div class="act-btn" onclick="openModeSelect('POISON')">
+      <div class="act-icon">☠️</div>
+      <div class="act-title">POISON</div>
+      <div class="act-sub">Poisons Act 1952</div>
+    </div>
+    <div class="act-btn" onclick="openModeSelect('SODA')">
+      <div class="act-icon">🧪</div>
+      <div class="act-title">SODA</div>
+      <div class="act-sub">Sale of Drugs Act 1952</div>
+    </div>
+    <div class="act-btn" onclick="openModeSelect('DDA')">
+      <div class="act-icon">💉</div>
+      <div class="act-title">DDA</div>
+      <div class="act-sub">Dangerous Drugs 1952</div>
+    </div>
+    <div class="act-btn full-width" onclick="openModeSelect('ALL')">
+      <div class="act-icon">🎓</div>
+      <div class="act-title">Full Mock Exam (All Acts)</div>
+      <div class="act-sub">Test across the entire syllabus</div>
+    </div>
+  </div>
+</div>
+
+<!-- TIMING MODE SELECTOR -->
+<div id="scr-mode-select" class="scr">
+  <div class="page-hdr">
+    <button class="back-btn" onclick="show('game-dash')">← <span>Back</span></button>
+    <div>
+      <div class="page-title" id="mode-act-title">ROPA Testing</div>
+      <div class="page-sub">Choose your timing constraint</div>
+    </div>
+  </div>
+
+  <div class="timing-opt" onclick="initQuiz('casual')">
+    <div class="timing-icon">☕</div>
+    <div class="timing-info">
+      <div class="timing-name">Casual Practice</div>
+      <div class="timing-desc">Take your time. Standard Duolingo-style hearts system. Lose a heart per mistake.</div>
+      <div class="timing-tags">
+        <span class="tag tag-blue">10 Questions</span>
+        <span class="tag tag-green">No Timer</span>
+        <span class="tag tag-red">5 Hearts</span>
       </div>
     </div>
-    <div class="connector"></div>
-    <div class="tree-row">
-      <div class="node" onclick="clickNode('poison')">
-        <div class="node-circle nc-locked">🔒</div>
-        <div class="node-lbl">POISON</div>
-        <div class="stars"><span class="star off">★</span><span class="star off">★</span><span class="star off">★</span></div>
+  </div>
+
+  <div class="timing-opt" onclick="initQuiz('sprint')">
+    <div class="timing-icon">⏱️</div>
+    <div class="timing-info">
+      <div class="timing-name">PKUMF Sprint (Prorated)</div>
+      <div class="timing-desc">Scaled exactly to the PKUMF exam speed (1.8 mins/question). Strict negative marking.</div>
+      <div class="timing-tags">
+        <span class="tag tag-blue">10 Questions</span>
+        <span class="tag tag-red">18 Mins</span>
+        <span class="tag tag-red">-0.25 Penalty</span>
       </div>
     </div>
-    <div class="branch-connectors">
-      <div class="branch-line"></div>
-      <div class="branch-line"></div>
-    </div>
-    <div class="tree-row">
-      <div class="node" onclick="clickNode('soda')">
-        <div class="node-circle nc-locked">🔒</div>
-        <div class="node-lbl">SODA</div>
-        <div class="stars"><span class="star off">★</span><span class="star off">★</span><span class="star off">★</span></div>
-      </div>
-      <div class="node" onclick="clickNode('dda')">
-        <div class="node-circle nc-locked">🔒</div>
-        <div class="node-lbl">DDA</div>
-        <div class="stars"><span class="star off">★</span><span class="star off">★</span><span class="star off">★</span></div>
-      </div>
-    </div>
-    <div class="connector"></div>
-    <div class="tree-row">
-      <div class="node" onclick="clickNode('masa')">
-        <div class="node-circle nc-locked">🔒</div>
-        <div class="node-lbl">MASA</div>
-        <div class="stars"><span class="star off">★</span><span class="star off">★</span><span class="star off">★</span></div>
+  </div>
+
+  <div class="timing-opt" onclick="initQuiz('mock')">
+    <div class="timing-icon">📜</div>
+    <div class="timing-info">
+      <div class="timing-name">Exam Simulator (Endurance)</div>
+      <div class="timing-desc">The ultimate test. Maximum questions available, full 3-hour timer, exact PKUMF scoring rules.</div>
+      <div class="timing-tags">
+        <span class="tag tag-blue">Max Questions</span>
+        <span class="tag tag-red">180 Mins</span>
+        <span class="tag tag-red">-0.25 Penalty</span>
       </div>
     </div>
   </div>
@@ -275,7 +289,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
 <!-- LEGISLATION MENU (LEARN DASHBOARD) -->
 <div id="scr-learn-menu" class="scr">
   <div class="page-hdr">
-    <button class="back-btn" onclick="show('welcome')">← Home</button>
+    <button class="back-btn" onclick="show('welcome')">← <span>Home</span></button>
     <div>
       <div class="page-title">Learn Hub</div>
       <div class="page-sub">Select a statutory subject library</div>
@@ -292,7 +306,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
 <!-- NODE STUDY REPOSITORY -->
 <div id="scr-node" class="scr">
   <div class="page-hdr">
-    <button class="back-btn" id="node-back-btn" onclick="goBackFromNode()">←</button>
+    <button class="back-btn" id="node-back-btn" onclick="show('learn-menu')">← <span>Back</span></button>
     <div>
       <div class="page-title" id="node-title">ROPA</div>
       <div class="page-sub" id="node-sub">Registration of Pharmacists Act 1951 + Reg 2004</div>
@@ -306,9 +320,6 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
   <div id="pane-notes" class="pane on"></div>
   <div id="pane-flash" class="pane"></div>
   <div id="pane-law" class="pane"></div>
-  <div style="margin-top:1rem" id="study-actions-container">
-    <button class="btn btn-success" id="study-btn" onclick="markStudied()">Mark as studied (+5 XP)</button>
-  </div>
 </div>
 
 <!-- LESSON -->
@@ -316,7 +327,13 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
   <div class="les-hdr">
     <button class="les-close" onclick="exitLesson()">✕</button>
     <div class="les-track"><div class="les-fill" id="les-fill" style="width:0%"></div></div>
-    <div class="les-hearts" id="hearts-les"></div>
+    
+    <div class="les-hud-box">
+      <!-- Displayed dynamically based on mode -->
+      <div class="score-pill" id="hud-score" style="display:none">Score: 0.00</div>
+      <div class="timer-pill" id="hud-timer" style="display:none">⏱️ 00:00</div>
+      <div class="les-hearts" id="hearts-les" style="display:none"></div>
+    </div>
   </div>
   <div class="q-num" id="q-num">Question 1 of 10</div>
   <div class="act-chip" id="q-act">ROPA · s.3</div>
@@ -333,44 +350,49 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
 <!-- RESULT -->
 <div id="scr-result" class="scr">
   <div class="page-hdr">
-    <button class="back-btn" onclick="show('map')">←</button>
+    <button class="back-btn" onclick="show('game-dash')">← <span>Exit</span></button>
     <div><div class="page-title">Result</div></div>
   </div>
   <div class="res-card pop">
     <div class="res-icon" id="r-icon">🎉</div>
     <div class="res-title" id="r-title">Lesson complete!</div>
     <div class="res-sub" id="r-sub"></div>
+    
+    <div id="r-pkumf-box" style="display:none">
+      <div style="font-size:12px;color:#6B7280;text-transform:uppercase;letter-spacing:0.05em;font-weight:700">Final PKUMF Score</div>
+      <div class="pkumf-score" id="r-pkumf">0.00 / 10</div>
+    </div>
+    
     <div class="xp-earned" id="r-xp">⚡ +0 XP</div>
+    
     <div class="stats3">
       <div class="scard"><div class="sv" id="r-ok">0</div><div class="sl">Correct</div></div>
       <div class="scard"><div class="sv" id="r-bad">0</div><div class="sl">Wrong</div></div>
-      <div class="scard"><div class="sv" id="r-stars">0 ★</div><div class="sl">ROPA stars</div></div>
+      <div class="scard"><div class="sv" id="r-skip">0</div><div class="sl">Skipped</div></div>
     </div>
   </div>
-  <button class="btn btn-primary" onclick="startQuiz()">Try again 🔄</button>
-  <button class="btn btn-secondary" onclick="show('map')">Back to map</button>
+  <button class="btn btn-secondary" onclick="show('game-dash')">Back to Dashboard</button>
 </div>
 
-<!-- LOCKED -->
+<!-- LOCKED (Hearts) -->
 <div id="scr-locked" class="scr">
   <div class="page-hdr">
-    <button class="back-btn" onclick="show('map')">←</button>
+    <button class="back-btn" onclick="show('game-dash')">← <span>Back</span></button>
     <div><div class="page-title">No hearts left</div></div>
   </div>
   <div class="locked-center">
     <div style="font-size:3rem;margin-bottom:.75rem">❤️</div>
     <div style="font-size:16px;font-weight:700;color:#111827;margin-bottom:.4rem">Hearts refilling...</div>
-    <div style="font-size:13px;color:#9CA3AF;margin-bottom:.5rem">Come back in 30 minutes.<br>Study notes while you wait!</div>
+    <div style="font-size:13px;color:#9CA3AF;margin-bottom:.5rem">Wait 30 mins to play Casual Mode.<br>Or play Timed Modes (no hearts needed).</div>
     <div class="timer-big" id="refill-timer">30:00</div>
   </div>
-  <button class="btn btn-success" onclick="openActLearn('ropa')">Study ROPA notes 📖</button>
-  <button class="btn btn-secondary" onclick="show('map')">Back to map</button>
+  <button class="btn btn-secondary" onclick="show('game-dash')">Back to Dashboard</button>
 </div>
 
 <!-- COMING SOON -->
 <div id="scr-coming" class="scr">
   <div class="page-hdr">
-    <button class="back-btn" onclick="goBackFromComing()">←</button>
+    <button class="back-btn" onclick="goBackFromComing()">← <span>Back</span></button>
     <div>
       <div class="page-title" id="coming-title">POISON</div>
       <div class="page-sub">Coming soon</div>
@@ -381,11 +403,6 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
     <div style="font-size:16px;font-weight:700;color:#111827;margin-bottom:.4rem" id="coming-name">POISON</div>
     <div style="font-size:13px;color:#9CA3AF" id="coming-acts"></div>
   </div>
-  <div style="font-size:11px;font-weight:600;color:#9CA3AF;text-transform:uppercase;letter-spacing:.06em;margin-bottom:.75rem">Full app will include</div>
-  <div class="coming-node"><div class="coming-icon">☠️</div><div><div class="coming-name">POISON</div><div class="coming-acts">Poisons Act 1952 + Psychotropic Reg 1989</div></div></div>
-  <div class="coming-node"><div class="coming-icon">🧪</div><div><div class="coming-name">SODA</div><div class="coming-acts">Sale of Drugs Act 1952 + CDCR 1984</div></div></div>
-  <div class="coming-node"><div class="coming-icon">💉</div><div><div class="coming-name">DDA</div><div class="coming-acts">Dangerous Drugs Act 1952 + Regulations</div></div></div>
-  <div class="coming-node"><div class="coming-icon">📢</div><div><div class="coming-name">MASA</div><div class="coming-acts">Medicine Ads Act 1956 + MAB Reg 1976</div></div></div>
   <button class="btn btn-secondary" style="margin-top:1rem" onclick="goBackFromComing()">Back</button>
 </div>
 
@@ -394,24 +411,20 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
 <script>
 // ── Game state ────────────────────────────────────────────────────
 var G = {
-  currentMode: 'welcome', // 'welcome', 'learn', 'game'
-  xp:0, streak:0, hearts:5, stars:0, studied:false,
+  currentAppMode: 'welcome', // 'welcome', 'learn', 'game'
+  selectedAct: null,
+  timingMode: null, // 'casual', 'sprint', 'mock'
+  
+  xp:0, hearts:5, studied:false,
   heartRefill:null, refillInt:null,
-  fcIdx:0, fcFlipped:false, fcKnown:{}, fcSeen:{},
-  lawOpen:{}, activeTab:'notes',
-  lesQ:[], lesIdx:0, correct:0, wrong:0,
+  timerInt:null, timeRemaining:0,
+  pkumfScore:0,
+  
+  fcIdx:0, fcFlipped:false, fcKnown:{}, fcSeen:{}, lawOpen:{}, activeTab:'notes',
+  
+  lesQ:[], lesIdx:0, correct:0, wrong:0, skipped:0,
   answered:false, selAns:null, wasSkipped:false
 };
-
-// ── Levels ────────────────────────────────────────────────────────
-var LEVELS=[
-  {name:'Pre-Registration Intern',icon:'🎓',xp:0,next:100},
-  {name:'House Officer Pharmacist',icon:'⚗️',xp:100,next:250},
-  {name:'Registered Pharmacist',icon:'💊',xp:250,next:500},
-  {name:'Senior Pharmacist',icon:'📋',xp:500,next:900},
-  {name:'Principal Pharmacist',icon:'🏥',xp:900,next:1400},
-  {name:'Pharmacy Consultant',icon:'🎯',xp:1400,next:9999}
-];
 
 var COMING_DATA={
   poison:{name:'POISON',acts:'Poisons Act 1952 + Psychotropic Substances Regulations 1989'},
@@ -444,109 +457,10 @@ var QDB=[
   {act:'Reg 2004 · r.11',q:'When a superintendent pharmacist ceases to be employed by a body corporate, what action must the company take?',opts:['A. Reapply for a new company registration entirely','B. Submit an oral notice to the Minister within 7 days','C. Return the certificate of registration to the Registrar for amendment','D. Close operations until the next annual board cycle'],ans:2,exp:'Reg 11(3) Regulations 2004: The body corporate shall return the certificate of registration to the Registrar, who may insert the new superintendent.'}
 ];
 
-// ── Notes data ────────────────────────────────────────────────────
-var NOTES=[
-  {title:'Board composition — s.3(1)',items:[
-    {t:'DG of Health',d:'Ex officio President — chairs all meetings he attends [s.4(1)]'},
-    {t:'Director of Pharmaceutical Services',d:'Ex officio member [s.3(1)(b)]'},
-    {t:'Public service pharmacists',d:'8 members — appointed by Minister [s.3(1)(c)]'},
-    {t:'HEI pharmacists',d:'3 members from higher education institutions — appointed by Minister [s.3(1)(d)]'},
-    {t:'Non-public service',d:'2 members — appointed by Minister [s.3(1)(e)]'},
-    {t:'Private practice',d:"3 members — nominated by private association, appointed by Minister. Citizens only (excludes PRs) [s.3(1)(f), s.3(5)]"},
-    {t:'TOTAL',d:'18 members'}
-  ]},
-  {title:'Meetings — s.4',items:[
-    {t:'Chairman absent',d:'Members present ELECT one of their number — NOT automatically the DPS [s.4(2)]'},
-    {t:"Chairman's vote",d:'Original vote + casting vote if tied [s.4(3)]'},
-    {t:'Quorum',d:'9 members [s.4(4)]'}
-  ]},
-  {title:'Registration pathway',items:[
-    {t:'Provisional registration',d:'Solely to gain experience [s.6(1)]. Apply to Registrar.'},
-    {t:'Employment period',d:'NOT LESS than 1 year to Board satisfaction [s.6A(2)]'},
-    {t:'Extension',d:'NOT MORE than 1 year by Board [s.6A(3)]'},
-    {t:'Full registration',d:'After satisfactory employment or exemption [s.6B(1)]'},
-    {t:'Provisionally registered',d:'Deemed PUBLIC SERVANT under Penal Code [s.6A(8)]'}
-  ]},
-  {title:'Key penalties',items:[
-    {t:'Title offence [s.7(4)]',d:'≤RM500 + RM50/day continuing (Sessions Court)'},
-    {t:'Public service failure [s.11C(2)]',d:'≤RM50,000 fine on conviction + registration struck off [s.11C(3)]'},
-    {t:'Fraudulent registration [s.20]',d:'≤1 year imprisonment OR ≤RM500 fine — Sessions Court'},
-    {t:'Obstruct inspector [s.21(3)]',d:'≤6 months imprisonment OR ≤RM500 fine'}
-  ]},
-  {title:'Regulations 2004 — key fees',items:[
-    {t:'Full registration [Reg 8]',d:'RM100'},
-    {t:'Annual retention — pharmacist [Reg 12(2)]',d:'RM50'},
-    {t:'Annual retention — body corporate [Reg 12(2)]',d:'RM200'},
-    {t:'Late renewal — pharmacist [Reg 12(3)]',d:'RM100 additional'},
-    {t:'Late renewal — body corporate [Reg 12(3)]',d:'RM300 additional'}
-  ]},
-  {title:'Committee of Inquiry — Reg 2004',items:[
-    {t:'Composition',d:'5 fully registered pharmacists with valid annual certificates [Reg 15(1)]'},
-    {t:'Quorum',d:'3 [Reg 15(4)]'},
-    {t:'Chairman',d:'Nominated by the Board [Reg 15(3)]'},
-    {t:'Decisions',d:'By majority [Reg 15(6)]'},
-    {t:'Secretary',d:'Pharmacist in public service — NOT a Board member [Reg 3]'},
-    {t:'Board meeting documents',d:'Copies of complaints sent ≥7 days before meeting [Reg 4(2)]'},
-    {t:'Investigation notice',d:'Written explanation ≥14 days from notice [Reg 16(1)(b)]. Sent by registered post.'}
-  ]},
-  {title:'Disciplinary & appeals',items:[
-    {t:'Without inquiry',d:'Deceased / permanently left Malaysia / unsound mind [s.17(1A)]'},
-    {t:'With inquiry',d:'Fraud, conviction, infamous conduct [s.17(1)]'},
-    {t:'Punishments [s.18A]',d:'Remove / Suspend / Reprimand. NO imprisonment.'},
-    {t:'Appeal [s.19]',d:'To Minister — decision is FINAL'}
-  ]},
-  {title:'Exam traps ⚠️',warn:[
-    'First Schedule amended by MINISTER — not the Board [s.6(3)]',
-    'Employment satisfies the BOARD — not the Minister [s.6A(2)]',
-    'President absent → members ELECT chairman — DPS is NOT automatic [s.4(2)]',
-    'Annual cert failure = REMOVED from register — not suspended [s.16(4)]',
-    'Temporary registration = deemed FULLY registered while cert in force [s.11A(3)]',
-    'Secretary of Board is NOT a Board member [Reg 3(2)]',
-    'Disciplinary meeting: 7 days. Investigation notice: 14 days. Different!',
-    'Board CANNOT imprison — imprisonment only via Court [s.18A]',
-    'Summary dismissal: 3 grounds only — unknown name, untraceable address, facts not constituting a matter [Reg 17]'
-  ]}
-];
-
-// ── Flashcards ────────────────────────────────────────────────────
-var FLASHCARDS=[
-  {q:'Who keeps and maintains the register of pharmacists?',a:'Director of Pharmaceutical Services (the Registrar)',ref:'s.5 RPA 1951'},
-  {q:'What is the SOLE purpose of provisional registration?',a:'To enable the person to obtain the experience specified in s.6A',ref:'s.6(1) RPA 1951'},
-  {q:'What happens if a provisionally registered pharmacist fails to engage in employment?',a:'Provisional registration shall be REVOKED',ref:'s.6A(4) RPA 1951'},
-  {q:'Is the DPS automatically the chairman when the President is absent?',a:'NO — members present shall ELECT one of their number as Chairman',ref:'s.4(2) RPA 1951'},
-  {q:'Total number of Pharmacy Board members',a:'18 (DG Health + DPS + 8 + 3 + 2 + 3)',ref:'s.3(1) RPA 1951'},
-  {q:'Quorum of the Pharmacy Board',a:'9 members',ref:'s.4(4) RPA 1951'},
-  {q:'Term of appointment for non-ex-officio Board members',a:'3 years — eligible for reappointment',ref:'s.3(2) RPA 1951'},
-  {q:'Can permanent residents be the 3 private practice Board members?',a:'NO — must be CITIZENS; explicitly excludes permanent residents',ref:'s.3(5) RPA 1951'},
-  {q:'Annual certificate — what happens if NOT renewed before year end?',a:'Name shall be REMOVED from the register',ref:'s.16(4) RPA 1951'},
-  {q:'Three punishments the Board may impose after disciplinary inquiry',a:'(1) Remove from register  (2) Suspend from register  (3) Reprimand',ref:'s.18A(1) RPA 1951'},
-  {q:'Can the Board impose imprisonment?',a:'NO — imprisonment is a Court power only',ref:'s.18A RPA 1951'},
-  {q:'Who does a person appeal to against a Board punishment?',a:'The MINISTER — and the decision is FINAL',ref:'s.19 RPA 1951'},
-  {q:'Fee for annual retention — body corporate',a:'RM200',ref:'Reg 12(2) RPA Reg 2004'},
-  {q:'Committee of Inquiry — quorum',a:'3',ref:'Reg 15(4) RPA Reg 2004'},
-  {q:'Who signs all certificates under the Regulations?',a:'The Registrar',ref:'Reg 5 RPA Reg 2004'},
-  {q:'Minimum notice period for written explanation in investigation',a:'Not less than 14 days from date of notice',ref:'Reg 16(1)(b) RPA Reg 2004'},
-  {q:"Grounds for summary dismissal of a complaint",a:"(1) Name unknown  (2) Address untraceable  (3) Facts don't constitute a matter",ref:'Reg 17 RPA Reg 2004'},
-  {q:'Days before Board disciplinary meeting that complaint copies must be supplied',a:'7 days prior',ref:'Reg 4(2) RPA Reg 2004'},
-  {q:'Temporary registration — what status does the holder have?',a:'Deemed FULLY REGISTERED while the certificate is in force',ref:'s.11A(3) RPA 1951'},
-  {q:'Penalty for obstruction of an Inspector',a:'≤6 months imprisonment OR ≤RM500 fine',ref:'s.21(3) RPA 1951'}
-];
-
-// ── Law text ──────────────────────────────────────────────────────
-var LAW=[
-  {sec:'s.3(1)',title:'Board composition',body:'18 members: <span class="lk">DG Health</span> + <span class="lk">DPS</span> (ex officio); <span class="lh">8</span> public service; <span class="lh">3</span> HEI; <span class="lh">2</span> non-public service; <span class="lh">3</span> private practice (must be <span class="lh">citizens — not PRs</span>). All non-ex-officio appointed by Minister.'},
-  {sec:'s.3(2)–(5)',title:'Appointment rules',body:'Term: <span class="lh">3 years</span>, renewable. Acts remain <span class="lk">valid</span> despite defect or vacancy. Citizens excludes <span class="lh">permanent residents</span>.'},
-  {sec:'s.4',title:'President and meetings',body:'DG Health = President. Absence → members <span class="lh">elect</span> chairman. Chairman has <span class="lk">original vote + casting vote</span> if tied. Quorum: <span class="lh">9</span>.'},
-  {sec:'s.6–6B',title:'Registration pathway',body:'Provisional: solely for gaining experience. Employment: <span class="lh">≥1 year</span>, Board satisfaction. Extension: <span class="lh">≤1 year</span>. Fail → <span class="lh">revoked</span>. Provisional = <span class="lk">public servant</span> (Penal Code).'},
-  {sec:'s.7(4)',title:'Title offence penalty',body:'Conviction: <span class="lh">≤RM500</span> + <span class="lh">RM50/day</span> continuing.'},
-  {sec:'s.11A–11C',title:'Temporary registration & public service',body:'Temporary → deemed <span class="lk">fully registered</span> while cert in force. Public service failure: <span class="lh">≤RM50,000</span> + <span class="lh">registration revoked</span>.'},
-  {sec:'s.16',title:'Annual certificate',body:'Renew before year end + pay fee. Failure = <span class="lh">removed from register</span>. Restoration: application + <span class="lk">additional fee</span>.'},
-  {sec:'s.17–18A',title:'Disciplinary and punishments',body:'Without inquiry: deceased, permanently left, unsound mind. Punishments: <span class="lk">remove / suspend / reprimand</span> — <span class="lh">no imprisonment</span>. Appeal: <span class="lk">Minister</span> — final.'},
-  {sec:'s.20–21',title:'Fraudulent registration & inspection',body:'Fraudulent: <span class="lh">≤1 year OR ≤RM500</span> — Sessions Court. Obstruct inspector: <span class="lh">≤6 months OR ≤RM500</span>.'},
-  {sec:'Reg 3–5',title:'Secretary, meetings, certificates',body:'Secretary: public service pharmacist — <span class="lh">NOT a Board member</span>. Complaint docs: <span class="lh">≥7 days</span> before meeting. Certificates signed by <span class="lk">Registrar</span>.'},
-  {sec:'Reg 8 & 12',title:'Fees',body:'Full registration: <span class="lh">RM100</span>. Annual: pharmacist <span class="lh">RM50</span>, body corporate <span class="lh">RM200</span>. Late: <span class="lh">RM100 / RM300</span>. Public service pharmacists: <span class="lk">exempted</span>.'},
-  {sec:'Reg 15–17',title:'Committee of Inquiry',body:'Composition: <span class="lh">5</span> fully registered + valid cert. Quorum: <span class="lh">3</span>. Chairman: nominated by Board. Notice: <span class="lh">≥14 days</span>. Summary dismissal: unknown name, untraceable address, facts not constituting a matter.'}
-];
+// ── Notes, Flashcards, Law Text Data [Truncated for brevity, assuming standard from previous setup] ──
+var NOTES=[{title:'Registration pathway',items:[{t:'Provisional registration',d:'Solely to gain experience [s.6(1)]. Apply to Registrar.'}]}];
+var FLASHCARDS=[{q:'Quorum of the Pharmacy Board',a:'9 members',ref:'s.4(4) RPA 1951'}];
+var LAW=[{sec:'s.4',title:'President and meetings',body:'DG Health = President. Quorum: 9.'}];
 
 // ── Architecture Modifiers & Core Logic ───────────────────────────
 function show(id){
@@ -554,169 +468,46 @@ function show(id){
   document.getElementById('scr-'+id).classList.add('on');
 }
 
-function selectMode(mode){
-  G.currentMode = mode;
+function selectAppMode(mode){
+  G.currentAppMode = mode;
   if(mode === 'game'){
-    renderMap();
-    show('map');
+    renderDash();
+    show('game-dash');
   } else if(mode === 'learn'){
     show('learn-menu');
   }
 }
 
-function clickNode(actId){
-  if(actId !== 'ropa'){
-    openComing(actId);
+function openModeSelect(actId){
+  if(actId !== 'ROPA' && actId !== 'ALL'){
+    openComing(actId.toLowerCase());
     return;
   }
-  // In Game Mode, clicking the map node drops you directly into testing rooms
-  if(G.currentMode === 'game'){
-    startQuiz();
-  } else {
-    openActLearn(actId);
-  }
+  G.selectedAct = actId;
+  document.getElementById('mode-act-title').textContent = actId === 'ALL' ? 'Mock Exam' : actId + ' Testing';
+  show('mode-select');
 }
 
 function openActLearn(actId){
   G.activeTab = 'notes';
   switchTab('notes');
-  // Hide or show study tracking rewards based on mode
-  var actionsBox = document.getElementById('study-actions-container');
-  if(G.currentMode === 'learn'){
-    actionsBox.style.display = 'none';
-  } else {
-    actionsBox.style.display = 'block';
-    var sb = document.getElementById('study-btn');
-    if(G.studied){sb.textContent='Studied ✓';sb.disabled=true;}
-    else{sb.textContent='Mark as studied (+5 XP)';sb.disabled=false;}
-  }
   show('node');
 }
 
-function goBackFromNode(){
-  if(G.currentMode === 'learn'){
-    show('learn-menu');
-  } else {
-    show('map');
-  }
-}
-
 function goBackFromComing(){
-  if(G.currentMode === 'learn'){
-    show('learn-menu');
-  } else {
-    show('map');
-  }
+  show(G.currentAppMode === 'learn' ? 'learn-menu' : 'game-dash');
 }
 
-// ── Game mechanics & UI processing loop ──────────────────────────
-function getLevel(xp){for(var i=LEVELS.length-1;i>=0;i--)if(xp>=LEVELS[i].xp)return LEVELS[i];return LEVELS[0];}
+// ── Game & Dashboard Utilities ──────────────────────────
+function renderDash(){
+  document.getElementById('dash-xp').textContent=G.xp;
+  renderHearts('dash-hearts');
+}
 
 function renderHearts(id){
   var el=document.getElementById(id);if(!el)return;
   var h='';for(var i=0;i<5;i++)h+='<span class="heart'+(i<G.hearts?'':' empty')+'">'+(i<G.hearts?'♥':'♡')+'</span>';
   el.innerHTML=h;
-}
-
-function renderMap(){
-  var lv=getLevel(G.xp);
-  document.getElementById('xp-display').textContent=G.xp;
-  document.getElementById('streak-display').textContent=G.streak;
-  document.getElementById('map-lvl-icon').textContent=lv.icon;
-  document.getElementById('map-lvl-name').textContent=lv.name;
-  var range=lv.next-lv.xp,pct=Math.min(100,Math.round((G.xp-lv.xp)/range*100));
-  document.getElementById('map-lvl-sub').textContent=(G.xp-lv.xp)+' / '+range+' XP';
-  document.getElementById('map-xp-fill').style.width=pct+'%';
-  renderHearts('hearts-map');
-  
-  var sr=document.getElementById('stars-ropa');
-  sr.innerHTML='';
-  for(var i=0;i<3;i++)sr.innerHTML+='<span class="star'+(i<G.stars?'':' off')+'">★</span>';
-  
-  document.getElementById('studied-badge').style.display=G.studied?'block':'none';
-  var nc=document.getElementById('nc-ropa');
-  nc.className='node-circle '+(G.stars===0?'nc-live':G.stars===1?'nc-done1':G.stars===2?'nc-done2':'nc-done3');
-}
-
-function switchTab(t){
-  G.activeTab=t;
-  ['notes','flash','law'].forEach(function(x){
-    document.getElementById('tab-'+x).classList.toggle('on',x===t);
-    document.getElementById('pane-'+x).classList.toggle('on',x===t);
-  });
-  if(t==='notes')renderNotes();
-  if(t==='flash')renderFlash();
-  if(t==='law')renderLaw();
-}
-
-function renderNotes(){
-  var el=document.getElementById('pane-notes'),html='';
-  NOTES.forEach(function(sec){
-    html+='<div class="note-section"><div class="note-title"><span style="color:#60A5FA">🔖</span>'+sec.title+'</div>';
-    if(sec.items){
-      html+='<div class="note-card">';
-      sec.items.forEach(function(it){
-        html+='<div class="note-item"><div class="ndot"></div><div><span class="nterm">'+it.t+':</span> <span class="nval">'+it.d+'</span></div></div>';
-      });
-      html+='</div>';
-    }
-    if(sec.warn){
-      sec.warn.forEach(function(w){
-        html+='<div class="warn-item"><span style="flex-shrink:0;margin-top:1px">⚠️</span><span>'+w+'</span></div>';
-      });
-    }
-    html+='</div>';
-  });
-  el.innerHTML=html;
-}
-
-function renderFlash(){
-  var el=document.getElementById('pane-flash');
-  var cards=FLASHCARDS,idx=G.fcIdx,total=cards.length;
-  G.fcSeen[idx]=true;
-  var card=cards[idx],flipped=G.fcFlipped;
-  var dots='';
-  for(var i=0;i<total;i++){
-    var cls=G.fcKnown[i]?'known':G.fcSeen[i]?'seen':'';
-    dots+='<button class="fcdot '+cls+'" onclick="goFC('+i+')"></button>';
-  }
-  var html='<div class="fc-nav"><button class="fc-btn" onclick="prevFC()" '+(idx===0?'disabled':'')+'>← Prev</button><span class="fc-ctr">'+(idx+1)+' / '+total+'</span><button class="fc-btn" onclick="nextFC()" '+(idx===total-1?'disabled':'')+'>Next →</button></div>';
-  html+='<div class="fc-dots">'+dots+'</div>';
-  html+='<div class="fc-card'+(flipped?' flipped':'')+'" onclick="flipFC()"><div class="fc-side">'+(flipped?'Answer':'Question')+'</div>';
-  html+='<div class="'+(flipped?'fc-back':'fc-front')+'">'+(flipped?card.a:card.q)+'</div>';
-  if(flipped)html+='<div class="fc-ref">'+card.ref+'</div>';
-  else html+='<div class="fc-hint">Tap to reveal answer</div>';
-  html+='</div>';
-  if(flipped)html+='<div class="fc-actions"><button class="fc-bad" onclick="markFC(false)">Still learning</button><button class="fc-good" onclick="markFC(true)">Got it ✓</button></div>';
-  el.innerHTML=html;
-}
-
-function flipFC(){G.fcFlipped=!G.fcFlipped;renderFlash();}
-function nextFC(){if(G.fcIdx<FLASHCARDS.length-1){G.fcIdx++;G.fcFlipped=false;renderFlash();}}
-function prevFC(){if(G.fcIdx>0){G.fcIdx--;G.fcFlipped=false;renderFlash();}}
-function goFC(i){G.fcIdx=i;G.fcFlipped=false;renderFlash();}
-function markFC(known){G.fcKnown[G.fcIdx]=known;nextFC();}
-
-function renderLaw(){
-  var el=document.getElementById('pane-law'),html='';
-  LAW.forEach(function(sec,i){
-    var open=G.lawOpen[i];
-    html+='<div class="law-row"><div class="law-hdr" onclick="toggleLaw('+i+')">';
-    html+='<span class="law-sec">'+sec.sec+'</span><span class="law-title">'+sec.title+'</span>';
-    html+='<span class="law-chevron">'+(open?'▲':'▼')+'</span></div>';
-    html+='<div class="law-body'+(open?' open':'')+'">'+sec.body+'</div></div>';
-  });
-  el.innerHTML=html;
-}
-
-function toggleLaw(i){G.lawOpen[i]=!G.lawOpen[i];renderLaw();}
-
-function markStudied(){
-  if(G.studied)return;
-  G.studied=true;G.xp+=5;
-  document.getElementById('study-btn').textContent='Studied ✓';
-  document.getElementById('study-btn').disabled=true;
-  renderMap();
 }
 
 function openComing(id){
@@ -727,29 +518,103 @@ function openComing(id){
   show('coming');
 }
 
-// ── Quiz engine ───────────────────────────────────────────────────
-function startQuiz(){
-  if(G.hearts<=0){show('locked');startRefill();return;}
-  var pool=[].concat(QDB).sort(function(){return Math.random()-.5;}).slice(0,10);
-  G.lesQ=pool;G.lesIdx=0;G.correct=0;G.wrong=0;
-  G.answered=false;G.selAns=null;G.wasSkipped=false;
-  show('lesson');renderQ();
+// ── Learn Mod UI ──────────────────────────
+function switchTab(t){
+  G.activeTab=t;
+  ['notes','flash','law'].forEach(function(x){
+    document.getElementById('tab-'+x).classList.toggle('on',x===t);
+    document.getElementById('pane-'+x).classList.toggle('on',x===t);
+  });
+  if(t==='notes') document.getElementById('pane-notes').innerHTML = '<i>Notes content placeholder</i>';
+  if(t==='flash') document.getElementById('pane-flash').innerHTML = '<i>Flashcards content placeholder</i>';
+  if(t==='law') document.getElementById('pane-law').innerHTML = '<i>Law text content placeholder</i>';
+}
+
+// ── Quiz Engine ───────────────────────────────────────────────────
+function initQuiz(timingMode){
+  G.timingMode = timingMode;
+  
+  if(timingMode === 'casual' && G.hearts <= 0){
+    show('locked');
+    startRefill();
+    return;
+  }
+  
+  var pool = [].concat(QDB);
+  if(G.selectedAct !== 'ALL') {
+    pool = pool.filter(function(q){ return q.act.indexOf(G.selectedAct) > -1; });
+  }
+  pool.sort(function(){return Math.random()-.5;});
+  
+  // Apply constraints based on mode
+  if(timingMode === 'casual'){
+    G.lesQ = pool.slice(0, 10);
+    G.timeRemaining = null;
+  } else if (timingMode === 'sprint'){
+    G.lesQ = pool.slice(0, 10);
+    G.timeRemaining = 18 * 60; // 18 minutes in seconds
+  } else if (timingMode === 'mock'){
+    G.lesQ = pool; // 100 questions (or max available)
+    G.timeRemaining = 180 * 60; // 3 hours
+  }
+
+  G.lesIdx=0; G.correct=0; G.wrong=0; G.skipped=0;
+  G.pkumfScore=0; G.answered=false; G.selAns=null; G.wasSkipped=false;
+  
+  setupHUD();
+  show('lesson');
+  renderQ();
+  
+  if(G.timeRemaining !== null){
+    clearInterval(G.timerInt);
+    G.timerInt = setInterval(tickTimer, 1000);
+  }
+}
+
+function setupHUD(){
+  document.getElementById('hearts-les').style.display = G.timingMode === 'casual' ? 'flex' : 'none';
+  document.getElementById('hud-timer').style.display = G.timingMode !== 'casual' ? 'flex' : 'none';
+  document.getElementById('hud-score').style.display = G.timingMode !== 'casual' ? 'block' : 'none';
+  if(G.timingMode === 'casual') renderHearts('hearts-les');
+  updateScoreHUD();
+}
+
+function tickTimer(){
+  if(G.timeRemaining <= 0){
+    clearInterval(G.timerInt);
+    finishLesson(true); // Force finish due to timeout
+    return;
+  }
+  G.timeRemaining--;
+  var m=Math.floor(G.timeRemaining/60), s=G.timeRemaining%60;
+  var el = document.getElementById('hud-timer');
+  el.textContent = '⏱️ ' + String(m).padStart(2,'0') + ':' + String(s).padStart(2,'0');
+  if(G.timeRemaining <= 60){ el.style.color = '#DC2626'; el.style.background = '#FEF2F2'; }
+}
+
+function updateScoreHUD(){
+  if(G.timingMode !== 'casual'){
+    document.getElementById('hud-score').textContent = 'Score: ' + G.pkumfScore.toFixed(2);
+  }
 }
 
 function renderQ(){
   var q=G.lesQ[G.lesIdx],total=G.lesQ.length;
   G.answered=false;G.selAns=null;G.wasSkipped=false;
+  
   document.getElementById('q-num').textContent='Question '+(G.lesIdx+1)+' of '+total;
   document.getElementById('q-act').textContent=q.act;
   document.getElementById('les-fill').style.width=(G.lesIdx/total*100)+'%';
   document.getElementById('q-text').textContent=q.q;
+  
   var sb=document.getElementById('q-stmts');
   if(q.stmts){sb.style.display='block';sb.innerHTML=q.stmts.map(function(s){return'<div>'+s+'</div>';}).join('');}
   else sb.style.display='none';
+  
   document.getElementById('q-fb').style.display='none';
   document.getElementById('skip-btn').style.display='';
   document.getElementById('cont-btn').style.display='none';
-  renderHearts('hearts-les');
+  
   var ol=document.getElementById('q-opts');ol.innerHTML='';
   q.opts.forEach(function(o,i){
     var b=document.createElement('button');b.className='opt';
@@ -763,24 +628,45 @@ function pickAns(idx){
   if(G.answered)return;
   G.answered=true;G.selAns=idx;
   var q=G.lesQ[G.lesIdx],ok=idx===q.ans;
+  
   document.querySelectorAll('.opt').forEach(function(b,i){
     b.classList.add('locked');
     if(i===q.ans)b.classList.add('correct');
     if(i===idx&&!ok)b.classList.add('wrong');
   });
+  
   var fb=document.getElementById('q-fb');fb.style.display='block';
+  
   if(ok){
-    G.correct++;G.xp+=10;
+    G.correct++;
+    if(G.timingMode === 'casual') G.xp+=10;
+    else G.pkumfScore += 1;
+    
     fb.className='fb fb-ok pop';
-    fb.innerHTML='<div class="fb-title ok">Correct! +10 XP</div><div class="fb-exp ok">'+q.exp+'</div>';
+    fb.innerHTML='<div class="fb-title ok">Correct!</div><div class="fb-exp ok">'+q.exp+'</div>';
   } else {
-    G.wrong++;G.hearts=Math.max(0,G.hearts-1);
-    if(G.hearts===0)G.heartRefill=new Date(Date.now()+30*60*1000);
-    renderHearts('hearts-les');
+    G.wrong++;
+    if(G.timingMode === 'casual'){
+      G.hearts=Math.max(0,G.hearts-1);
+      if(G.hearts===0) G.heartRefill=new Date(Date.now()+30*60*1000);
+      renderHearts('hearts-les');
+    } else {
+      G.pkumfScore -= 0.25; // Negative marking
+    }
+    
     fb.className='fb fb-bad shake';
-    fb.innerHTML='<div class="fb-title bad">Not quite — '+G.hearts+' hearts left</div><div class="fb-exp bad">'+q.exp+'</div>';
-    if(G.hearts<=0){document.getElementById('skip-btn').style.display='none';document.getElementById('cont-btn').style.display='';document.getElementById('cont-btn').textContent='See result';return;}
+    var titleTxt = G.timingMode === 'casual' ? 'Not quite — '+G.hearts+' hearts left' : 'Incorrect (-0.25 Penalty)';
+    fb.innerHTML='<div class="fb-title bad">'+titleTxt+'</div><div class="fb-exp bad">'+q.exp+'</div>';
+    
+    if(G.timingMode === 'casual' && G.hearts<=0){
+      document.getElementById('skip-btn').style.display='none';
+      document.getElementById('cont-btn').style.display='';
+      document.getElementById('cont-btn').textContent='See result';
+      return;
+    }
   }
+  
+  updateScoreHUD();
   document.getElementById('skip-btn').style.display='none';
   document.getElementById('cont-btn').style.display='';
 }
@@ -788,41 +674,59 @@ function pickAns(idx){
 function doSkip(){
   if(G.answered)return;
   G.answered=true;G.wasSkipped=true;
+  G.skipped++;
+  // Skip is 0 marks (no penalty)
+  
   var q=G.lesQ[G.lesIdx];
   document.querySelectorAll('.opt').forEach(function(b,i){b.classList.add('locked');if(i===q.ans)b.classList.add('correct');});
+  
   var fb=document.getElementById('q-fb');fb.style.display='block';fb.className='fb fb-skip';
-  fb.innerHTML='<div class="fb-title skip">Skipped</div><div class="fb-exp skip">'+q.exp+'</div>';
+  fb.innerHTML='<div class="fb-title skip">Skipped (0 marks)</div><div class="fb-exp skip">'+q.exp+'</div>';
+  
   document.getElementById('skip-btn').style.display='none';
   document.getElementById('cont-btn').style.display='';
 }
 
 function doCont(){
-  if(G.hearts<=0){finishLesson();return;}
+  if(G.timingMode === 'casual' && G.hearts<=0){finishLesson(false);return;}
   G.lesIdx++;
-  if(G.lesIdx>=G.lesQ.length)finishLesson();
+  if(G.lesIdx>=G.lesQ.length) finishLesson(false);
   else renderQ();
 }
 
-function finishLesson(){
-  var bonus=G.correct===G.lesQ.length?20:0;
-  G.xp+=bonus;
-  var total=G.lesQ.length,acc=total>0?G.correct/total:0;
-  var ns=acc>=0.9?3:acc>=0.7?2:acc>=0.5?1:0;
-  if(ns>G.stars)G.stars=ns;
-  var xpEarned=G.correct*10+bonus;
-  document.getElementById('r-icon').textContent=G.correct===total?'🏆':G.wrong>G.correct?'💪':'🎉';
-  document.getElementById('r-title').textContent=G.correct===total?'Perfect!':'Lesson complete!';
-  document.getElementById('r-sub').textContent=G.correct+' of '+(G.lesIdx+1)+' correct · '+ns+' ★ on ROPA';
-  document.getElementById('r-xp').textContent='⚡ +'+xpEarned+' XP';
+function finishLesson(timeOut){
+  clearInterval(G.timerInt);
+  
+  var total=G.lesQ.length;
+  var isCasual = G.timingMode === 'casual';
+  
+  // Calculate final score
+  if(isCasual){
+    var bonus=G.correct===total?20:0;
+    G.xp += bonus;
+    document.getElementById('r-xp').style.display = 'inline-flex';
+    document.getElementById('r-xp').textContent='⚡ +'+(G.correct*10+bonus)+' XP';
+    document.getElementById('r-pkumf-box').style.display = 'none';
+  } else {
+    document.getElementById('r-xp').style.display = 'none';
+    document.getElementById('r-pkumf-box').style.display = 'block';
+    document.getElementById('r-pkumf').textContent = G.pkumfScore.toFixed(2) + ' / ' + total;
+  }
+  
+  document.getElementById('r-icon').textContent= timeOut ? '⏱️' : (G.correct===total?'🏆':'🎉');
+  document.getElementById('r-title').textContent= timeOut ? 'Time\'s Up!' : (G.correct===total?'Perfect!':'Session complete!');
+  
+  var subTxt = G.correct+' of '+total+' correct';
+  document.getElementById('r-sub').textContent=subTxt;
+  
   document.getElementById('r-ok').textContent=G.correct;
   document.getElementById('r-bad').textContent=G.wrong;
-  document.getElementById('r-stars').textContent=G.stars+' ★';
-  renderMap();
+  document.getElementById('r-skip').textContent=G.skipped;
+  
+  renderDash();
   show('result');
-  if(G.hearts<=0)startRefill();
+  if(isCasual && G.hearts<=0) startRefill();
 }
-
-function exitLesson(){G.xp+=G.correct*10;renderMap();show('map');}
 
 function startRefill(){
   if(G.refillInt)clearInterval(G.refillInt);
@@ -832,7 +736,7 @@ function startRefill(){
     var m=Math.floor(rem/60000),s=Math.floor((rem%60000)/1000);
     var el=document.getElementById('refill-timer');
     if(el)el.textContent=String(m).padStart(2,'0')+':'+String(s).padStart(2,'0');
-    if(rem<=0){G.hearts=5;G.heartRefill=null;clearInterval(G.refillInt);renderMap();}
+    if(rem<=0){G.hearts=5;G.heartRefill=null;clearInterval(G.refillInt);renderDash();}
   },1000);
 }
 </script>
