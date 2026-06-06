@@ -534,7 +534,7 @@ var G = {
   selectedAct: null,
   timingMode: null,
   
-  xp:0, hearts:5,
+  xp:0, hearts:5, initialHearts:5,
   heartRefill:null, refillInt:null,
   timerInt:null, timeRemaining:0,
   pkumfScore:0,
@@ -674,6 +674,7 @@ function toggleLaw(i){G.lawOpen[i]=!G.lawOpen[i];switchTab('law');}
 // ── Quiz Engine ───────────────────────────────────────────────────
 function initQuiz(timingMode){
   G.timingMode = timingMode;
+  G.initialHearts = G.hearts; // Snapshot hearts to refund if user quits
   
   if(timingMode === 'casual' && G.hearts <= 0){
     show('locked');
@@ -739,7 +740,9 @@ function tickTimer(){
 
 function updateScoreHUD(){
   if(G.timingMode !== 'casual'){
-    document.getElementById('hud-score').textContent = 'Score: ' + G.pkumfScore.toFixed(2);
+    // Calculate and display mid-game, but don't save permanently yet.
+    var dynamicScore = G.correct - (G.wrong * 0.25);
+    document.getElementById('hud-score').textContent = 'Score: ' + dynamicScore.toFixed(2);
   }
 }
 
@@ -784,8 +787,6 @@ function pickAns(idx){
   
   if(ok){
     G.correct++;
-    if(G.timingMode === 'casual') G.xp+=10;
-    else G.pkumfScore += 1;
     
     fb.className='fb fb-ok pop';
     fb.innerHTML='<div class="fb-title ok">Correct!</div><div class="fb-exp ok">'+q.exp+'</div>';
@@ -793,10 +794,8 @@ function pickAns(idx){
     G.wrong++;
     if(G.timingMode === 'casual'){
       G.hearts=Math.max(0,G.hearts-1);
-      if(G.hearts===0) G.heartRefill=new Date(Date.now()+30*60*1000);
+      if(G.hearts===0 && !G.heartRefill) G.heartRefill=new Date(Date.now()+30*60*1000);
       renderHearts('hearts-les');
-    } else {
-      G.pkumfScore -= 0.25;
     }
     
     fb.className='fb fb-bad shake';
@@ -844,13 +843,20 @@ function finishLesson(timeOut){
   var total=G.lesQ.length;
   var isCasual = G.timingMode === 'casual';
   
+  // Calculate and apply final points only at the very end
   if(isCasual){
-    var bonus=G.correct===total?20:0;
-    G.xp += bonus;
+    var baseXP = G.correct * 10;
+    var bonus = (G.correct === total) ? 20 : 0;
+    var totalEarnedXP = baseXP + bonus;
+    
+    G.xp += totalEarnedXP;
+    
     document.getElementById('r-xp').style.display = 'inline-flex';
-    document.getElementById('r-xp').textContent='⚡ +'+(G.correct*10+bonus)+' XP';
+    document.getElementById('r-xp').textContent='⚡ +'+totalEarnedXP+' XP';
     document.getElementById('r-pkumf-box').style.display = 'none';
   } else {
+    G.pkumfScore = G.correct - (G.wrong * 0.25);
+    
     document.getElementById('r-xp').style.display = 'none';
     document.getElementById('r-pkumf-box').style.display = 'block';
     document.getElementById('r-pkumf').textContent = G.pkumfScore.toFixed(2) + ' / ' + total;
@@ -869,7 +875,25 @@ function finishLesson(timeOut){
   if(isCasual && G.hearts<=0) startRefill();
 }
 
-function exitLesson(){ clearInterval(G.timerInt); show('game-dash'); }
+function exitLesson(){ 
+  if(confirm("Are you sure you want to quit? Your progress and points for this session will be lost.")) {
+    clearInterval(G.timerInt); 
+    
+    // Abort session and refund hearts if playing casual
+    if(G.timingMode === 'casual') {
+      G.hearts = G.initialHearts; 
+      // Stop the refill timer if they got their hearts back
+      if(G.hearts > 0 && G.refillInt) {
+        clearInterval(G.refillInt);
+        G.refillInt = null;
+        G.heartRefill = null;
+      }
+    }
+    
+    renderDash();
+    show('game-dash'); 
+  }
+}
 
 function startRefill(){
   if(G.refillInt)clearInterval(G.refillInt);
