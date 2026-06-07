@@ -10,46 +10,64 @@
 body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:#f8fafc;color:#1a1a2e;min-height:100vh}
 .app{max-width:480px;margin:0 auto;padding:1.25rem 1rem;min-height:100vh}
 .scr{display:none}.scr.on{display:block}
+
+/* Welcome Mode Selection */
+.welcome-box{text-align:center;padding:2.5rem 1rem 1rem}
+.logo-title{font-size:28px;font-weight:800;color:#1E3A8A;letter-spacing:-0.03em;margin-bottom:4px}
+.logo-sub{font-size:13px;color:#6B7280;margin-bottom:2.5rem;font-weight:500}
+.mode-card{background:#fff;border:2px solid #E5E7EB;border-radius:20px;padding:1.5rem;margin-bottom:1.25rem;cursor:pointer;text-align:left;transition:all 0.2s;box-shadow:0 2px 4px rgba(0,0,0,.02)}
+.mode-card:hover{border-color:#3B82F6;transform:translateY(-2px)}
+.mode-hdr{display:flex;align-items:center;gap:12px;margin-bottom:8px}
+.mode-icon{font-size:24px}
+.mode-name{font-size:16px;font-weight:700;color:#111827}
+.mode-desc{font-size:12.5px;color:#6B7280;line-height:1.5}
+
+/* Top bar & Level Banner */
 .top-bar{display:flex;justify-content:space-between;align-items:center;margin-bottom:1rem}
 .xp-pill{display:flex;align-items:center;gap:4px;background:#EFF6FF;border-radius:99px;padding:5px 12px;font-size:12px;font-weight:600;color:#1D4ED8}
 .streak-pill{display:flex;align-items:center;gap:4px;background:#FFFBEB;border-radius:99px;padding:5px 12px;font-size:12px;font-weight:600;color:#92400E}
 .hearts{display:flex;gap:3px}
 .heart{font-size:14px;color:#EF4444}.heart.empty{color:#D1D5DB}
-.level-banner{display:flex;align-items:center;gap:12px;background:#fff;border:1px solid #E5E7EB;border-radius:16px;padding:12px 14px;margin-bottom:1rem;box-shadow:0 1px 3px rgba(0,0,0,.05)}
-.level-icon{width:42px;height:42px;border-radius:50%;background:#EFF6FF;display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0}
-.level-info{flex:1}
-.level-name{font-size:13px;font-weight:600;color:#111827}
-.level-sub{font-size:11px;color:#9CA3AF;margin-top:2px}
-.xp-track{height:6px;background:#E5E7EB;border-radius:3px;overflow:hidden;margin-top:6px}
-.xp-fill{height:100%;background:#3B82F6;border-radius:3px;transition:width .4s}
-.tree-label{font-size:11px;font-weight:600;color:#9CA3AF;text-transform:uppercase;letter-spacing:.06em;margin-bottom:.85rem}
-.tree{display:flex;flex-direction:column;align-items:center;margin-bottom:1rem}
-.tree-row{display:flex;justify-content:center;gap:12px;width:100%}
-.connector{width:2px;height:14px;background:#E5E7EB;margin:3px auto}
-.branch-connectors{display:flex;justify-content:center;gap:64px;margin:3px 0}
-.branch-line{width:2px;height:14px;background:#E5E7EB}
-.node{display:flex;flex-direction:column;align-items:center;gap:4px;cursor:pointer;width:82px}
-.node-circle{width:64px;height:64px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;border:3px solid transparent;transition:all .2s;letter-spacing:.03em}
-.nc-live{background:#EFF6FF;border-color:#93C5FD;color:#1D4ED8}
-.nc-live:hover{border-color:#3B82F6;transform:scale(1.06)}
-.nc-done1{background:#F0FDF4;border-color:#86EFAC;color:#15803D}
-.nc-done2{background:#F0FDF4;border-color:#4ADE80;color:#15803D}
-.nc-done3{background:#F0FDF4;border-color:#16A34A;color:#15803D}
-.nc-locked{background:#F9FAFB;border-color:#E5E7EB;color:#9CA3AF;opacity:.5;cursor:not-allowed;font-size:18px}
-.node-lbl{font-size:10px;font-weight:600;color:#6B7280;text-align:center}
-.stars{display:flex;gap:2px;justify-content:center}
-.star{font-size:10px;color:#F59E0B}.star.off{color:#E5E7EB}
-.studied-badge{font-size:9px;background:#D1FAE5;color:#065F46;border-radius:99px;padding:1px 7px;font-weight:600;margin-top:1px}
+
+/* Game Dashboard Grid */
+.dash-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:1.5rem}
+.act-btn{background:#fff;border:2px solid #E5E7EB;border-radius:16px;padding:16px 12px;text-align:center;cursor:pointer;transition:all 0.15s;box-shadow:0 1px 2px rgba(0,0,0,.02)}
+.act-btn:hover{border-color:#93C5FD;background:#EFF6FF;transform:translateY(-2px)}
+.act-btn.full-width{grid-column:1 / -1;background:#F5F3FF;border-color:#DDD6FE}
+.act-btn.full-width:hover{background:#EDE9FE;border-color:#C4B5FD}
+.act-icon{font-size:28px;margin-bottom:8px}
+.act-title{font-size:14px;font-weight:700;color:#111827;margin-bottom:4px}
+.act-sub{font-size:11px;color:#6B7280}
+
+/* Timing Mode Selection */
+.timing-opt{background:#fff;border:2px solid #E5E7EB;border-radius:14px;padding:14px;margin-bottom:12px;cursor:pointer;display:flex;align-items:center;gap:14px;transition:all 0.15s}
+.timing-opt:hover{border-color:#3B82F6;background:#F8FAFC}
+.timing-icon{font-size:24px;width:32px;text-align:center}
+.timing-info{flex:1}
+.timing-name{font-size:14px;font-weight:700;color:#111827;margin-bottom:2px}
+.timing-desc{font-size:11px;color:#6B7280;line-height:1.4}
+.timing-tags{display:flex;gap:6px;margin-top:6px}
+.tag{font-size:9px;font-weight:700;padding:2px 6px;border-radius:4px;text-transform:uppercase;letter-spacing:0.05em}
+.tag-red{background:#FEE2E2;color:#991B1B}
+.tag-blue{background:#DBEAFE;color:#1E3A8A}
+.tag-green{background:#DCFCE7;color:#166534}
+
+/* Page header */
 .page-hdr{display:flex;align-items:center;gap:10px;margin-bottom:1rem}
-.back-btn{background:none;border:none;cursor:pointer;color:#9CA3AF;font-size:18px;padding:4px 6px;border-radius:8px;line-height:1}
+.back-btn{background:none;border:none;cursor:pointer;color:#9CA3AF;font-size:18px;padding:4px 6px;border-radius:8px;line-height:1;display:flex;align-items:center;gap:4px}
 .back-btn:hover{background:#F3F4F6;color:#374151}
+.back-btn span{font-size:13px;font-weight:600}
 .page-title{font-size:15px;font-weight:600;color:#111827}
 .page-sub{font-size:11px;color:#9CA3AF;margin-top:1px}
-.tabs{display:flex;border-bottom:1px solid #E5E7EB;margin-bottom:1rem;overflow-x:auto}
-.tab{padding:8px 11px;font-size:11px;font-weight:500;cursor:pointer;color:#9CA3AF;border-bottom:2px solid transparent;margin-bottom:-1px;white-space:nowrap;transition:all .15s;flex-shrink:0}
+
+/* Tabs */
+.tabs{display:flex;border-bottom:1px solid #E5E7EB;margin-bottom:1rem}
+.tab{padding:8px 12px;font-size:12px;font-weight:500;cursor:pointer;color:#9CA3AF;border-bottom:2px solid transparent;margin-bottom:-1px;white-space:nowrap;transition:all .15s}
 .tab:hover{color:#374151}
 .tab.on{color:#2563EB;border-bottom-color:#3B82F6;font-weight:600}
 .pane{display:none}.pane.on{display:block}
+
+/* Notes, Flashcards, Law Text Layouts */
 .note-section{margin-bottom:1.1rem}
 .note-title{font-size:12px;font-weight:600;color:#374151;margin-bottom:.5rem;display:flex;align-items:center;gap:5px}
 .note-card{background:#fff;border:1px solid #F3F4F6;border-radius:12px;padding:12px 14px;margin-bottom:.4rem}
@@ -59,23 +77,15 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
 .nterm{font-weight:600;color:#111827}
 .nval{color:#6B7280}
 .warn-item{display:flex;gap:7px;background:#FEF2F2;border-radius:10px;padding:8px 12px;margin-bottom:.4rem;font-size:12px;color:#991B1B;line-height:1.5}
-.tip-item{display:flex;gap:7px;background:#FFFBEB;border-radius:10px;padding:8px 12px;margin-bottom:.4rem;font-size:12px;color:#92400E;line-height:1.5}
-.dist-table{width:100%;border-collapse:collapse;font-size:13px;margin-bottom:.5rem}
-.dist-table th{text-align:left;padding:7px 10px;background:#F9FAFB;color:#374151;font-weight:600;border-bottom:1px solid #E5E7EB}
-.dist-table td{padding:7px 10px;border-bottom:1px solid #F3F4F6;color:#374151}
-.dist-table tr:last-child td{border-bottom:none}
-.dist-badge{display:inline-block;background:#EFF6FF;color:#1D4ED8;border-radius:99px;padding:1px 8px;font-size:11px;font-weight:600}
-.dist-badge.big{background:#FEF3C7;color:#92400E}
+
 .fc-nav{display:flex;justify-content:space-between;align-items:center;margin-bottom:.65rem}
 .fc-ctr{font-size:12px;color:#9CA3AF}
 .fc-btn{background:none;border:1px solid #E5E7EB;border-radius:8px;padding:6px 14px;font-size:12px;cursor:pointer;color:#374151;transition:all .15s}
-.fc-btn:hover:not(:disabled){background:#F9FAFB}
-.fc-btn:disabled{opacity:.3;cursor:default}
+.fc-btn:disabled{opacity:0.3;cursor:default}
 .fc-dots{display:flex;gap:4px;flex-wrap:wrap;margin-bottom:.65rem}
-.fcdot{width:8px;height:8px;border-radius:50%;background:#E5E7EB;cursor:pointer;transition:background .2s;border:none;padding:0}
+.fcdot{width:8px;height:8px;border-radius:50%;background:#E5E7EB;cursor:pointer;border:none;padding:0}
 .fcdot.seen{background:#BFDBFE}.fcdot.known{background:#16A34A}
-.fc-card{background:#fff;border:1px solid #E5E7EB;border-radius:16px;padding:1.5rem 1.25rem;min-height:150px;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;cursor:pointer;transition:all .2s;box-shadow:0 1px 3px rgba(0,0,0,.05)}
-.fc-card:hover{border-color:#93C5FD}
+.fc-card{background:#fff;border:1px solid #E5E7EB;border-radius:16px;padding:1.5rem 1.25rem;min-height:150px;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;cursor:pointer;box-shadow:0 1px 3px rgba(0,0,0,.05);width:100%}
 .fc-card.flipped{background:#F9FAFB}
 .fc-side{font-size:10px;font-weight:600;color:#9CA3AF;text-transform:uppercase;letter-spacing:.06em;margin-bottom:.65rem}
 .fc-front{font-size:15px;font-weight:600;color:#111827;line-height:1.5}
@@ -85,29 +95,33 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
 .fc-actions{display:flex;gap:8px;margin-top:.65rem}
 .fc-bad{flex:1;background:#FEF2F2;color:#991B1B;border:1px solid #FECACA;border-radius:10px;padding:8px;font-size:12px;font-weight:500;cursor:pointer}
 .fc-good{flex:1;background:#F0FDF4;color:#166534;border:1px solid #BBF7D0;border-radius:10px;padding:8px;font-size:12px;font-weight:500;cursor:pointer}
+
 .law-row{border-bottom:1px solid #F3F4F6}
 .law-hdr{display:flex;justify-content:space-between;align-items:center;padding:12px 0;cursor:pointer;gap:8px}
 .law-sec{font-size:11px;background:#EFF6FF;color:#1D4ED8;border-radius:99px;padding:2px 10px;font-weight:600;flex-shrink:0}
 .law-title{font-size:13px;font-weight:600;color:#111827;flex:1}
-.law-chevron{font-size:12px;color:#9CA3AF}
 .law-body{font-size:13px;color:#6B7280;line-height:1.75;padding-bottom:12px;display:none}
 .law-body.open{display:block}
 .lh{background:#FEF3C7;color:#92400E;border-radius:3px;padding:0 4px;font-weight:600;font-size:.9em}
 .lk{background:#EFF6FF;color:#1D4ED8;border-radius:3px;padding:0 4px;font-weight:600;font-size:.9em}
+
+/* Buttons */
 .btn{width:100%;border:none;border-radius:14px;padding:13px;font-size:14px;font-weight:600;cursor:pointer;transition:all .15s;margin-bottom:.5rem}
 .btn:last-child{margin-bottom:0}
 .btn-primary{background:#3B82F6;color:#fff}.btn-primary:hover{background:#2563EB}
-.btn-primary:disabled{opacity:.38;cursor:not-allowed}
 .btn-success{background:#15803D;color:#fff}.btn-success:hover{background:#166534}
-.btn-success:disabled{opacity:.5;cursor:not-allowed}
 .btn-secondary{background:#F3F4F6;color:#374151}.btn-secondary:hover{background:#E5E7EB}
+
+/* Testing Arena Layout */
 .les-hdr{display:flex;align-items:center;gap:10px;margin-bottom:1rem}
 .les-close{background:none;border:none;cursor:pointer;color:#9CA3AF;font-size:18px;padding:4px;line-height:1}
 .les-close:hover{color:#374151}
 .les-track{flex:1;height:8px;background:#E5E7EB;border-radius:4px;overflow:hidden}
 .les-fill{height:100%;background:#3B82F6;border-radius:4px;transition:width .3s}
-.les-hearts{display:flex;gap:2px}
-.les-hearts span{font-size:13px}
+.les-hud-box{display:flex;align-items:center;gap:8px}
+.timer-pill{background:#FEF2F2;color:#991B1B;border-radius:99px;padding:4px 10px;font-size:12px;font-weight:700;display:flex;align-items:center;gap:4px}
+.score-pill{background:#EFF6FF;color:#1D4ED8;border-radius:99px;padding:4px 10px;font-size:12px;font-weight:700}
+
 .q-num{font-size:11px;font-weight:600;color:#9CA3AF;text-transform:uppercase;letter-spacing:.06em;margin-bottom:.35rem}
 .act-chip{display:inline-block;background:#EFF6FF;color:#1D4ED8;border-radius:99px;padding:3px 12px;font-size:11px;font-weight:600;margin-bottom:.75rem}
 .q-card{background:#fff;border:1px solid #E5E7EB;border-radius:16px;padding:14px 16px;margin-bottom:.85rem;box-shadow:0 1px 3px rgba(0,0,0,.05)}
@@ -129,21 +143,22 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
 .fb-title.ok{color:#166534}.fb-title.bad{color:#991B1B}.fb-title.skip{color:#6B7280}
 .fb-exp{font-size:12px;line-height:1.6}
 .fb-exp.ok{color:#15803D}.fb-exp.bad{color:#B91C1C}.fb-exp.skip{color:#6B7280}
+
+/* Results Card Layout */
 .res-card{background:#fff;border:1px solid #E5E7EB;border-radius:20px;padding:1.5rem;text-align:center;margin-bottom:1rem;box-shadow:0 1px 3px rgba(0,0,0,.05)}
 .res-icon{font-size:40px;margin-bottom:.65rem}
 .res-title{font-size:20px;font-weight:700;color:#111827;margin-bottom:.3rem}
 .res-sub{font-size:13px;color:#9CA3AF;margin-bottom:1rem}
 .xp-earned{display:inline-flex;align-items:center;gap:5px;background:#EFF6FF;border-radius:99px;padding:6px 16px;font-size:13px;font-weight:600;color:#1D4ED8}
+.pkumf-score{font-size:24px;font-weight:800;color:#1D4ED8;margin:1rem 0 0.5rem}
 .stats3{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:1rem}
 .scard{background:#F9FAFB;border-radius:12px;padding:10px;text-align:center}
 .sv{font-size:18px;font-weight:700;color:#111827}
 .sl{font-size:10px;color:#9CA3AF;margin-top:2px}
-.coming-node{display:flex;align-items:center;gap:12px;background:#F9FAFB;border:1px solid #E5E7EB;border-radius:14px;padding:12px;margin-bottom:8px}
-.coming-icon{font-size:20px;width:36px;text-align:center;flex-shrink:0}
-.coming-name{font-size:13px;font-weight:600;color:#6B7280}
-.coming-acts{font-size:11px;color:#9CA3AF;margin-top:2px}
+
 .locked-center{text-align:center;padding:2rem 0}
 .timer-big{font-size:2rem;font-weight:700;color:#92400E;margin:.5rem 0}
+
 @keyframes pop{0%{opacity:0;transform:scale(.88)}100%{opacity:1;transform:scale(1)}}
 @keyframes shake{0%{transform:translateX(0)}20%{transform:translateX(-5px)}40%{transform:translateX(5px)}60%{transform:translateX(-3px)}80%{transform:translateX(3px)}100%{transform:translateX(0)}}
 .pop{animation:pop .22s ease}
@@ -153,102 +168,168 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
 <body>
 <div class="app">
 
-<!-- MAP -->
-<div id="scr-map" class="scr on">
+<div id="scr-welcome" class="scr on">
+  <div class="welcome-box">
+    <div class="logo-title">PharmaLex</div>
+    <div class="logo-sub">PKUMF Malaysian Pharmacy Law Prep</div>
+    
+    <div class="mode-card" onclick="selectAppMode('learn')">
+      <div class="mode-hdr">
+        <span class="mode-icon">📖</span>
+        <div class="mode-name">Learn Mode</div>
+      </div>
+      <div class="mode-desc">Direct access to regulatory reference cards, annotated legislation text, and study briefs. Zero testing pressure.</div>
+    </div>
+
+    <div class="mode-card" onclick="selectAppMode('game')">
+      <div class="mode-hdr">
+        <span class="mode-icon">⚡</span>
+        <div class="mode-name">Game Mode & Testing</div>
+      </div>
+      <div class="mode-desc">Free selection of subjects. Casual practice, Prorated timed sprints, or Full Section Exam simulators.</div>
+    </div>
+  </div>
+</div>
+
+<div id="scr-game-dash" class="scr">
   <div class="top-bar">
-    <div class="xp-pill">⚡ <span id="xp-display">0</span> XP</div>
-    <div class="streak-pill">🔥 <span id="streak-display">0</span> day streak</div>
-    <div class="hearts" id="hearts-map"></div>
+    <button class="back-btn" onclick="show('welcome')">← <span>Home</span></button>
+    <div class="xp-pill">⚡ <span id="dash-xp">0</span> XP</div>
+    <div class="hearts" id="dash-hearts"></div>
   </div>
-  <div class="level-banner">
-    <div class="level-icon" id="map-lvl-icon">🎓</div>
-    <div class="level-info">
-      <div class="level-name" id="map-lvl-name">Pre-Registration Intern</div>
-      <div class="level-sub" id="map-lvl-sub">0 / 100 XP</div>
-      <div class="xp-track"><div class="xp-fill" id="map-xp-fill" style="width:0%"></div></div>
+  <div class="page-hdr" style="margin-bottom:1.5rem">
+    <div>
+      <div class="page-title">Game Dashboard</div>
+      <div class="page-sub">Select a subject to test your knowledge</div>
     </div>
   </div>
-  <div class="tree-label">Skill tree — MVP: ROPA unlocked</div>
-  <div class="tree">
-    <div class="tree-row">
-      <div class="node" id="node-ropa" onclick="openRopa()">
-        <div class="node-circle nc-live" id="nc-ropa">ROPA</div>
-        <div class="node-lbl">ROPA</div>
-        <div class="stars" id="stars-ropa">
-          <span class="star off">★</span><span class="star off">★</span><span class="star off">★</span>
-        </div>
-        <div id="studied-badge" style="display:none" class="studied-badge">studied</div>
+
+  <div class="dash-grid">
+    <div class="act-btn" onclick="openModeSelect('ROPA')">
+      <div class="act-icon">📝</div>
+      <div class="act-title">ROPA</div>
+      <div class="act-sub">Pharmacists Act 1951</div>
+    </div>
+    <div class="act-btn" onclick="openModeSelect('POISON')">
+      <div class="act-icon">☠️</div>
+      <div class="act-title">POISON</div>
+      <div class="act-sub">Poisons Act 1952</div>
+    </div>
+    <div class="act-btn" onclick="openModeSelect('SODA')">
+      <div class="act-icon">🧪</div>
+      <div class="act-title">SODA</div>
+      <div class="act-sub">Sale of Drugs Act 1952</div>
+    </div>
+    <div class="act-btn" onclick="openModeSelect('MASA')">
+      <div class="act-icon">📢</div>
+      <div class="act-title">MASA</div>
+      <div class="act-sub">Medicine Ads Act 1956</div>
+    </div>
+    <div class="act-btn full-width" onclick="openModeSelect('ALL')">
+      <div class="act-icon">🎓</div>
+      <div class="act-title">Full Mock Exam</div>
+      <div class="act-sub">Test across the entire syllabus</div>
+    </div>
+  </div>
+</div>
+
+<div id="scr-mode-select" class="scr">
+  <div class="page-hdr">
+    <button class="back-btn" onclick="show('game-dash')">← <span>Back</span></button>
+    <div>
+      <div class="page-title" id="mode-act-title">Testing</div>
+      <div class="page-sub">Choose your timing constraint</div>
+    </div>
+  </div>
+
+  <div class="timing-opt" onclick="initQuiz('casual')">
+    <div class="timing-icon">☕</div>
+    <div class="timing-info">
+      <div class="timing-name">Casual Practice</div>
+      <div class="timing-desc">Take your time. Standard Duolingo-style hearts system. Lose a heart per mistake.</div>
+      <div class="timing-tags">
+        <span class="tag tag-blue">10 Questions</span>
+        <span class="tag tag-green">No Timer</span>
+        <span class="tag tag-red">5 Hearts</span>
       </div>
     </div>
-    <div class="connector"></div>
-    <div class="tree-row">
-      <div class="node" onclick="openComing('poison')">
-        <div class="node-circle nc-locked">🔒</div>
-        <div class="node-lbl">POISON</div>
-        <div class="stars"><span class="star off">★</span><span class="star off">★</span><span class="star off">★</span></div>
+  </div>
+
+  <div class="timing-opt" style="cursor:default; align-items:flex-start;">
+    <div class="timing-icon">⏱️</div>
+    <div class="timing-info">
+      <div class="timing-name">PKUMF Sprint (Prorated)</div>
+      <div class="timing-desc">Scaled exactly to the PKUMF exam speed (1.8 mins/question). Strict negative marking. Choose length:</div>
+      <div style="display:flex; gap:6px; margin-top:10px;">
+        <button class="btn btn-primary" style="padding:6px 0; font-size:11px; margin-bottom:0; flex:1;" onclick="initQuiz('sprint', 5)">5 Qs (9m)</button>
+        <button class="btn btn-primary" style="padding:6px 0; font-size:11px; margin-bottom:0; flex:1;" onclick="initQuiz('sprint', 10)">10 Qs (18m)</button>
+        <button class="btn btn-primary" style="padding:6px 0; font-size:11px; margin-bottom:0; flex:1;" onclick="initQuiz('sprint', 15)">15 Qs (27m)</button>
       </div>
     </div>
-    <div class="branch-connectors">
-      <div class="branch-line"></div>
-      <div class="branch-line"></div>
-    </div>
-    <div class="tree-row">
-      <div class="node" onclick="openComing('soda')">
-        <div class="node-circle nc-locked">🔒</div>
-        <div class="node-lbl">SODA</div>
-        <div class="stars"><span class="star off">★</span><span class="star off">★</span><span class="star off">★</span></div>
-      </div>
-      <div class="node" onclick="openComing('dda')">
-        <div class="node-circle nc-locked">🔒</div>
-        <div class="node-lbl">DDA</div>
-        <div class="stars"><span class="star off">★</span><span class="star off">★</span><span class="star off">★</span></div>
-      </div>
-    </div>
-    <div class="connector"></div>
-    <div class="tree-row">
-      <div class="node" onclick="openComing('masa')">
-        <div class="node-circle nc-locked">🔒</div>
-        <div class="node-lbl">MASA</div>
-        <div class="stars"><span class="star off">★</span><span class="star off">★</span><span class="star off">★</span></div>
+  </div>
+
+  <div class="timing-opt" onclick="initQuiz('mock')">
+    <div class="timing-icon">📜</div>
+    <div class="timing-info">
+      <div class="timing-name">Exam Simulator (Full Module)</div>
+      <div class="timing-desc">Tests you on ALL available questions for the selected module. Exact PKUMF scoring rules and prorated time (1.8 mins/q).</div>
+      <div class="timing-tags">
+        <span class="tag tag-blue">All Questions</span>
+        <span class="tag tag-red">Prorated Timer</span>
+        <span class="tag tag-red">-0.25 Penalty</span>
       </div>
     </div>
   </div>
 </div>
 
-<!-- NODE -->
+<div id="scr-learn-menu" class="scr">
+  <div class="page-hdr">
+    <button class="back-btn" onclick="show('welcome')">← <span>Home</span></button>
+    <div>
+      <div class="page-title">Learn Hub</div>
+      <div class="page-sub">Select a statutory subject library</div>
+    </div>
+  </div>
+  <div style="display:flex;flex-direction:column;gap:10px;margin-top:1rem">
+    <button class="btn btn-primary" style="text-align:left;padding:16px" onclick="openActLearn('ROPA')">📝 Registration of Pharmacists Act 1951</button>
+    <button class="btn btn-primary" style="text-align:left;padding:16px" onclick="openActLearn('SODA')">🧪 Sale of Drugs Act 1952 + CDCR</button>
+    <button class="btn btn-primary" style="text-align:left;padding:16px" onclick="openActLearn('MASA')">📢 Medicine Ads Act 1956</button>
+    <button class="btn btn-secondary" style="text-align:left;padding:16px;opacity:0.6" onclick="openComing('poison')">🔒 Poisons Act 1952 (Coming Soon)</button>
+    <button class="btn btn-secondary" style="text-align:left;padding:16px;opacity:0.6" onclick="openComing('dda')">🔒 Dangerous Drugs Act 1952 (Coming Soon)</button>
+  </div>
+</div>
+
 <div id="scr-node" class="scr">
   <div class="page-hdr">
-    <button class="back-btn" onclick="show('map')">←</button>
+    <button class="back-btn" id="node-back-btn" onclick="show('learn-menu')">← <span>Back</span></button>
     <div>
-      <div class="page-title">ROPA</div>
-      <div class="page-sub">Registration of Pharmacists Act 1951 + Reg 2004</div>
+      <div class="page-title" id="node-title">ACT</div>
+      <div class="page-sub" id="node-sub">Reference Materials</div>
     </div>
   </div>
   <div class="tabs">
     <div class="tab on" id="tab-notes" onclick="switchTab('notes')">📝 Notes</div>
     <div class="tab" id="tab-flash" onclick="switchTab('flash')">🃏 Flashcards</div>
     <div class="tab" id="tab-law" onclick="switchTab('law')">📖 Law text</div>
-    <div class="tab" id="tab-tips" onclick="switchTab('tips')">🎯 Exam tips</div>
   </div>
   <div id="pane-notes" class="pane on"></div>
   <div id="pane-flash" class="pane"></div>
   <div id="pane-law" class="pane"></div>
-  <div id="pane-tips" class="pane"></div>
-  <div style="margin-top:1rem">
-    <button class="btn btn-success" id="study-btn" onclick="markStudied()">Mark as studied (+5 XP)</button>
-    <button class="btn btn-primary" id="quiz-btn" onclick="startQuiz()">Start quiz →</button>
-  </div>
 </div>
 
-<!-- LESSON -->
 <div id="scr-lesson" class="scr">
   <div class="les-hdr">
     <button class="les-close" onclick="exitLesson()">✕</button>
     <div class="les-track"><div class="les-fill" id="les-fill" style="width:0%"></div></div>
-    <div class="les-hearts" id="hearts-les"></div>
+    
+    <div class="les-hud-box">
+      <div class="score-pill" id="hud-score" style="display:none">Score: 0.00</div>
+      <div class="timer-pill" id="hud-timer" style="display:none">⏱️ 00:00</div>
+      <div class="les-hearts" id="hearts-les" style="display:none"></div>
+    </div>
   </div>
   <div class="q-num" id="q-num">Question 1 of 10</div>
-  <div class="act-chip" id="q-act">ROPA · s.3</div>
+  <div class="act-chip" id="q-act">ACT · Sec</div>
   <div class="q-card">
     <div class="q-text" id="q-text"></div>
     <div class="stmts" id="q-stmts" style="display:none"></div>
@@ -259,47 +340,49 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
   <button class="btn btn-primary" id="cont-btn" onclick="doCont()" style="display:none">Continue</button>
 </div>
 
-<!-- RESULT -->
 <div id="scr-result" class="scr">
   <div class="page-hdr">
-    <button class="back-btn" onclick="show('map')">←</button>
+    <button class="back-btn" onclick="show('game-dash')">← <span>Exit</span></button>
     <div><div class="page-title">Result</div></div>
   </div>
   <div class="res-card pop">
     <div class="res-icon" id="r-icon">🎉</div>
     <div class="res-title" id="r-title">Lesson complete!</div>
     <div class="res-sub" id="r-sub"></div>
+    
+    <div id="r-pkumf-box" style="display:none">
+      <div style="font-size:12px;color:#6B7280;text-transform:uppercase;letter-spacing:0.05em;font-weight:700">Final PKUMF Score</div>
+      <div class="pkumf-score" id="r-pkumf">0.00 / 10</div>
+    </div>
+    
     <div class="xp-earned" id="r-xp">⚡ +0 XP</div>
+    
     <div class="stats3">
       <div class="scard"><div class="sv" id="r-ok">0</div><div class="sl">Correct</div></div>
       <div class="scard"><div class="sv" id="r-bad">0</div><div class="sl">Wrong</div></div>
-      <div class="scard"><div class="sv" id="r-stars">0 ★</div><div class="sl">ROPA stars</div></div>
+      <div class="scard"><div class="sv" id="r-skip">0</div><div class="sl">Skipped</div></div>
     </div>
   </div>
-  <button class="btn btn-primary" onclick="startQuiz()">Try again 🔄</button>
-  <button class="btn btn-secondary" onclick="show('map')">Back to map</button>
+  <button class="btn btn-secondary" onclick="show('game-dash')">Back to Dashboard</button>
 </div>
 
-<!-- LOCKED -->
 <div id="scr-locked" class="scr">
   <div class="page-hdr">
-    <button class="back-btn" onclick="show('map')">←</button>
+    <button class="back-btn" onclick="show('game-dash')">← <span>Back</span></button>
     <div><div class="page-title">No hearts left</div></div>
   </div>
   <div class="locked-center">
     <div style="font-size:3rem;margin-bottom:.75rem">❤️</div>
     <div style="font-size:16px;font-weight:700;color:#111827;margin-bottom:.4rem">Hearts refilling...</div>
-    <div style="font-size:13px;color:#9CA3AF;margin-bottom:.5rem">Come back in 30 minutes.<br>Study notes while you wait!</div>
+    <div style="font-size:13px;color:#9CA3AF;margin-bottom:.5rem">Wait 30 mins to play Casual Mode.<br>Or play Timed Modes (no hearts needed).</div>
     <div class="timer-big" id="refill-timer">30:00</div>
   </div>
-  <button class="btn btn-success" onclick="openRopa()">Study ROPA notes 📖</button>
-  <button class="btn btn-secondary" onclick="show('map')">Back to map</button>
+  <button class="btn btn-secondary" onclick="show('game-dash')">Back to Dashboard</button>
 </div>
 
-<!-- COMING SOON -->
 <div id="scr-coming" class="scr">
   <div class="page-hdr">
-    <button class="back-btn" onclick="show('map')">←</button>
+    <button class="back-btn" onclick="goBackFromComing()">← <span>Back</span></button>
     <div>
       <div class="page-title" id="coming-title">POISON</div>
       <div class="page-sub">Coming soon</div>
@@ -310,439 +393,523 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
     <div style="font-size:16px;font-weight:700;color:#111827;margin-bottom:.4rem" id="coming-name">POISON</div>
     <div style="font-size:13px;color:#9CA3AF" id="coming-acts"></div>
   </div>
-  <div style="font-size:11px;font-weight:600;color:#9CA3AF;text-transform:uppercase;letter-spacing:.06em;margin-bottom:.75rem">Full app will include</div>
-  <div class="coming-node"><div class="coming-icon">☠️</div><div><div class="coming-name">POISON</div><div class="coming-acts">Poisons Act 1952 + Psychotropic Reg 1989</div></div></div>
-  <div class="coming-node"><div class="coming-icon">🧪</div><div><div class="coming-name">SODA</div><div class="coming-acts">Sale of Drugs Act 1952 + CDCR 1984</div></div></div>
-  <div class="coming-node"><div class="coming-icon">💉</div><div><div class="coming-name">DDA</div><div class="coming-acts">Dangerous Drugs Act 1952 + Regulations</div></div></div>
-  <div class="coming-node"><div class="coming-icon">📢</div><div><div class="coming-name">MASA</div><div class="coming-acts">Medicine Ads Act 1956 + MAB Reg 1976</div></div></div>
-  <button class="btn btn-secondary" style="margin-top:1rem" onclick="show('map')">Back to map</button>
+  <button class="btn btn-secondary" style="margin-top:1rem" onclick="goBackFromComing()">Back</button>
 </div>
 
-</div>
-
-<script>
-var G={xp:0,streak:0,hearts:5,stars:0,studied:false,heartRefill:null,refillInt:null,fcIdx:0,fcFlipped:false,fcKnown:{},fcSeen:{},lawOpen:{},activeTab:'notes',lesQ:[],lesIdx:0,correct:0,wrong:0,answered:false,selAns:null,wasSkipped:false};
-
-var LEVELS=[
-  {name:'Pre-Registration Intern',icon:'🎓',xp:0,next:100},
-  {name:'House Officer Pharmacist',icon:'⚗️',xp:100,next:250},
-  {name:'Registered Pharmacist',icon:'💊',xp:250,next:500},
-  {name:'Senior Pharmacist',icon:'📋',xp:500,next:900},
-  {name:'Principal Pharmacist',icon:'🏥',xp:900,next:1400},
-  {name:'Pharmacy Consultant',icon:'🎯',xp:1400,next:9999}
-];
-
-var COMING_DATA={
-  poison:{name:'POISON',acts:'Poisons Act 1952 + Psychotropic Substances Regulations 1989'},
-  soda:{name:'SODA',acts:'Sale of Drugs Act 1952 + Control of Drugs and Cosmetics Regulations 1984'},
-  dda:{name:'DDA',acts:'Dangerous Drugs Act 1952 + Dangerous Drugs Regulations'},
-  masa:{name:'MASA',acts:'Medicine (Advertisement and Sale) Act 1956 + MAB Regulations 1976'}
+</div><script>
+// ── MASTER INJECTED DATA: ROPA ──────────────────────────────────
+window.ROPA_DATA = {
+  questions: [
+    {act:'ROPA · s.3',q:'The Pharmacy Board consists of how many registered pharmacists in the public service, appointed by the Minister?',opts:['A. Four','B. Six','C. Eight','D. Ten'],ans:2,exp:'s.3(1)(c) RPA 1951: Eight registered pharmacists in the public service are appointed by the Minister.'},
+    {act:'ROPA · s.4',q:'At a Pharmacy Board meeting, when the President is absent, who chairs the meeting?',opts:['A. Director of Pharmaceutical Services automatically','B. A member elected by those present','C. The most senior Board member','D. The Registrar'],ans:1,exp:'s.4(2) RPA 1951: Members present shall elect one of their number to be Chairman.'},
+    {act:'ROPA · s.4',q:'The quorum at a Pharmacy Board meeting is:',opts:['A. Five members','B. Seven members','C. Nine members','D. Eleven members'],ans:2,exp:'s.4(4) RPA 1951: Nine members shall form a quorum at any meeting.'},
+    {act:'ROPA · s.6A',q:'A provisionally registered pharmacist must engage in employment for a minimum of:',opts:['A. Six months','B. One year','C. Two years','D. Three years'],ans:1,exp:'s.6A(2) RPA 1951: Not less than one year in approved premises listed in the Second Schedule.'},
+    {act:'ROPA · s.6A',q:'The Board may EXTEND the provisional employment period by a maximum of:',opts:['A. Three months','B. Six months','C. One year','D. Two years'],ans:2,exp:'s.6A(3) RPA 1951: Not more than one year if the Board is not satisfied with performance.'},
+    {act:'ROPA · s.7',q:'Contravening title restrictions under s.7(4) carries a penalty of:',opts:['A. RM250 + RM25/day','B. RM500 + RM50/day','C. RM1,000 + RM100/day','D. RM5,000 flat'],ans:1,exp:'s.7(4) RPA 1951: On conviction before a Sessions Court, liable to a penalty ≤ RM500, plus RM50 for every day the offence continues.'},
+    {act:'ROPA · s.11A',q:'A holder of a temporary registration certificate shall be deemed to be:',opts:['A. A provisionally registered pharmacist','B. A fully registered pharmacist','C. A conditionally registered pharmacist','D. An associate pharmacist'],ans:1,exp:'s.11A(3) RPA 1951: Deemed to be a fully registered pharmacist while the certificate remains in force.'},
+    {act:'ROPA · s.11C',q:'A fully registered pharmacist who fails to comply with a public service notice is liable to a fine not exceeding:',opts:['A. RM10,000','B. RM25,000','C. RM50,000','D. RM100,000'],ans:2,exp:'s.11C(2) RPA 1951: Fine not exceeding fifty thousand ringgit on conviction.'},
+    {act:'ROPA · s.16',q:'A registered pharmacist who fails to obtain an annual certificate shall have their name:',opts:['A. Suspended for three months','B. Removed from the register','C. Fined RM200','D. Downgraded to provisional'],ans:1,exp:'s.16(4) RPA 1951: Name shall be removed from the register.'},
+    {act:'ROPA · s.20',q:'Fraudulent registration under s.20 is tried before which court?',opts:['A. Magistrates Court','B. Sessions Court','C. High Court','D. Special Pharmacy Tribunal'],ans:1,exp:'s.20 RPA 1951: On conviction before a Sessions Court — liable to ≤ 1 year imprisonment or ≤ RM500 or both.'},
+    {act:'ROPA · s.18A',q:'Which of the following are punishments the Board may impose after a disciplinary inquiry?',stmts:['i. Remove from register','ii. Suspend from register','iii. Reprimand','iv. Imprisonment'],opts:['A. i and ii only','B. i, ii and iii only','C. ii, iii and iv only','D. All of the above'],ans:1,exp:'s.18A(1) RPA 1951: Removal, suspension, or reprimand. The Board cannot sentence to imprisonment.'},
+    {act:'ROPA · s.19',q:"A person aggrieved by a Board punishment may appeal to the Minister. The Minister's decision is:",opts:['A. Subject to further appeal to the High Court','B. Final','C. Subject to review by the Board','D. Binding for 12 months only'],ans:1,exp:'s.19 RPA 1951: Appeal to the Minister, whose decision shall be final.'},
+    {act:'ROPA · s.17',q:"The Board may remove a pharmacist's name WITHOUT an inquiry if the pharmacist is:",stmts:['i. Deceased','ii. Has permanently left Malaysia','iii. Is of unsound mind','iv. Has been convicted of a criminal offence'],opts:['A. i and ii only','B. i, ii and iii only','C. ii, iii and iv only','D. All of the above'],ans:1,exp:'s.17(1A) RPA 1951: Deceased, left Malaysia permanently, or unsound mind — allowed without inquiry.'},
+    {act:'ROPA · s.3',q:'The three registered pharmacists from private practice on the Board must be:',opts:['A. Citizens or permanent residents','B. Malaysian citizens only — permanent residents excluded','C. Any registered pharmacists','D. Nominated by the DPS'],ans:1,exp:"s.3(5) RPA 1951: Citizens of Malaysia shall not include permanent residents for this appointment."},
+    {act:'ROPA · s.3',q:"What is the effect if a defect in a Board member's appointment is later discovered?",opts:['A. All Board acts are void','B. All Board acts remain valid as if no defect existed','C. Acts must be ratified by the Minister','D. Acts are suspended pending High Court review'],ans:1,exp:'s.3(4) RPA 1951: All acts done by the Board shall be valid notwithstanding any vacancy or defect.'},
+    {act:'Reg 2004 · r.12',q:'The annual retention fee for a body corporate under the Regulations 2004 is:',opts:['A. RM50','B. RM100','C. RM200','D. RM300'],ans:2,exp:'Reg 12(2) RPA Regulations 2004: RM200 for a body corporate; RM50 for a fully registered pharmacist.'},
+    {act:'Reg 2004 · r.12',q:'The additional late renewal fee for a body corporate under Reg 12(3) is:',opts:['A. RM100','B. RM200','C. RM300','D. RM500'],ans:2,exp:'Reg 12(3) RPA Regulations 2004: RM300 for a body corporate; RM100 for a fully registered pharmacist.'},
+    {act:'Reg 2004 · r.15',q:'A Committee of Inquiry under the Regulations 2004 comprises:',opts:['A. Three fully registered pharmacists','B. Five fully registered pharmacists with valid annual certificates','C. Seven pharmacists appointed by the Minister','D. Five pharmacists including provisional registrants'],ans:1,exp:'Reg 15(1) RPA Regulations 2004: Five fully registered pharmacists, each holding a valid annual certificate.'},
+    {act:'Reg 2004 · r.15',q:'The quorum of a Committee of Inquiry is:',opts:['A. Two','B. Three','C. Four','D. Five'],ans:1,exp:'Reg 15(4) RPA Regulations 2004: Quorum shall be three.'},
+    {act:'Reg 2004 · r.4',q:'Complaint copies for a Board disciplinary meeting must be supplied to members at least:',opts:['A. Three days prior','B. Seven days prior','C. Fourteen days prior','D. Twenty-one days prior'],ans:1,exp:'Reg 4(2) RPA Regulations 2004: At least seven days prior to the meeting.'},
+    {act:'Reg 2004 · r.16',q:'The investigation notice must require written explanation within:',opts:['A. Not less than 7 days','B. Not less than 14 days','C. Not less than 21 days','D. Not more than 14 days'],ans:1,exp:'Reg 16(1)(b) RPA Regulations 2004: Not less than fourteen days from the date of the notice.'},
+    {act:'Reg 2004 · r.17',q:'A Committee of Inquiry may recommend summary dismissal if satisfied that:',stmts:["i. The complainant's name is unknown","ii. The complainant's address is untraceable","iii. The facts do not constitute a matter under the provisions","iv. The complaint was submitted orally"],opts:['A. i, ii and iii only','B. i, ii and iv only','C. iii only','D. All of the above'],ans:0,exp:"Reg 17 RPA Regulations 2004: Name unknown, address untraceable, or facts not constituting an issue. Oral filing alone is not a summary ground."},
+    {act:'Reg 2004 · r.3',q:'The Secretary to the Pharmacy Board shall be:',opts:['A. Any registered pharmacist nominated by the Board','B. A pharmacist in the public service appointed by the Board','C. The Director of Pharmaceutical Services','D. Appointed by the Minister'],ans:1,exp:'Reg 3(1) RPA Regulations 2004: A pharmacist in the public service appointed by the Board who is NOT a Board member.'},
+    {act:'Reg 2004 · r.8',q:'The fee for an application for full registration is:',opts:['A. RM50','B. RM100','C. RM200','D. RM500'],ans:1,exp:'Reg 8(2)(e) RPA Regulations 2004: A fee of one hundred ringgit.'},
+    {act:'ROPA · s.6',q:'The following are TRUE regarding provisional registration:',stmts:['i. Solely for the purpose of obtaining experience','ii. Only persons holding First Schedule qualifications may apply','iii. Application shall be submitted to the Registrar','iv. The Board may amend the First Schedule by Gazette order'],opts:['A. i only','B. ii and iv only','C. i and iii only','D. All of the above'],ans:2,exp:'s.6 RPA 1951: Solely for experience (i); application to Registrar (iii). First Schedule is amended by the MINISTER, not the Board (iv).'}
+  ],
+  notes: [
+    {title:'Board composition — s.3(1)',items:[
+      {t:'DG of Health',d:'Ex officio President — chairs all meetings he attends'},
+      {t:'Director of Pharmaceutical Services',d:'Ex officio member'},
+      {t:'Public service pharmacists',d:'8 members — appointed by Minister'},
+      {t:'HEI pharmacists',d:'3 members from higher education institutions — appointed by Minister'},
+      {t:'Non-public service',d:'2 members — appointed by Minister'},
+      {t:'Private practice',d:"3 members — nominated by private pharmacists' association, approved by Minister. Must be CITIZENS (not PRs)"},
+      {t:'TOTAL',d:'18 members'}
+    ]},
+    {title:'Meetings — s.4',items:[
+      {t:'Chairman absent',d:'Members present ELECT one of their number — NOT automatic DPS'},
+      {t:"Chairman's vote",d:'Original vote + casting vote if tied'},
+      {t:'Quorum',d:'9 members'}
+    ]},
+    {title:'Registration pathway',items:[
+      {t:'Provisional registration',d:'Solely to gain experience [s.6]. Apply to Registrar.'},
+      {t:'Employment period',d:'NOT LESS than 1 year to Board satisfaction [s.6A(2)]'},
+      {t:'Extension',d:'NOT MORE than 1 year by Board [s.6A(3)]'},
+      {t:'Full registration',d:'After satisfactory employment or exemption [s.6B]'},
+      {t:'Provisionally registered',d:'Deemed PUBLIC SERVANT under Penal Code [s.6A(8)]'}
+    ]},
+    {title:'Key penalties',items:[
+      {t:'Title offence [s.7(4)]',d:'≤RM500 + RM50/day continuing'},
+      {t:'Public service failure [s.11C(2)]',d:'≤RM50,000 fine on conviction + registration deemed revoked'},
+      {t:'Fraudulent registration [s.20]',d:'≤1 year imprisonment OR ≤RM500 fine — Sessions Court'},
+      {t:'Obstruct inspector [s.21(3)]',d:'≤6 months imprisonment OR ≤RM500 fine'}
+    ]},
+    {title:'Regulations 2004 — key fees',items:[
+      {t:'Full registration [Reg 8]',d:'RM100'},
+      {t:'Annual retention — pharmacist [Reg 12(2)]',d:'RM50'},
+      {t:'Annual retention — body corporate [Reg 12(2)]',d:'RM200'},
+      {t:'Late renewal — pharmacist [Reg 12(3)]',d:'RM100 additional'},
+      {t:'Late renewal — body corporate [Reg 12(3)]',d:'RM300 additional'}
+    ]},
+    {title:'Committee of Inquiry — Reg 2004',items:[
+      {t:'Composition',d:'5 fully registered pharmacists with valid annual certificates [Reg 15(1)]'},
+      {t:'Quorum',d:'3 [Reg 15(4)]'},
+      {t:'Chairman',d:'Nominated by the Board [Reg 15(3)]'},
+      {t:'Decisions',d:'By majority [Reg 15(6)]'},
+      {t:'Secretary',d:'Pharmacist in public service — NOT a Board member [Reg 3]'},
+      {t:'Board meeting documents',d:'Copies of complaints sent ≥7 days before meeting [Reg 4(2)]'},
+      {t:'Investigation notice',d:'Written explanation ≥14 days from notice [Reg 16(1)(b)]. Sent by registered post.'}
+    ]},
+    {title:'Disciplinary & appeals',items:[
+      {t:'Without inquiry',d:'Deceased / permanently left Malaysia / unsound mind [s.17(1A)]'},
+      {t:'With inquiry',d:'Fraud, conviction, infamous conduct [s.17(1)]'},
+      {t:'Punishments [s.18A]',d:'Remove / Suspend / Reprimand. NO imprisonment.'},
+      {t:'Appeal [s.19]',d:'To Minister — decision is FINAL'}
+    ]},
+    {title:'Exam traps ⚠️',warn:[
+      'First Schedule amended by MINISTER — not the Board [s.6(3)]',
+      'Employment satisfies the BOARD — not the Minister [s.6A(2)]',
+      'President absent → members ELECT chairman — DPS is NOT automatic [s.4(2)]',
+      'Annual cert failure = REMOVED from register — not suspended [s.16(4)]',
+      'Temporary registration = deemed FULLY registered while cert in force [s.11A(3)]',
+      'Secretary of Board is NOT a Board member [Reg 3(2)]',
+      'Disciplinary meeting: 7 days. Investigation notice: 14 days. Different!',
+      'Board CANNOT imprison — imprisonment only via Court [s.18A]',
+      'Summary dismissal: 3 grounds only — unknown name, untraceable address, facts not constituting a matter [Reg 17]'
+    ]}
+  ],
+  flashcards: [
+    {q:'Who keeps and maintains the register of pharmacists?',a:'Director of Pharmaceutical Services (the Registrar)',ref:'s.5 RPA 1951'},
+    {q:'What is the SOLE purpose of provisional registration?',a:'To enable the person to obtain the experience specified in s.6A',ref:'s.6(1) RPA 1951'},
+    {q:'What happens if a provisionally registered pharmacist fails to engage in employment?',a:'Provisional registration shall be REVOKED',ref:'s.6A(4) RPA 1951'},
+    {q:'Is the DPS automatically the chairman when the President is absent?',a:'NO — members present shall ELECT one of their number as Chairman',ref:'s.4(2) RPA 1951'},
+    {q:'Total number of Pharmacy Board members',a:'18 (DG Health + DPS + 8 + 3 + 2 + 3)',ref:'s.3(1) RPA 1951'},
+    {q:'Quorum of the Pharmacy Board',a:'9 members',ref:'s.4(4) RPA 1951'},
+    {q:'Term of appointment for non-ex-officio Board members',a:'3 years — eligible for reappointment',ref:'s.3(2) RPA 1951'},
+    {q:'Can permanent residents be the 3 private practice Board members?',a:'NO — must be CITIZENS; explicitly excludes permanent residents',ref:'s.3(5) RPA 1951'},
+    {q:'Annual certificate — what happens if NOT renewed before year end?',a:'Name shall be REMOVED from the register',ref:'s.16(4) RPA 1951'},
+    {q:'Three punishments the Board may impose after disciplinary inquiry',a:'(1) Remove from register  (2) Suspend from register  (3) Reprimand',ref:'s.18A(1) RPA 1951'},
+    {q:'Can the Board impose imprisonment?',a:'NO — imprisonment is a Court power only',ref:'s.18A RPA 1951'},
+    {q:'Who does a person appeal to against a Board punishment?',a:'The MINISTER — and the decision is FINAL',ref:'s.19 RPA 1951'},
+    {q:'Fee for annual retention — body corporate',a:'RM200',ref:'Reg 12(2) RPA Reg 2004'},
+    {q:'Committee of Inquiry — quorum',a:'3',ref:'Reg 15(4) RPA Reg 2004'},
+    {q:'Who signs all certificates under the Regulations?',a:'The Registrar',ref:'Reg 5 RPA Reg 2004'},
+    {q:'Minimum notice period for written explanation in investigation',a:'Not less than 14 days from date of notice',ref:'Reg 16(1)(b) RPA Reg 2004'},
+    {q:"Grounds for summary dismissal of a complaint",a:"(1) Name unknown  (2) Address untraceable  (3) Facts don't constitute a matter",ref:'Reg 17 RPA Reg 2004'},
+    {q:'Days before Board disciplinary meeting that complaint copies must be supplied',a:'7 days prior',ref:'Reg 4(2) RPA Reg 2004'},
+    {q:'Temporary registration — what status does the holder have?',a:'Deemed FULLY REGISTERED while the certificate is in force',ref:'s.11A(3) RPA 1951'},
+    {q:'Penalty for obstruction of an Inspector',a:'≤6 months imprisonment OR ≤RM500 fine',ref:'s.21(3) RPA 1951'}
+  ],
+  law: [
+    {sec:'s.3(1)',title:'Board composition',body:'18 members: <span class="lk">DG Health</span> + <span class="lk">DPS</span> (ex officio); <span class="lh">8</span> public service; <span class="lh">3</span> HEI; <span class="lh">2</span> non-public service; <span class="lh">3</span> private practice (must be <span class="lh">citizens — not PRs</span>). All non-ex-officio appointed by Minister.'},
+    {sec:'s.3(2)–(5)',title:'Appointment rules',body:'Term: <span class="lh">3 years</span>, renewable. Acts remain <span class="lk">valid</span> despite defect or vacancy. Citizens excludes <span class="lh">permanent residents</span>.'},
+    {sec:'s.4',title:'President and meetings',body:'DG Health = President. Absence → members <span class="lh">elect</span> chairman. Chairman has <span class="lk">original vote + casting vote</span> if tied. Quorum: <span class="lh">9</span>.'},
+    {sec:'s.6–6B',title:'Registration pathway',body:'Provisional: solely for gaining experience. Employment: <span class="lh">≥1 year</span>, Board satisfaction. Extension: <span class="lh">≤1 year</span>. Fail → <span class="lh">revoked</span>. Provisional = <span class="lk">public servant</span> (Penal Code).'},
+    {sec:'s.7(4)',title:'Title offence penalty',body:'Conviction: <span class="lh">≤RM500</span> + <span class="lh">RM50/day</span> continuing.'},
+    {sec:'s.11A–11C',title:'Temporary registration & public service',body:'Temporary → deemed <span class="lk">fully registered</span> while cert in force. Public service failure: <span class="lh">≤RM50,000</span> + <span class="lh">registration revoked</span>.'},
+    {sec:'s.16',title:'Annual certificate',body:'Renew before year end + pay fee. Failure = <span class="lh">removed from register</span>. Restoration: application + <span class="lk">additional fee</span>.'},
+    {sec:'s.17–18A',title:'Disciplinary and punishments',body:'Without inquiry: deceased, permanently left, unsound mind. Punishments: <span class="lk">remove / suspend / reprimand</span> — <span class="lh">no imprisonment</span>. Appeal: <span class="lk">Minister</span> — final.'},
+    {sec:'s.20–21',title:'Fraudulent registration & inspection',body:'Fraudulent: <span class="lh">≤1 year OR ≤RM500</span> — Sessions Court. Obstruct inspector: <span class="lh">≤6 months OR ≤RM500</span>.'},
+    {sec:'Reg 3–5',title:'Secretary, meetings, certificates',body:'Secretary: public service pharmacist — <span class="lh">NOT a Board member</span>. Complaint docs: <span class="lh">≥7 days</span> before meeting. Certificates signed by <span class="lk">Registrar</span>.'},
+    {sec:'Reg 8 & 12',title:'Fees',body:'Full registration: <span class="lh">RM100</span>. Annual: pharmacist <span class="lh">RM50</span>, body corporate <span class="lh">RM200</span>. Late: <span class="lh">RM100 / RM300</span>. Public service pharmacists: <span class="lk">exempted</span>.'},
+    {sec:'Reg 15–17',title:'Committee of Inquiry',body:'Composition: <span class="lh">5</span> fully registered + valid cert. Quorum: <span class="lh">3</span>. Chairman: nominated by Board. Notice: <span class="lh">≥14 days</span>. Summary dismissal: unknown name, untraceable address, facts not constituting a matter.'}
+  ]
 };
 
-// ── QUESTIONS — from Teaching_Slide_2026 ─────────────────────────
-var QDB=[
-  {
-    act:'ROPA · s.17',
-    q:'The Pharmacy Board may remove the name of a registered pharmacist from the register, if he',
-    stmts:['i. is deceased.','ii. is of unsound mind.','iii. has permanently left Malaysia.','iv. fails to obtain an annual certificate prior to the commencement of any year.'],
-    opts:['A. i, ii and iii only','B. i, ii and iv only','C. iii only','D. i, ii, iii and iv'],
-    ans:0,
-    exp:'s.17(1A) RPA 1951: the Board may remove WITHOUT inquiry if deceased, unsound mind, or permanently left Malaysia. Annual certificate failure under s.16(4) is a separate automatic removal provision — not s.17(1A).'
-  },
-  {
-    act:'ROPA · s.6B',
-    q:'A person is entitled to be a fully registered pharmacist if he',
-    stmts:['i. has completed his term as a temporarily registered pharmacist.','ii. has gained experience as required under section 6A of the Act.','iii. has been exempted by the Board under subsection 6A(7) of the Act.','iv. has a qualification which the Minister is satisfied as adequate without consulting the Board.'],
-    opts:['A. i and iii only','B. ii and iii only','C. ii and iv only','D. i, ii, iii and iv'],
-    ans:1,
-    exp:'s.6B RPA 1951: full registration requires experience under s.6A (ii) OR Board exemption under s.6A(7) (iii). Temporary registration is a different pathway. The Minister must consult the Board — iv is false.'
-  },
-  {
-    act:'ROPA · s.3',
-    q:'The following are members of the Pharmacy Board, EXCEPT',
-    stmts:null,
-    opts:['A. eight registered pharmacists in the public service, appointed by the Minister.','B. three registered pharmacists from any higher educational institution offering a course in pharmacy, appointed by the Minister.','C. the Director of Pharmacy Board, ex officio.','D. The Director General of Health, ex officio.'],
-    ans:2,
-    exp:'s.3(1) RPA 1951: ex officio members are the Director General of Health and the Director of Pharmaceutical Services. There is no position called "Director of Pharmacy Board" as an ex officio member under the Act.'
-  },
-  {
-    act:'ROPA · s.36',
-    q:'Registration of Pharmacists Regulation 2004 is made by the',
-    stmts:null,
-    opts:['A. Pharmacy Board and approved by the Minister.','B. Minister and passed by the Pharmacy Board.','C. Court.','D. Parliament.'],
-    ans:0,
-    exp:'s.36 RPA 1951: the Board may, with the approval of the Minister, make regulations. The Regulations 2004 is subsidiary legislation made by the Board with Ministerial approval — not Parliament, not the Court.'
-  },
-  {
-    act:'Reg 2004 · r.12',
-    q:'A fully registered pharmacist, who failed to obtain an annual certificate prior to the commencement of 2025 and renewed his annual retention certificate on 21st February 2025 must have paid a fee of',
-    stmts:null,
-    opts:['A. RM 50.00.','B. RM 50.00 + RM 100.00 (additional fee).','C. RM 200.00 + RM 100.00 (additional fee).','D. RM 200.00 + RM 300.00 (additional fee).'],
-    ans:1,
-    exp:'Reg 12(2) & 12(3) RPA Reg 2004: annual retention fee for a fully registered pharmacist = RM50. Additional late renewal fee = RM100. Total = RM150. RM200/RM300 rates apply to body corporates.'
-  },
-  {
-    act:'ROPA · s.6A',
-    q:'Provisionally Registered Pharmacist (PRP) is required to obtain experience',
-    stmts:['i. at a government hospital only.','ii. for a term not more than two years.','iii. and to comply with Code of Conduct for Pharmacists and Body Corporate 2009.','iv. for a term not less than one year.'],
-    opts:['A. iii and iv','B. i, ii and iii','C. ii and iii','D. ii, iii and iv'],
-    ans:0,
-    exp:'s.6A RPA 1951: PRP must obtain experience for not less than one year (iv ✓) at approved Second Schedule premises — not government hospital only (i ✗). Extension is not more than one year — not two years (ii ✗). Compliance with Code of Conduct is required (iii ✓).'
-  },
-  {
-    act:'Reg 2004 · r.5',
-    q:'All certificates issued under the Act are signed by',
-    stmts:null,
-    opts:['A. the Registrar, who is the Director General of Health.','B. the Registrar, who is the Director of Pharmaceutical Services.','C. the Secretary of the Pharmacy Board.','D. the Chairman of the Pharmacy Board.'],
-    ans:1,
-    exp:'Reg 5 & s.5 RPA 1951: all certificates are signed by the Registrar. The Registrar is the Director of Pharmaceutical Services — NOT the Director General of Health (who is the President/Chairman of the Board).'
-  },
-  {
-    act:'ROPA · s.12',
-    q:'The following are TRUE regarding the superintendent of a body corporate',
-    stmts:['i. He shall be a registered pharmacist.','ii. He does not act in a similar capacity for any other body corporate firm on his own behalf.','iii. His name and registration number shall be recorded in the Register of Body Corporate.','iv. His certificate of registration shall be conspicuously exhibited in each set of premises where the business is carried out.'],
-    opts:['A. i and ii only.','B. i, ii and iii only.','C. iii and iv only.','D. All of the above.'],
-    ans:3,
-    exp:'RPA 1951: all four statements are TRUE regarding a superintendent of a body corporate — must be a registered pharmacist, cannot hold the same role at another body corporate, name is recorded in the register, and certificate must be displayed at all premises.'
-  },
-  {
-    act:'ROPA · s.5',
-    q:'According to Section 5 of the Act,',
-    stmts:null,
-    opts:['A. keeping a register of pharmacists is optional.','B. a register is kept by the Director of Pharmaceutical Services.','C. the Registrar is the Secretary of the Pharmacy Board.','D. maintenance of the register is the responsibility of the Pharmacy Board.'],
-    ans:1,
-    exp:'s.5 RPA 1951: the Director of Pharmaceutical Services is the Registrar and keeps and maintains the register. It is mandatory — not optional. The Secretary of the Board is a separate role (a pharmacist in public service, and NOT a Board member).'
-  },
-  {
-    act:'ROPA · s.6A',
-    q:'A provisionally registered pharmacist shall engage in employment as a pharmacist in the following approved premises which fulfil the criteria for training, EXCEPT',
-    stmts:null,
-    opts:['A. a government-based general hospital.','B. a retail pharmacy.','C. a pharmaceutical manufacturer.','D. a veterinary clinic.'],
-    ans:3,
-    exp:'s.6A + Second Schedule RPA 1951: approved training premises include government hospitals, retail pharmacies, and pharmaceutical manufacturers. A veterinary clinic is NOT listed as an approved Second Schedule training premise.'
-  }
-];
+// ── MASTER INJECTED DATA: SODA + CDCR 1984 ───────────────────────
+window.SODA_DATA = {
+  questions: [
+    {act:'SODA · s.2',q:'Under the Sale of Drugs Act 1952, "medicinal purpose" includes which of the following?',stmts:['i. Contraception','ii. Inducing anaesthesia','iii. Controlling body weight','iv. Cleaning the teeth and mucous membranes'],opts:['A. i, ii and iii only','B. ii, iii and iv only','C. i and iv only','D. All of the above'],ans:0,exp:'s.2 SODA 1952: Medicinal purpose explicitly includes contraception, inducing anaesthesia, and controlling body weight. Teeth cleaning fits the statutory definition of a cosmetic.'},
+    {act:'SODA · s.4',q:'An officer under the Sale of Drugs Act 1952 may seize any drug which appears to be unwholesome. What happens if no complaint is made within forty-eight hours of the seizure?',opts:['A. The drug is returned to the owner','B. The drug becomes the property of the Government and shall be destroyed','C. The officer must apply to the Magistrate for a destruction order','D. The drug is sold at auction'],ans:1,exp:'s.4(4) SODA 1952: If no complaint is filed within 48 hours, the article becomes the property of the Government and shall be destroyed or disposed of.'},
+    {act:'SODA · s.7',q:'When an officer purchases a sample of a drug for analysis under the Sale of Drugs Act 1952, he must divide the sample into how many parts?',opts:['A. Two','B. Three','C. Four','D. Five'],ans:1,exp:'s.7(2) SODA 1952: The officer must divide the sample into three parts, marking and sealing or fastening up each part.'},
+    {act:'SODA · s.12',q:'What is the general penalty for a first offence committed by a body corporate under the Sale of Drugs Act 1952 where no penalty is expressly provided?',opts:['A. Fine not exceeding RM25,000','B. Fine not exceeding RM50,000','C. Fine not exceeding RM100,000','D. Fine not exceeding RM500,000'],ans:1,exp:'s.12(2) SODA 1952: A body corporate found guilty of an offence where no penalty is expressly specified shall be liable to a fine ≤ RM50,000.'},
+    {act:'CDCR · r.7',q:'Under the Control of Drugs and Cosmetics Regulations 1984, which of the following actions is prohibited regarding a registered product?',stmts:['i. Mixing it with another registered product','ii. Labelling it with an additional name other than the registered name','iii. Possessing written information describing an unapproved indication','iv. Mixing it with a substance not intended for reconstitution'],opts:['A. i and ii only','B. ii and iv only','C. i, ii and iii only','D. All of the above'],ans:3,exp:'Reg 7(1A) & 7(1B) CDCR 1984: All these acts are explicitly prohibited, including possessing documents describing unapproved indications.'},
+    {act:'CDCR · r.8',q:'What is the processing fee for an application to register a product OTHER than a traditional medicine under the CDCR 1984?',opts:['A. RM50','B. RM200','C. RM500','D. RM1,000'],ans:3,exp:'Reg 8(2)(c) CDCR 1984: A processing fee of RM1000.00 is required for products other than traditional medicines.'},
+    {act:'CDCR · r.12',q:'Which licence under the CDCR 1984 is restricted to including ONLY ONE product?',opts:['A. Manufacturer\'s licence','B. Wholesaler\'s licence','C. Import licence','D. Clinical trial import licence'],ans:3,exp:'Reg 12(2) CDCR 1984: Any number of registered products may be included in standard licenses, but a clinical trial import licence includes only one product.'},
+    {act:'CDCR · r.15',q:'Who is exempted from holding a manufacturing license when dispensing a drug for a specific patient\'s medical treatment?',stmts:['i. A pharmacist in a retail pharmacy','ii. A fully registered medical practitioner','iii. A veterinary practitioner','iv. A person acting in the course of duties in a Government hospital'],opts:['A. i and ii only','B. i, ii and iii only','C. ii, iii and iv only','D. All of the above'],ans:3,exp:'Reg 15(2) CDCR 1984: Retail pharmacists, registered medical/dental/veterinary practitioners, and public/estate hospital staff are fully exempted when dispensing for specific care.'},
+    {act:'CDCR · r.18A',q:'For a notified cosmetic, the person responsible for placing it in the market must:',stmts:['i. Maintain proper records','ii. Report serious adverse events to the Director of Pharmaceutical Services','iii. Recall the product immediately if it contravenes guidelines','iv. Apply for a clinical trial import licence'],opts:['A. i, ii and iii only','B. i and ii only','C. ii, iii and iv only','D. All of the above'],ans:0,exp:'Reg 18A(9), (11), & (13) CDCR 1984: Responsible entities must report adverse events, keep files, and recall non-compliant lots. Clinical trial frameworks apply strictly to non-registered drug investigations.'},
+    {act:'CDCR · Sch. (Tab II)',q:'Which of the following substances is PROHIBITED in traditional medicine under the CDCR 1984?',opts:['A. Caffeine','B. Paracetamol','C. Any poison within the meaning of the Poisons Act 1952','D. All of the above'],ans:3,exp:'Table II CDCR 1984: Caffeine, Nicotinamide, Paracetamol, and generic Poisons under the Poisons Act 1952 are prohibited inside traditional medicine lines.'}
+  ],
+  notes: [
+    {title:'Interpretation & Core Scope — s.2',items:[
+      {t:'Drug Definition',d:'Any substance unit purposed for internal or external human/animal medicinal use'},
+      {t:'Medicinal Purposes',d:'Alleviating, treating, curing/preventing disease; diagnosis; contraception; anaesthesia; body weight control; general health maintenance'},
+      {t:'Appliance',d:'Utensils, machinery, apparatus or instruments used in the making, keeping, or preparation of any drug'}
+    ]},
+    {title:'Appointments & Authority — s.3',items:[
+      {t:'Analysts',d:'Appointed by the Yang di-Pertuan Agong as necessary for national enforcement'},
+      {t:'Officers & Inspectors',d:'Chief Minister appoints numbers within a state'},
+      {t:'Status',d:'All appointed figures are legally public servants under the Penal Code'}
+    ]},
+    {title:'Enforcement & Seizures — s.4',items:[
+      {t:'Destruction',d:'An officer can directly destroy any drug found to be decayed or putrefied'},
+      {t:'Seizure Constraint',d:'Unwholesome or deleterious items may be seized'},
+      {t:'Magistrate Timeline',d:'Claims against seizure must be filed as a complaint to a Magistrate within 48 hours, or the items forfeit to government'}
+    ]},
+    {title:'Statutory Sampling Protocols — s.5 & s.7',items:[
+      {t:'Package Sales [s.5(3)]',d:'Retail drug kept in unopened pack cannot be forced into fractional sale; inspector buys whole unit'},
+      {t:'Division Rule [s.7(2)]',d:'The sample must be divided into 3 parts, marked, and sealed. One part to seller, one to analyst, one retained'}
+    ]},
+    {title:'Offences & Penal Provisos — s.10 & s.12',items:[
+      {t:'Prohibited Additions',d:'Sells adulterated items without notice, false markings, or containing methyl/isopropyl/denatured alcohol for internal use'},
+      {t:'Non-Corporate Caps',d:'First conviction: ≤ RM25,000 fine / 3 years prison. Subsequent: ≤ RM50,000 / 5 years'},
+      {t:'Corporate Caps',d:'First conviction: ≤ RM50,000 fine. Subsequent: ≤ RM100,000 fine'}
+    ]},
+    {title:'Court Timelines & Warranty Defences',items:[
+      {t:'summons Return [s.18]',d:'summons must not be returnable in less than 14 days from service date; copy of analyst cert must accompany it'},
+      {t:'Expiry Limit',d:'No proceedings can be brought after 60 days from sample collection date'},
+      {t:'Warranty Clause [s.20]',d:'Written warranty from seller is a defence if copy given to prosecutor within 7 days of summons service'}
+    ]},
+    {title:'Drug Control Authority (DCA) Structure',items:[
+      {t:'Ex Officio Trio',d:'Director-General of Health (Chairman) + Director of Pharmaceutical Services (Alternate Chairman) + Director of NPCB'},
+      {t:'Ministerial Appointees',d:'8 members: public service physician & pharmacist, 3 local university science experts, 2 medical practitioners, 1 public veterinary surgeon'},
+      {t:'Quorum',d:'4 members form a valid quorum'},
+      {t:'Secretary',d:'Public service pharmacist appointed after consultation; non-member, zero voting rights'}
+    ]},
+    {title:'CDCR 1984 Gating & Fees',items:[
+      {t:'Traditional Medicine Reg',d:'Processing fee of RM500. Variants cost RM50'},
+      {t:'Other Products Reg',d:'Processing fee of RM1,000'},
+      {t:'Manufacturer Licence',d:'Processing fee of RM1,000. Wholesaler or Importer licenses cost RM500'},
+      {t:'Clinical Trial Import',d:'Form 4 license, valid up to 3 years, restricted to ONE product unit only'}
+    ]},
+    {title:'Cosmetics Protocols — r.18A',items:[
+      {t:'Market Placement',d:'Must be a notified cosmetic linked to an authorized responsible person'},
+      {t:'Recall Orders',d:'DPS may issue directive for safety lot recall. If responsible person knows of a breach, they must pull items immediately'},
+      {t:'Records Transaction',d:'Every wholesaler, importer, or responsible entity must maintain ledger details for not less than 5 years'}
+    ]},
+    {title:'Traditional Med Prohibitions & Metal Caps',items:[
+      {t:'Arsenic Max Level',d:'5.0 mg/kg or 5.0 ppm maximum tolerance'},
+      {t:'Cadmium Max Level',d:'0.3 mg/kg or 0.3 ppm maximum tolerance'},
+      {t:'Lead Max Level',d:'10.0 mg/kg or 10.0 ppm maximum tolerance'},
+      {t:'Mercury Max Level',d:'0.5 mg/kg or 0.5 ppm maximum tolerance'},
+      {t:'Table II Banned Items',d:'Caffeine, Nicotinamide, Paracetamol, or generic Poisons are totally forbidden inside traditional registrations'}
+    ]},
+    {title:'SODA Exam Traps ⚠️',warn:[
+      'Yang di-Pertuan Agong appoints Analysts; Chief Ministers appoint Officers & Inspectors.',
+      'The summary court trial window is strictly capped at 60 days from sample capture date.',
+      'Certificate of analysis copy can NEVER be used or displayed as commercial advertisement.',
+      'DCA Secretary must be a public pharmacist but cannot be an active voting member of the board.',
+      'Clinical trial import licenses are valid up to 3 years but restricted to exactly ONE product entry.',
+      'Caffeine, Paracetamol, and registered Poisons are completely illegal additions within natural traditional remedies.',
+      'The Certificate of Analysis form layout is specified inside the dedicated 1997 subsidiary regulations.'
+    ]}
+  ],
+  flashcards: [
+    {q:'Who has statutory authority to appoint chemical and drug Analysts under SODA?',a:'The Yang di-Pertuan Agong',ref:'s.3(1) SODA 1952'},
+    {q:'Who holds the power to appoint state-level enforcement Officers and Inspectors?',a:'The Chief Minister of the respective state',ref:'s.3(2) SODA 1952'},
+    {q:'What happens if no formal magistrate complaint is raised within 48 hours of an officer drug seizure?',a:'The drug instantly forfeits to Government ownership and is destroyed',ref:'s.4(4) SODA 1952'},
+    {q:'Can an inspector demand to purchase half of the contents of an unopened retail product unit package?',a:'No, for unopened packages the seller cannot be required to sell less than the whole unit',ref:'s.5(3) SODA 1952'},
+    {q:'What are the precise divisions required when a procurement inspector takes an analytical drug sample?',a:'Must divide into three parts: one to seller, one to analyst, one retained',ref:'s.7(2) SODA 1952'},
+    {q:'What is the statutory deadline for launching prosecution procedures following a test sample purchase?',a:'Must be initiated within 60 days from purchase collection date',ref:'s.18(4) SODA 1952'},
+    {q:'What is the corporate penalty ceiling for a baseline first offence under SODA?',a:'A fine not exceeding fifty thousand ringgit (RM50,000)',ref:'s.12(2) SODA 1952'},
+    {q:'What is the corporate fine cap for secondary repeat offences under SODA?',a:'A fine not exceeding one hundred thousand ringgit (RM100,000)',ref:'s.12(2) SODA 1952'},
+    {q:'What is the standard quorum configuration for a Drug Control Authority (DCA) meeting?',a:'Four members including the Chairman or presiding alternate',ref:'Reg 5(4) CDCR 1984'},
+    {q:'What is the application processing fee for a standard non-traditional medical product registration?',a:'One thousand ringgit (RM1,000)',ref:'Reg 8(2) CDCR 1984'},
+    {q:'What is the operational validity timeline for a Clinical Trial Import Licence, and what is its product limit?',a:'Valid for up to 3 years, but strictly limited to ONE product line only',ref:'Reg 12(2)&(5) CDCR 1984'},
+    {q:'How long must transaction records be archived by licensed importers and wholesalers under CDCR?',a:'For a period of not less than five years from the transaction date',ref:'Reg 27(1) CDCR 1984'},
+    {q:'What is the maximum permitted proportion of Lead contaminant inside a traditional medicine line?',a:'10.0 mg/kg or 10.0 ppm maximum',ref:'Table I CDCR 1984'},
+    {q:'What is the maximum permitted proportion of Mercury contaminant inside traditional products?',a:'0.5 mg/kg or 0.5 ppm maximum',ref:'Table I CDCR 1984'},
+    {q:'Are baseline chemicals like Caffeine or Paracetamol allowed inside traditional herbal registrations?',a:'No, they are strictly prohibited chemical additions',ref:'Table II CDCR 1984'},
+    {q:'What is the standard processing fee for an application to obtain a pharmaceutical Manufacturer Licence?',a:'One thousand ringgit (RM1,000)',ref:'Reg 13(1) CDCR 1984'},
+    {q:'What is the timeframe within which a person must appeal a DCA licensing rejection to the Minister?',a:'Written appeal must be filed within 14 days of decision notification',ref:'Reg 18 CDCR 1984'},
+    {q:'What is the statutory penalty value for an inspector breaking an official preservation mark or seal?',a:'A fine of five hundred ringgit (RM500)',ref:'s.11 SODA 1952'},
+    {q:'If a drug sale violation is executed by an acting employee or agent, who bears liability?',a:'The principal or employer shares identical liability as if they sold it personally',ref:'s.16(2) SODA 1952'},
+    {q:'Which specific piece of subsidiary legislation prescribes the physical layout of the analyst document output?',a:'The Sale of Drugs (Certificate of Analysis) Regulations 1997',ref:'Reg 2 COA Regs 1997'}
+  ],
+  law: [
+    {sec:'s.2',title:'Statutory Definitions',body:'"Drug" includes any substancepurposed or claimed capable of use on humans/animals internally or externally for a medicinal purpose. Scope details diagnosis, contraception, anaesthesia, weight controls, and health promotion.'},
+    {sec:'s.4',title:'Seizure Mechanics',body:'Officers may seize unwholesome items or destroy decayed items. Restitution actions must be launched via a Magistrate Court complaint within 48 hours or items become state property.'},
+    {sec:'s.7',title:'Sampling Routine',body:'Procuring inspectors must notify the seller of analytical intent, split samples into 3 parts, seal them, and deliver one part to seller, one to analyst, and retain the third.'},
+    {sec:'s.12',title:'General Sanctions',body:'Non-Corporate First: ≤ RM25,000 / 3 years. Subsequent: ≤ RM50,000 / 5 years. Corporate First: ≤ RM50,000 fine. Subsequent Corporate: ≤ RM100,000 fine.'},
+    {sec:'s.18',title:'Court Rules',body:'Initiated inside summary Sessions or First Class Magistrate spaces. No actions allowed past 60 days from original collection date. summons requires ≥ 14 days response layout.'},
+    {sec:'Reg 3',title:'DCA Constitution',body:'DG Health (Chair), DPS (Alt Chair), NPCB Director, plus 8 members (physician, pharmacist, 3 academic experts, 2 doctors, 1 vet). Secretary is a non-member public pharmacist.'},
+    {sec:'Reg 12',title:'Licence Profiles',body:'Manufacturer (Form 2), Wholesaler (Form 3), Clinical Trial Import (Form 4), Import (Form 5). Clinical trial holds 3-year ceiling and max 1 product constraint.'},
+    {sec:'Reg 18A',title:'Cosmetic Actions',body:'Restricted to notified items linked to authorized market channels. DPS holds absolute authority to order safety batch recalls. Records must span ≥ 5 years.'},
+    {sec:'Tab I & II',title:'Traditional Remedy Limits',body:'Max heavy metal ppm caps: Arsenic 5.0, Cadmium 0.3, Lead 10.0, Mercury 0.5. Synthetic additions like Caffeine, Nicotinamide, or Paracetamol are illegal.'}
+  ]
+};
 
-// ── Notes ─────────────────────────────────────────────────────────
-var NOTES=[
-  {title:'Board composition — s.3(1)',items:[
-    {t:'DG of Health',d:'Ex officio President — chairs all meetings he attends'},
-    {t:'Director of Pharmaceutical Services',d:'Ex officio member and Registrar'},
-    {t:'Public service pharmacists',d:'8 members — appointed by Minister'},
-    {t:'HEI pharmacists',d:'3 members from higher education institutions — appointed by Minister'},
-    {t:'Non-public service',d:'2 members — appointed by Minister'},
-    {t:'Private practice',d:"3 members — nominated by private pharmacists' association, approved by Minister. Must be CITIZENS (not PRs)"},
-    {t:'TOTAL',d:'18 members'}
-  ]},
-  {title:'Meetings — s.4',items:[
-    {t:'Chairman absent',d:'Members ELECT one of their number — NOT automatic DPS'},
-    {t:"Chairman's vote",d:'Original vote + casting vote if tied'},
-    {t:'Quorum',d:'9 members'}
-  ]},
-  {title:'Registration pathway',items:[
-    {t:'Provisional registration',d:'Solely to gain experience [s.6]. Apply to Registrar.'},
-    {t:'Employment period',d:'NOT LESS than 1 year to Board satisfaction [s.6A(2)]'},
-    {t:'Extension',d:'NOT MORE than 1 year by Board [s.6A(3)]'},
-    {t:'Full registration',d:'After satisfactory employment or exemption [s.6B]'},
-    {t:'Provisionally registered',d:'Deemed PUBLIC SERVANT under Penal Code [s.6A(8)]'}
-  ]},
-  {title:'Key penalties',items:[
-    {t:'Title offence [s.7(4)]',d:'≤RM500 + RM50/day continuing'},
-    {t:'Public service failure [s.11C(2)]',d:'≤RM50,000 fine on conviction + registration deemed revoked'},
-    {t:'Fraudulent registration [s.20]',d:'≤1 year imprisonment OR ≤RM500 fine — Sessions Court'},
-    {t:'Obstruct inspector [s.21(3)]',d:'≤6 months imprisonment OR ≤RM500 fine'}
-  ]},
-  {title:'Regulations 2004 — key fees',items:[
-    {t:'Full registration [Reg 8]',d:'RM100'},
-    {t:'Annual retention — pharmacist [Reg 12(2)]',d:'RM50'},
-    {t:'Annual retention — body corporate [Reg 12(2)]',d:'RM200'},
-    {t:'Late renewal — pharmacist [Reg 12(3)]',d:'RM100 additional'},
-    {t:'Late renewal — body corporate [Reg 12(3)]',d:'RM300 additional'}
-  ]},
-  {title:'Committee of Inquiry — Reg 2004',items:[
-    {t:'Composition',d:'5 fully registered pharmacists with valid annual certificates [Reg 15(1)]'},
-    {t:'Quorum',d:'3 [Reg 15(4)]'},
-    {t:'Chairman',d:'Nominated by the Board [Reg 15(3)]'},
-    {t:'Decisions',d:'By majority [Reg 15(6)]'},
-    {t:'Secretary',d:'Pharmacist in public service — NOT a Board member [Reg 3]'},
-    {t:'Board meeting documents',d:'Copies of complaints sent ≥7 days before meeting [Reg 4(2)]'},
-    {t:'Investigation notice',d:'Written explanation ≥14 days from notice [Reg 16(1)(b)]. Sent by registered post.'}
-  ]},
-  {title:'Disciplinary & appeals',items:[
-    {t:'Without inquiry',d:'Deceased / permanently left Malaysia / unsound mind [s.17(1A)]'},
-    {t:'With inquiry',d:'Fraud, conviction, infamous conduct [s.17(1)]'},
-    {t:'Punishments [s.18A]',d:'Remove / Suspend / Reprimand. NO imprisonment.'},
-    {t:'Appeal [s.19]',d:'To Minister — decision is FINAL'}
-  ]},
-  {title:'Exam traps ⚠️',warn:[
-    'First Schedule amended by MINISTER — not the Board [s.6(3)]',
-    'Employment satisfies the BOARD — not the Minister [s.6A(2)]',
-    'President absent → members ELECT chairman — DPS is NOT automatic [s.4(2)]',
-    'Annual cert failure = REMOVED from register — not suspended [s.16(4)]',
-    'Temporary registration = deemed FULLY registered while cert in force [s.11A(3)]',
-    'Secretary of Board is NOT a Board member [Reg 3(2)]',
-    'Disciplinary meeting: 7 days. Investigation notice: 14 days. Different!',
-    'Board CANNOT imprison — imprisonment only via Court [s.18A]',
-    'Summary dismissal: 3 grounds only — unknown name, untraceable address, facts not constituting a matter [Reg 17]',
-    'Registrar = DPS (not DG Health). DG Health = President of Board.'
-  ]}
-];
+// ── INJECTED DATA: MASA ──────────────────────────────────────────
+window.MASA_DATA = {
+  questions: [
+    {act:'MASA · s.3',q:'Under the Medicines (Advertisement and Sale) Act 1956, it is prohibited to advertise an article as a remedy for preventing or treating which of the following diseases?',stmts:['i. Asthma','ii. Cancer','iii. Diabetes','iv. Headaches'],opts:['A. i and ii only','B. i, ii and iii only','C. ii, iii and iv only','D. All of the above'],ans:1,exp:'Schedule to MASA 1956: Asthma, Cancer, and Diabetes are explicitly listed. Headaches are not.'},
+    {act:'MASA · s.4A',q:'Which of the following may publish an advertisement referring to a skill or service relating to the treatment of a disease, provided they have approval from the Medicine Advertisements Board?',opts:['A. A private hospital','B. A traditional medicine practitioner','C. A retail pharmacy','D. A health supplement manufacturer'],ans:0,exp:'s.4A(bb) MASA 1956: The prohibition does not apply to ads published with MAB approval by a private hospital, private clinic, or medical laboratory.'},
+    {act:'MASA · s.3',q:'In proceedings for contravening the prohibition on disease advertisements, it is a valid defence if the advertisement was published ONLY to which class of persons?',opts:['A. Members of the general public over 18 years old','B. Registered nurses and midwives','C. Licensed traditional healers','D. Managers of health food stores'],ans:1,exp:'s.3(2)(e) MASA 1956: It is a defence to prove the ad was published only to certain classes of professionals, including registered nurses and midwives.'},
+    {act:'MASA · s.6',q:'When selling a substance recommended as a medicine by retail, what must be written on the article or label?',opts:['A. The appropriate designation of the active constituents and their quantitative particulars','B. The full name and address of the patient','C. The side effects and contraindications','D. The MAB approval serial number only'],ans:0,exp:'s.6(1) MASA 1956: The appropriate designation of the substance or active constituents and quantitative particulars must be written.'},
+    {act:'MASA · s.6A & 6F',q:'Who may authorize a pharmacist in the public service to exercise the powers of an authorized officer under the MASA 1956, and who must sanction prosecutions?',opts:['A. Authorized by the Director General of Health; Sanctioned by the Pharmacy Board','B. Authorized by the Minister; Sanctioned by the Public Prosecutor','C. Authorized by the MAB; Sanctioned by the Minister','D. Authorized by the Director of Pharmaceutical Services; Sanctioned by the Magistrate'],ans:1,exp:'s.6A & s.6F(1) MASA 1956: The Minister authorizes officers in writing, and prosecutions require the written sanction of the Public Prosecutor.'},
+    {act:'MAB Regs · r.3',q:'Who is the Chairman of the Medicine Advertisements Board?',opts:['A. The Director of Pharmaceutical Services','B. The Minister of Health','C. The Director-General of Health','D. A pharmacologist appointed by the Minister'],ans:2,exp:'Reg 3(1) MAB Regulations 1976: The Director-General of Health shall be the Chairman of the Board.'},
+    {act:'MAB Regs · r.3',q:'What is the quorum required for a meeting of the Medicine Advertisements Board?',opts:['A. Three members including the Chairman','B. Five members including the Chairman','C. Seven members','D. Nine members'],ans:0,exp:'Reg 3(2) MAB Regulations 1976: At any meeting three members including the Chairman or member presiding shall form a quorum.'},
+    {act:'MAB Regs · r.7',q:'When an approved medicine advertisement is published in print, what MUST be legibly displayed?',stmts:['i. The approval serial number','ii. The expiry date of the approval','iii. The names of the Board members who approved it','iv. The quantitative particulars of the medicine'],opts:['A. i only','B. i and ii only','C. i, ii and iv only','D. All of the above'],ans:1,exp:'Reg 7(2) MAB Regulations 1976: The approval serial number and expiry date shall be legibly displayed.'},
+    {act:'MAB Regs · r.8',q:'What is the non-refundable fee required for every application for approval of an advertisement by the MAB?',opts:['A. RM100','B. RM200','C. RM300','D. RM500'],ans:2,exp:'Reg 8(3) MAB Regulations 1976: Every application for approval of advertisement shall be accompanied by a fee of RM300.'},
+    {act:'MASA · s.4',q:'Under the MASA 1956, taking part in the publication of an advertisement referring to an article for procuring the miscarriage of women is:',opts:['A. Allowed if approved by the Medicine Advertisements Board','B. Allowed if advertised only to married women','C. Strictly prohibited','D. Allowed if the article is a registered product'],ans:2,exp:'s.4 MASA 1956: Absolute prohibition. No person shall take any part in the publication of any advertisement referring to any article for procuring miscarriage.'}
+  ],
+  notes: [
+    {title:'Advertising Prohibitions (s.3 & s.4)',items:[
+      {t:'Absolute Prohibition',d:'Advertisements procuring miscarriage of women [s.4].'},
+      {t:'Specific Diseases',d:'Asthma, Cancer, Diabetes, Leprosy, Tuberculosis, Deafness [s.3 Schedule].'}
+    ]},
+    {title:'Medicine Advertisements Board (MAB)',items:[
+      {t:'Chairman',d:'Director-General of Health [Reg 3(1)]'},
+      {t:'Quorum',d:'3 members including Chairman [Reg 3(2)]'},
+      {t:'Application Fee',d:'RM300 (non-refundable) [Reg 8(3)]'},
+      {t:'Print Requirements',d:'Approval serial number and expiry date must be legibly displayed [Reg 7(2)]'}
+    ]}
+  ],
+  flashcards: [
+    {q:'Can you advertise a cure for Asthma to the general public?',a:'No (Asthma is listed in the s.3 Schedule)',ref:'MASA s.3'},
+    {q:'Are abortion ads ever permitted if approved by MAB?',a:'No, it is an absolute prohibition.',ref:'MASA s.4'},
+    {q:'What must be disclosed on a retailed medicine label?',a:'Active constituents and their quantitative particulars.',ref:'MASA s.6(1)'},
+    {q:'MAB application fee?',a:'RM300',ref:'MAB Regs r.8'}
+  ],
+  law: [
+    {sec:'s.3',title:'Prohibition relating to certain diseases',body:'No person shall take any part in the publication of any advertisement... for the purpose of prevention or treatment of the diseases and conditions specified in the Schedule (e.g., Cancer, Diabetes, Asthma).'},
+    {sec:'s.4',title:'Prohibition relating to abortion',body:'No person shall take any part in the publication of any advertisement... for procuring the miscarriage of women.'}
+  ]
+};
 
-// ── Flashcards ────────────────────────────────────────────────────
-var FLASHCARDS=[
-  {q:'Who keeps and maintains the register of pharmacists?',a:'Director of Pharmaceutical Services (the Registrar)',ref:'s.5 RPA 1951'},
-  {q:'What is the SOLE purpose of provisional registration?',a:'To enable the person to obtain the experience specified in s.6A',ref:'s.6(1) RPA 1951'},
-  {q:'What happens if a provisionally registered pharmacist fails to engage in employment?',a:'Provisional registration shall be REVOKED',ref:'s.6A(4) RPA 1951'},
-  {q:'Is the DPS automatically the chairman when the President is absent?',a:'NO — members present shall ELECT one of their number as Chairman',ref:'s.4(2) RPA 1951'},
-  {q:'Total number of Pharmacy Board members',a:'18 (DG Health + DPS + 8 + 3 + 2 + 3)',ref:'s.3(1) RPA 1951'},
-  {q:'Quorum of the Pharmacy Board',a:'9 members',ref:'s.4(4) RPA 1951'},
-  {q:'Term of appointment for non-ex-officio Board members',a:'3 years — eligible for reappointment',ref:'s.3(2) RPA 1951'},
-  {q:'Can permanent residents be the 3 private practice Board members?',a:'NO — must be CITIZENS; explicitly excludes permanent residents',ref:'s.3(5) RPA 1951'},
-  {q:'Annual certificate — what happens if NOT renewed before year end?',a:'Name shall be REMOVED from the register',ref:'s.16(4) RPA 1951'},
-  {q:'Three punishments the Board may impose after disciplinary inquiry',a:'(1) Remove from register  (2) Suspend from register  (3) Reprimand',ref:'s.18A(1) RPA 1951'},
-  {q:'Can the Board impose imprisonment?',a:'NO — imprisonment is a Court power only',ref:'s.18A RPA 1951'},
-  {q:'Who does a person appeal to against a Board punishment?',a:'The MINISTER — and the decision is FINAL',ref:'s.19 RPA 1951'},
-  {q:'Fee for annual retention — body corporate',a:'RM200',ref:'Reg 12(2) RPA Reg 2004'},
-  {q:'Committee of Inquiry — quorum',a:'3',ref:'Reg 15(4) RPA Reg 2004'},
-  {q:'Who signs all certificates under the Regulations?',a:'The Registrar (Director of Pharmaceutical Services)',ref:'Reg 5 RPA Reg 2004'},
-  {q:'Minimum notice period for written explanation in investigation',a:'Not less than 14 days from date of notice',ref:'Reg 16(1)(b) RPA Reg 2004'},
-  {q:"Grounds for summary dismissal of a complaint",a:"(1) Name unknown  (2) Address untraceable  (3) Facts don't constitute a matter",ref:'Reg 17 RPA Reg 2004'},
-  {q:'Days before Board disciplinary meeting that complaint copies must be supplied',a:'7 days prior',ref:'Reg 4(2) RPA Reg 2004'},
-  {q:'Temporary registration — what status does the holder have?',a:'Deemed FULLY REGISTERED while the certificate is in force',ref:'s.11A(3) RPA 1951'},
-  {q:'Who makes the Registration of Pharmacists Regulations 2004?',a:'The Pharmacy Board, with the approval of the Minister',ref:'s.36 RPA 1951'}
-];
+// ── CORE GAME ENGINE LOGIC ───────────────────────────────────────
+var G = {
+  currentAppMode: 'welcome',
+  selectedAct: null,
+  timingMode: null,
+  
+  xp:0, hearts:5, initialHearts:5,
+  heartRefill:null, refillInt:null,
+  timerInt:null, timeRemaining:0,
+  pkumfScore:0,
+  
+  fcIdx:0, fcFlipped:false, fcKnown:{}, fcSeen:{}, lawOpen:{}, activeTab:'notes',
+  
+  lesQ:[], lesIdx:0, correct:0, wrong:0, skipped:0,
+  answered:false, selAns:null, wasSkipped:false
+};
 
-// ── Law text ──────────────────────────────────────────────────────
-var LAW=[
-  {sec:'s.3(1)',title:'Board composition',body:'18 members: <span class="lk">DG Health</span> + <span class="lk">DPS</span> (ex officio); <span class="lh">8</span> public service; <span class="lh">3</span> HEI; <span class="lh">2</span> non-public service; <span class="lh">3</span> private practice (must be <span class="lh">citizens — not PRs</span>). All non-ex-officio appointed by Minister.'},
-  {sec:'s.3(2)–(5)',title:'Appointment rules',body:'Term: <span class="lh">3 years</span>, renewable. Acts remain <span class="lk">valid</span> despite defect or vacancy. Citizens excludes <span class="lh">permanent residents</span>.'},
-  {sec:'s.4',title:'President and meetings',body:'DG Health = President. Absence → members <span class="lh">elect</span> chairman. Chairman has <span class="lk">original vote + casting vote</span> if tied. Quorum: <span class="lh">9</span>.'},
-  {sec:'s.5',title:'Registrar',body:'<span class="lk">Director of Pharmaceutical Services</span> is the Registrar. Keeps and maintains the register. Mandatory — not optional.'},
-  {sec:'s.6–6B',title:'Registration pathway',body:'Provisional: solely for gaining experience. Employment: <span class="lh">≥1 year</span>, Board satisfaction, Second Schedule premises. Extension: <span class="lh">≤1 year</span>. Fail → <span class="lh">revoked</span>. Provisional = <span class="lk">public servant</span> (Penal Code). Full registration after s.6A experience or Board exemption.'},
-  {sec:'s.7(4)',title:'Title offence penalty',body:'Conviction: <span class="lh">≤RM500</span> + <span class="lh">RM50/day</span> continuing.'},
-  {sec:'s.11A–11C',title:'Temporary registration & public service',body:'Temporary → deemed <span class="lk">fully registered</span> while cert in force. Public service notice failure: <span class="lh">≤RM50,000</span> + <span class="lh">registration revoked</span>.'},
-  {sec:'s.16',title:'Annual certificate',body:'Renew before year end + pay fee. Failure = <span class="lh">removed from register</span>. Restoration: application + <span class="lk">additional fee</span>.'},
-  {sec:'s.17–18A',title:'Disciplinary and punishments',body:'Without inquiry: deceased, permanently left, unsound mind. Punishments: <span class="lk">remove / suspend / reprimand</span> — <span class="lh">no imprisonment</span>. Appeal: <span class="lk">Minister</span> — final.'},
-  {sec:'s.20–21',title:'Fraudulent registration & inspection',body:'Fraudulent: <span class="lh">≤1 year OR ≤RM500</span> — Sessions Court. Obstruct inspector: <span class="lh">≤6 months OR ≤RM500</span>.'},
-  {sec:'Reg 3–5',title:'Secretary, meetings, certificates',body:'Secretary: public service pharmacist — <span class="lh">NOT a Board member</span>. Complaint docs: <span class="lh">≥7 days</span> before meeting. Certificates signed by <span class="lk">Registrar (DPS)</span>.'},
-  {sec:'Reg 8 & 12',title:'Fees',body:'Full registration: <span class="lh">RM100</span>. Annual: pharmacist <span class="lh">RM50</span>, body corporate <span class="lh">RM200</span>. Late: <span class="lh">RM100 / RM300</span>. Public service pharmacists: <span class="lk">exempted</span>.'},
-  {sec:'Reg 15–17',title:'Committee of Inquiry',body:'Composition: <span class="lh">5</span> fully registered + valid cert. Quorum: <span class="lh">3</span>. Chairman: nominated by Board. Notice: <span class="lh">≥14 days</span>. Summary dismissal: unknown name, untraceable address, facts not constituting a matter.'}
-];
-
-// ── Exam Tips ─────────────────────────────────────────────────────
-var EXAM_TIPS=[
-  {
-    title:'About PKUMF',
-    items:[
-      {t:'Full name',d:'Peperiksaan Kelayakan Untuk Mengamal Farmasi'},
-      {t:'Maximum attempts',d:'3 attempts only'},
-      {t:'Negative marking',d:'-0.25 per wrong answer. Skip = 0 marks.'},
-      {t:'Total questions',d:'~100 MCQ, 3 hours'}
-    ]
-  },
-  {
-    title:'Question distribution by Act',
-    table:[
-      {act:'ROPA',q:'~20 Q',qs:'Q1–20',big:false},
-      {act:'POISON',q:'30–40 Q',qs:'Q31–70',big:true},
-      {act:'Psychotropic (in Poison)',q:'5–10 Q',qs:'within Poison block',big:false},
-      {act:'DDA',q:'5–10 Q',qs:'Q70–80',big:false},
-      {act:'SODA + CDCR',q:'10–20 Q',qs:'Q81–90',big:false},
-      {act:'MASA',q:'~10 Q',qs:'Q91–100',big:false},
-      {act:'Ethics / NMP / Good Governance',q:'~10 Q',qs:'Q21–30',big:false}
-    ]
-  },
-  {
-    title:'Study strategy',
-    items:[
-      {t:'Act + Regulation together',d:'Never read an Act alone. ROPA + Reg 2004. Poison + Poison Reg 1952 + P(PS)R 1989. SODA + CDCR 1984. MASA + MAB Reg 1976. DDA + DD Reg 1952.'},
-      {t:'Understand relations',d:'Know how Act and Regulation relate — what is in the Act vs what is in the Regulation (fees, forms, roles).'},
-      {t:'Locate, don\'t just memorise',d:'Know WHERE to find info in the book. Flip the pages, mark key sections. Speed matters in exam.'},
-      {t:'Time yourself',d:'100 Q in 3 hours = 1.8 minutes per question. Practice under time pressure.'}
-    ]
-  },
-  {
-    title:'Per-Act study focus',
-    items:[
-      {t:'ROPA (~20 Q)',d:'Board composition, fees in Reg 2004, forms, role of Secretary (NOT a Board member), registration types, disciplinary powers.'},
-      {t:'POISON (~30–40 Q)',d:'Heaviest section. Know First Schedule groups (A/B/C/D), Second and Third Schedules. Psychotropics governed by P(PS)R 1989.'},
-      {t:'SODA + CDCR (~10–20 Q)',d:'Different licence types in CDCR R12, cosmetics R18A, DCA powers, product registration.'},
-      {t:'MASA (~10 Q)',d:'20 diseases totally prohibited. Others need MAB approval. Services (s.4A): Minister approves s.4A(aa), MAB approves s.4A(bb).'},
-      {t:'DDA (~5–10 Q)',d:'First Schedule (Act) = dangerous drugs. Third Schedule (Regulation) = exempted drugs, except Reg 15(8) and Reg 16. Must be in product form to be exempted.'},
-      {t:'Ethics / NMP (~10 Q)',d:'Code of Ethics for Pharmacists 2018. NMP 4th edition 2022–2026. Good Governance Framework — values: objectivity, accountability, honesty, openness.'}
-    ]
-  },
-  {
-    title:'Exam day warnings',
-    warn:[
-      'POISON has the most questions (30–40) — allocate the most study time here',
-      'Psychotropic questions fall within the Poison block — governed by P(PS)R 1989, not Poison Act directly',
-      'Code of Ethics is now the 2018 edition — not 2009',
-      'NMP is now 4th edition (2022–2026) — questions may reference the specific edition',
-      'Services vs products in MASA: s.4A = services. s.3/s.4B = products. Different approval routes.',
-      'Only 3 attempts allowed total — there is no unlimited retake',
-      'Negative marking: if unsure, skip rather than guess. -0.25 adds up.'
-    ]
-  }
-];
-
-// ── Helpers ───────────────────────────────────────────────────────
-function getLevel(xp){for(var i=LEVELS.length-1;i>=0;i--)if(xp>=LEVELS[i].xp)return LEVELS[i];return LEVELS[0];}
-function show(id){document.querySelectorAll('.scr').forEach(function(s){s.classList.remove('on');});document.getElementById('scr-'+id).classList.add('on');}
-function renderHearts(id){var el=document.getElementById(id);if(!el)return;var h='';for(var i=0;i<5;i++)h+='<span class="heart'+(i<G.hearts?'':' empty')+'">'+(i<G.hearts?'♥':'♡')+'</span>';el.innerHTML=h;}
-
-function renderMap(){
-  var lv=getLevel(G.xp);
-  document.getElementById('xp-display').textContent=G.xp;
-  document.getElementById('streak-display').textContent=G.streak;
-  document.getElementById('map-lvl-icon').textContent=lv.icon;
-  document.getElementById('map-lvl-name').textContent=lv.name;
-  var range=lv.next-lv.xp,pct=Math.min(100,Math.round((G.xp-lv.xp)/range*100));
-  document.getElementById('map-lvl-sub').textContent=(G.xp-lv.xp)+' / '+range+' XP';
-  document.getElementById('map-xp-fill').style.width=pct+'%';
-  renderHearts('hearts-map');
-  var sr=document.getElementById('stars-ropa');sr.innerHTML='';
-  for(var i=0;i<3;i++)sr.innerHTML+='<span class="star'+(i<G.stars?'':' off')+'">★</span>';
-  document.getElementById('studied-badge').style.display=G.studied?'block':'none';
-  var nc=document.getElementById('nc-ropa');
-  nc.className='node-circle '+(G.stars===0?'nc-live':G.stars===1?'nc-done1':G.stars===2?'nc-done2':'nc-done3');
+function show(id){
+  document.querySelectorAll('.scr').forEach(function(s){s.classList.remove('on');});
+  document.getElementById('scr-'+id).classList.add('on');
 }
 
-function openRopa(){
-  var qb=document.getElementById('quiz-btn');
-  qb.disabled=G.hearts<=0;
-  qb.textContent=G.hearts<=0?'No hearts — wait to refill':'Start quiz →';
-  var sb=document.getElementById('study-btn');
-  if(G.studied){sb.textContent='Studied ✓';sb.disabled=true;}
-  else{sb.textContent='Mark as studied (+5 XP)';sb.disabled=false;}
-  switchTab(G.activeTab);
+function selectAppMode(mode){
+  G.currentAppMode = mode;
+  if(mode === 'game'){ renderDash(); show('game-dash'); }
+  else if(mode === 'learn'){ show('learn-menu'); }
+}
+
+function openModeSelect(actId){
+  if(!window[actId + '_DATA'] && actId !== 'ALL') {
+    openComing(actId.toLowerCase());
+    return;
+  }
+  G.selectedAct = actId;
+  document.getElementById('mode-act-title').textContent = actId === 'ALL' ? 'Mock Exam' : actId + ' Testing';
+  show('mode-select');
+}
+
+function openActLearn(actId){
+  if(!window[actId + '_DATA']) {
+    openComing(actId.toLowerCase());
+    return;
+  }
+  G.selectedAct = actId;
+  document.getElementById('node-title').textContent = actId;
+  G.activeTab = 'notes';
+  switchTab('notes');
   show('node');
+}
+
+function openComing(id){
+  document.getElementById('coming-name').textContent=id.toUpperCase();
+  document.getElementById('coming-title').textContent=id.toUpperCase();
+  show('coming');
+}
+
+function goBackFromComing(){
+  show(G.currentAppMode === 'learn' ? 'learn-menu' : 'game-dash');
+}
+
+function renderDash(){
+  document.getElementById('dash-xp').textContent=G.xp;
+  renderHearts('dash-hearts');
+}
+
+function renderHearts(id){
+  var el=document.getElementById(id);if(!el)return;
+  var h='';for(var i=0;i<5;i++)h+='<span class="heart'+(i<G.hearts?'':' empty')+'">'+(i<G.hearts?'♥':'♡')+'</span>';
+  el.innerHTML=h;
 }
 
 function switchTab(t){
   G.activeTab=t;
-  ['notes','flash','law','tips'].forEach(function(x){
+  ['notes','flash','law'].forEach(function(x){
     document.getElementById('tab-'+x).classList.toggle('on',x===t);
     document.getElementById('pane-'+x).classList.toggle('on',x===t);
   });
-  if(t==='notes')renderNotes();
-  if(t==='flash')renderFlash();
-  if(t==='law')renderLaw();
-  if(t==='tips')renderTips();
-}
-
-function renderNotes(){
-  var el=document.getElementById('pane-notes'),html='';
-  NOTES.forEach(function(sec){
-    html+='<div class="note-section"><div class="note-title"><span style="color:#60A5FA">🔖</span>'+sec.title+'</div>';
-    if(sec.items){
-      html+='<div class="note-card">';
-      sec.items.forEach(function(it){html+='<div class="note-item"><div class="ndot"></div><div><span class="nterm">'+it.t+':</span> <span class="nval">'+it.d+'</span></div></div>';});
+  
+  var actData = window[G.selectedAct + '_DATA'] || {notes:[], flashcards:[], law:[]};
+  
+  if(t==='notes'){
+    var html='';
+    actData.notes.forEach(function(sec){
+      html+='<div class="note-section"><div class="note-title"><span style="color:#60A5FA">🔖</span>'+sec.title+'</div>';
+      if(sec.items){
+        html+='<div class="note-card">';
+        sec.items.forEach(function(it){
+          html+='<div class="note-item"><div class="ndot"></div><div><span class="nterm">'+it.t+':</span> <span class="nval">'+it.d+'</span></div></div>';
+        });
+        html+='</div>';
+      }
+      if(sec.warn){
+        sec.warn.forEach(function(w){ html+='<div class="warn-item"><span style="flex-shrink:0;margin-top:1px">⚠️</span><span>'+w+'</span></div>'; });
+      }
       html+='</div>';
-    }
-    if(sec.warn){sec.warn.forEach(function(w){html+='<div class="warn-item"><span style="flex-shrink:0;margin-top:1px">⚠️</span><span>'+w+'</span></div>';});}
-    html+='</div>';
-  });
-  el.innerHTML=html;
+    });
+    document.getElementById('pane-notes').innerHTML = html || '<i>No notes available.</i>';
+  }
+  
+  if(t==='flash'){
+    G.fcIdx=0; G.fcFlipped=false;
+    renderFlash();
+  }
+  
+  if(t==='law'){
+    var html='';
+    actData.law.forEach(function(sec,i){
+      var open=G.lawOpen[i];
+      html+='<div class="law-row"><div class="law-hdr" onclick="toggleLaw('+i+')">';
+      html+='<span class="law-sec">'+sec.sec+'</span><span class="law-title">'+sec.title+'</span>';
+      html+='<div class="law-body'+(open?' open':'')+'">'+sec.body+'</div></div>';
+    });
+    document.getElementById('pane-law').innerHTML = html || '<i>No law text available.</i>';
+  }
 }
 
 function renderFlash(){
+  var actData = window[G.selectedAct + '_DATA'];
+  if(!actData || !actData.flashcards || actData.flashcards.length === 0){
+    document.getElementById('pane-flash').innerHTML = '<i>No flashcards available.</i>';
+    return;
+  }
+  
   var el=document.getElementById('pane-flash');
-  var cards=FLASHCARDS,idx=G.fcIdx,total=cards.length;
+  var cards=actData.flashcards, idx=G.fcIdx, total=cards.length;
   G.fcSeen[idx]=true;
-  var card=cards[idx],flipped=G.fcFlipped;
-  var dots='';
-  for(var i=0;i<total;i++){var cls=G.fcKnown[i]?'known':G.fcSeen[i]?'seen':'';dots+='<button class="fcdot '+cls+'" onclick="goFC('+i+')"></button>';}
+  var card=cards[idx], flipped=G.fcFlipped;
+  
   var html='<div class="fc-nav"><button class="fc-btn" onclick="prevFC()" '+(idx===0?'disabled':'')+'>← Prev</button><span class="fc-ctr">'+(idx+1)+' / '+total+'</span><button class="fc-btn" onclick="nextFC()" '+(idx===total-1?'disabled':'')+'>Next →</button></div>';
-  html+='<div class="fc-dots">'+dots+'</div>';
   html+='<div class="fc-card'+(flipped?' flipped':'')+'" onclick="flipFC()"><div class="fc-side">'+(flipped?'Answer':'Question')+'</div>';
   html+='<div class="'+(flipped?'fc-back':'fc-front')+'">'+(flipped?card.a:card.q)+'</div>';
   if(flipped)html+='<div class="fc-ref">'+card.ref+'</div>';
   else html+='<div class="fc-hint">Tap to reveal answer</div>';
   html+='</div>';
-  if(flipped)html+='<div class="fc-actions"><button class="fc-bad" onclick="markFC(false)">Still learning</button><button class="fc-good" onclick="markFC(true)">Got it ✓</button></div>';
   el.innerHTML=html;
 }
-
 function flipFC(){G.fcFlipped=!G.fcFlipped;renderFlash();}
-function nextFC(){if(G.fcIdx<FLASHCARDS.length-1){G.fcIdx++;G.fcFlipped=false;renderFlash();}}
+function nextFC(){if(G.fcIdx<window[G.selectedAct + '_DATA'].flashcards.length-1){G.fcIdx++;G.fcFlipped=false;renderFlash();}}
 function prevFC(){if(G.fcIdx>0){G.fcIdx--;G.fcFlipped=false;renderFlash();}}
-function goFC(i){G.fcIdx=i;G.fcFlipped=false;renderFlash();}
-function markFC(known){G.fcKnown[G.fcIdx]=known;nextFC();}
 
-function renderLaw(){
-  var el=document.getElementById('pane-law'),html='';
-  LAW.forEach(function(sec,i){
-    var open=G.lawOpen[i];
-    html+='<div class="law-row"><div class="law-hdr" onclick="toggleLaw('+i+')">';
-    html+='<span class="law-sec">'+sec.sec+'</span><span class="law-title">'+sec.title+'</span>';
-    html+='<span class="law-chevron">'+(open?'▲':'▼')+'</span></div>';
-    html+='<div class="law-body'+(open?' open':'')+'">'+sec.body+'</div></div>';
-  });
-  el.innerHTML=html;
-}
-function toggleLaw(i){G.lawOpen[i]=!G.lawOpen[i];renderLaw();}
+function toggleLaw(i){G.lawOpen[i]=!G.lawOpen[i];switchTab('law');}
 
-function renderTips(){
-  var el=document.getElementById('pane-tips'),html='';
-  EXAM_TIPS.forEach(function(sec){
-    html+='<div class="note-section"><div class="note-title"><span>🎯</span> '+sec.title+'</div>';
-    if(sec.table){
-      html+='<table class="dist-table"><thead><tr><th>Act</th><th>Questions</th><th>Slot</th></tr></thead><tbody>';
-      sec.table.forEach(function(r){
-        html+='<tr><td><strong>'+r.act+'</strong></td><td><span class="dist-badge'+(r.big?' big':'')+'">'+(r.big?'⚠️ ':'')+r.q+'</span></td><td style="font-size:11px;color:#9CA3AF">'+r.qs+'</td></tr>';
-      });
-      html+='</tbody></table>';
-    }
-    if(sec.items){
-      html+='<div class="note-card">';
-      sec.items.forEach(function(it){html+='<div class="note-item"><div class="ndot" style="background:#F59E0B"></div><div><span class="nterm">'+it.t+':</span> <span class="nval">'+it.d+'</span></div></div>';});
-      html+='</div>';
-    }
-    if(sec.warn){sec.warn.forEach(function(w){html+='<div class="warn-item"><span style="flex-shrink:0;margin-top:1px">🚨</span><span>'+w+'</span></div>';});}
-    html+='</div>';
-  });
-  el.innerHTML=html;
-}
+function initQuiz(timingMode, sprintCount){
+  G.timingMode = timingMode;
+  G.initialHearts = G.hearts;
+  
+  if(timingMode === 'casual' && G.hearts <= 0){
+    show('locked');
+    startRefill();
+    return;
+  }
+  
+  var pool = [];
+  if(G.selectedAct === 'ALL') {
+    if(window.ROPA_DATA) pool = pool.concat(window.ROPA_DATA.questions);
+    if(window.SODA_DATA) pool = pool.concat(window.SODA_DATA.questions);
+    if(window.MASA_DATA) pool = pool.concat(window.MASA_DATA.questions);
+  } else {
+    pool = [].concat(window[G.selectedAct + '_DATA'].questions);
+  }
+  
+  pool.sort(function(){return Math.random()-.5;});
+  
+  if(timingMode === 'casual'){
+    G.lesQ = pool.slice(0, 10);
+    G.timeRemaining = null;
+  } else if (timingMode === 'sprint'){
+    var count = sprintCount || 10;
+    G.lesQ = pool.slice(0, count);
+    G.timeRemaining = G.lesQ.length * 108; // 1.8 mins = 108 secs per question
+  } else if (timingMode === 'mock'){
+    G.lesQ = pool; 
+    G.timeRemaining = G.lesQ.length * 108; 
+  }
 
-function markStudied(){
-  if(G.studied)return;
-  G.studied=true;G.xp+=5;
-  document.getElementById('study-btn').textContent='Studied ✓';
-  document.getElementById('study-btn').disabled=true;
-  renderMap();
-}
-
-function openComing(id){
-  var c=COMING_DATA[id]||{name:id.toUpperCase(),acts:'Coming soon'};
-  document.getElementById('coming-title').textContent=c.name;
-  document.getElementById('coming-name').textContent=c.name;
-  document.getElementById('coming-acts').textContent=c.acts;
-  show('coming');
+  G.lesIdx=0; G.correct=0; G.wrong=0; G.skipped=0;
+  G.pkumfScore=0; G.answered=false; G.selAns=null; G.wasSkipped=false;
+  
+  setupHUD();
+  show('lesson');
+  renderQ();
+  
+  if(G.timeRemaining !== null){
+    clearInterval(G.timerInt);
+    G.timerInt = setInterval(tickTimer, 1000);
+  }
 }
 
-function startQuiz(){
-  if(G.hearts<=0){show('locked');startRefill();return;}
-  var pool=[].concat(QDB).sort(function(){return Math.random()-.5;}).slice(0,10);
-  G.lesQ=pool;G.lesIdx=0;G.correct=0;G.wrong=0;
-  G.answered=false;G.selAns=null;G.wasSkipped=false;
-  show('lesson');renderQ();
+function setupHUD(){
+  document.getElementById('hearts-les').style.display = G.timingMode === 'casual' ? 'flex' : 'none';
+  document.getElementById('hud-timer').style.display = G.timingMode !== 'casual' ? 'flex' : 'none';
+  document.getElementById('hud-score').style.display = G.timingMode !== 'casual' ? 'block' : 'none';
+  if(G.timingMode === 'casual') renderHearts('hearts-les');
+  updateScoreHUD();
+}
+
+function tickTimer(){
+  if(G.timeRemaining <= 0){
+    clearInterval(G.timerInt);
+    finishLesson(true);
+    return;
+  }
+  G.timeRemaining--;
+  var m=Math.floor(G.timeRemaining/60), s=G.timeRemaining%60;
+  var el = document.getElementById('hud-timer');
+  el.textContent = '⏱️ ' + String(m).padStart(2,'0') + ':' + String(s).padStart(2,'0');
+  if(G.timeRemaining <= 60){ el.style.color = '#DC2626'; el.style.background = '#FEF2F2'; }
+}
+
+function updateScoreHUD(){
+  if(G.timingMode !== 'casual'){
+    var dynamicScore = G.correct - (G.wrong * 0.25);
+    document.getElementById('hud-score').textContent = 'Score: ' + dynamicScore.toFixed(2);
+  }
 }
 
 function renderQ(){
   var q=G.lesQ[G.lesIdx],total=G.lesQ.length;
   G.answered=false;G.selAns=null;G.wasSkipped=false;
+  
   document.getElementById('q-num').textContent='Question '+(G.lesIdx+1)+' of '+total;
   document.getElementById('q-act').textContent=q.act;
   document.getElementById('les-fill').style.width=(G.lesIdx/total*100)+'%';
   document.getElementById('q-text').textContent=q.q;
+  
   var sb=document.getElementById('q-stmts');
   if(q.stmts){sb.style.display='block';sb.innerHTML=q.stmts.map(function(s){return'<div>'+s+'</div>';}).join('');}
   else sb.style.display='none';
+  
   document.getElementById('q-fb').style.display='none';
   document.getElementById('skip-btn').style.display='';
   document.getElementById('cont-btn').style.display='none';
-  renderHearts('hearts-les');
+  
   var ol=document.getElementById('q-opts');ol.innerHTML='';
   q.opts.forEach(function(o,i){
     var b=document.createElement('button');b.className='opt';
@@ -756,24 +923,40 @@ function pickAns(idx){
   if(G.answered)return;
   G.answered=true;G.selAns=idx;
   var q=G.lesQ[G.lesIdx],ok=idx===q.ans;
+  
   document.querySelectorAll('.opt').forEach(function(b,i){
     b.classList.add('locked');
     if(i===q.ans)b.classList.add('correct');
     if(i===idx&&!ok)b.classList.add('wrong');
   });
+  
   var fb=document.getElementById('q-fb');fb.style.display='block';
+  
   if(ok){
-    G.correct++;G.xp+=10;
+    G.correct++;
     fb.className='fb fb-ok pop';
-    fb.innerHTML='<div class="fb-title ok">Correct! +10 XP</div><div class="fb-exp ok">'+q.exp+'</div>';
+    fb.innerHTML='<div class="fb-title ok">Correct!</div><div class="fb-exp ok">'+q.exp+'</div>';
   } else {
-    G.wrong++;G.hearts=Math.max(0,G.hearts-1);
-    if(G.hearts===0)G.heartRefill=new Date(Date.now()+30*60*1000);
-    renderHearts('hearts-les');
+    G.wrong++;
+    if(G.timingMode === 'casual'){
+      G.hearts=Math.max(0,G.hearts-1);
+      if(G.hearts===0 && !G.heartRefill) G.heartRefill=new Date(Date.now()+30*60*1000);
+      renderHearts('hearts-les');
+    }
+    
     fb.className='fb fb-bad shake';
-    fb.innerHTML='<div class="fb-title bad">Not quite — '+G.hearts+' hearts left</div><div class="fb-exp bad">'+q.exp+'</div>';
-    if(G.hearts<=0){document.getElementById('skip-btn').style.display='none';document.getElementById('cont-btn').style.display='';document.getElementById('cont-btn').textContent='See result';return;}
+    var titleTxt = G.timingMode === 'casual' ? 'Not quite — '+G.hearts+' hearts left' : 'Incorrect (-0.25 Penalty)';
+    fb.innerHTML='<div class="fb-title bad">'+titleTxt+'</div><div class="fb-exp bad">'+q.exp+'</div>';
+    
+    if(G.timingMode === 'casual' && G.hearts<=0){
+      document.getElementById('skip-btn').style.display='none';
+      document.getElementById('cont-btn').style.display='';
+      document.getElementById('cont-btn').textContent='See result';
+      return;
+    }
   }
+  
+  updateScoreHUD();
   document.getElementById('skip-btn').style.display='none';
   document.getElementById('cont-btn').style.display='';
 }
@@ -781,41 +964,75 @@ function pickAns(idx){
 function doSkip(){
   if(G.answered)return;
   G.answered=true;G.wasSkipped=true;
+  G.skipped++;
+  
   var q=G.lesQ[G.lesIdx];
   document.querySelectorAll('.opt').forEach(function(b,i){b.classList.add('locked');if(i===q.ans)b.classList.add('correct');});
+  
   var fb=document.getElementById('q-fb');fb.style.display='block';fb.className='fb fb-skip';
-  fb.innerHTML='<div class="fb-title skip">Skipped</div><div class="fb-exp skip">'+q.exp+'</div>';
+  fb.innerHTML='<div class="fb-title skip">Skipped (0 marks)</div><div class="fb-exp skip">'+q.exp+'</div>';
+  
   document.getElementById('skip-btn').style.display='none';
   document.getElementById('cont-btn').style.display='';
 }
 
 function doCont(){
-  if(G.hearts<=0){finishLesson();return;}
+  if(G.timingMode === 'casual' && G.hearts<=0){finishLesson(false);return;}
   G.lesIdx++;
-  if(G.lesIdx>=G.lesQ.length)finishLesson();
+  if(G.lesIdx>=G.lesQ.length) finishLesson(false);
   else renderQ();
 }
 
-function finishLesson(){
-  var bonus=G.correct===G.lesQ.length?20:0;
-  G.xp+=bonus;
-  var total=G.lesQ.length,acc=total>0?G.correct/total:0;
-  var ns=acc>=0.9?3:acc>=0.7?2:acc>=0.5?1:0;
-  if(ns>G.stars)G.stars=ns;
-  var xpEarned=G.correct*10+bonus;
-  document.getElementById('r-icon').textContent=G.correct===total?'🏆':G.wrong>G.correct?'💪':'🎉';
-  document.getElementById('r-title').textContent=G.correct===total?'Perfect!':'Lesson complete!';
-  document.getElementById('r-sub').textContent=G.correct+' of '+(G.lesIdx+1)+' correct · '+ns+' ★ on ROPA';
-  document.getElementById('r-xp').textContent='⚡ +'+xpEarned+' XP';
+function finishLesson(timeOut){
+  clearInterval(G.timerInt);
+  
+  var total=G.lesQ.length;
+  var isCasual = G.timingMode === 'casual';
+  
+  if(isCasual){
+    var baseXP = G.correct * 10;
+    var bonus = (G.correct === total) ? 20 : 0;
+    var totalEarnedXP = baseXP + bonus;
+    G.xp += totalEarnedXP;
+    
+    document.getElementById('r-xp').style.display = 'inline-flex';
+    document.getElementById('r-xp').textContent='⚡ +'+totalEarnedXP+' XP';
+    document.getElementById('r-pkumf-box').style.display = 'none';
+  } else {
+    G.pkumfScore = G.correct - (G.wrong * 0.25);
+    document.getElementById('r-xp').style.display = 'none';
+    document.getElementById('r-pkumf-box').style.display = 'block';
+    document.getElementById('r-pkumf').textContent = G.pkumfScore.toFixed(2) + ' / ' + total;
+  }
+  
+  document.getElementById('r-icon').textContent= timeOut ? '⏱️' : (G.correct===total?'🏆':'🎉');
+  document.getElementById('r-title').textContent= timeOut ? 'Time\'s Up!' : (G.correct===total?'Perfect!':'Session complete!');
+  document.getElementById('r-sub').textContent=G.correct+' of '+total+' correct';
+  
   document.getElementById('r-ok').textContent=G.correct;
   document.getElementById('r-bad').textContent=G.wrong;
-  document.getElementById('r-stars').textContent=G.stars+' ★';
-  renderMap();
+  document.getElementById('r-skip').textContent=G.skipped;
+  
+  renderDash();
   show('result');
-  if(G.hearts<=0)startRefill();
+  if(isCasual && G.hearts<=0) startRefill();
 }
 
-function exitLesson(){G.xp+=G.correct*10;renderMap();show('map');}
+function exitLesson(){ 
+  if(confirm("Are you sure you want to quit? Your progress and points for this session will be lost.")) {
+    clearInterval(G.timerInt); 
+    if(G.timingMode === 'casual') {
+      G.hearts = G.initialHearts; 
+      if(G.hearts > 0 && G.refillInt) {
+        clearInterval(G.refillInt);
+        G.refillInt = null;
+        G.heartRefill = null;
+      }
+    }
+    renderDash();
+    show('game-dash'); 
+  }
+}
 
 function startRefill(){
   if(G.refillInt)clearInterval(G.refillInt);
@@ -825,11 +1042,9 @@ function startRefill(){
     var m=Math.floor(rem/60000),s=Math.floor((rem%60000)/1000);
     var el=document.getElementById('refill-timer');
     if(el)el.textContent=String(m).padStart(2,'0')+':'+String(s).padStart(2,'0');
-    if(rem<=0){G.hearts=5;G.heartRefill=null;clearInterval(G.refillInt);renderMap();}
+    if(rem<=0){G.hearts=5;G.heartRefill=null;clearInterval(G.refillInt);renderDash();}
   },1000);
 }
-
-renderMap();
 </script>
 </body>
 </html>
