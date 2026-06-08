@@ -96,7 +96,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
 .fc-ctr{font-size:12px;color:#9CA3AF}
 .fc-btn{background:none;border:1px solid #E5E7EB;border-radius:8px;padding:6px 14px;font-size:12px;cursor:pointer;color:#374151;transition:all .15s}
 .fc-btn:disabled{opacity:0.3;cursor:default}
-.fc-card{background:#fff;border:1px solid #E5E7EB;border-radius:16px;padding:2rem 1.5rem;min-height:180px;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;cursor:pointer;box-shadow:0 2px 5px rgba(0,0,0,.05);width:100%; max-width:480px; margin: 0 auto;}
+.fc-card{background:#fff;border:1px solid #E5E7EB;border-radius:16px;padding:2rem 1.5rem;min-height:220px;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;cursor:pointer;box-shadow:0 2px 5px rgba(0,0,0,.05);width:100%; max-width:480px; margin: 0 auto;}
 .fc-card.flipped{background:#F8FAFC; border-color: #93C5FD;}
 .fc-side{font-size:11px;font-weight:700;color:#9CA3AF;text-transform:uppercase;letter-spacing:.06em;margin-bottom:1rem}
 .fc-front{font-size:16px;font-weight:600;color:#111827;line-height:1.5}
@@ -510,11 +510,29 @@ window.ROPA_DATA = {
     {q:'Who keeps and maintains the register of pharmacists?',a:'Director of Pharmaceutical Services (the Registrar)',ref:'s.5 RPA 1951'},
     {q:'Quorum of the Pharmacy Board',a:'9 members',ref:'s.4(4) RPA 1951'},
     {q:'Fee for annual retention — body corporate',a:'RM200',ref:'Reg 12(2) RPA Reg 2004'},
-    {q:'Committee of Inquiry — quorum',a:'3',ref:'Reg 15(4) RPA Reg 2004'}
+    {q:'Committee of Inquiry — quorum',a:'3',ref:'Reg 15(4) RPA Reg 2004'},
+    {q:'How many members are on the Pharmacy Board?',a:'18 members',ref:'s.3(1) RPA 1951'},
+    {q:'Are permanent residents eligible to be private practice Board members?',a:'No. They must be citizens of Malaysia.',ref:'s.3(5) RPA 1951'},
+    {q:'What happens to the register if a pharmacist fails to renew their annual certificate?',a:'Their name shall be removed from the register.',ref:'s.16(4) RPA 1951'},
+    {q:'Can the Pharmacy Board sentence a pharmacist to imprisonment after an inquiry?',a:'No, imprisonment is a Court power only.',ref:'s.18A RPA 1951'},
+    {q:'To whom does an aggrieved pharmacist appeal against a Board punishment?',a:'The Minister (decision is final)',ref:'s.19 RPA 1951'},
+    {q:'How many days prior to a disciplinary meeting must complaint documents be supplied?',a:'At least 7 days prior',ref:'Reg 4(2) RPA Reg 2004'},
+    {q:'What is the minimum notice period given for a written explanation during an investigation?',a:'Not less than 14 days',ref:'Reg 16(1)(b) RPA Reg 2004'},
+    {q:'Is the Secretary of the Pharmacy Board a voting member?',a:'No, the Secretary is not a member of the Board.',ref:'Reg 3(2) RPA Reg 2004'}
   ],
   law: [
-    {sec:'s.4',title:'President and meetings',body:'DG Health = President. Absence → members <span class="lh">elect</span> chairman. Quorum: <span class="lh">9</span>.'},
-    {sec:'s.16',title:'Annual certificate',body:'Renew before year end + pay fee. Failure = <span class="lh">removed from register</span>. Restoration: application + <span class="lk">additional fee</span>.'}
+    {sec:'s.3(1)',title:'Board composition',body:'18 members: <span class="lk">DG Health</span> + <span class="lk">DPS</span> (ex officio); <span class="lh">8</span> public service; <span class="lh">3</span> HEI; <span class="lh">2</span> non-public service; <span class="lh">3</span> private practice (must be <span class="lh">citizens — not PRs</span>). All non-ex-officio appointed by Minister.'},
+    {sec:'s.4',title:'President and meetings',body:'DG Health = President. Absence → members <span class="lh">elect</span> chairman. Chairman has <span class="lk">original vote + casting vote</span> if tied. Quorum: <span class="lh">9</span>.'},
+    {sec:'s.6A(2)',title:'Provisional Employment',body:'Engage in employment as a pharmacist to the satisfaction of the Board for a period of <span class="lh">not less than one year</span> in any of the premises listed in the Second Schedule.'},
+    {sec:'s.7(4)',title:'Title offence penalty',body:'Conviction: <span class="lh">≤RM500</span> + <span class="lh">RM50/day</span> continuing.'},
+    {sec:'s.11C(2)',title:'Public service failure',body:'Fails to comply with public service notice: Liable on conviction to a fine not exceeding <span class="lh">fifty thousand ringgit</span>.'},
+    {sec:'s.13(2)',title:'Body Corporate',body:'Business will be under the control and management of a superintendent who is a <span class="lh">registered pharmacist</span> and who <span class="lk">does not act</span> at the time in a similar capacity for any other body corporate.'},
+    {sec:'s.16(4)',title:'Annual certificate',body:'The name of any registered pharmacist or body corporate who fails to obtain an annual certificate prior to the commencement of any year shall be <span class="lh">removed from the register</span>.'},
+    {sec:'s.17(1A)',title:'Summary Removal',body:'The Board may remove the name... WITHOUT an inquiry if the person is <span class="lk">deceased</span>, has <span class="lk">permanently left</span> Malaysia, or is of <span class="lk">unsound mind</span>.'},
+    {sec:'s.18A(1)',title:'Punishments',body:'Order the name to be <span class="lh">removed</span> from the register; <span class="lh">suspended</span> from the register... or order to be <span class="lh">reprimanded</span>.'},
+    {sec:'Reg 12',title:'Annual retention fees',body:'Fifty ringgit (RM50) for a fully registered pharmacist and two hundred ringgit (RM200) for a body corporate.'},
+    {sec:'Reg 15(1)',title:'Committee of Inquiry',body:'Every Committee of Inquiry shall comprise of <span class="lh">five fully registered pharmacists</span> and each of them having a valid annual certificate.'},
+    {sec:'Reg 16(1)',title:'Investigation notice',body:'Require... a written explanation regarding the complaint... within such period as specified in the notice, but such period shall be <span class="lh">not less than fourteen days</span>.'}
   ]
 };
 
@@ -583,20 +601,44 @@ window.POISON_DATA = {
   },
   flashcards: [
     {q:'Who is the Chairman of the Poisons Board?',a:'The Director General of Health',ref:'s.4(1) PA 1952'},
-    {q:'Which Poison Group strictly prohibits retail sale?',a:'Group A',ref:'s.20 PA 1952'},
-    {q:'How long must a Prescription Book or Poisons Book be preserved?',a:'For five years from the date of the last entry',ref:'Reg 27A PR 1952'},
-    {q:'What is the fee for an import authorization of a psychotropic substance?',a:'RM200',ref:'Reg 7 P(PS)R 1989'},
-    {q:'A prescription for a psychotropic substance is valid for how many days?',a:'90 days',ref:'Reg 11(3)(d) P(PS)R 1989'},
+    {q:'What is the quorum required for the Poisons Board?',a:'Four members including the Chairman',ref:'s.4(4) PA 1952'},
+    {q:'What is the fee for a Type A poisons licence?',a:'RM300',ref:'Reg 28(1)(a) PR 1952'},
+    {q:'What is the fee for an import/export authorization of a psychotropic substance?',a:'RM200',ref:'Reg 7 P(PS)R 1989'},
+    {q:'A Type E licence is issued for the purchase and use of what substance?',a:'Sodium Hydroxide (12% and over)',ref:'s.26(2)(e) PA 1952'},
+    {q:'Can a Type B licence holder sell poisons by retail?',a:'No, Type B is for wholesale only (and not Group A).',ref:'s.26(2)(b) PA 1952'},
+    {q:'Who can lawfully sell Group A poisons?',a:'Licensed wholesalers to licensed pharmacists/wholesalers.',ref:'s.20 PA 1952'},
+    {q:'What is the validity period of a prescription for a Psychotropic substance?',a:'90 days',ref:'Reg 11(3)(d) P(PS)R 1989'},
+    {q:'What is the maximum number of times a Group B poison can be dispensed on one prescription?',a:'Three times',ref:'s.21(2)(e) PA 1952'},
+    {q:'How long must a Poisons Wholesale Sales Book or Prescription Book be kept?',a:'5 years from the last entry',ref:'Reg 27A(1) PR 1952'},
+    {q:'How long must registers for Psychotropic substances be kept?',a:'2 years from the last entry',ref:'Reg 23(b) P(PS)R 1989'},
+    {q:'Under what age is the sale of poisons strictly prohibited?',a:'Under 18 years of age (except for medical treatment)',ref:'s.17(1) PA 1952'},
     {q:'To dispose of a psychotropic substance, whose presence is legally required?',a:'A Drug Enforcement Officer',ref:'Reg 25(1) P(PS)R 1989'},
-    {q:'What is the statutory penalty limit for an offence under the Poisons Act that endangers human life?',a:'RM200,000 or 10 years imprisonment',ref:'s.32(2) PA 1952'}
+    {q:'What wording must be used on the label of a dispensed medicine containing a poison?',a:'"Controlled Medicine" or "Ubat Terkawal"',ref:'Reg 12(2) PR 1952'},
+    {q:'What is the maximum penalty for a wilful default under the Poisons Act that endangers human life?',a:'RM200,000 or 10 years imprisonment',ref:'s.32(2) PA 1952'},
+    {q:'Can a prescription for a Psychotropic substance be written in code?',a:'No, it must not be written wholly or partly in code.',ref:'Reg 11(5) P(PS)R 1989'},
+    {q:'What is the maximum compounding amount allowed for a compoundable offence under the Poisons Act?',a:'50% of the maximum fine for that offence',ref:'s.32A(2) PA 1952'},
+    {q:'How many days does an offender have to pay an accepted compound offer?',a:'30 days',ref:'Reg 3(2) Compounding Regs 2023'},
+    {q:'Can you import poison into Malaysia by post?',a:'Yes, for personal use, max 1 month supply, not more than once a month.',ref:'Reg 4(1) PR 1952'},
+    {q:'Who is authorized to prescribe psychotropic substances?',a:'Registered medical practitioners, dentists Div I, or veterinary surgeons.',ref:'Reg 11(1) P(PS)R 1989'}
   ],
   law: [
-    {sec:'s.15',title:'Sale by Wholesale',body:'No poison shall be sold by wholesale except by a <span class="lh">licensed wholesaler</span>... The seller shall not deliver it until he has made an entry in a register stating name/address of purchaser... and the purchaser has affixed his <span class="lk">signature</span>.'},
-    {sec:'s.20',title:'Group A Poisons',body:'Group A Poison shall not be sold or supplied by wholesale or retail except by a <span class="lh">licensed wholesaler</span> to a <span class="lk">licensed pharmacist</span> or another licensed wholesaler, or to be immediately exported.'},
-    {sec:'s.21(1)',title:'Group B Poisons',body:'Group B Poison shall not be sold or supplied by retail to any person except... by a <span class="lk">registered pharmacist</span> as a dispensed medicine on and in accordance with a <span class="lh">prescription</span>.'},
-    {sec:'s.26',title:'Licences',body:'A <span class="lh">Type A</span> licence issued to a pharmacist to import, store and deal generally by wholesale and retail... A <span class="lh">Type B</span> licence issued to any person... to import, store and sell by wholesale.'},
-    {sec:'P(PS)R r.11',title:'Psychotropic Prescriptions',body:'Every prescription... shall specify the number of times (not exceeding <span class="lh">three</span>) the psychotropic substance may be supplied... No person shall sell on a prescription which is presented more than <span class="lh">ninety days</span> after the date of the prescription.'},
-    {sec:'P(PS)R r.25',title:'Disposal of Psychotropics',body:'No person... shall dispose of the psychotropic substance in his possession except in the <span class="lk">presence</span> and in accordance with the instructions of a <span class="lh">Drug Enforcement Officer</span>.'}
+    {sec:'s.2',title:'Interpretation',body:'<span class="lh">"Dispensed medicine"</span> means a medicine supplied by a registered medical practitioner, registered dentist or veterinary surgeon... or a registered pharmacist... <span class="lh">"Wholesale"</span> means a sale to any person who intends to sell again.'},
+    {sec:'s.3(1)',title:'Poisons Board',body:'Consists of the <span class="lk">Director General of Health</span> as ex-officio, 1 pharmacist, 1 chemist, 1 agri officer, 1 vet officer, and 8 persons not in government service appointed by the Minister.'},
+    {sec:'s.4(4)',title:'Proceedings of Board',body:'The Board shall meet at such places and times as the Chairman may appoint and at any meeting <span class="lh">four members</span> including the Chairman... shall form a quorum.'},
+    {sec:'s.12',title:'Control of compounding',body:'No person shall dispense, compound or mix any poison... unless he is a <span class="lk">registered pharmacist</span> or a person working under the <span class="lh">immediate personal supervision</span> of a registered pharmacist.'},
+    {sec:'s.15',title:'Sale by wholesale',body:'No poison shall be sold by wholesale except by a <span class="lk">licensed wholesaler</span>... must enter in <span class="lh">Poisons Wholesale Sales Book</span>... the purchaser must forward a written order within <span class="lh">seven days</span> of delivery.'},
+    {sec:'s.17',title:'Prohibition of sale to under 18',body:'No poison shall be sold or supplied to any person under <span class="lh">eighteen years</span> of age, otherwise than for purposes of the medical or dental treatment of such person.'},
+    {sec:'s.20',title:'Group A Poisons',body:'Group A Poison shall not be sold or supplied by wholesale or retail except by a <span class="lk">licensed wholesaler</span> to a licensed pharmacist or another licensed wholesaler, or to be immediately exported.'},
+    {sec:'s.21',title:'Group B Poisons',body:'Cannot be sold by retail except as a dispensed medicine on a <span class="lh">prescription</span>. Prescription must state name/address, dose, and specify number of times (not exceeding <span class="lh">three</span>).'},
+    {sec:'s.26',title:'Licences',body:'<span class="lh">Type A</span>: Pharmacist to deal generally. <span class="lh">Type B</span>: Person/company to wholesale specific poisons. <span class="lh">Type D</span>: Retail Part II poisons. <span class="lh">Type E</span>: Person using <span class="lh">Sodium Hydroxide</span>.'},
+    {sec:'s.31AA',title:'Powers of Enforcement',body:'An authorized officer shall have all the powers of a <span class="lk">police officer</span>... under the Criminal Procedure Code in relation to enforcement, inspection and investigation.'},
+    {sec:'s.32',title:'Penalties',body:'General penalty: Fine ≤ <span class="lh">RM50,000</span> or ≤ <span class="lh">5 years</span> or both. Wilful default endangering life: Fine ≤ <span class="lh">RM200,000</span> or ≤ <span class="lh">10 years</span> or both.'},
+    {sec:'PR r.6',title:'Storage of Poisons',body:'Where any poison is kept for sale... it shall be kept in an unbroken case... or in a room or cupboard under <span class="lh">lock and key</span> set apart for the keeping of poisons.'},
+    {sec:'PR r.12(2)',title:'Labelling Dispensed Medicines',body:'When any poison or medicine containing any poison is sold or supplied as a dispensed medicine... there shall be labelled on the container the words <span class="lh">"Controlled Medicine"</span> or <span class="lh">"Ubat Terkawal"</span>.'},
+    {sec:'PR r.27A(1)',title:'Preservation of documents',body:'A seller, supplier or licensed pharmacist shall keep every register, record or book required... for a period of <span class="lh">five years</span> from the date the last entry is made.'},
+    {sec:'P(PS)R r.11',title:'Psychotropic Prescriptions',body:'No person shall sell or supply any psychotropic substance on a prescription... which is presented to him more than <span class="lh">ninety days</span> after the date of the prescription.'},
+    {sec:'P(PS)R r.25(1)',title:'Disposal of psychotropics',body:'No person... shall dispose of the psychotropic substance in his possession except in the <span class="lk">presence</span> and in accordance with the instructions of a <span class="lh">Drug Enforcement Officer</span>.'},
+    {sec:'Comp r.3(2)',title:'Compounding Timeline',body:'An offer to compound an offence shall be valid for a period of <span class="lh">thirty days</span> starting from the date the offer is received...'}
   ]
 };
 
@@ -659,18 +701,30 @@ window.SODA_DATA = {
     {q:'If a drug is seized, how many hours do you have to complain to a Magistrate before it becomes Government property?',a:'48 hours',ref:'s.4(3) SODA 1952'},
     {q:'How many parts must an official drug sample be divided into?',a:'Three parts (Seller, Analyst, Retained)',ref:'s.7(2) SODA 1952'},
     {q:'What is the maximum time allowed to institute proceedings after a sample is purchased?',a:'60 days',ref:'s.18(4) SODA 1952'},
+    {q:'What is the general fine limit for a FIRST offence by a Body Corporate under SODA?',a:'RM50,000',ref:'s.12(2) SODA 1952'},
     {q:'What is the minimum quorum for a meeting of the Drug Control Authority?',a:'Four members',ref:'Reg 5(4) CDCR 1984'},
+    {q:'Is the Secretary of the DCA allowed to vote in meetings?',a:'No, the Secretary is not a member of the Authority',ref:'Reg 3(7) CDCR 1984'},
+    {q:'What is the processing fee for a Manufacturer’s Licence under CDCR?',a:'RM1,000',ref:'Reg 13(1) CDCR 1984'},
+    {q:'What is the processing fee to register a traditional medicine?',a:'RM500',ref:'Reg 8(2)(a) CDCR 1984'},
+    {q:'What is the maximum validity period for a Clinical Trial Import Licence?',a:'Three years',ref:'Reg 12(5) CDCR 1984'},
     {q:'How many products can be included in a Clinical Trial Import Licence?',a:'Only one product',ref:'Reg 12(2) CDCR 1984'},
-    {q:'Name three specific synthetic substances completely prohibited in traditional medicines.',a:'Caffeine, Nicotinamide, Paracetamol',ref:'Table II CDCR 1984'},
-    {q:'How many days do you have to appeal a DCA decision to the Minister?',a:'14 days',ref:'Reg 18 CDCR 1984'}
+    {q:'For how long must an importer or wholesaler maintain records of transactions under CDCR?',a:'Not less than 5 years',ref:'Reg 27(1) CDCR 1984'},
+    {q:'What is the maximum permitted proportion of Lead in a traditional medicine?',a:'10.0 ppm (or 10.0 mg/kg)',ref:'Table I CDCR 1984'},
+    {q:'Name three specific synthetic substances completely prohibited in traditional medicines.',a:'Caffeine, Nicotinamide, Paracetamol',ref:'Table II CDCR 1984'}
   ],
   law: [
+    {sec:'s.2',title:'Medicinal Purpose Definition',body:'Includes alleviating, treating, curing or preventing a disease; diagnosing; <span class="lh">contraception</span>; inducing <span class="lh">anaesthesia</span>; controlling <span class="lh">body weight</span>; general maintenance of health.'},
     {sec:'s.4(3)-(4)',title:'Seizure of Drugs',body:'Any person claiming anything seized... may within <span class="lh">forty-eight hours</span>... complain thereof to the Court of a Magistrate... If no complaint has been made... the article seized shall become the property of the Government and shall be <span class="lh">destroyed</span>.'},
     {sec:'s.7(2)',title:'Sampling Procedure',body:'Such officer or inspector shall thereupon divide the sample into <span class="lh">three parts</span> and shall mark and seal... and shall offer one of such parts to the seller... deliver another to an analyst, and shall retain the third.'},
+    {sec:'s.12(2)',title:'Body Corporate Penalty',body:'Any body corporate who commits an offence against this Act... shall be liable on conviction to a fine not exceeding <span class="lh">fifty thousand ringgit</span>, and for a second or subsequent offence... not exceeding <span class="lh">one hundred thousand ringgit</span>.'},
     {sec:'s.18(4)',title:'Proceedings Timeline',body:'No proceedings in respect of the sale thereof or of any offence against this Act shall be instituted after the expiration of <span class="lh">sixty days</span> from the time of purchasing or procuring the same.'},
     {sec:'s.20(3)',title:'Warranty Defence',body:'No warranty or other written statement shall be any defence... unless the defendant has within <span class="lh">seven days</span> after service of the summons delivered to the prosecutor a copy of such warranty.'},
-    {sec:'CDCR r.7(1A)',title:'Prohibition on Mixtures',body:'No person shall manufacture, sell, supply, import... any product which is a <span class="lk">mixture</span> of a registered product with another registered product.'},
-    {sec:'CDCR r.18A(13)',title:'Cosmetic Recalls',body:'It shall be the duty of the person responsible for placing the notified cosmetic in the market... to <span class="lh">recall, remove or withdraw</span> such notified cosmetic with immediate effect if it has contravened any directives.'}
+    {sec:'CDCR r.3',title:'DCA Constitution',body:'<span class="lk">DG Health</span> (Chair), <span class="lk">DPS</span> (Alt Chair), NPCB Director, plus 8 appointed members... Secretary is a <span class="lh">non-member</span> public pharmacist.'},
+    {sec:'CDCR r.7(1A)',title:'Prohibition on Mixtures',body:'No person shall manufacture, sell, supply, import... any product which is a <span class="lh">mixture</span> of a registered product with another registered product.'},
+    {sec:'CDCR r.8(2)',title:'Registration Fees',body:'A processing fee of <span class="lh">RM500.00</span> for traditional medicines... <span class="lh">RM1000.00</span> for products other than traditional medicines.'},
+    {sec:'CDCR r.12(2)',title:'Licence Profiles',body:'Any number of registered products may be included in any licence other than a <span class="lk">clinical trial import licence</span>, which shall include <span class="lh">only one product</span>.'},
+    {sec:'CDCR r.18A(13)',title:'Cosmetic Recalls',body:'It shall be the duty of the person responsible for placing the notified cosmetic in the market... to <span class="lh">recall, remove or withdraw</span> such notified cosmetic with immediate effect if it has contravened any directives.'},
+    {sec:'CDCR Tab II',title:'Traditional Prohibitions',body:'The following substances are prohibited in traditional medicine: <span class="lh">Caffeine</span>, <span class="lh">Nicotinamide</span>, <span class="lh">Paracetamol</span>, Poison within the meaning of the Poisons Act.'}
   ]
 };
 
@@ -724,10 +778,15 @@ window.MASA_DATA = {
     ]
   },
   flashcards: [
+    {q:'What definition does MASA use for an "advertisement"?',a:'Includes notice, circular, report, label, wrapper, and oral announcements.',ref:'s.2 MASA 1956'},
     {q:'Can you advertise a cure for Asthma to the general public?',a:'No (Asthma is listed in the s.3 Schedule)',ref:'MASA s.3'},
     {q:'Are abortion ads ever permitted if approved by MAB?',a:'No, it is an absolute prohibition.',ref:'MASA s.4'},
-    {q:'What must be disclosed on a retailed medicine label?',a:'Active constituents and their quantitative particulars.',ref:'MASA s.6(1)'},
-    {q:'MAB application fee?',a:'RM300',ref:'MAB Regs r.8'},
+    {q:'Is it an offence to advertise a skill/service to treat a disease?',a:'Yes, unless exempted (e.g. approved private hospital/clinic).',ref:'s.4A MASA 1956'},
+    {q:'If you are prosecuted for a disease ad, what is a valid defence?',a:'That it was only circulated to professionals (doctors, pharmacists, etc.)',ref:'s.3(2) MASA 1956'},
+    {q:'What must be disclosed on a retailed medicine label?',a:'Active constituents and their quantitative particulars in English/National language.',ref:'MASA s.6(1)'},
+    {q:'Who authorizes a pharmacist to be an "Authorized Officer" under MASA?',a:'The Minister',ref:'s.6A MASA 1956'},
+    {q:'Who must give written sanction before a prosecution under MASA can begin?',a:'The Public Prosecutor',ref:'s.6F(1) MASA 1956'},
+    {q:'MAB application fee?',a:'RM300 (non-refundable)',ref:'MAB Regs r.8'},
     {q:'Who is the Chairman of the Medicine Advertisements Board?',a:'Director General of Health',ref:'Reg 3(1) MAB Regs 1976'},
     {q:'What is the quorum for a Medicine Advertisements Board meeting?',a:'Three members',ref:'Reg 3(2) MAB Regs 1976'},
     {q:'What details MUST be legibly displayed on a printed approved medicine advertisement?',a:'Approval serial number and expiry date',ref:'Reg 7(2) MAB Regs 1976'}
@@ -735,7 +794,9 @@ window.MASA_DATA = {
   law: [
     {sec:'s.3',title:'Prohibition relating to certain diseases',body:'No person shall take any part in the publication of any advertisement... for the purpose of prevention or treatment of the diseases and conditions specified in the <span class="lh">Schedule</span> (e.g., Cancer, Diabetes, Asthma).'},
     {sec:'s.4',title:'Prohibition relating to abortion',body:'No person shall take any part in the publication of any advertisement referring to any article... in terms which calculated to lead to the use of that article... for <span class="lh">procuring the miscarriage</span> of women.'},
+    {sec:'s.4A',title:'Prohibition relating to skill or service',body:'No person shall take part in the publication of any advertisement which refers to any <span class="lh">skill or service</span> relating to the treatment, prevention or diagnosis of any ailment...'},
     {sec:'s.6F(1)',title:'Sanction to Prosecute',body:'No prosecution shall be instituted under this Act or any regulation made thereunder without the <span class="lk">sanction in writing</span> of the <span class="lh">Public Prosecutor</span>.'},
+    {sec:'MAB Reg 3',title:'Proceedings of Board',body:'The Director-General of Health shall be the <span class="lh">Chairman</span>... At any meeting <span class="lh">three members</span> including the Chairman... shall form a quorum.'},
     {sec:'MAB Reg 7(2)',title:'Numbering of approvals',body:'The approval serial number and <span class="lh">expiry date</span> shall be legibly displayed in every advertisement published in print or in the form of a hoarding, illuminated sign, or printed matter.'}
   ]
 };
@@ -768,9 +829,14 @@ window.DDA_DATA = {
   },
   flashcards: [
     {q:'What is the trafficking threshold for Cocaine?',a:'40 grammes',ref:'DDA Trafficking Presumptions'},
-    {q:'What is the trafficking threshold for Cannabis?',a:'200 grammes',ref:'DDA Trafficking Presumptions'}
+    {q:'What is the trafficking threshold for Cannabis?',a:'200 grammes',ref:'DDA Trafficking Presumptions'},
+    {q:'Where should the dispensing of morphine in a health clinic be recorded?',a:'Prescription Book for dispensed medicines',ref:'DDA Regulations'},
+    {q:'Is Buprenorphine a Dangerous Drug under DDA?',a:'No, it is regulated as a Psychotropic Substance.',ref:'Poisons Act Schedules'},
+    {q:'Is Heroin a Dangerous Drug under DDA?',a:'Yes, it is strictly classified as a Dangerous Drug.',ref:'DDA First Schedule'}
   ],
-  law: []
+  law: [
+    {sec:'DDA First Schedule',title:'Classification',body:'Substances such as <span class="lh">Morphine</span>, <span class="lh">Cannabis</span>, and <span class="lh">Heroin</span> are classified strictly as Dangerous Drugs and fall under the heaviest statutory controls.'}
+  ]
 };
 
 // New Module: ETHICS
@@ -807,9 +873,15 @@ window.ETHICS_DATA = {
   },
   flashcards: [
     {q:'What is Principle 1 of the Code of Ethics?',a:'Make patients your first concern.',ref:'Code of Ethics 2018'},
+    {q:'What is Principle 2 of the Code of Ethics?',a:'Use professional judgement in the interests of patients and the public.',ref:'Code of Ethics 2018'},
+    {q:'What is Principle 3 of the Code of Ethics?',a:'Show respect for others.',ref:'Code of Ethics 2018'},
+    {q:'What is Principle 4 of the Code of Ethics?',a:'Encourage patients and the public to participate in decisions about their care.',ref:'Code of Ethics 2018'},
+    {q:'What is Principle 5 of the Code of Ethics?',a:'Develop your professional knowledge and competence.',ref:'Code of Ethics 2018'},
     {q:'What is Principle 6 of the Code of Ethics?',a:'Be ethical, honest and trustworthy.',ref:'Code of Ethics 2018'},
+    {q:'What is Principle 7 of the Code of Ethics?',a:'Be responsible of your working practices.',ref:'Code of Ethics 2018'},
     {q:'How many fully registered pharmacists make up a Committee of Inquiry?',a:'Five',ref:'Guidance on Code / Reg 15'},
-    {q:'What are the three punishments the Board can impose after an inquiry?',a:'Removal, Suspension, or Reprimand',ref:'RPA s.18A'}
+    {q:'What are the three punishments the Board can impose after an inquiry?',a:'Removal, Suspension, or Reprimand',ref:'RPA s.18A'},
+    {q:'Is it ethical to post a patient\'s photo on social media if their face is blurred?',a:'No, Principle 3 states you must never disclose confidential info/images without consent.',ref:'Code of Ethics 2018'}
   ],
   law: [
     {sec:'Pr. 1',title:'Make Patients Your First Concern',body:'Ensure the product and services provided are safe and of acceptable quality... Inform and educate patients or their caregivers about health and how to use and store their medicines in a correct manner.'},
@@ -855,7 +927,9 @@ window.GGM_DATA = {
   flashcards: [
     {q:'What are the 4 Core Moral Values of GGM?',a:'Justice, Truth, Service to the common good, Trusteeship',ref:'GGM Framework'},
     {q:'What is Conflict of Interest (COI)?',a:'When a public servant has vested personal interests that compromise their official duties.',ref:'GGM Framework'},
-    {q:'Name 3 of the 5 vulnerable areas in the pharmaceutical system.',a:'Registration, Inspection, Promotion, Selection, Procurement',ref:'GGM Framework'}
+    {q:'Name 3 of the 5 vulnerable areas in the pharmaceutical system.',a:'Registration, Inspection, Promotion, Selection, Procurement',ref:'GGM Framework'},
+    {q:'What is the "Truth" value in GGM?',a:'Truthfulness in reporting facts, honesty in managing resources, and evidence-based decision making.',ref:'GGM Core Values'},
+    {q:'What is the "Trusteeship" value in GGM?',a:'Serving the highest public interest and transparently disclosing conflicts of interest.',ref:'GGM Core Values'}
   ],
   law: [
     {sec:'Appx 3 (I)',title:'Justice',body:'Justice relates to the exercise of impartial in determining the truth of facts... The governance and administration of any social enterprise must be realized within the framework provided by the <span class="lh">rule of law</span>.'},
@@ -891,7 +965,9 @@ window.DUNAS_DATA = {
   },
   flashcards: [
     {q:'What does QUM stand for in DUNas?',a:'Quality Use of Medicines',ref:'DUNas Framework'},
-    {q:'What are the core components of DUNas?',a:'Quality/Safety/Efficacy, Access, QUM, and Partnership & Collaboration.',ref:'DUNas Framework'}
+    {q:'What are the core components of DUNas?',a:'Quality/Safety/Efficacy, Access, QUM, and Partnership & Collaboration.',ref:'DUNas Framework'},
+    {q:'What is the primary goal of the "Access to Medicines" component?',a:'Ensuring equitable and timely supply of essential medicines at reasonable cost.',ref:'DUNas Framework'},
+    {q:'How does DUNas approach Partnership?',a:'By enhancing multi-sectoral engagement and promoting R&D among stakeholders.',ref:'DUNas Framework'}
   ],
   law: []
 };
@@ -1121,9 +1197,14 @@ function initQuiz(timingMode, sprintCount){
     var sQs = window.SODA_DATA ? shuffle([].concat(window.SODA_DATA.questions)) : [];
     var mQs = window.MASA_DATA ? shuffle([].concat(window.MASA_DATA.questions)) : [];
     var dQs = window.DDA_DATA ? shuffle([].concat(window.DDA_DATA.questions)) : [];
-    var eQs = window.ETHICS_DATA ? shuffle([].concat(window.ETHICS_DATA.questions)) : [];
     
-    // Ideal PKUMF target (100 total): ROPA:20, POISON:35, SODA:15, MASA:10, DDA:10, ETHICS:10
+    // Combine ETHICS, GGM, and DUNas for the Ethics quota
+    var eQsTemp = [];
+    if(window.ETHICS_DATA) eQsTemp = eQsTemp.concat(window.ETHICS_DATA.questions);
+    if(window.GGM_DATA) eQsTemp = eQsTemp.concat(window.GGM_DATA.questions);
+    if(window.DUNAS_DATA) eQsTemp = eQsTemp.concat(window.DUNAS_DATA.questions);
+    var eQs = shuffle(eQsTemp);
+    
     pool = pool.concat(rQs.slice(0, 20));
     pool = pool.concat(pQs.slice(0, 35));
     pool = pool.concat(sQs.slice(0, 15)); 
@@ -1138,6 +1219,8 @@ function initQuiz(timingMode, sprintCount){
     if(window.MASA_DATA) pool = pool.concat(window.MASA_DATA.questions);
     if(window.DDA_DATA) pool = pool.concat(window.DDA_DATA.questions);
     if(window.ETHICS_DATA) pool = pool.concat(window.ETHICS_DATA.questions);
+    if(window.GGM_DATA) pool = pool.concat(window.GGM_DATA.questions);
+    if(window.DUNAS_DATA) pool = pool.concat(window.DUNAS_DATA.questions);
     pool = shuffle(pool);
   } else if(G.selectedAct === 'SODA_CDCR') {
     if(window.SODA_DATA) pool = pool.concat(window.SODA_DATA.questions);
