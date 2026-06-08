@@ -813,29 +813,51 @@ window.DDA_DATA = {
   notes: {
     act: [
       {title:'Dangerous Drugs Classification',items:[
-        {t:'First Schedule',d:'Contains the list of Dangerous Drugs (e.g., Morphine, Cannabis, Heroin, Cocaine).'},
-        {t:'Trafficking Presumptions',d:'Possession above statutory limits presumes trafficking (e.g., 40g Cocaine, 200g Cannabis, 50g Amphetamines).'}
+        {t:'Part I',d:'Raw Opium, Coca Leaves, Poppy-Straw, Cannabis.'},
+        {t:'Part II',d:'Prepared Opium, Cannabis, Cannabis resin.'},
+        {t:'Part III',d:'Includes Heroin, Morphine, Methadone, Fentanyl, Ketamine, Pethidine.'},
+        {t:'Part IV',d:'Includes Codeine, Dihydrocodeine, Pholcodine.'}
+      ]},
+      {title:'Trafficking Presumptions — s.37(da)',items:[
+        {t:'15 grammes or more',d:'Heroin, Morphine, Monoacetylmorphines.'},
+        {t:'40 grammes or more',d:'Cocaine.'},
+        {t:'50 grammes or more',d:'Amphetamine, Methamphetamine, MDMA, MDA.'},
+        {t:'200 grammes or more',d:'Cannabis, Cannabis resin.'},
+        {t:'1,000 grammes or more',d:'Raw Opium, Prepared Opium.'}
+      ]},
+      {title:'Key Offences & Penalties',items:[
+        {t:'Trafficking [s.39B]',d:'Death or life imprisonment + whipping of not less than 12 strokes.'},
+        {t:'Planting/Cultivating [s.6B]',d:'Life imprisonment and whipping of not less than 6 strokes.'},
+        {t:'Self Administration [s.15]',d:'Fine ≤ RM5,000 or ≤ 2 years imprisonment. Plus supervision for 2-3 years [s.38B].'}
       ]}
     ],
     reg: [
       {title:'DDA Regulations',items:[
-        {t:'Third Schedule Exemption',d:'Lists products exempted from DDR (e.g. certain low-dose preparations), requiring them to be in strict dosage/product form.'},
-        {t:'Recording',d:'Supply of registered dangerous drugs in government clinics for treatment must be recorded in the Prescription Book.'}
+        {t:'Third Schedule Exemption',d:'Lists preparations exempted from DDA Regulations (e.g. low-dose Codeine/Pholcodine preparations) when compounded properly.'},
+        {t:'Recording',d:'Supply of registered dangerous drugs in clinics for treatment must be recorded in the Prescription Book.'}
       ]}
     ],
     warn: [
-      'Do not confuse Psychotropics (like Buprenorphine, Diazepam) with strict Dangerous Drugs (Morphine, Heroin) when classifying.'
+      'Do not confuse Psychotropics (like Buprenorphine, Diazepam) with strict Dangerous Drugs (Morphine, Heroin) when classifying.',
+      'Possession limits under s.39A carry increased whipping penalties even if they fall below the s.39B trafficking thresholds.'
     ]
   },
   flashcards: [
-    {q:'What is the trafficking threshold for Cocaine?',a:'40 grammes',ref:'DDA Trafficking Presumptions'},
-    {q:'What is the trafficking threshold for Cannabis?',a:'200 grammes',ref:'DDA Trafficking Presumptions'},
+    {q:'What is the trafficking threshold for Heroin or Morphine?',a:'15 grammes',ref:'s.37(da) DDA'},
+    {q:'What is the trafficking threshold for Cannabis?',a:'200 grammes',ref:'s.37(da) DDA'},
+    {q:'What is the trafficking threshold for Raw Opium?',a:'1,000 grammes',ref:'s.37(da) DDA'},
+    {q:'What is the trafficking threshold for Cocaine?',a:'40 grammes',ref:'s.37(da) DDA'},
+    {q:'What is the penalty for trafficking a Dangerous Drug?',a:'Death or life imprisonment with at least 12 strokes of whipping',ref:'s.39B DDA'},
+    {q:'What is the penalty for planting or cultivating cannabis?',a:'Life imprisonment and not less than 6 strokes of whipping',ref:'s.6B DDA'},
     {q:'Where should the dispensing of morphine in a health clinic be recorded?',a:'Prescription Book for dispensed medicines',ref:'DDA Regulations'},
     {q:'Is Buprenorphine a Dangerous Drug under DDA?',a:'No, it is regulated as a Psychotropic Substance.',ref:'Poisons Act Schedules'},
-    {q:'Is Heroin a Dangerous Drug under DDA?',a:'Yes, it is strictly classified as a Dangerous Drug.',ref:'DDA First Schedule'}
+    {q:'Is Heroin a Dangerous Drug under DDA?',a:'Yes, it is strictly classified as a Dangerous Drug (Part III).',ref:'DDA First Schedule'}
   ],
   law: [
-    {sec:'DDA First Schedule',title:'Classification',body:'Substances such as <span class="lh">Morphine</span>, <span class="lh">Cannabis</span>, and <span class="lh">Heroin</span> are classified strictly as Dangerous Drugs and fall under the heaviest statutory controls.'}
+    {sec:'s.37(da)',title:'Presumption of Trafficking',body:'Any person who is found in possession of... <span class="lh">15 grammes</span> or more of heroin... <span class="lh">200 grammes</span> or more of cannabis... <span class="lh">1,000 grammes</span> or more of raw opium... shall be presumed, until the contrary is proved, to be trafficking in the said drug.'},
+    {sec:'s.39B',title:'Trafficking',body:'Any person who traffics in a dangerous drug... shall be punished on conviction with <span class="lk">death or imprisonment for life</span> and shall, if he is not sentenced to death, be punished with whipping of <span class="lh">not less than twelve strokes</span>.'},
+    {sec:'s.6B',title:'Restriction on planting',body:'No person shall... plant or cultivate any plant from which raw opium, coca leaves, poppy-straw or cannabis may be obtained... punished on conviction with <span class="lk">imprisonment for life</span> and with whipping of <span class="lh">not less than six strokes</span>.'},
+    {sec:'s.15',title:'Self administration',body:'Any person who consumes, administers to himself... shall be liable to a fine not exceeding <span class="lh">five thousand ringgit</span> or to imprisonment for a term not exceeding <span class="lh">two years</span>.'}
   ]
 };
 
@@ -902,29 +924,37 @@ window.GGM_DATA = {
   notes: {
     act: [
       {title:'GGM Framework Overview',items:[
-        {t:'Objective',d:'Inculcate integrity, promote transparency/accountability, raise awareness of corruption risks, and minimize corruption.'},
-        {t:'4 Core Moral Values',d:'Justice, Truth, Service to the common good, and Trusteeship.'},
-        {t:'Code of Conduct Values',d:'Selflessness, Integrity, Objectivity, Accountability, Openness, Honesty, and Leadership.'}
+        {t:'Definition',d:'The system by which an organisation is controlled and operates, and the mechanisms by which it is held to account.'},
+        {t:'Goal',d:'Reduce corruption through transparent/accountable administrative procedures and promotion of ethical practices.'},
+        {t:'Approaches',d:'Discipline-based (Top-down rules & punishments) vs Values-based (Bottom-up moral principles).'}
+      ]},
+      {title:'Types & Impacts of Corruption',items:[
+        {t:'Petty Corruption',d:'Small-scale extortion by lower-level servants; often justified as a survival mechanism.'},
+        {t:'Grand Corruption',d:'Large-scale, international bribes and hidden accounts by high officials.'},
+        {t:'Health Impact',d:'Proliferation of unsafe medicines, lack of essential meds, irrational drug use.'},
+        {t:'Economic Impact',d:'Loss of 10-25% of procurement spending; severely affects low-income health budgets.'}
       ]}
     ],
     reg: [
+      {title:'7 Code of Conduct Values',items:[
+        {t:'Core Traits',d:'Selflessness, Integrity, Objectivity, Accountability, Openness, Honesty, and Leadership.'}
+      ]},
       {title:'Areas of Vulnerability',items:[
         {t:'Drug Registration',d:'Queue jumping, falsified data acceptance, bias, or conflict of interest.'},
         {t:'Inspection',d:'Manipulation of scheduling, bribery to alter compliance ratings, or collusion.'},
         {t:'Promotion',d:'Biased advertorials, entertaining sales representatives, or unapproved sponsorships.'},
         {t:'Selection',d:'Pharmaceutical companies dictating proformas, inappropriate selection based on bribery.'},
         {t:'Procurement',d:'Bid rigging, theft of medicines, or ordering beyond actual needs.'}
-      ]},
-      {title:'Unethical Practices',items:[
-        {t:'Conflict of Interest (COI)',d:'When a public servant has vested personal interests (e.g. post-employment benefits from a contracted company).'},
-        {t:'Bribes',d:'Kickbacks for pseudo-trials, falsification of data, or speeding up registration.'}
       ]}
     ],
     warn: [
-      'GGM focuses equally on the "Value Approach" (Ethics) and the "Disciplinary Approach" (Sanctions/Ombudsman).'
+      'GGM focuses equally on the "Value Approach" (Ethics) and the "Disciplinary Approach" (Sanctions/Ombudsman).',
+      'Transparency International estimates up to 2/3 of medicine supplies can be lost to corruption in some regions.'
     ]
   },
   flashcards: [
+    {q:'What is the difference between Petty and Grand corruption?',a:'Petty is small-scale by lower-level staff; Grand is large-scale involving high officials and international bribes.',ref:'GGM Lecture'},
+    {q:'What are the two main approaches to address corruption in GGM?',a:'Discipline-based (top-down) and Values-based (bottom-up).',ref:'GGM Lecture'},
     {q:'What are the 4 Core Moral Values of GGM?',a:'Justice, Truth, Service to the common good, Trusteeship',ref:'GGM Framework'},
     {q:'What is Conflict of Interest (COI)?',a:'When a public servant has vested personal interests that compromise their official duties.',ref:'GGM Framework'},
     {q:'Name 3 of the 5 vulnerable areas in the pharmaceutical system.',a:'Registration, Inspection, Promotion, Selection, Procurement',ref:'GGM Framework'},
@@ -932,10 +962,11 @@ window.GGM_DATA = {
     {q:'What is the "Trusteeship" value in GGM?',a:'Serving the highest public interest and transparently disclosing conflicts of interest.',ref:'GGM Core Values'}
   ],
   law: [
-    {sec:'Appx 3 (I)',title:'Justice',body:'Justice relates to the exercise of impartial in determining the truth of facts... The governance and administration of any social enterprise must be realized within the framework provided by the <span class="lh">rule of law</span>.'},
-    {sec:'Appx 3 (II)',title:'Truth',body:'Faithfulness to truth is the basis of trustworthiness, integrity and honour... Decisions that affect the public interest should be substantiated by appropriate, reliable and <span class="lh">provable evidence</span>.'},
-    {sec:'Appx 3 (III)',title:'Service to the common good',body:'Personal and institutional commitment to the core moral value of serving the common good is a source of <span class="lk">intrinsic motivation</span>... Public services should be inclusive and should serve all equally.'},
-    {sec:'Appx 3 (IV)',title:'Trusteeship',body:'Good governance is based on public trust... Society expects public servants, as trustees of public resources, to be trustworthy in the use of the power, authority and resources entrusted to their charge.'}
+    {sec:'Val. 1',title:'Justice',body:'Justice relates to the exercise of impartial in determining the truth of facts... The governance and administration of any social enterprise must be realized within the framework provided by the <span class="lh">rule of law</span>.'},
+    {sec:'Val. 2',title:'Truth',body:'Faithfulness to truth is the basis of trustworthiness, integrity and honour... Decisions that affect the public interest should be substantiated by appropriate, reliable and <span class="lh">provable evidence</span>.'},
+    {sec:'Val. 3',title:'Service to the common good',body:'Personal and institutional commitment to the core moral value of serving the common good is a source of <span class="lk">intrinsic motivation</span>... Public services should be inclusive and should serve all equally.'},
+    {sec:'Val. 4',title:'Trusteeship',body:'Good governance is based on public trust... Society expects public servants, as <span class="lh">trustees</span> of public resources, to be trustworthy in the use of the power, authority and resources entrusted to their charge.'},
+    {sec:'Code',title:'7 Principles of Conduct',body:'<span class="lh">Selflessness, Integrity, Objectivity, Accountability, Openness, Honesty, Leadership.</span>'}
   ]
 };
 
