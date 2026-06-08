@@ -170,6 +170,56 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
 @keyframes shake{0%{transform:translateX(0)}20%{transform:translateX(-5px)}40%{transform:translateX(5px)}60%{transform:translateX(-3px)}80%{transform:translateX(3px)}100%{transform:translateX(0)}}
 .pop{animation:pop .2s ease}
 .shake{animation:shake .3s ease}
+
+/* ── EXAM MODE (scroll layout) ─────────────────────────────────── */
+.exam-hdr{position:sticky;top:0;z-index:100;background:#f8fafc;padding:0.6rem 0 0.5rem;border-bottom:1px solid #E5E7EB;margin-bottom:1.25rem}
+.exam-hdr-inner{max-width:800px;margin:0 auto;display:flex;align-items:center;gap:10px;padding:0 1rem}
+.exam-progress-text{font-size:11px;font-weight:700;color:#6B7280;letter-spacing:0.05em;white-space:nowrap}
+.exam-track{flex:1;height:6px;background:#E5E7EB;border-radius:4px;overflow:hidden}
+.exam-fill{height:100%;background:#6366F1;border-radius:4px;transition:width .4s}
+
+.exam-body{max-width:800px;margin:0 auto;padding:0 0 6rem}
+.exam-q-block{background:#fff;border:2px solid #E5E7EB;border-radius:16px;padding:18px 20px;margin-bottom:14px;transition:border-color .15s}
+.exam-q-block.answered{border-color:#C7D2FE}
+.exam-q-block.flagged{border-color:#FCD34D}
+.exam-q-num{font-size:10px;font-weight:800;color:#9CA3AF;text-transform:uppercase;letter-spacing:0.07em;margin-bottom:6px;display:flex;justify-content:space-between;align-items:center}
+.exam-flag-btn{background:none;border:1px solid #E5E7EB;border-radius:6px;padding:2px 8px;font-size:11px;cursor:pointer;color:#9CA3AF;transition:all .15s}
+.exam-flag-btn.on{background:#FEF3C7;border-color:#FCD34D;color:#92400E}
+.exam-q-chip{display:inline-block;background:#EFF6FF;color:#1D4ED8;border-radius:99px;padding:2px 10px;font-size:10px;font-weight:700;margin-bottom:8px}
+.exam-q-text{font-size:14.5px;font-weight:600;color:#111827;line-height:1.6;margin-bottom:10px}
+.exam-stmts{background:#F8FAFC;border-left:3px solid #93C5FD;border-radius:0 8px 8px 0;padding:10px 12px;font-size:12.5px;color:#4B5563;line-height:1.6;margin-bottom:10px}
+.exam-stmts div{margin-bottom:4px}.exam-stmts div:last-child{margin-bottom:0}
+.exam-opts{display:flex;flex-direction:column;gap:7px}
+.exam-opt{background:#F9FAFB;border:2px solid #E5E7EB;border-radius:12px;padding:10px 14px;font-size:13.5px;color:#111827;cursor:pointer;text-align:left;display:flex;gap:10px;line-height:1.5;transition:all .12s;align-items:flex-start;width:100%}
+.exam-opt:hover{border-color:#A5B4FC;background:#EEF2FF}
+.exam-opt.selected{border-color:#6366F1;background:#EEF2FF;color:#3730A3}
+.exam-opt.selected .exam-opt-lbl{color:#4F46E5}
+.exam-opt-lbl{font-weight:800;min-width:18px;font-size:12px;flex-shrink:0;color:#6B7280}
+
+/* Post-submit revealed state */
+.exam-opt.reveal-correct{border-color:#16A34A;background:#F0FDF4;color:#166534}
+.exam-opt.reveal-wrong{border-color:#DC2626;background:#FEF2F2;color:#991B1B}
+.exam-opt.reveal-correct .exam-opt-lbl{color:#166534}
+.exam-opt.reveal-wrong .exam-opt-lbl{color:#991B1B}
+.exam-fb{display:none;margin-top:10px;border-radius:10px;padding:10px 14px;font-size:12.5px;line-height:1.55}
+.exam-fb.show{display:block}
+.exam-fb.ok{background:#F0FDF4;border:1px solid #86EFAC;color:#15803D}
+.exam-fb.bad{background:#FEF2F2;border:1px solid #FECACA;color:#B91C1C}
+.exam-fb.skip{background:#FFFBEB;border:1px solid #FDE68A;color:#92400E}
+
+.exam-submit-bar{position:fixed;bottom:0;left:0;right:0;background:#fff;border-top:2px solid #E5E7EB;padding:12px 1rem;z-index:200}
+.exam-submit-inner{max-width:800px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:12px}
+.exam-answered-count{font-size:12px;color:#6B7280;font-weight:600}
+.exam-answered-count span{color:#4F46E5;font-weight:800}
+.btn-exam-submit{background:#4F46E5;color:#fff;border:none;border-radius:12px;padding:11px 28px;font-size:14px;font-weight:700;cursor:pointer;transition:background .15s}
+.btn-exam-submit:hover{background:#4338CA}
+.btn-exam-submit:disabled{background:#A5B4FC;cursor:not-allowed}
+
+/* Exam result summary */
+.exam-result-section{max-width:800px;margin:1rem auto 0;padding:0 0 2rem}
+.exam-result-banner{background:#fff;border:2px solid #E5E7EB;border-radius:20px;padding:1.5rem;text-align:center;margin-bottom:1rem}
+.exam-score-big{font-size:36px;font-weight:800;color:#4F46E5;margin:.5rem 0 .25rem}
+.exam-score-label{font-size:12px;color:#6B7280;font-weight:600;text-transform:uppercase;letter-spacing:0.05em}
 </style>
 </head>
 <body>
@@ -363,6 +413,28 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
     <div class="fb" id="q-fb" style="display:none"></div>
     <button class="btn btn-secondary" id="skip-btn" onclick="doSkip()">Skip (0 marks)</button>
     <button class="btn btn-primary" id="cont-btn" onclick="doCont()" style="display:none">Continue</button>
+  </div>
+</div>
+
+<!-- ── EXAM MODE SCREEN ──────────────────────────────────────── -->
+<div id="scr-exam" class="scr">
+  <!-- Sticky header: close + timer + progress -->
+  <div class="exam-hdr">
+    <div class="exam-hdr-inner">
+      <button class="les-close" onclick="exitExam()" title="Exit exam">✕</button>
+      <div class="exam-track"><div class="exam-fill" id="exam-fill" style="width:0%"></div></div>
+      <span class="exam-progress-text" id="exam-progress-text">0 / 0 answered</span>
+      <div class="timer-pill" id="exam-timer" style="display:none">⏱️ 00:00</div>
+    </div>
+  </div>
+  <!-- Scrollable question list -->
+  <div class="exam-body" id="exam-body"></div>
+  <!-- Fixed submit bar -->
+  <div class="exam-submit-bar">
+    <div class="exam-submit-inner">
+      <div class="exam-answered-count">Answered: <span id="exam-ans-count">0</span> / <span id="exam-total-count">0</span></div>
+      <button class="btn-exam-submit" id="exam-submit-btn" onclick="submitExam()">Submit Exam</button>
+    </div>
   </div>
 </div>
 
@@ -894,33 +966,76 @@ window.DDA_DATA = {
 // New Module: ETHICS
 window.ETHICS_DATA = {
   actTitle: "Code of Ethics for Pharmacists 2018",
-  regTitle: "Disciplinary Guidelines (RPA s.17)",
+  regTitle: "Guidance & Disciplinary Procedure (RPA 1951)",
   questions: [
-    {act:'ETHICS',q:'Which of the following statements is FALSE based on the Code of Ethics for Pharmacists?',opts:['A. A pharmacist must accept diversity and respect cultural differences.','B. A pharmacist must disclose a patient’s profile to a medical doctor who is looking for a new customer.','C. A pharmacist must respect people’s dignity, privacy, and confidentiality.','D. A pharmacist must treat people fairly and ensure their views about belief, race and gender do not affect their professional services.'],ans:1,exp:'Principle 3: Disclosing patient profiles to a doctor for client prospecting is a severe breach of confidentiality and ethics.'},
-    {act:'ETHICS',q:'Which of the following principles are described in the Code of Ethics for Pharmacists?',stmts:['i. Develop professional knowledge and competence.','ii. Show respect to others.','iii. Make health professional as the first concern.','iv. Disregard patients’ choices in treatment.'],opts:['A. i and ii only.','B. ii and iii only.','C. i, ii and iii only.','D. i,iii and iv'],ans:0,exp:'Principle 1 states patients (not health professionals) must be your first concern. Principle 4 says to respect patient choices, not disregard them.'}
+    {act:'ETHICS',q:'Which of the following statements is FALSE based on the Code of Ethics for Pharmacists?',opts:['A. A pharmacist must accept diversity and respect cultural differences.','B. A pharmacist must disclose a patient\'s profile to a medical doctor who is looking for a new customer.','C. A pharmacist must respect people\'s dignity, privacy, and confidentiality.','D. A pharmacist must treat people fairly and ensure their views about belief, race and gender do not affect their professional services.'],ans:1,exp:'Principle 3: Disclosing patient profiles to a doctor for client prospecting is a severe breach of confidentiality and ethics.'},
+    {act:'ETHICS',q:'Which of the following principles are described in the Code of Ethics for Pharmacists?',stmts:['i. Develop professional knowledge and competence.','ii. Show respect to others.','iii. Make health professional as the first concern.','iv. Disregard patients\' choices in treatment.'],opts:['A. i and ii only.','B. ii and iii only.','C. i, ii and iii only.','D. i, iii and iv'],ans:0,exp:'Principle 1 states patients (not health professionals) must be your first concern. Principle 4 says to respect patient choices, not disregard them.'},
+    {act:'ETHICS',q:'A pharmacist adjusts a patient\'s drug therapy dosage without informing the prescriber. Under which principle does this fall as a breach?',opts:['A. Principle 1 — Make patients your first concern.','B. Principle 2 — Use professional judgement in the interests of patients.','C. Principle 3 — Show respect for others.','D. Principle 6 — Be ethical, honest and trustworthy.'],ans:1,exp:'Guidance on Principle 2(d): Failing to consult or notify the prescriber when making adjustments is a breach of professional judgement obligations.'},
+    {act:'ETHICS',q:'A pharmacist\'s religious belief prevents her from dispensing a particular product. Under the Code of Ethics, she MUST:',opts:['A. Dispense the product regardless of her belief.','B. Refuse to dispense and offer no further assistance.','C. Explain her position and may refer patients to other providers.','D. Report the patient to the Pharmacy Board.'],ans:2,exp:'Principle 3.4: Where religious or moral beliefs prevent providing a service, the pharmacist must explain and may refer the patient to another provider.'},
+    {act:'ETHICS',q:'According to the Guidance on the Code of Ethics, the Board can SUMMARILY DISMISS a complaint if:',stmts:['i. The name and address of the complainant is unknown.','ii. The facts do not constitute a matter under s.17(1) of the Act even if true.','iii. The accused pharmacist is found guilty.','iv. There is reasonable doubt about the truth of the complaint.'],opts:['A. i and ii only.','B. i, ii and iv only.','C. ii and iii only.','D. i, ii, iii and iv'],ans:1,exp:'Reg 17 (Guidance Sec 2.4): A Committee of Inquiry may recommend summary dismissal if complainant is untraceable, facts do not constitute a statutory matter, or there is reason to doubt truth. A guilty verdict is not a dismissal ground.'},
+    {act:'ETHICS',q:'The following are punishments the Pharmacy Board may impose after a disciplinary inquiry, EXCEPT:',opts:['A. Removal of name from the register.','B. Suspension from the register for a determined period.','C. A fine of not more than RM50,000.','D. A reprimand.'],ans:2,exp:'s.18A RPA 1951: The Board can remove, suspend, or reprimand. Fines are NOT listed as a Board punishment — that is a court penalty under different sections.'}
   ],
   notes: {
     act: [
-      {title:'The 7 Principles',items:[
-        {t:'Principle 1',d:'Make patients your first concern.'},
-        {t:'Principle 2',d:'Use professional judgement in the interests of patients and the public.'},
-        {t:'Principle 3',d:'Show respect for others (accept diversity, protect privacy/confidentiality).'},
-        {t:'Principle 4',d:'Encourage patients and the public to participate in decisions about their care.'},
-        {t:'Principle 5',d:'Develop your professional knowledge and competence.'},
-        {t:'Principle 6',d:'Be ethical, honest and trustworthy (avoid conflicts of interest).'},
-        {t:'Principle 7',d:'Be responsible of your working practices.'}
+      {title:'The 7 Principles — Overview',items:[
+        {t:'Principle 1',d:'Make patients your first concern. Patient care, well-being and safety are at the heart of professional practice.'},
+        {t:'Principle 2',d:'Use professional judgement in the interests of patients and the public. Balance patient needs, legal duties, and evidence-based practice.'},
+        {t:'Principle 3',d:'Show respect for others. Protect dignity, privacy and confidentiality. Respect diversity of belief, race, gender, age, disability, financial status.'},
+        {t:'Principle 4',d:'Encourage patients and the public to participate in decisions about their care. Communicate effectively; explain risks and benefits; support informed decisions.'},
+        {t:'Principle 5',d:'Develop your professional knowledge and competence. Keep knowledge and skills up to date; maintain CPD records throughout professional life.'},
+        {t:'Principle 6',d:'Be ethical, honest and trustworthy. Avoid conflicts of interest, declare personal interests, do not exploit vulnerability or lack of knowledge.'},
+        {t:'Principle 7',d:'Be responsible of your working practices. Practise only when fit; follow laws and SOPs; support colleagues; seek professional indemnity.'}
+      ]},
+      {title:'Key Duties Under Each Principle',items:[
+        {t:'P1 — Safe services',d:'1.1 Ensure safety/quality of products and services. 1.5 Educate patients on medicine use and storage. 1.7 Keep records of professional services.'},
+        {t:'P2 — Judgement',d:'2.2 Do not let personal/financial interests influence professional judgement. 2.5 Be prepared to challenge a colleague\'s judgement if patient safety is at risk.'},
+        {t:'P3 — Confidentiality',d:'3.5 Never disclose confidential info without consent unless required by law. 3.7 Maintain professional boundaries; take special care with vulnerable persons.'},
+        {t:'P3 — Social media',d:'3.10 Use of social media must be consistent with ethical and legal obligations to protect patient privacy.'},
+        {t:'P4 — Informed consent',d:'4.5 Explain options including risks and benefits. Information must be impartial, relevant, accurate and up to date.'},
+        {t:'P6 — Honesty',d:'6.5 Respond openly, honestly and courteously to complaints. 6.6 Do not discredit other healthcare professionals.'},
+        {t:'P7 — Advertising',d:'7.10 Must not advertise, directly or indirectly, for professional advantage other than what is permitted by legislation.'}
+      ]},
+      {title:'Who is a Vulnerable Person?',items:[
+        {t:'Definition',d:'A person who has a physical, intellectual or mental disability and is incapable of independent living. Pharmacists must take special care in dealings with them (Pr. 3.7).'}
       ]}
     ],
     reg: [
-      {title:'Disciplinary Jurisdiction (RPA s.17)',items:[
-        {t:'Grounds for Action',d:'Fraudulent registration, conviction of an offence making them unfit, or guilty of infamous/disgraceful conduct in a professional sense.'},
-        {t:'Committee of Inquiry',d:'Comprises 5 fully registered pharmacists.'},
-        {t:'Punishments (s.18A)',d:'Removal from register, suspension from register, or reprimand.'}
+      {title:'Grounds for Disciplinary Proceedings — s.17(1)',items:[
+        {t:'s.17(1)(a)',d:'Obtained registration by a fraudulent or incorrect statement.'},
+        {t:'s.17(1)(b)',d:'Convicted of any offence that renders them unfit to be on the register, OR any offence under RPA, Poisons, DDA, or Therapeutic Substances law.'},
+        {t:'s.17(1)(c)',d:'Guilty of infamous or disgraceful conduct in a professional sense. Any breach of the Code of Ethics falls under this ground.'}
+      ]},
+      {title:'Disciplinary Procedure — Key Steps',items:[
+        {t:'Step 1: Complaint',d:'Any person may submit a complaint in writing to the Board against a registered pharmacist [Reg 14].'},
+        {t:'Step 2: Committee of Inquiry',d:'Consists of 5 fully registered pharmacists with valid annual certificates [Reg 15]. Quorum is 3. Chairman nominated by Board.'},
+        {t:'Step 3: Summary Dismissal',d:'Committee may recommend dismissal if: complainant unknown, facts do not constitute an offence, or truth is doubtful [Reg 17].'},
+        {t:'Step 4: Board Inquiry',d:'Board sends charge to pharmacist by registered post and requests attendance. Pharmacist may be heard personally or by counsel [Reg 18].'},
+        {t:'Step 5: Legal Adviser',d:'Board may appoint a legal adviser (advocate & solicitor, min 5 years\' experience) to assist [Reg 19].'},
+        {t:'Disqualification',d:'A Board member who is the complainant, or is personally acquainted with relevant facts, must not participate [Reg 20].'}
+      ]},
+      {title:'Punishments — s.18A',items:[
+        {t:'Removal',d:'Name removed from the register permanently.'},
+        {t:'Suspension',d:'Name suspended from the register for a period determined by the Board.'},
+        {t:'Reprimand',d:'Formal reprimand recorded against the pharmacist.'},
+        {t:'Costs',d:'Board may order convicted pharmacist to pay costs to Board or complainant.'},
+        {t:'Appeal [s.19]',d:'Aggrieved party may appeal to the Minister, whose decision is final.'}
+      ]},
+      {title:'Notorious Exam Misconduct Scenarios',items:[
+        {t:'Selling unregistered medicine',d:'Breach of Principle 1.1 — safety of products.'},
+        {t:'Dispensing error without corrective action',d:'Breach of Principles 1.2 and 1.3.'},
+        {t:'Failing to record controlled/dangerous drug sales',d:'Breach of Principle 2.1 — acting unlawfully.'},
+        {t:'Substituting a cheaper drug with a more expensive one without prescriber consent',d:'Breach of Principle 2.2 — personal business interest.'},
+        {t:'Selling sleep aids without prescription in excessive quantity',d:'Breach of Principle 2.3 — failure to prevent misuse.'},
+        {t:'Sharing patient info on social media (even anonymised)',d:'Breach of Principle 3.5 / 3.10.'},
+        {t:'Discrediting a colleague publicly',d:'Breach of Principle 6.6.'}
       ]}
     ],
     warn: [
-      'Disclosing confidential information without consent is a breach of Principle 3.',
-      'Exploiting vulnerability or lack of knowledge violates Principle 6.'
+      'Principle 1 says PATIENTS are the first concern — not health professionals and not the public service.',
+      'Confidential information can only be disclosed without consent if REQUIRED BY LAW — not just if it seems helpful.',
+      'Board punishments under s.18A do NOT include fines. Fines are imposed by courts, not the Pharmacy Board.',
+      'The Committee of Inquiry is separate from the Board itself. The Committee investigates; the Board punishes.',
+      'An appeal from a Board punishment goes to the MINISTER — not the courts, not the DG of Health.'
     ]
   },
   flashcards: [
@@ -931,107 +1046,221 @@ window.ETHICS_DATA = {
     {q:'What is Principle 5 of the Code of Ethics?',a:'Develop your professional knowledge and competence.',ref:'Code of Ethics 2018'},
     {q:'What is Principle 6 of the Code of Ethics?',a:'Be ethical, honest and trustworthy.',ref:'Code of Ethics 2018'},
     {q:'What is Principle 7 of the Code of Ethics?',a:'Be responsible of your working practices.',ref:'Code of Ethics 2018'},
-    {q:'How many fully registered pharmacists make up a Committee of Inquiry?',a:'Five',ref:'Guidance on Code / Reg 15'},
-    {q:'What are the three punishments the Board can impose after an inquiry?',a:'Removal, Suspension, or Reprimand',ref:'RPA s.18A'},
-    {q:'Is it ethical to post a patient\'s photo on social media if their face is blurred?',a:'No, Principle 3 states you must never disclose confidential info/images without consent.',ref:'Code of Ethics 2018'}
+    {q:'Define a "vulnerable person" under the Code of Ethics.',a:'A person with a physical, intellectual or mental disability who is incapable of independent living.',ref:'Code of Ethics Pr. 3.7'},
+    {q:'What must a pharmacist do if a religious belief prevents dispensing a product?',a:'Explain their position and may refer the patient to another provider.',ref:'Code of Ethics Pr. 3.4'},
+    {q:'Under which principle does maintaining CPD records fall?',a:'Principle 5 — Develop your professional knowledge and competence.',ref:'Code of Ethics Pr. 5.5'},
+    {q:'How many fully registered pharmacists make up a Committee of Inquiry?',a:'Five (quorum of 3)',ref:'Reg 15(1) RPA Regs 2004'},
+    {q:'What are the three punishments the Board can impose after an inquiry?',a:'Removal from register, Suspension from register, or Reprimand.',ref:'s.18A RPA 1951'},
+    {q:'Can the Pharmacy Board impose a fine as a punishment?',a:'No. The Board can only remove, suspend, or reprimand. Fines are court-imposed penalties.',ref:'s.18A RPA 1951'},
+    {q:'Who can a pharmacist appeal to after the Board imposes punishment?',a:'The Minister, whose decision is final.',ref:'s.19 RPA 1951'},
+    {q:'Is it ethical to post a patient\'s photo on social media if their face is blurred?',a:'No. Principle 3 requires protecting privacy/confidentiality without consent, regardless of anonymisation.',ref:'Code of Ethics Pr. 3.5 & 3.10'},
+    {q:'Which Code of Ethics principle governs advertising restrictions?',a:'Principle 7.10 — must not advertise for professional advantage beyond what legislation permits.',ref:'Code of Ethics Pr. 7.10'},
+    {q:'On what three grounds can the Board initiate disciplinary proceedings?',a:'(a) Fraudulent registration, (b) Criminal conviction rendering unfit, (c) Infamous or disgraceful conduct in a professional sense.',ref:'s.17(1) RPA 1951'},
+    {q:'Can the Board proceed with a disciplinary inquiry if the pharmacist does not attend?',a:'Yes, if the Board is satisfied that proper notice was given.',ref:'Reg 18(2) RPA Regs 2004'}
   ],
   law: [
-    {sec:'Pr. 1',title:'Make Patients Your First Concern',body:'Ensure the product and services provided are safe and of acceptable quality... Inform and educate patients or their caregivers about health and how to use and store their medicines in a correct manner.'},
-    {sec:'Pr. 3',title:'Show Respect for Others',body:'Respect and protect people\'s <span class="lh">dignity, privacy and confidentiality</span>. Never disclose confidential information without consent unless required by the law.'},
-    {sec:'Pr. 6',title:'Be Ethical, Honest and Trustworthy',body:'Recognise and endeavour to <span class="lk">avoid conflicts of interest</span> and declare any personal or professional interests they have. Not exploit the vulnerability or lack of knowledge of others.'},
-    {sec:'Guidance 1.1',title:'Disciplinary Jurisdiction',body:'Board may initiate disciplinary proceedings... if it comes to the knowledge of the Board that a registered pharmacist has obtained registration by a <span class="lh">fraudulent</span> statement... or has been guilty of <span class="lh">infamous or disgraceful conduct</span> in a professional sense.'}
+    {sec:'Pr. 1',title:'Make Patients Your First Concern',body:'Ensure the product and services provided are <span class="lh">safe and of acceptable quality</span>. Inform and educate patients or their caregivers about health and how to use and store their medicines in a correct manner. <span class="lk">Keep records</span> of professional services provided to patients [1.7].'},
+    {sec:'Pr. 2',title:'Use Professional Judgement',body:'Ensure that professional judgement is not influenced by <span class="lh">personal or organisational interests, financial interests, incentives, targets</span> or similar measures [2.2]. Be prepared to <span class="lk">challenge the judgement of colleagues</span> if needed in the interest of the patients [2.5].'},
+    {sec:'Pr. 3',title:'Show Respect for Others',body:'Respect and protect people\'s <span class="lh">dignity, privacy and confidentiality</span>. Take all reasonable actions to prevent accidental disclosure or unauthorised access to confidential information. <span class="lk">Never disclose confidential information without consent</span> unless required by the law [3.5]. Ensure use of social media is consistent with ethical and legal obligations [3.10].'},
+    {sec:'Pr. 4',title:'Encourage Patient Participation',body:'Explain the options available to patients and the public, including <span class="lh">risks and benefits</span>, to help them make informed decisions. Make sure the information given is <span class="lk">impartial, relevant, accurate and up to date</span> [4.5].'},
+    {sec:'Pr. 5',title:'Develop Knowledge & Competence',body:'Recognise the <span class="lh">limitations of knowledge</span> and practise only in areas of competence [5.2]. Keep and maintain up-to-date records of <span class="lk">continuing professional development</span> [5.5].'},
+    {sec:'Pr. 6',title:'Be Ethical, Honest and Trustworthy',body:'Recognise and endeavour to <span class="lk">avoid conflicts of interest</span> and declare any personal or professional interests [6.3]. <span class="lh">Not exploit</span> the vulnerability or lack of knowledge of others [6.2]. Respond openly, honestly and courteously to complaints and criticism [6.5].'},
+    {sec:'Pr. 7',title:'Be Responsible of Working Practices',body:'Obey the <span class="lh">laws, regulations, standards and policies</span> of the profession [7.4]. Ensure only medicines and health related products that are <span class="lk">safe, effective and of good quality</span> are supplied [7.7]. Must NOT advertise, directly or indirectly, for promoting professional advantage other than as <span class="lh">permitted by legislation</span> [7.10].'},
+    {sec:'s.17(1)',title:'Grounds for Disciplinary Proceedings',body:'Board may act if a pharmacist: (a) obtained registration by a <span class="lh">fraudulent or incorrect statement</span>; (b) convicted of an offence making them <span class="lh">unfit</span>; or (c) guilty of <span class="lk">infamous or disgraceful conduct in a professional sense</span>.'},
+    {sec:'s.18A',title:'Punishments',body:'Board may: (a) order <span class="lh">removal</span> from register; (b) order <span class="lh">suspension</span> from register for such period as it thinks fit; or (c) order the pharmacist to be <span class="lh">reprimanded</span>. Note: <span class="lk">No financial fine</span> is imposed by the Board.'},
+    {sec:'s.19',title:'Appeal',body:'Any person aggrieved by any punishment may appeal to the <span class="lk">Minister</span>, whose decision shall be <span class="lh">final</span>.'},
+    {sec:'Reg 15',title:'Committee of Inquiry',body:'Shall comprise <span class="lh">5 fully registered pharmacists</span> each holding a valid annual certificate. Quorum: <span class="lh">3</span>. Chairman nominated by the Board.'},
+    {sec:'Reg 17',title:'Summary Dismissal',body:'Committee may recommend dismissal if: complainant is <span class="lh">unknown or untraceable</span>; facts do not constitute an offence under <span class="lh">s.17(1)</span> even if true; or there is reason to <span class="lk">doubt the truth</span> of the complaint.'}
   ]
 };
 
-// New Module: GGM
+
 window.GGM_DATA = {
   actTitle: "Good Governance in Medicine (GGM)",
-  regTitle: "Vulnerability & Unethical Practices",
+  regTitle: "Code of Conduct & Areas of Vulnerability",
   questions: [
-    {act:'GGM',q:'Why is the pharmaceutical sector particularly vulnerable to corruption and unethical practices?',opts:['A. Low market interests.','B. Inappropriate incentive structures.','C. Less involvement by the government in its regulation.','D. Widely available information that helps in the assessment of quality, safety and efficacy of medicines.'],ans:1,exp:'Vulnerability factors include high market volume, information imbalance, and inappropriate incentive structures.'},
-    {act:'GGM',q:'Choose the values that conduct the behaviour of public servants, as described in the Framework for Good Governance in the Public Pharmaceutical Sector.',stmts:['i. Objectivity','ii. Accountability','iii. Honesty','iv. Openness'],opts:['A. i and iv only.','B. ii and iii only.','C. i, ii and iii only.','D. i, ii, iii and iv'],ans:3,exp:'Objectivity, Accountability, Honesty, and Openness are all explicit values in the GGM Code of Conduct.'}
+    {act:'GGM',q:'Why is the pharmaceutical sector particularly vulnerable to corruption and unethical practices?',opts:['A. Low market interests.','B. Inappropriate incentive structures.','C. Less involvement by the government in its regulation.','D. Widely available information that helps in the assessment of quality, safety and efficacy of medicines.'],ans:1,exp:'Vulnerability factors include high market volume, information imbalance, inappropriate incentive structures, poorly defined processes, and limited institutional checks.'},
+    {act:'GGM',q:'Choose the values that conduct the behaviour of public servants, as described in the Framework for Good Governance in the Public Pharmaceutical Sector.',stmts:['i. Objectivity','ii. Accountability','iii. Honesty','iv. Openness'],opts:['A. i and iv only.','B. ii and iii only.','C. i, ii and iii only.','D. i, ii, iii and iv'],ans:3,exp:'All seven Code of Conduct values are: Selflessness, Integrity, Objectivity, Accountability, Openness, Honesty, and Leadership. All four listed are correct.'},
+    {act:'GGM',q:'The GGM framework integrates two basic strategies to promote good governance. These are:',opts:['A. Legal approach and Medical approach.','B. Discipline-based approach and Values-based approach.','C. Ombudsman approach and Financial approach.','D. International approach and Local approach.'],ans:1,exp:'GGM integrates a Discipline-based approach (top-down: sanctions, ombudsman) and a Values-based approach (bottom-up: ethical framework, code of conduct).'},
+    {act:'GGM',q:'The FIVE key areas of the pharmaceutical system that are the focus of the GGM Ethical Framework are:',opts:['A. Research, Development, Marketing, Prescribing, Consumption.','B. Registration, Inspection, Promotion, Selection, Procurement.','C. Manufacturing, Distribution, Pricing, Selection, Disposal.','D. Patent, Manufacturing, Registration, Procurement, Distribution.'],ans:1,exp:'The GGM Appendix 2 defines the 5 areas: Registration, Inspection, Promotion, Selection, and Procurement.'},
+    {act:'GGM',q:'According to the GGM Framework, the FOUR core moral values essential to good governance are:',opts:['A. Honesty, Integrity, Selflessness, Leadership.','B. Justice, Truth, Service to the Common Good, Trusteeship.','C. Objectivity, Accountability, Openness, Honesty.','D. Transparency, Fairness, Equity, Sincerity.'],ans:1,exp:'GGM Appendix 3 explicitly names 4 Core Moral Values: Justice, Truth, Service to the Common Good, and Trusteeship.'},
+    {act:'GGM',q:'Which of the following is a unethical practice that may lead to corruption in the pharmaceutical sector?',stmts:['i. Receiving gifts or sponsorships from pharmaceutical companies.','ii. Ordering medicines beyond actual clinical needs.','iii. Using evidence-based assessment criteria for drug registration.','iv. Disclosing conflicts of interest to the relevant authorities.'],opts:['A. i and ii only.','B. iii and iv only.','C. i, ii and iii only.','D. i, ii, iii and iv'],ans:0,exp:'Items i and ii are unethical practices listed in GGM. Items iii (evidence-based assessment) and iv (disclosing COI) are examples of GOOD governance practices.'}
   ],
   notes: {
     act: [
       {title:'GGM Framework Overview',items:[
-        {t:'Definition',d:'The system by which an organisation is controlled and operates, and the mechanisms by which it is held to account.'},
-        {t:'Goal',d:'Reduce corruption through transparent/accountable administrative procedures and promotion of ethical practices.'},
-        {t:'Approaches',d:'Discipline-based (Top-down rules & punishments) vs Values-based (Bottom-up moral principles).'}
+        {t:'Definition',d:'The system by which an organisation is controlled and operates, and the mechanisms by which it is held to account. Governance = wider concept than just anti-corruption.'},
+        {t:'Objective',d:'Inculcate integrity; promote transparency, accountability and ethical practices; raise awareness of corruption potential; minimise corruption in the public pharmaceutical sector.'},
+        {t:'Origin',d:'WHO Good Governance for Medicine project. Malaysia was one of the FIRST FOUR countries to participate (Phase 1 assessment: December 2004). Framework developed April 2007.'},
+        {t:'Two Strategies',d:'DISCIPLINE-BASED (top-down): Sanctions, ombudsman mechanism, regulations. VALUES-BASED (bottom-up): Ethical framework, code of conduct. Both must be integrated for effectiveness.'}
+      ]},
+      {title:'4 Core Moral Values (Appendix 3)',items:[
+        {t:'Justice',d:'Exercise of impartial judgement. Governance must be within the rule of law. Fairness in access to services; protection of rights.'},
+        {t:'Truth',d:'Faithfulness to truth = basis of trustworthiness and integrity. Decisions affecting public interest must be substantiated by appropriate, reliable, provable evidence.'},
+        {t:'Service to the Common Good',d:'Commitment to serve public interest. Public services should be inclusive and serve all equally. Intrinsic motivation, not personal gain.'},
+        {t:'Trusteeship',d:'Society expects public servants to be trustworthy as trustees of public resources. Must transparently disclose conflicts of interest and avoid placing institutional resources at risk.'}
       ]},
       {title:'Types & Impacts of Corruption',items:[
-        {t:'Petty Corruption',d:'Small-scale extortion by lower-level servants; often justified as a survival mechanism.'},
-        {t:'Grand Corruption',d:'Large-scale, international bribes and hidden accounts by high officials.'},
-        {t:'Health Impact',d:'Proliferation of unsafe medicines, lack of essential meds, irrational drug use.'},
-        {t:'Economic Impact',d:'Loss of 10-25% of procurement spending; severely affects low-income health budgets.'}
+        {t:'Petty Corruption',d:'Small-scale, low-level. Often by lower-level public servants; sometimes justified as "survival mechanism." Common in day-to-day operations.'},
+        {t:'Grand Corruption',d:'Large-scale, involving high officials. International bribes, hidden accounts, diversion of massive public funds.'},
+        {t:'Health Impact',d:'Proliferation of unsafe medicines; lack of essential medicines; irrational drug use; prolonged illness and deaths.'},
+        {t:'Economic Impact',d:'In low-income countries, pharma expenditure = up to 50% of total healthcare costs. Corrupt practices extremely detrimental to national health budgets.'},
+        {t:'Trust Impact',d:'Transparency International estimates up to 2/3 of medicine supplies at hospitals in some countries lost through corruption. Erodes public confidence in government.'}
       ]}
     ],
     reg: [
       {title:'7 Code of Conduct Values',items:[
-        {t:'Core Traits',d:'Selflessness, Integrity, Objectivity, Accountability, Openness, Honesty, and Leadership.'}
+        {t:'Selflessness',d:'Decisions made solely in the public interest — no personal, family or financial gain.'},
+        {t:'Integrity',d:'Do not place yourself under any financial or other obligation to outside individuals or organisations that might influence official duties.'},
+        {t:'Objectivity',d:'Make choices on merit. Public appointments, contracts, and recommendations must be merit-based.'},
+        {t:'Accountability',d:'Accountable for all decisions and actions to the public. Submit to appropriate scrutiny.'},
+        {t:'Openness',d:'Be as open as possible about all decisions and actions. Restrict information only when public interest clearly demands.'},
+        {t:'Honesty',d:'Declare any private interests relating to public duties and take steps to resolve conflicts protecting the public interest.'},
+        {t:'Leadership',d:'Promote and support these principles by leadership and example.'}
       ]},
-      {title:'Areas of Vulnerability',items:[
-        {t:'Drug Registration',d:'Queue jumping, falsified data acceptance, bias, or conflict of interest.'},
-        {t:'Inspection',d:'Manipulation of scheduling, bribery to alter compliance ratings, or collusion.'},
-        {t:'Promotion',d:'Biased advertorials, entertaining sales representatives, or unapproved sponsorships.'},
-        {t:'Selection',d:'Pharmaceutical companies dictating proformas, inappropriate selection based on bribery.'},
-        {t:'Procurement',d:'Bid rigging, theft of medicines, or ordering beyond actual needs.'}
+      {title:'5 Areas of Vulnerability (Appendix 2)',items:[
+        {t:'Drug Registration',d:'Vulnerabilities: Queue jumping, falsified data acceptance, bias in evaluation, conflict of interest, non-adherence to timelines. Key value: Objectivity, No COI, Transparency.'},
+        {t:'Inspection',d:'Vulnerabilities: Manipulation of inspection scheduling, bribery to alter compliance ratings, suppression of quality findings, collusion. Key value: Integrity, Accountability.'},
+        {t:'Promotion',d:'Vulnerabilities: Biased advertorials, pharmaceutical company sponsorships, pseudo-trials funded by industry (really for marketing), gratuitous referral payments. Key value: Honesty, No COI.'},
+        {t:'Selection',d:'Vulnerabilities: Pharmaceutical companies dictating formulary proformas, selection of medicines based on bribery rather than evidence, favouritism in essential medicines listing. Key value: Objectivity.'},
+        {t:'Procurement',d:'Vulnerabilities: Bid rigging with confidential information, theft of medicines for personal use or private resale, ordering beyond actual needs, contracts to friends/relatives. Key value: Accountability.'}
+      ]},
+      {title:'GGM Programme Components',items:[
+        {t:'Value-based',d:'1. Ethical framework of moral values and ethical principles. 2. Code of conduct.'},
+        {t:'Discipline-based',d:'3. Transparent and accountable regulations and administrative procedures. 4. Whistle-blowing mechanism (ombudsman). 5. Sanctions on reprehensible acts. 6. Collaboration with anti-corruption initiatives. 7. GGM implementing task force.'}
       ]}
     ],
     warn: [
-      'GGM focuses equally on the "Value Approach" (Ethics) and the "Disciplinary Approach" (Sanctions/Ombudsman).',
-      'Transparency International estimates up to 2/3 of medicine supplies can be lost to corruption in some regions.'
+      'There are 4 Core MORAL VALUES (Justice, Truth, Service to Common Good, Trusteeship) — separate from the 7 Code of Conduct VALUES (Selflessness, Integrity, Objectivity, Accountability, Openness, Honesty, Leadership). These are different lists tested independently.',
+      'Malaysia was one of the FIRST FOUR countries to participate in the WHO GGM project (Phase 1 assessment: December 2004).',
+      'The GGM focuses on FIVE areas of the pharmaceutical system: Registration, Inspection, Promotion, Selection, and Procurement — NOT distribution or manufacturing.',
+      'Both the Discipline-based AND Values-based approaches must be integrated — one alone is insufficient.'
     ]
   },
   flashcards: [
-    {q:'What is the difference between Petty and Grand corruption?',a:'Petty is small-scale by lower-level staff; Grand is large-scale involving high officials and international bribes.',ref:'GGM Lecture'},
-    {q:'What are the two main approaches to address corruption in GGM?',a:'Discipline-based (top-down) and Values-based (bottom-up).',ref:'GGM Lecture'},
-    {q:'What are the 4 Core Moral Values of GGM?',a:'Justice, Truth, Service to the common good, Trusteeship',ref:'GGM Framework'},
-    {q:'What is Conflict of Interest (COI)?',a:'When a public servant has vested personal interests that compromise their official duties.',ref:'GGM Framework'},
-    {q:'Name 3 of the 5 vulnerable areas in the pharmaceutical system.',a:'Registration, Inspection, Promotion, Selection, Procurement',ref:'GGM Framework'},
-    {q:'What is the "Truth" value in GGM?',a:'Truthfulness in reporting facts, honesty in managing resources, and evidence-based decision making.',ref:'GGM Core Values'},
-    {q:'What is the "Trusteeship" value in GGM?',a:'Serving the highest public interest and transparently disclosing conflicts of interest.',ref:'GGM Core Values'}
+    {q:'What does GGM stand for?',a:'Good Governance in Medicine',ref:'GGM Framework 2009'},
+    {q:'What are the TWO strategic approaches in the GGM programme?',a:'1. Values-based (bottom-up: ethics/code of conduct) and 2. Discipline-based (top-down: sanctions/ombudsman).',ref:'GGM Framework p.4'},
+    {q:'List the 4 Core Moral Values of the GGM Framework.',a:'Justice, Truth, Service to the Common Good, and Trusteeship.',ref:'GGM Appendix 3'},
+    {q:'List the 7 Code of Conduct Values for public servants.',a:'Selflessness, Integrity, Objectivity, Accountability, Openness, Honesty, Leadership.',ref:'GGM Code of Conduct'},
+    {q:'List the 5 areas of the pharmaceutical system focused on by GGM.',a:'Registration, Inspection, Promotion, Selection, Procurement.',ref:'GGM Appendix 2'},
+    {q:'What is the difference between Petty and Grand corruption?',a:'Petty = small-scale by lower-level staff; Grand = large-scale by high officials with international bribes.',ref:'GGM Framework'},
+    {q:'What is Conflict of Interest (COI)?',a:'When a public servant has vested personal interests (financial or otherwise) that compromise their official duties.',ref:'GGM Code of Conduct'},
+    {q:'What was Malaysia\'s role in the WHO GGM project?',a:'One of the first four countries to participate. Phase 1 assessment was in December 2004.',ref:'GGM Preface'},
+    {q:'Under GGM, what is the "Trusteeship" value?',a:'Society expects public servants as trustees of public resources to be trustworthy and to disclose conflicts of interest.',ref:'GGM Appendix 3'},
+    {q:'What is the "Truth" value in GGM?',a:'Faithfulness to truth. Decisions affecting public interest must be based on appropriate, reliable, and provable evidence.',ref:'GGM Appendix 3'},
+    {q:'Give two examples of unethical practices in Drug Promotion.',a:'Receiving gifts/sponsorships from pharmaceutical companies; hosting pseudo-trials funded by industry for marketing purposes.',ref:'GGM Appendix 4'},
+    {q:'What is a "Procurement" vulnerability in GGM?',a:'Bid rigging, theft of medicines, ordering beyond actual needs, awarding contracts to friends/relatives.',ref:'GGM Appendix 4'},
+    {q:'What is the "Objectivity" value in GGM?',a:'Making choices on merit. Public appointments, contracts, and recommendations must be merit-based, not influenced by personal interests.',ref:'GGM Code of Conduct'}
   ],
   law: [
-    {sec:'Val. 1',title:'Justice',body:'Justice relates to the exercise of impartial in determining the truth of facts... The governance and administration of any social enterprise must be realized within the framework provided by the <span class="lh">rule of law</span>.'},
-    {sec:'Val. 2',title:'Truth',body:'Faithfulness to truth is the basis of trustworthiness, integrity and honour... Decisions that affect the public interest should be substantiated by appropriate, reliable and <span class="lh">provable evidence</span>.'},
-    {sec:'Val. 3',title:'Service to the common good',body:'Personal and institutional commitment to the core moral value of serving the common good is a source of <span class="lk">intrinsic motivation</span>... Public services should be inclusive and should serve all equally.'},
-    {sec:'Val. 4',title:'Trusteeship',body:'Good governance is based on public trust... Society expects public servants, as <span class="lh">trustees</span> of public resources, to be trustworthy in the use of the power, authority and resources entrusted to their charge.'},
-    {sec:'Code',title:'7 Principles of Conduct',body:'<span class="lh">Selflessness, Integrity, Objectivity, Accountability, Openness, Honesty, Leadership.</span>'}
+    {sec:'Val. 1',title:'Justice',body:'Justice relates to the exercise of <span class="lk">impartial</span> judgement in determining the truth of facts... The governance and administration of any social enterprise must be realized within the framework provided by the <span class="lh">rule of law</span>.'},
+    {sec:'Val. 2',title:'Truth',body:'Faithfulness to truth is the basis of <span class="lk">trustworthiness, integrity and honour</span>... Decisions that affect the public interest should be substantiated by <span class="lh">appropriate, reliable and provable evidence</span>.'},
+    {sec:'Val. 3',title:'Service to the Common Good',body:'Personal and institutional commitment to the core moral value of serving the common good is a source of <span class="lk">intrinsic motivation</span>... Public services should be <span class="lh">inclusive</span> and should serve all equally.'},
+    {sec:'Val. 4',title:'Trusteeship',body:'Good governance is based on public trust... Society expects public servants, as <span class="lh">trustees</span> of public resources, to be trustworthy in the use of the power, authority and resources entrusted to their charge. Must <span class="lk">disclose conflicts of interest</span>.'},
+    {sec:'CoC',title:'7 Code of Conduct Values',body:'<span class="lh">Selflessness</span> — public interest only. <span class="lh">Integrity</span> — no undue obligations. <span class="lh">Objectivity</span> — merit-based choices. <span class="lh">Accountability</span> — accountable to the public. <span class="lh">Openness</span> — transparent decisions. <span class="lh">Honesty</span> — declare private interests. <span class="lh">Leadership</span> — promote by example.'},
+    {sec:'Areas',title:'5 Vulnerable Areas',body:'<span class="lk">Registration</span> — queue jumping, falsified data. <span class="lk">Inspection</span> — bribery to alter ratings. <span class="lk">Promotion</span> — kickbacks, pseudo-trials. <span class="lk">Selection</span> — proforma manipulation, bribery. <span class="lk">Procurement</span> — bid rigging, theft, cronyism.'},
+    {sec:'Impact',title:'Impact of Corruption',body:'Health: proliferation of unsafe medicines, irrational drug use. Economic: pharma = up to <span class="lh">50%</span> of healthcare costs in low-income countries. Trust: Transparency International estimates up to <span class="lh">2/3</span> of hospital medicine supplies lost to corruption in some regions.'}
   ]
 };
 
-// New Module: DUNAS
+
 window.DUNAS_DATA = {
-  actTitle: "National Medicine Policy (DUNas)",
-  regTitle: "Governance & Strategies",
+  actTitle: "National Medicines Policy (DUNas) 4th Ed. 2022–2026",
+  regTitle: "Five Components & Governance Structure",
   questions: [
-    {act:'DUNas',q:'The following are the strategies to enhance partnerships for the healthcare industry as outlined in the National Medicine Policy (NMP), EXCEPT:',opts:['A. enhancing multi-sectoral technical engagement towards better health service delivery.','B. developing human capital, capacity and capability.','C. promoting research and development among stakeholders.','D. strengthening pharmaceutical care practices in private health facilities.'],ans:3,exp:'Strengthening pharmaceutical care practices in private facilities is a specific operational goal, not broadly defined under the "enhancing partnerships" macro strategy in the NMP.'}
+    {act:'DUNas',q:'The following are the strategies to enhance partnerships for the healthcare industry as outlined in the National Medicine Policy (NMP), EXCEPT:',opts:['A. enhancing multi-sectoral technical engagement towards better health service delivery.','B. developing human capital, capacity and capability.','C. promoting research and development among stakeholders.','D. strengthening pharmaceutical care practices in private health facilities only.'],ans:3,exp:'Strengthening pharmaceutical care practices exclusively in private facilities is not listed. DUNas\'s Partnership component targets multi-sectoral and public-private collaboration broadly, not one sector alone.'},
+    {act:'DUNas',q:'The Malaysian National Medicines Policy (DUNas) was officially approved by the Cabinet in:',opts:['A. 2000','B. 2004','C. 2006','D. 2009'],ans:2,exp:'DUNas was approved by the Ministry of Health in June 2006 and by the Cabinet in October 2006, following a consultative process that began in 2000.'},
+    {act:'DUNas',q:'Which of the following is NOT one of the FIVE core components of the DUNas 4th Edition (2022–2026)?',opts:['A. Quality, Safety and Efficacy','B. Access to Medicines','C. Quality Use of Medicines','D. Human Capital Development'],ans:3,exp:'The 5 core components of DUNas are: (1) Governance in Medicines, (2) Quality, Safety & Efficacy, (3) Access to Medicines, (4) Quality Use of Medicines, and (5) Partnership & Collaboration. Human Capital Development is a strategy within Governance, not a standalone component.'},
+    {act:'DUNas',q:'Under the Quality Use of Medicines (QUM) component of DUNas 4th Edition, which of the following is a stated quantitative target?',opts:['A. 50% reduction in antibiotic prescribing.','B. 100% patient knowledge of medications.','C. 50% reduction in inappropriate antibiotic prescribing by 2026.','D. 90% reduction in adverse drug reaction reporting time.'],ans:2,exp:'DUNas 4th Ed. QUM states a target of 50% reduction in INAPPROPRIATE antibiotic prescribing by 2026, and 90% patient knowledge target among chronic disease patients.'},
+    {act:'DUNas',q:'The Access to Medicines component of DUNas is challenged by which of the following?',stmts:['i. High dependency on imported active pharmaceutical ingredients (APIs).','ii. Fragmented procurement across different ministries and agencies.','iii. Overly consolidated pricing mechanisms causing monopoly.','iv. Geographical barriers and underdeveloped distribution in rural areas.'],opts:['A. i and ii only.','B. i, ii and iv only.','C. ii and iii only.','D. i, ii, iii and iv'],ans:1,exp:'DUNas 4th Ed. Access challenges explicitly state: import dependency on APIs, fragmented procurement, and geographical barriers. \"Overly consolidated pricing\" is not a stated challenge — the challenge is pricing TRANSPARENCY and the absence of standardised pricing mechanisms.'},
+    {act:'DUNas',q:'Good Governance of Medicines (GGM) is a strategy under which component of DUNas?',opts:['A. Quality, Safety and Efficacy','B. Access to Medicines','C. Governance in Medicines','D. Quality Use of Medicines'],ans:2,exp:'GGM is explicitly listed as Strategy 1 under the Governance in Medicines component of DUNas — to foster a culture of ethical behaviour.'}
   ],
   notes: {
     act: [
-      {title:'DUNas Core Components',items:[
-        {t:'Quality, Safety & Efficacy',d:'Ensuring all medicines in the market meet stringent regulatory standards.'},
-        {t:'Access to Medicines',d:'Ensuring equitable and timely supply of essential medicines at reasonable cost.'},
-        {t:'Quality Use of Medicines (QUM)',d:'Promoting rational prescribing and patient compliance.'},
-        {t:'Partnership & Collaboration',d:'Enhancing multi-sectoral engagement, developing human capital, and promoting R&D.'}
+      {title:'DUNas Background & History',items:[
+        {t:'Full name',d:'Dasar Ubat Negara — Malaysian National Medicines Policy (MNMP). 4th Edition covers 2022–2026.'},
+        {t:'Origin',d:'Initiated by WHO via the Essential Medicines Concept. Consultative process began in 2000. Approved by MOH June 2006, Cabinet October 2006.'},
+        {t:'Global context',d:'By 2003, 98 out of 131 countries had established National Medicines Policies.'},
+        {t:'Current edition',d:'4th Edition (2022–2026) — "Ensuring Quality, Access, Safety, and Rational Use for a Healthier Nation."'},
+        {t:'Governance structure',d:'Steering Committee (chaired by DG Health) → Technical Committee (monitors implementation) → Working Committees (execute component strategies).'}
+      ]},
+      {title:'The 5 Core Components',items:[
+        {t:'1. Governance in Medicines',d:'Establish transparent, accountable and ethical systems for medicine management. Includes GGM, CPE, strengthening legislation (ROPA, SODA, MASA), and credentialing framework.'},
+        {t:'2. Quality, Safety & Efficacy',d:'Ensure all medicines meet stringent safety, efficacy and quality standards throughout the medicine lifecycle. Includes WHO Maturity Level 4 roadmap, MyMediTRACE (RFID tracking), ADR reporting.'},
+        {t:'3. Access to Medicines',d:'Guarantee continuous, affordable access to essential medicines for all Malaysians. Includes updated NEML (2022), pooled procurement pilot via Pharmaniaga for biologics/oncology.'},
+        {t:'4. Quality Use of Medicines (QUM)',d:'Promote safe, appropriate and effective medicine use. Target: 50% reduction in inappropriate antibiotic prescribing by 2026; 90% patient medication knowledge target; Home Medication Review (HMR) pilot.'},
+        {t:'5. Partnership & Collaboration',d:'Multi-stakeholder approach: public-private partnerships, academia-policy knowledge transfer, ASEAN collaboration, digital health sandbox (MIMOS), community pharmacy long-term supply pilot (Selangor, 2023).'}
+      ]},
+      {title:'Key Quantitative Targets (4th Edition)',items:[
+        {t:'QUM — Prescribing',d:'100% appropriate use (evidence-based prescribing compliance across all facilities).'},
+        {t:'QUM — Antibiotics',d:'50% reduction in inappropriate antibiotic prescribing by 2026.'},
+        {t:'QUM — Patient Knowledge',d:'90% patient medication knowledge target among chronic disease patients.'},
+        {t:'NEML',d:'National Essential Medicines List revised and published in 2022.'}
       ]}
     ],
     reg: [
-      {title:'Governance in Medicines',items:[
-        {t:'Best Practices',d:'Emphasizing transparency and accountability within the healthcare industry to facilitate optimal health outcomes.'},
-        {t:'Supply Network',d:'Maintaining an efficient, integrated medicine management and supply network.'},
-        {t:'Monitoring',d:'Continuous monitoring of products in the market to ensure they conform to standards.'}
+      {title:'Governance in Medicines — Key Strategies',items:[
+        {t:'Strategy 1',d:'Foster a culture of ethical behaviour via Good Governance of Medicines (GGM) — transparent, ethical, free from corruption/COI.'},
+        {t:'Strategy 2',d:'Promote transparency, accountability and ethical practices among healthcare professionals via Continuous Pharmacy Education (CPE).'},
+        {t:'Strategy 3',d:'Strengthen legislation and regulations — specifically ROPA, SODA and MASA.'},
+        {t:'Strategy 4',d:'Strengthen capacity and capability of human capital — national credentialing framework for pharmacists and assistant pharmacists; specialised practice areas (2024–2026).'}
+      ]},
+      {title:'Access Challenges (4th Edition)',items:[
+        {t:'Import Dependency',d:'High dependency on imported APIs and excipients — vulnerability to global supply disruptions (e.g. COVID-19 pandemic).'},
+        {t:'Fragmented Procurement',d:'Procurement fragmented across MOH, university hospitals, and military medical services — inefficient resource allocation.'},
+        {t:'Pricing Transparency',d:'Substantial price variations between public and private sectors; no standardised pricing mechanism; medicines unaffordable for chronic patients.'},
+        {t:'Geographical Barriers',d:'Underdeveloped distribution in rural/remote areas — inequitable access, frequent stockouts.'}
+      ]},
+      {title:'Quality, Safety & Efficacy Strategies',items:[
+        {t:'WHO Maturity Level 4',d:'NPRA roadmap published to attain the highest international regulatory standard.'},
+        {t:'Facilitated Registration',d:'Expanded FRP (Facilitated Registration Pathway) for more product classes to speed up market access.'},
+        {t:'MyMediTRACE',d:'RFID-based medicine tracking system scheduled for 2024 launch to combat counterfeits.'},
+        {t:'NPRA as statutory body',d:'Proposed to strengthen regulatory governance, efficiency and autonomy of regulatory decision-making.'},
+        {t:'Counterfeit control',d:'Combat illegal and counterfeit medicines sold online; Pharmaceutical Track and Trace System to monitor supply chain.'}
+      ]},
+      {title:'Key Glossary (High-Yield Definitions)',items:[
+        {t:'Essential Medicines',d:'Medicines that treat the majority of prevalent conditions cost-effectively; available at all times, adequate amounts, and proper dosage forms to all segments of society. (WHO 1975)'},
+        {t:'Generic Medicine',d:'Pharmaceutical product intended to be interchangeable with the innovator product, manufactured without the innovator\'s licence, marketed after patent expiry. (WHO 1997)'},
+        {t:'Counterfeit Medicine',d:'Deliberately and fraudulently labelled regarding identity and/or source. May contain correct, wrong, or no active ingredients. (WHO 1999)'},
+        {t:'Halal Medicines',d:'Medicines permitted by Islamic Law to be consumed by Muslims.'},
+        {t:'NEML',d:'National Essential Medicines List — regularly updated by MOH after stakeholder consultation; used for public sector procurement, training, and reimbursement schemes.'},
+        {t:'QUM',d:'Quality Use of Medicines — safe, appropriate, and effective medicine use to achieve optimal health outcomes.'}
       ]}
+    ],
+    warn: [
+      'There are FIVE components — not four. The 4th Edition added "Governance in Medicines" as the first and newest pillar. Do not confuse this with GGM (which is a STRATEGY within that component).',
+      'GGM is a strategy under "Governance in Medicines" — not a standalone component of DUNas.',
+      'DUNas targets are quantitative (50% inappropriate antibiotic reduction, 90% patient knowledge, 100% appropriate prescribing). Learn the numbers.',
+      'DUNas was Cabinet-approved in October 2006, not when the consultative process started (2000) and not when WHO launched the Essential Medicines concept (1975).'
     ]
   },
   flashcards: [
-    {q:'What does QUM stand for in DUNas?',a:'Quality Use of Medicines',ref:'DUNas Framework'},
-    {q:'What are the core components of DUNas?',a:'Quality/Safety/Efficacy, Access, QUM, and Partnership & Collaboration.',ref:'DUNas Framework'},
-    {q:'What is the primary goal of the "Access to Medicines" component?',a:'Ensuring equitable and timely supply of essential medicines at reasonable cost.',ref:'DUNas Framework'},
-    {q:'How does DUNas approach Partnership?',a:'By enhancing multi-sectoral engagement and promoting R&D among stakeholders.',ref:'DUNas Framework'}
+    {q:'What does DUNas stand for?',a:'Dasar Ubat Negara — Malaysian National Medicines Policy (MNMP)',ref:'DUNas 4th Ed. 2022–2026'},
+    {q:'When was DUNas approved by the Malaysian Cabinet?',a:'October 2006 (MOH approval: June 2006)',ref:'DUNas Historical Development'},
+    {q:'What are the FIVE core components of DUNas 4th Edition?',a:'1. Governance in Medicines, 2. Quality Safety & Efficacy, 3. Access to Medicines, 4. Quality Use of Medicines, 5. Partnership & Collaboration.',ref:'DUNas 4th Ed.'},
+    {q:'What is QUM?',a:'Quality Use of Medicines — promoting safe, appropriate and effective medicine use to achieve optimal health outcomes.',ref:'DUNas Component 4'},
+    {q:'What is the DUNas QUM target for inappropriate antibiotic prescribing by 2026?',a:'50% reduction in inappropriate antibiotic prescribing.',ref:'DUNas 4th Ed. QUM'},
+    {q:'What is the DUNas QUM patient knowledge target?',a:'90% patient medication knowledge among chronic disease patients.',ref:'DUNas 4th Ed. QUM'},
+    {q:'Under which DUNas component does GGM fall?',a:'Governance in Medicines (Strategy 1 — foster a culture of ethical behaviour).',ref:'DUNas 4th Ed. Governance'},
+    {q:'What is the NEML?',a:'National Essential Medicines List — regularly updated by MOH; guides public sector procurement, training, and reimbursement.',ref:'DUNas Glossary'},
+    {q:'Define an Essential Medicine.',a:'A medicine required to treat the majority of prevalent conditions cost-effectively; available at all times in adequate amounts and proper dosage forms to all. (WHO 1975)',ref:'DUNas Glossary'},
+    {q:'Define a Counterfeit Medicine.',a:'A medicine deliberately and fraudulently labelled regarding identity and/or source — may contain correct, wrong, or no active ingredients.',ref:'DUNas Glossary (WHO 1999)'},
+    {q:'What is MyMediTRACE?',a:'An RFID-based medicine tracking system to combat counterfeits, scheduled for 2024 launch.',ref:'DUNas 4th Ed. QSE'},
+    {q:'What major access challenge does DUNas identify regarding API supply?',a:'High dependency on imported APIs and excipients creates vulnerability to global supply disruptions.',ref:'DUNas 4th Ed. Access'},
+    {q:'What is the DUNas Partnership & Collaboration initiative involving community pharmacies in Selangor?',a:'A long-term medicine supply outsourcing pilot launched in 2023.',ref:'DUNas 4th Ed. Partnership'},
+    {q:'What does the 100% appropriate prescribing target in DUNas QUM mean?',a:'Target for 100% evidence-based prescribing compliance across all healthcare facilities.',ref:'DUNas 4th Ed. QUM'},
+    {q:'What is the proposed regulatory change for NPRA under DUNas?',a:'Establishment of NPRA as a statutory body to improve regulatory efficiency and autonomy.',ref:'DUNas 4th Ed. QSE'}
   ],
-  law: []
+  law: [
+    {sec:'Comp. 1',title:'Governance in Medicines',body:'Establish <span class="lk">transparent, accountable, and ethical</span> systems for medicine management. Strategies include GGM, CPE, strengthening <span class="lh">ROPA, SODA, MASA</span>, and national credentialing for pharmacists.'},
+    {sec:'Comp. 2',title:'Quality, Safety & Efficacy',body:'Ensure all medicines meet stringent standards. Includes WHO <span class="lh">Maturity Level 4</span> roadmap, <span class="lk">MyMediTRACE</span> (RFID tracking, 2024), Facilitated Registration Pathway, and strengthened ADR reporting.'},
+    {sec:'Comp. 3',title:'Access to Medicines',body:'Guarantee continuous, affordable access. Challenges: <span class="lh">import dependency on APIs</span>, fragmented procurement, pricing transparency gaps, geographical barriers in rural areas. Updated <span class="lk">NEML published 2022</span>.'},
+    {sec:'Comp. 4',title:'Quality Use of Medicines (QUM)',body:'Target: <span class="lh">100%</span> appropriate prescribing compliance. <span class="lh">50%</span> reduction in inappropriate antibiotic prescribing by 2026. <span class="lh">90%</span> patient medication knowledge target. Home Medication Review (<span class="lk">HMR</span>) pilot in urban areas (2022).'},
+    {sec:'Comp. 5',title:'Partnership & Collaboration',body:'Public-private partnerships; academia-policy knowledge transfer; <span class="lk">ASEAN Drug Security</span> agenda; Digital Health sandbox (<span class="lh">MIMOS</span>); community pharmacy supply pilot in Selangor (2023); environmental disposal bins at hospitals (2022).'},
+    {sec:'Gloss.',title:'Key Definitions',body:'<span class="lk">Essential Medicine</span>: Treats majority of prevalent conditions cost-effectively; available at all times (WHO 1975). <span class="lk">Counterfeit</span>: Fraudulently labelled re identity/source (WHO 1999). <span class="lk">Generic</span>: Interchangeable with innovator; post-patent (WHO 1997). <span class="lk">NEML</span>: National Essential Medicines List.'}
+  ]
 };
+
 
 // ── CORE GAME ENGINE LOGIC ───────────────────────────────────────
 var G = {
@@ -1308,14 +1537,21 @@ function initQuiz(timingMode, sprintCount){
 
   G.lesIdx=0; G.correct=0; G.wrong=0; G.skipped=0;
   G.pkumfScore=0; G.answered=false; G.selAns=null; G.wasSkipped=false;
+  // Exam answers array — one slot per question, null = unanswered
+  G.examAnswers = G.lesQ.map(function(){ return null; });
+  G.examFlagged = G.lesQ.map(function(){ return false; });
+  G.examSubmitted = false;
   
-  setupHUD();
-  show('lesson');
-  renderQ();
-  
-  if(G.timeRemaining !== null){
-    clearInterval(G.timerInt);
-    G.timerInt = setInterval(tickTimer, 1000);
+  if(timingMode === 'mock'){
+    initExamMode();
+  } else {
+    setupHUD();
+    show('lesson');
+    renderQ();
+    if(G.timeRemaining !== null){
+      clearInterval(G.timerInt);
+      G.timerInt = setInterval(tickTimer, 1000);
+    }
   }
 }
 
@@ -1504,6 +1740,214 @@ function startRefill(){
     if(rem<=0){G.hearts=5;G.heartRefill=null;clearInterval(G.refillInt);renderDash();}
   },1000);
 }
+// ── EXAM MODE ENGINE ─────────────────────────────────────────────
+
+function initExamMode(){
+  show('exam');
+  renderExamQuestions();
+  // Start timer if applicable
+  if(G.timeRemaining !== null){
+    clearInterval(G.timerInt);
+    document.getElementById('exam-timer').style.display = 'flex';
+    G.timerInt = setInterval(tickExamTimer, 1000);
+    updateExamTimerDisplay();
+  }
+  updateExamProgress();
+}
+
+function renderExamQuestions(){
+  var qs = G.lesQ;
+  var html = '';
+  qs.forEach(function(q, idx){
+    html += renderExamBlock(q, idx, false, null);
+  });
+  document.getElementById('exam-body').innerHTML = html;
+  document.getElementById('exam-total-count').textContent = qs.length;
+}
+
+function renderExamBlock(q, idx, submitted, userAns){
+  var flagged = G.examFlagged[idx];
+  var ans = G.examAnswers[idx];
+  var isAnswered = ans !== null;
+  
+  var blockClass = 'exam-q-block';
+  if(submitted) blockClass += ' answered';
+  else if(isAnswered) blockClass += ' answered';
+  if(flagged && !submitted) blockClass += ' flagged';
+
+  var html = '<div class="' + blockClass + '" id="exam-block-' + idx + '">';
+  html += '<div class="exam-q-num">';
+  html += '<span>Q' + (idx+1) + ' &nbsp;·&nbsp; ' + q.act + '</span>';
+  if(!submitted){
+    html += '<button class="exam-flag-btn' + (flagged?' on':'') + '" onclick="toggleExamFlag(' + idx + ')" title="Flag for review">' + (flagged ? '🚩 Flagged' : '🏳 Flag') + '</button>';
+  }
+  html += '</div>';
+  html += '<div class="exam-q-text">' + q.q + '</div>';
+  
+  if(q.stmts){
+    html += '<div class="exam-stmts">';
+    q.stmts.forEach(function(s){ html += '<div>' + s + '</div>'; });
+    html += '</div>';
+  }
+  
+  html += '<div class="exam-opts">';
+  q.opts.forEach(function(o, oi){
+    var optClass = 'exam-opt';
+    if(!submitted && ans === oi) optClass += ' selected';
+    if(submitted){
+      if(oi === q.ans) optClass += ' reveal-correct';
+      else if(ans === oi && ans !== q.ans) optClass += ' reveal-wrong';
+    }
+    var clickAttr = submitted ? '' : ' onclick="pickExamAns(' + idx + ',' + oi + ')"';
+    html += '<button class="' + optClass + '"' + clickAttr + '>';
+    html += '<span class="exam-opt-lbl">' + o.charAt(0) + '.</span>';
+    html += '<span>' + o.slice(3) + '</span>';
+    html += '</button>';
+  });
+  html += '</div>';
+  
+  // Feedback (hidden until submitted)
+  if(submitted){
+    var fbClass = 'exam-fb show ';
+    if(ans === null) fbClass += 'skip';
+    else if(ans === q.ans) fbClass += 'ok';
+    else fbClass += 'bad';
+    
+    var fbTitle = ans === null ? '— Skipped' : (ans === q.ans ? '✓ Correct' : '✗ Incorrect');
+    html += '<div class="' + fbClass + '"><strong>' + fbTitle + '</strong> &nbsp;' + q.exp + '</div>';
+  }
+  
+  html += '</div>';
+  return html;
+}
+
+function pickExamAns(qIdx, optIdx){
+  if(G.examSubmitted) return;
+  var prev = G.examAnswers[qIdx];
+  // Toggle off if clicking same option
+  G.examAnswers[qIdx] = (prev === optIdx) ? null : optIdx;
+  
+  // Re-render just this block efficiently
+  var block = document.getElementById('exam-block-' + qIdx);
+  if(block){
+    var q = G.lesQ[qIdx];
+    block.outerHTML = renderExamBlock(q, qIdx, false, G.examAnswers[qIdx]);
+  }
+  updateExamProgress();
+}
+
+function toggleExamFlag(qIdx){
+  if(G.examSubmitted) return;
+  G.examFlagged[qIdx] = !G.examFlagged[qIdx];
+  var block = document.getElementById('exam-block-' + qIdx);
+  if(block){
+    block.outerHTML = renderExamBlock(G.lesQ[qIdx], qIdx, false, G.examAnswers[qIdx]);
+  }
+}
+
+function updateExamProgress(){
+  var answered = G.examAnswers.filter(function(a){ return a !== null; }).length;
+  var total = G.lesQ.length;
+  document.getElementById('exam-ans-count').textContent = answered;
+  document.getElementById('exam-total-count').textContent = total;
+  document.getElementById('exam-progress-text').textContent = answered + ' / ' + total + ' answered';
+  document.getElementById('exam-fill').style.width = (total > 0 ? (answered/total*100) : 0) + '%';
+}
+
+function tickExamTimer(){
+  if(G.timeRemaining <= 0){
+    clearInterval(G.timerInt);
+    submitExam(true);
+    return;
+  }
+  G.timeRemaining--;
+  updateExamTimerDisplay();
+}
+
+function updateExamTimerDisplay(){
+  var m = Math.floor(G.timeRemaining/60), s = G.timeRemaining%60;
+  var el = document.getElementById('exam-timer');
+  if(!el) return;
+  el.textContent = '⏱️ ' + String(m).padStart(2,'0') + ':' + String(s).padStart(2,'0');
+  if(G.timeRemaining <= 300){ el.style.color='#DC2626'; el.style.background='#FEF2F2'; }
+  else { el.style.color=''; el.style.background=''; }
+}
+
+function submitExam(timedOut){
+  clearInterval(G.timerInt);
+  G.examSubmitted = true;
+  
+  // Tally scores
+  G.correct = 0; G.wrong = 0; G.skipped = 0;
+  G.lesQ.forEach(function(q, i){
+    var a = G.examAnswers[i];
+    if(a === null) G.skipped++;
+    else if(a === q.ans) G.correct++;
+    else G.wrong++;
+  });
+  G.pkumfScore = G.correct - (G.wrong * 0.25);
+  
+  // Confirm if not timed out and not all answered
+  if(!timedOut){
+    var unanswered = G.examAnswers.filter(function(a){ return a === null; }).length;
+    var msg = unanswered > 0
+      ? 'You have ' + unanswered + ' unanswered question(s). Submit anyway?'
+      : 'Submit exam and reveal all answers?';
+    if(!confirm(msg)) return;
+  }
+  
+  // Re-render all blocks with answers revealed
+  var qs = G.lesQ;
+  var html = '';
+  
+  // Result banner at top
+  var pct = qs.length > 0 ? ((G.correct/qs.length)*100).toFixed(1) : '0.0';
+  html += '<div class="exam-result-banner">';
+  html += '<div style="font-size:13px;font-weight:700;color:#6B7280;text-transform:uppercase;letter-spacing:0.05em">PKUMF Score</div>';
+  html += '<div class="exam-score-big">' + G.pkumfScore.toFixed(2) + ' <span style="font-size:18px;color:#9CA3AF">/ ' + qs.length + '</span></div>';
+  html += '<div style="display:flex;justify-content:center;gap:20px;margin:.75rem 0">';
+  html += '<div style="text-align:center"><div style="font-size:20px;font-weight:800;color:#16A34A">' + G.correct + '</div><div style="font-size:11px;color:#6B7280">Correct</div></div>';
+  html += '<div style="text-align:center"><div style="font-size:20px;font-weight:800;color:#DC2626">' + G.wrong + '</div><div style="font-size:11px;color:#6B7280">Wrong</div></div>';
+  html += '<div style="text-align:center"><div style="font-size:20px;font-weight:800;color:#D97706">' + G.skipped + '</div><div style="font-size:11px;color:#6B7280">Skipped</div></div>';
+  html += '</div>';
+  if(timedOut) html += '<div style="font-size:13px;color:#991B1B;font-weight:600">⏱️ Time's up — exam auto-submitted</div>';
+  html += '<div style="display:flex;gap:10px;justify-content:center;margin-top:1rem">';
+  html += '<button class="btn btn-secondary" style="margin:0" onclick="show('game-dash')">← Dashboard</button>';
+  html += '</div>';
+  html += '</div>';
+  
+  qs.forEach(function(q, idx){
+    html += renderExamBlock(q, idx, true, G.examAnswers[idx]);
+  });
+  
+  // Swap exam-body content
+  document.getElementById('exam-body').innerHTML = html;
+  // Hide submit bar
+  document.querySelector('.exam-submit-bar').style.display = 'none';
+  // Update progress bar to 100%
+  document.getElementById('exam-fill').style.width = '100%';
+  document.getElementById('exam-progress-text').textContent = 'Results';
+  // Scroll to top
+  window.scrollTo(0, 0);
+  
+  // Award XP
+  G.xp += G.correct * 5;
+  renderDash();
+}
+
+function exitExam(){
+  if(G.examSubmitted){
+    clearInterval(G.timerInt);
+    document.querySelector('.exam-submit-bar') && (document.querySelector('.exam-submit-bar').style.display = '');
+    show('game-dash');
+    return;
+  }
+  if(confirm('Exit exam? Your answers will be lost.')){
+    clearInterval(G.timerInt);
+    show('game-dash');
+  }
+}
+
 </script>
 </body>
 </html>
