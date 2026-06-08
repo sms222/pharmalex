@@ -183,7 +183,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
         <span class="mode-icon">📖</span>
         <div class="mode-name">Learn Mode</div>
       </div>
-      <div class="mode-desc">Direct access to regulatory reference cards, Ethics & GGM, exam tips, and study briefs. Zero testing pressure.</div>
+      <div class="mode-desc">Side-by-side regulatory reference cards, Ethics & GGM, exam tips, and study briefs. Zero testing pressure.</div>
     </div>
 
     <div class="mode-card" onclick="selectAppMode('game')">
@@ -237,8 +237,8 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
     </div>
     <div class="act-btn" onclick="openModeSelect('ETHICS')">
       <div class="act-icon">⚖️</div>
-      <div class="act-title">ETHICS & NMP</div>
-      <div class="act-sub">Code of Conduct & GGM</div>
+      <div class="act-title">ETHICS & GGM</div>
+      <div class="act-sub">Code of Conduct & NMP</div>
     </div>
     <div class="act-btn full-width" onclick="openModeSelect('ALL')">
       <div class="act-icon">🎓</div>
@@ -404,6 +404,22 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
     <div class="timer-big" id="refill-timer">30:00</div>
     <button class="btn btn-secondary" onclick="show('game-dash')">Back to Dashboard</button>
   </div>
+</div>
+
+<div id="scr-coming" class="scr">
+  <div class="page-hdr">
+    <button class="back-btn" onclick="goBackFromComing()">← <span>Back</span></button>
+    <div>
+      <div class="page-title" id="coming-title">POISON</div>
+      <div class="page-sub">Coming soon</div>
+    </div>
+  </div>
+  <div style="text-align:center;padding:2rem 0 1.5rem">
+    <div style="font-size:3rem;margin-bottom:.75rem">🚧</div>
+    <div style="font-size:16px;font-weight:700;color:#111827;margin-bottom:.4rem" id="coming-name">POISON</div>
+    <div style="font-size:13px;color:#9CA3AF" id="coming-acts"></div>
+  </div>
+  <button class="btn btn-secondary" style="margin-top:1rem" onclick="goBackFromComing()">Back</button>
 </div>
 
 </div><script>
@@ -853,11 +869,10 @@ function selectAppMode(mode){
 }
 
 function openModeSelect(actId){
-  // Handle combined ETHICS logic specifically for Game mode
   if (actId === 'ETHICS') {
-    // Passes through
+    // Allows ETHICS to merge DUNas, GGM, Ethics in game mode
   } else if(actId === 'SODA_CDCR') {
-    // Passes through
+    // Allows SODA_CDCR to merge in game mode
   } else if(!window[actId + '_DATA'] && actId !== 'ALL') {
     openComing(actId.toLowerCase());
     return;
@@ -1033,6 +1048,7 @@ function initQuiz(timingMode, sprintCount){
   var pool = [];
   
   if(G.selectedAct === 'ALL' && timingMode === 'mock') {
+    // Exact PKUMF Weightage Ratio logic
     var rQs = window.ROPA_DATA ? shuffle([].concat(window.ROPA_DATA.questions)) : [];
     var pQs = window.POISON_DATA ? shuffle([].concat(window.POISON_DATA.questions)) : [];
     var sQs = window.SODA_DATA ? shuffle([].concat(window.SODA_DATA.questions)) : [];
@@ -1065,7 +1081,7 @@ function initQuiz(timingMode, sprintCount){
     pool = shuffle(pool);
   } else if(G.selectedAct === 'SODA_CDCR') {
     if(window.SODA_DATA) pool = pool.concat(window.SODA_DATA.questions);
-    // CDCR specific questions are grouped under SODA_DATA in this refactor
+    if(window.CDCR_DATA) pool = pool.concat(window.CDCR_DATA.questions);
     pool = shuffle(pool);
   } else if(G.selectedAct === 'ETHICS') {
     if(window.ETHICS_DATA) pool = pool.concat(window.ETHICS_DATA.questions);
