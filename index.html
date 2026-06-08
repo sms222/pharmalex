@@ -220,6 +220,16 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
 .exam-result-banner{background:#fff;border:2px solid #E5E7EB;border-radius:20px;padding:1.5rem;text-align:center;margin-bottom:1rem}
 .exam-score-big{font-size:36px;font-weight:800;color:#4F46E5;margin:.5rem 0 .25rem}
 .exam-score-label{font-size:12px;color:#6B7280;font-weight:600;text-transform:uppercase;letter-spacing:0.05em}
+
+/* ── FOOTER ─────────────────────────────────────────────────── */
+.site-footer{background:#1E3A8A;color:#CBD5E1;font-size:11.5px;line-height:1.7;padding:1.5rem 1rem 2rem;margin-top:3rem}
+.site-footer a{color:#93C5FD;text-decoration:none}
+.site-footer a:hover{text-decoration:underline}
+.footer-inner{max-width:800px;margin:0 auto}
+.footer-title{font-size:13px;font-weight:700;color:#fff;margin-bottom:0.4rem}
+.footer-divider{border:none;border-top:1px solid #2D4A8A;margin:1rem 0}
+.footer-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+@media(max-width:500px){.footer-grid{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
@@ -292,10 +302,10 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
       <div class="act-title">ETHICS & GGM</div>
       <div class="act-sub">Code of Conduct & NMP</div>
     </div>
-    <div class="act-btn full-width" onclick="openModeSelect('ALL')">
+    <div class="act-btn full-width" onclick="launchFullMock()" style="background:#EEF2FF;border-color:#C7D2FE">
       <div class="act-icon">🎓</div>
-      <div class="act-title">Full Mock Exam (PKUMF Quota)</div>
-      <div class="act-sub">Test across the entire syllabus adhering to exam ratios</div>
+      <div class="act-title">Full PKUMF Mock Exam</div>
+      <div class="act-sub">100 Qs · PKUMF quota · 3-hour timer · -0.25 penalty · Scroll &amp; submit</div>
     </div>
   </div>
 </div>
@@ -338,9 +348,9 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
   <div class="timing-opt" onclick="initQuiz('mock')">
     <div class="timing-icon">📜</div>
     <div class="timing-info">
-      <div class="timing-name">Exam Simulator (Quota Based)</div>
-      <div class="timing-desc">Pulls questions adhering to the exact PKUMF syllabus quota. Strict -0.25 penalty and 1.8 mins/q timer.</div>
-      <div class="timing-tags">
+      <div class="timing-name">Act Simulator (Prorated Quota)</div>
+      <div class="timing-desc">Pulls all available questions for this act/regulation. Scroll freely, submit when ready. Strict -0.25 penalty.</div>
+      <div class="timing-tags" id="mode-quota-tags">
         <span class="tag tag-blue">All Available Qs</span>
         <span class="tag tag-red">Prorated Timer</span>
         <span class="tag tag-red">-0.25 Penalty</span>
@@ -1298,9 +1308,20 @@ function selectAppMode(mode){
   else if(mode === 'learn'){ show('learn-menu'); }
 }
 
+// PKUMF full exam quotas (used for full mock and prorated display)
+var PKUMF_QUOTA = {
+  ROPA: 20, POISON: 35, SODA_CDCR: 15, MASA: 10, DDA: 10, ETHICS: 10
+};
+
+function launchFullMock(){
+  G.selectedAct = 'ALL';
+  // initQuiz with mock will build the quota pool and route to exam scroll mode
+  initQuiz('mock');
+}
+
 function openModeSelect(actId){
   if (actId === 'ETHICS') {
-    // Passes through
+    // Passes through (ETHICS pools Ethics+GGM+DUNas)
   } else if(actId === 'SODA_CDCR') {
     // Passes through
   } else if(!window[actId + '_DATA'] && actId !== 'ALL') {
@@ -1308,7 +1329,22 @@ function openModeSelect(actId){
     return;
   }
   G.selectedAct = actId;
-  document.getElementById('mode-act-title').textContent = actId === 'ALL' ? 'Mock Exam' : actId + ' Testing';
+  document.getElementById('mode-act-title').textContent = actId + ' Practice';
+  
+  // Update the prorated quota tag for this act
+  var quota = PKUMF_QUOTA[actId];
+  var tagsEl = document.getElementById('mode-quota-tags');
+  if(tagsEl && quota){
+    tagsEl.innerHTML =
+      '<span class="tag tag-blue">~' + quota + ' Qs in real exam</span>' +
+      '<span class="tag tag-red">Prorated Timer</span>' +
+      '<span class="tag tag-red">-0.25 Penalty</span>';
+  } else if(tagsEl){
+    tagsEl.innerHTML =
+      '<span class="tag tag-blue">All Available Qs</span>' +
+      '<span class="tag tag-red">Prorated Timer</span>' +
+      '<span class="tag tag-red">-0.25 Penalty</span>';
+  }
   show('mode-select');
 }
 
@@ -1322,6 +1358,11 @@ function openActLearn(actId){
   
   document.getElementById('node-title').textContent = actData.actTitle || actId;
   document.getElementById('node-sub').textContent = actData.regTitle || 'Reference Materials';
+  
+  // TIPS: notes-only mode — hide flashcard and law text tabs
+  var isTips = (actId === 'TIPS');
+  document.getElementById('tab-flash').style.display = isTips ? 'none' : '';
+  document.getElementById('tab-law').style.display   = isTips ? 'none' : '';
   
   G.activeTab = 'notes';
   switchTab('notes');
@@ -1950,5 +1991,30 @@ function exitExam(){
 
 function goToGameDash(){ show('game-dash'); }
 </script>
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-title">PharmaLex — PKUMF Malaysian Pharmacy Law Prep</div>
+    <p style="margin-bottom:0.5rem">Provided free of charge for Malaysian pharmacy graduates preparing for the PKUMF licensing examination. Content is based on current Malaysian pharmacy laws, regulations, and guidelines as of <strong style="color:#fff">June 2025</strong>. Users are advised to verify against the latest gazetted versions of all Acts and Regulations.</p>
+    <hr class="footer-divider">
+    <div class="footer-grid">
+      <div>
+        <div style="font-weight:700;color:#E2E8F0;margin-bottom:0.25rem">Developed by</div>
+        <div>Dr. Shamin Mohd Saffian, Ph.D., R.Ph.<br>Senior Lecturer &amp; Assistant Dean (Entrepreneurship)<br>Faculty of Pharmacy, Universiti Kebangsaan Malaysia (UKM)</div>
+        <div style="margin-top:0.5rem">Assoc. Prof. Dr. Amirah Mohd Gazzali, Ph.D., R.Ph.<br>Associate Professor<br>School of Pharmaceutical Sciences, Universiti Sains Malaysia (USM)</div>
+      </div>
+      <div>
+        <div style="font-weight:700;color:#E2E8F0;margin-bottom:0.25rem">Feedback &amp; Corrections</div>
+        <div>Found an error or outdated provision? Please write to:<br><a href="mailto:shamin@ukm.edu.my">shamin@ukm.edu.my</a></div>
+        <div style="margin-top:0.75rem;font-size:10.5px;color:#94A3B8">
+          &copy; 2025 Shamin Mohd Saffian &amp; Amirah Mohd Gazzali.<br>
+          Free to use for educational purposes. Not for commercial distribution.<br>
+          This app does not constitute legal advice.
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
 </body>
 </html>
