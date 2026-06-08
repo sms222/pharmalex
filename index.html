@@ -7,8 +7,10 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/dist/tabler-icons.min.css">
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
-body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:#f8fafc;color:#1a1a2e;min-height:100vh}
-.app{max-width:800px;margin:0 auto;padding:1.25rem 1rem;min-height:100vh}
+html,body{height:100%;overflow:hidden}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:#f8fafc;color:#1a1a2e;display:flex;flex-direction:column;height:100vh;overflow:hidden}
+.app{flex:1;overflow-y:auto;-webkit-overflow-scrolling:touch;position:relative}
+.app-inner{max-width:800px;margin:0 auto;padding:1.25rem 1rem 1rem}
 .scr{display:none}.scr.on{display:block}
 
 /* Welcome & Dashboards */
@@ -68,6 +70,23 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
 /* Side-by-Side Law vs Regs Layout */
 .split-layout { display: flex; gap: 1.5rem; align-items: flex-start; }
 @media (max-width: 700px) { .split-layout { flex-direction: column; } }
+@media (max-width: 480px) {
+  .app-inner{padding:0.75rem 0.75rem 0.75rem}
+  .dash-grid{grid-template-columns:1fr 1fr;gap:8px}
+  .act-btn{padding:12px 8px}
+  .act-icon{font-size:22px;margin-bottom:4px}
+  .act-title{font-size:12px}
+  .act-sub{font-size:10px}
+  .timing-opt{padding:12px}
+  .exam-opt{padding:9px 12px;font-size:13px}
+  .exam-q-text{font-size:13.5px}
+  .note-item{font-size:12px}
+  .fc-front{font-size:14px}
+  .fc-back{font-size:13px}
+  .logo-title{font-size:24px}
+  .mode-card{padding:1rem}
+  .opt{padding:10px 13px;font-size:13px}
+}
 .col-act, .col-reg { flex: 1; min-width: 0; }
 .col-hdr { font-size: 14px; font-weight: 800; padding: 10px 14px; border-radius: 12px 12px 0 0; margin-bottom: 0.5rem; text-transform: uppercase; letter-spacing: 0.05em; }
 .col-hdr-act { background: #DBEAFE; color: #1E3A8A; }
@@ -172,7 +191,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
 .shake{animation:shake .3s ease}
 
 /* ── EXAM MODE (scroll layout) ─────────────────────────────────── */
-.exam-hdr{position:sticky;top:0;z-index:100;background:#f8fafc;padding:0.6rem 0 0.5rem;border-bottom:1px solid #E5E7EB;margin-bottom:1.25rem}
+.exam-hdr{position:sticky;top:0;z-index:100;background:#f8fafc;padding:0.6rem 0 0.5rem;border-bottom:1px solid #E5E7EB;margin-bottom:1.25rem;margin-left:-1rem;margin-right:-1rem;padding-left:1rem;padding-right:1rem}
 .exam-hdr-inner{max-width:800px;margin:0 auto;display:flex;align-items:center;gap:10px;padding:0 1rem}
 .exam-progress-text{font-size:11px;font-weight:700;color:#6B7280;letter-spacing:0.05em;white-space:nowrap}
 .exam-track{flex:1;height:6px;background:#E5E7EB;border-radius:4px;overflow:hidden}
@@ -207,7 +226,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
 .exam-fb.bad{background:#FEF2F2;border:1px solid #FECACA;color:#B91C1C}
 .exam-fb.skip{background:#FFFBEB;border:1px solid #FDE68A;color:#92400E}
 
-.exam-submit-bar{position:fixed;bottom:0;left:0;right:0;background:#fff;border-top:2px solid #E5E7EB;padding:12px 1rem;z-index:200}
+.exam-submit-bar{position:sticky;bottom:0;background:#fff;border-top:2px solid #E5E7EB;padding:12px 1rem;z-index:200;margin-top:auto}
 .exam-submit-inner{max-width:800px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:12px}
 .exam-answered-count{font-size:12px;color:#6B7280;font-weight:600}
 .exam-answered-count span{color:#4F46E5;font-weight:800}
@@ -222,18 +241,23 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
 .exam-score-label{font-size:12px;color:#6B7280;font-weight:600;text-transform:uppercase;letter-spacing:0.05em}
 
 /* ── FOOTER ─────────────────────────────────────────────────── */
-.site-footer{background:#1E3A8A;color:#CBD5E1;font-size:11.5px;line-height:1.7;padding:1.5rem 1rem 2rem;margin-top:3rem}
+.site-footer{background:#1E3A8A;color:#CBD5E1;font-size:11px;line-height:1.6;flex-shrink:0;transition:padding .2s}
 .site-footer a{color:#93C5FD;text-decoration:none}
 .site-footer a:hover{text-decoration:underline}
 .footer-inner{max-width:800px;margin:0 auto}
-.footer-title{font-size:13px;font-weight:700;color:#fff;margin-bottom:0.4rem}
-.footer-divider{border:none;border-top:1px solid #2D4A8A;margin:1rem 0}
+.footer-title{font-size:14px;font-weight:800;color:#fff;margin-bottom:0.5rem;letter-spacing:-0.01em}
+.footer-divider{border:none;border-top:1px solid #2D4A8A;margin:0.75rem 0}
 .footer-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
 @media(max-width:500px){.footer-grid{grid-template-columns:1fr}}
+.footer-full{display:block}
+.footer-mini{display:none}
+.site-footer.compact{padding:0.5rem 1rem}
+.site-footer.compact .footer-full{display:none}
+.site-footer.compact .footer-mini{display:flex;flex-wrap:wrap;gap:0.25rem 1.25rem;align-items:center;justify-content:space-between}
 </style>
 </head>
 <body>
-<div class="app">
+<div class="app"><div class="app-inner">
 
 <div id="scr-welcome" class="scr on">
   <div class="welcome-box">
@@ -506,7 +530,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
   <button class="btn btn-secondary" style="margin-top:1rem" onclick="goBackFromComing()">Back</button>
 </div>
 
-</div><script>
+</div></div><script>
 // ── DATA INJECTIONS ──────────────────────────────────────────────
 
 window.TIPS_DATA = {
@@ -1300,6 +1324,18 @@ function shuffle(array) {
 function show(id){
   document.querySelectorAll('.scr').forEach(function(s){s.classList.remove('on');});
   document.getElementById('scr-'+id).classList.add('on');
+  // Scroll app container back to top on screen change
+  var appEl = document.querySelector('.app');
+  if(appEl) appEl.scrollTop = 0;
+  // Footer: full on welcome, compact on all other screens
+  var footer = document.getElementById('main-footer');
+  if(footer){
+    if(id === 'welcome'){
+      footer.classList.remove('compact');
+    } else {
+      footer.classList.add('compact');
+    }
+  }
 }
 
 function selectAppMode(mode){
@@ -1969,7 +2005,7 @@ function submitExam(timedOut){
   document.getElementById('exam-fill').style.width = '100%';
   document.getElementById('exam-progress-text').textContent = 'Results';
   // Scroll to top
-  window.scrollTo(0, 0);
+  var appEl = document.querySelector('.app'); if(appEl) appEl.scrollTop = 0;
   
   // Award XP
   G.xp += G.correct * 5;
@@ -1992,27 +2028,42 @@ function exitExam(){
 function goToGameDash(){ show('game-dash'); }
 </script>
 
-<footer class="site-footer">
+<footer class="site-footer" id="main-footer">
   <div class="footer-inner">
-    <div class="footer-title">PharmaLex — PKUMF Malaysian Pharmacy Law Prep</div>
-    <p style="margin-bottom:0.5rem">Provided free of charge for Malaysian pharmacy graduates preparing for the PKUMF licensing examination. Content is based on current Malaysian pharmacy laws, regulations, and guidelines as of <strong style="color:#fff">June 2026</strong>. Users are advised to verify against the latest gazetted versions of all Acts and Regulations.</p>
-    <hr class="footer-divider">
-    <div class="footer-grid">
-      <div>
-        <div style="font-weight:700;color:#E2E8F0;margin-bottom:0.25rem">Developed by</div>
-        <div>Dr. Shamin Mohd Saffian, Ph.D., R.Ph.<br>Senior Lecturer &amp; Assistant Dean (Entrepreneurship)<br>Faculty of Pharmacy, Universiti Kebangsaan Malaysia (UKM)</div>
-        <div style="margin-top:0.5rem">Assoc. Prof. Dr. Amirah Mohd Gazzali, Ph.D., R.Ph.<br>Associate Professor<br>School of Pharmaceutical Sciences, Universiti Sains Malaysia (USM)</div>
-      </div>
-      <div>
-        <div style="font-weight:700;color:#E2E8F0;margin-bottom:0.25rem">Feedback &amp; Corrections</div>
-        <div>Found an error or outdated provision? Please write to:<br><a href="mailto:shamin@ukm.edu.my">shamin@ukm.edu.my</a></div>
-        <div style="margin-top:0.75rem;font-size:10.5px;color:#94A3B8">
-          &copy; 2026 Shamin Mohd Saffian &amp; Amirah Mohd Gazzali.<br>
-          Free to use for educational purposes. Not for commercial distribution.<br>
-          This app does not constitute legal advice.
+
+    <!-- FULL version: welcome screen only -->
+    <div class="footer-full" style="padding:1.25rem 0 0.5rem">
+      <div class="footer-title">PharmaLex — PKUMF Malaysian Pharmacy Law Prep</div>
+      <p style="font-size:11.5px;margin-bottom:0.5rem;color:#94A3B8">Provided free of charge for Malaysian pharmacy graduates preparing for the PKUMF licensing examination. Content is based on current Malaysian pharmacy laws and regulations as of <strong style="color:#CBD5E1">June 2026</strong>. Always verify against the latest gazetted versions.</p>
+      <hr class="footer-divider">
+      <div class="footer-grid">
+        <div>
+          <div style="font-weight:700;color:#E2E8F0;margin-bottom:0.3rem;font-size:11.5px">Developed by</div>
+          <div style="font-size:11.5px">Dr. Shamin Mohd Saffian, Ph.D., R.Ph.<br>
+          Senior Lecturer &amp; Assistant Dean (Entrepreneurship)<br>
+          Faculty of Pharmacy, Universiti Kebangsaan Malaysia (UKM)</div>
+          <div style="margin-top:0.5rem;font-size:11.5px">Assoc. Prof. Dr. Amirah Mohd Gazzali, Ph.D., R.Ph.<br>
+          Associate Professor<br>
+          School of Pharmaceutical Sciences, Universiti Sains Malaysia (USM)</div>
+        </div>
+        <div>
+          <div style="font-weight:700;color:#E2E8F0;margin-bottom:0.3rem;font-size:11.5px">Feedback &amp; Corrections</div>
+          <div style="font-size:11.5px">Found an error or outdated provision?<br>Write to: <a href="mailto:shamin@ukm.edu.my">shamin@ukm.edu.my</a></div>
+          <div style="margin-top:0.75rem;font-size:10px;color:#64748B">
+            &copy; 2026 Shamin Mohd Saffian &amp; Amirah Mohd Gazzali.<br>
+            Free to use for educational purposes. Not for commercial distribution.<br>
+            This app does not constitute legal advice.
+          </div>
         </div>
       </div>
     </div>
+
+    <!-- MINI version: all inner screens -->
+    <div class="footer-mini">
+      <div style="font-size:10px;color:#94A3B8">&copy; 2026 <strong style="color:#CBD5E1">Shamin Mohd Saffian</strong> (UKM) &amp; <strong style="color:#CBD5E1">Amirah Mohd Gazzali</strong> (USM) &nbsp;·&nbsp; Laws current: June 2026</div>
+      <div style="font-size:10px"><a href="mailto:shamin@ukm.edu.my">shamin@ukm.edu.my</a> &nbsp;·&nbsp; <span style="color:#64748B">Not legal advice</span></div>
+    </div>
+
   </div>
 </footer>
 
