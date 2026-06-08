@@ -1910,9 +1910,9 @@ function submitExam(timedOut){
   html += '<div style="text-align:center"><div style="font-size:20px;font-weight:800;color:#DC2626">' + G.wrong + '</div><div style="font-size:11px;color:#6B7280">Wrong</div></div>';
   html += '<div style="text-align:center"><div style="font-size:20px;font-weight:800;color:#D97706">' + G.skipped + '</div><div style="font-size:11px;color:#6B7280">Skipped</div></div>';
   html += '</div>';
-  if(timedOut) html += '<div style="font-size:13px;color:#991B1B;font-weight:600">⏱️ Time's up — exam auto-submitted</div>';
+  if(timedOut) html += '<div style="font-size:13px;color:#991B1B;font-weight:600">⏱️ Time\'s up \u2014 exam auto-submitted</div>';
   html += '<div style="display:flex;gap:10px;justify-content:center;margin-top:1rem">';
-  html += '<button class="btn btn-secondary" style="margin:0" onclick="show('game-dash')">← Dashboard</button>';
+  html += '<button class="btn btn-secondary" style="margin:0" onclick="goToGameDash()">\u2190 Dashboard</button>';
   html += '</div>';
   html += '</div>';
   
@@ -1948,6 +1948,7 @@ function exitExam(){
   }
 }
 
+function goToGameDash(){ show('game-dash'); }
 </script>
 </body>
 </html>
