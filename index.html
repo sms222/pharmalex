@@ -103,12 +103,14 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
 .fc-back{font-size:14px;color:#111827;line-height:1.6}
 .fc-ref{background:#EFF6FF;color:#1D4ED8;border-radius:99px;padding:4px 12px;font-size:11px;font-weight:700;margin-top:1rem;display:inline-block}
 
-.law-row{border-bottom:1px solid #F3F4F6}
-.law-hdr{display:flex;justify-content:space-between;align-items:center;padding:12px 0;cursor:pointer;gap:8px}
-.law-sec{font-size:11px;background:#EFF6FF;color:#1D4ED8;border-radius:99px;padding:2px 10px;font-weight:600;flex-shrink:0}
-.law-title{font-size:13px;font-weight:600;color:#111827;flex:1}
-.law-body{font-size:13px;color:#6B7280;line-height:1.75;padding-bottom:12px;display:none}
+.law-row{border-bottom:1px solid #E5E7EB; background:#fff; margin-bottom:0.5rem; border-radius:12px; box-shadow:0 1px 2px rgba(0,0,0,.02); overflow:hidden;}
+.law-hdr{display:flex;justify-content:space-between;align-items:center;padding:14px 16px;cursor:pointer;gap:12px; background:#FAFAFA;}
+.law-sec{font-size:12px;background:#EFF6FF;color:#1D4ED8;border-radius:6px;padding:4px 10px;font-weight:800;flex-shrink:0; letter-spacing:0.02em;}
+.law-title{font-size:14px;font-weight:700;color:#111827;flex:1}
+.law-body{font-size:13.5px;color:#4B5563;line-height:1.75;padding:0 16px 16px 16px;display:none; border-top:1px solid #F3F4F6; margin-top:10px; padding-top:12px;}
 .law-body.open{display:block}
+.lh{background:#FEF3C7;color:#92400E;border-radius:4px;padding:2px 6px;font-weight:700;font-size:.95em}
+.lk{background:#EFF6FF;color:#1D4ED8;border-radius:4px;padding:2px 6px;font-weight:700;font-size:.95em}
 
 /* Buttons */
 .btn{border:none;border-radius:14px;padding:13px;font-size:14px;font-weight:600;cursor:pointer;transition:all .15s;margin-bottom:.5rem; width:100%;}
@@ -452,7 +454,7 @@ window.TIPS_DATA = {
       ]}
     ]
   },
-  flashcards: []
+  flashcards: [], law: []
 };
 
 window.ROPA_DATA = {
@@ -509,6 +511,10 @@ window.ROPA_DATA = {
     {q:'Quorum of the Pharmacy Board',a:'9 members',ref:'s.4(4) RPA 1951'},
     {q:'Fee for annual retention — body corporate',a:'RM200',ref:'Reg 12(2) RPA Reg 2004'},
     {q:'Committee of Inquiry — quorum',a:'3',ref:'Reg 15(4) RPA Reg 2004'}
+  ],
+  law: [
+    {sec:'s.4',title:'President and meetings',body:'DG Health = President. Absence → members <span class="lh">elect</span> chairman. Quorum: <span class="lh">9</span>.'},
+    {sec:'s.16',title:'Annual certificate',body:'Renew before year end + pay fee. Failure = <span class="lh">removed from register</span>. Restoration: application + <span class="lk">additional fee</span>.'}
   ]
 };
 
@@ -545,27 +551,34 @@ window.POISON_DATA = {
         {t:'Group B',d:'Retail sale only on prescription (max 3 repeats). Keep Rx for 2 years.'},
         {t:'Group C',d:'Retail by Rx, OR by pharmacist logging it as a dispensed medicine.'},
         {t:'Group D',d:'Retail by pharmacist to a known person, recorded in Poisons Book with signature.'}
+      ]},
+      {title:'Enforcement & Penalties',items:[
+        {t:'Authorized Officers [s.31A]',d:'Have all powers of a police officer under Criminal Procedure Code (including arrest, search, and seizure) [s.31AA].'},
+        {t:'General Penalty [s.32]',d:'Fine ≤ RM50,000 or ≤ 5 years imprisonment. If willful default endangering life: ≤ RM200,000 or ≤ 10 years imprisonment.'}
       ]}
     ],
     reg: [
       {title:'Poisons Regulations 1952',items:[
         {t:'Storage (r.5-7)',d:'Unbroken case, locked cupboard, or distinguishable container. Part II agri poisons separated from food.'},
-        {t:'Labelling (r.9-12)',d:'Must have "Poison" in red. Dispensed medicines must say "Controlled Medicine" / "Ubat Terkawal".'}
+        {t:'Labelling (r.9-12)',d:'Must have "Poison" in red. Dispensed medicines must say "Controlled Medicine" / "Ubat Terkawal".'},
+        {t:'Records (r.27A)',d:'Prescription books and wholesale registers must be kept for 5 years from last entry.'}
       ]},
       {title:'Psychotropic Regulations 1989',items:[
-        {t:'Import/Export (r.7)',d:'Fee is RM200. Needs authorization.'},
+        {t:'Import/Export (r.7)',d:'Fee is RM200. Needs authorization from Licensing Officer.'},
         {t:'Permit to Purchase (r.15)',d:'Fee is RM300.'},
-        {t:'Registers (r.19-21)',d:'Prescription Register, Supply Register, Production Register. Must be kept for 2 years.'}
+        {t:'Registers (r.19-21)',d:'Prescription Register, Supply Register, Production Register. Must be kept for 2 years.'},
+        {t:'Disposal (r.25)',d:'Must dispose only in the presence and under instruction of a Drug Enforcement Officer.'}
       ]},
       {title:'Compounding Regulations 2023',items:[
-        {t:'Max Compound',d:'Up to 50% of the maximum fine.'},
+        {t:'Max Compound',d:'Up to 50% of the maximum fine with written consent of Public Prosecutor.'},
         {t:'Payment Window',d:'Valid for 30 days.'}
       ]}
     ],
     warn: [
       'Sodium Hydroxide at 9% is NOT a poison. Only 12% and above requires a Type E licence/permit.',
       'A Type B licence holder CANNOT engage in retail business.',
-      'Prescriptions for Psychotropics expire after 90 days.'
+      'Prescriptions for Psychotropics expire after 90 days, while standard prescriptions have no explicit statutory expiry in the base Act but follow good practice.',
+      'Poisons Registers are kept for 5 years (updated 2025), but Psychotropic Registers are kept for 2 years.'
     ]
   },
   flashcards: [
@@ -573,7 +586,17 @@ window.POISON_DATA = {
     {q:'Which Poison Group strictly prohibits retail sale?',a:'Group A',ref:'s.20 PA 1952'},
     {q:'How long must a Prescription Book or Poisons Book be preserved?',a:'For five years from the date of the last entry',ref:'Reg 27A PR 1952'},
     {q:'What is the fee for an import authorization of a psychotropic substance?',a:'RM200',ref:'Reg 7 P(PS)R 1989'},
-    {q:'A prescription for a psychotropic substance is valid for how many days?',a:'90 days',ref:'Reg 11(3)(d) P(PS)R 1989'}
+    {q:'A prescription for a psychotropic substance is valid for how many days?',a:'90 days',ref:'Reg 11(3)(d) P(PS)R 1989'},
+    {q:'To dispose of a psychotropic substance, whose presence is legally required?',a:'A Drug Enforcement Officer',ref:'Reg 25(1) P(PS)R 1989'},
+    {q:'What is the statutory penalty limit for an offence under the Poisons Act that endangers human life?',a:'RM200,000 or 10 years imprisonment',ref:'s.32(2) PA 1952'}
+  ],
+  law: [
+    {sec:'s.15',title:'Sale by Wholesale',body:'No poison shall be sold by wholesale except by a <span class="lh">licensed wholesaler</span>... The seller shall not deliver it until he has made an entry in a register stating name/address of purchaser... and the purchaser has affixed his <span class="lk">signature</span>.'},
+    {sec:'s.20',title:'Group A Poisons',body:'Group A Poison shall not be sold or supplied by wholesale or retail except by a <span class="lh">licensed wholesaler</span> to a <span class="lk">licensed pharmacist</span> or another licensed wholesaler, or to be immediately exported.'},
+    {sec:'s.21(1)',title:'Group B Poisons',body:'Group B Poison shall not be sold or supplied by retail to any person except... by a <span class="lk">registered pharmacist</span> as a dispensed medicine on and in accordance with a <span class="lh">prescription</span>.'},
+    {sec:'s.26',title:'Licences',body:'A <span class="lh">Type A</span> licence issued to a pharmacist to import, store and deal generally by wholesale and retail... A <span class="lh">Type B</span> licence issued to any person... to import, store and sell by wholesale.'},
+    {sec:'P(PS)R r.11',title:'Psychotropic Prescriptions',body:'Every prescription... shall specify the number of times (not exceeding <span class="lh">three</span>) the psychotropic substance may be supplied... No person shall sell on a prescription which is presented more than <span class="lh">ninety days</span> after the date of the prescription.'},
+    {sec:'P(PS)R r.25',title:'Disposal of Psychotropics',body:'No person... shall dispose of the psychotropic substance in his possession except in the <span class="lk">presence</span> and in accordance with the instructions of a <span class="lh">Drug Enforcement Officer</span>.'}
   ]
 };
 
@@ -601,7 +624,8 @@ window.SODA_DATA = {
         {t:'Seizure Appeal [s.4]',d:'Claims against seized items must be made to a Magistrate within 48 hours. If no complaint, drug becomes Government property.'},
         {t:'Sample Division [s.7]',d:'An officer must divide procured samples into exactly 3 parts: seller, analyst, retained.'},
         {t:'Court Deadlines [s.18]',d:'Proceedings cannot be instituted after 60 days from purchase. Summons cannot be returnable in < 14 days.'},
-        {t:'Body Corporate Penalty',d:'First Offence: Fine ≤ RM50,000. Subsequent: Fine ≤ RM100,000.'}
+        {t:'Warranty Defence [s.20]',d:'Written warranty is a good defence IF a copy is delivered to the prosecutor within 7 days of receiving the summons.'},
+        {t:'Body Corporate Penalty [s.12]',d:'First Offence: Fine ≤ RM50,000. Subsequent: Fine ≤ RM100,000.'}
       ]}
     ],
     reg: [
@@ -611,7 +635,7 @@ window.SODA_DATA = {
         {t:'Secretary',d:'A public service pharmacist; acts as Secretary but is NOT a voting member.'}
       ]},
       {title:'Licensing & Registration Fees',items:[
-        {t:'Traditional Medicine Reg.',d:'RM500 processing fee.'},
+        {t:'Traditional Medicine Reg.',d:'RM500 processing fee. Variant is RM50.'},
         {t:'Other Products Reg.',d:'RM1,000 processing fee.'},
         {t:'Manufacturer Licence',d:'RM1,000 processing fee.'},
         {t:'Clinical Trial Import',d:'Valid for max 3 years. Can only include ONE product.'}
@@ -637,7 +661,16 @@ window.SODA_DATA = {
     {q:'What is the maximum time allowed to institute proceedings after a sample is purchased?',a:'60 days',ref:'s.18(4) SODA 1952'},
     {q:'What is the minimum quorum for a meeting of the Drug Control Authority?',a:'Four members',ref:'Reg 5(4) CDCR 1984'},
     {q:'How many products can be included in a Clinical Trial Import Licence?',a:'Only one product',ref:'Reg 12(2) CDCR 1984'},
-    {q:'Name three specific synthetic substances completely prohibited in traditional medicines.',a:'Caffeine, Nicotinamide, Paracetamol',ref:'Table II CDCR 1984'}
+    {q:'Name three specific synthetic substances completely prohibited in traditional medicines.',a:'Caffeine, Nicotinamide, Paracetamol',ref:'Table II CDCR 1984'},
+    {q:'How many days do you have to appeal a DCA decision to the Minister?',a:'14 days',ref:'Reg 18 CDCR 1984'}
+  ],
+  law: [
+    {sec:'s.4(3)-(4)',title:'Seizure of Drugs',body:'Any person claiming anything seized... may within <span class="lh">forty-eight hours</span>... complain thereof to the Court of a Magistrate... If no complaint has been made... the article seized shall become the property of the Government and shall be <span class="lh">destroyed</span>.'},
+    {sec:'s.7(2)',title:'Sampling Procedure',body:'Such officer or inspector shall thereupon divide the sample into <span class="lh">three parts</span> and shall mark and seal... and shall offer one of such parts to the seller... deliver another to an analyst, and shall retain the third.'},
+    {sec:'s.18(4)',title:'Proceedings Timeline',body:'No proceedings in respect of the sale thereof or of any offence against this Act shall be instituted after the expiration of <span class="lh">sixty days</span> from the time of purchasing or procuring the same.'},
+    {sec:'s.20(3)',title:'Warranty Defence',body:'No warranty or other written statement shall be any defence... unless the defendant has within <span class="lh">seven days</span> after service of the summons delivered to the prosecutor a copy of such warranty.'},
+    {sec:'CDCR r.7(1A)',title:'Prohibition on Mixtures',body:'No person shall manufacture, sell, supply, import... any product which is a <span class="lk">mixture</span> of a registered product with another registered product.'},
+    {sec:'CDCR r.18A(13)',title:'Cosmetic Recalls',body:'It shall be the duty of the person responsible for placing the notified cosmetic in the market... to <span class="lh">recall, remove or withdraw</span> such notified cosmetic with immediate effect if it has contravened any directives.'}
   ]
 };
 
@@ -698,6 +731,12 @@ window.MASA_DATA = {
     {q:'Who is the Chairman of the Medicine Advertisements Board?',a:'Director General of Health',ref:'Reg 3(1) MAB Regs 1976'},
     {q:'What is the quorum for a Medicine Advertisements Board meeting?',a:'Three members',ref:'Reg 3(2) MAB Regs 1976'},
     {q:'What details MUST be legibly displayed on a printed approved medicine advertisement?',a:'Approval serial number and expiry date',ref:'Reg 7(2) MAB Regs 1976'}
+  ],
+  law: [
+    {sec:'s.3',title:'Prohibition relating to certain diseases',body:'No person shall take any part in the publication of any advertisement... for the purpose of prevention or treatment of the diseases and conditions specified in the <span class="lh">Schedule</span> (e.g., Cancer, Diabetes, Asthma).'},
+    {sec:'s.4',title:'Prohibition relating to abortion',body:'No person shall take any part in the publication of any advertisement referring to any article... in terms which calculated to lead to the use of that article... for <span class="lh">procuring the miscarriage</span> of women.'},
+    {sec:'s.6F(1)',title:'Sanction to Prosecute',body:'No prosecution shall be instituted under this Act or any regulation made thereunder without the <span class="lk">sanction in writing</span> of the <span class="lh">Public Prosecutor</span>.'},
+    {sec:'MAB Reg 7(2)',title:'Numbering of approvals',body:'The approval serial number and <span class="lh">expiry date</span> shall be legibly displayed in every advertisement published in print or in the form of a hoarding, illuminated sign, or printed matter.'}
   ]
 };
 
@@ -712,17 +751,26 @@ window.DDA_DATA = {
   ],
   notes: {
     act: [
-      {title:'Dangerous Drugs Basics',items:[
-        {t:'Schedule 1',d:'Contains the list of Dangerous Drugs (e.g., Morphine, Cannabis, Heroin).'}
+      {title:'Dangerous Drugs Classification',items:[
+        {t:'First Schedule',d:'Contains the list of Dangerous Drugs (e.g., Morphine, Cannabis, Heroin, Cocaine).'},
+        {t:'Trafficking Presumptions',d:'Possession above statutory limits presumes trafficking (e.g., 40g Cocaine, 200g Cannabis, 50g Amphetamines).'}
       ]}
     ],
     reg: [
       {title:'DDA Regulations',items:[
-        {t:'Third Schedule Exemption',d:'Lists products exempted from DDR, requiring them to be in dosage/product form.'}
+        {t:'Third Schedule Exemption',d:'Lists products exempted from DDR (e.g. certain low-dose preparations), requiring them to be in strict dosage/product form.'},
+        {t:'Recording',d:'Supply of registered dangerous drugs in government clinics for treatment must be recorded in the Prescription Book.'}
       ]}
+    ],
+    warn: [
+      'Do not confuse Psychotropics (like Buprenorphine, Diazepam) with strict Dangerous Drugs (Morphine, Heroin) when classifying.'
     ]
   },
-  flashcards: []
+  flashcards: [
+    {q:'What is the trafficking threshold for Cocaine?',a:'40 grammes',ref:'DDA Trafficking Presumptions'},
+    {q:'What is the trafficking threshold for Cannabis?',a:'200 grammes',ref:'DDA Trafficking Presumptions'}
+  ],
+  law: []
 };
 
 // New Module: ETHICS
@@ -762,6 +810,12 @@ window.ETHICS_DATA = {
     {q:'What is Principle 6 of the Code of Ethics?',a:'Be ethical, honest and trustworthy.',ref:'Code of Ethics 2018'},
     {q:'How many fully registered pharmacists make up a Committee of Inquiry?',a:'Five',ref:'Guidance on Code / Reg 15'},
     {q:'What are the three punishments the Board can impose after an inquiry?',a:'Removal, Suspension, or Reprimand',ref:'RPA s.18A'}
+  ],
+  law: [
+    {sec:'Pr. 1',title:'Make Patients Your First Concern',body:'Ensure the product and services provided are safe and of acceptable quality... Inform and educate patients or their caregivers about health and how to use and store their medicines in a correct manner.'},
+    {sec:'Pr. 3',title:'Show Respect for Others',body:'Respect and protect people\'s <span class="lh">dignity, privacy and confidentiality</span>. Never disclose confidential information without consent unless required by the law.'},
+    {sec:'Pr. 6',title:'Be Ethical, Honest and Trustworthy',body:'Recognise and endeavour to <span class="lk">avoid conflicts of interest</span> and declare any personal or professional interests they have. Not exploit the vulnerability or lack of knowledge of others.'},
+    {sec:'Guidance 1.1',title:'Disciplinary Jurisdiction',body:'Board may initiate disciplinary proceedings... if it comes to the knowledge of the Board that a registered pharmacist has obtained registration by a <span class="lh">fraudulent</span> statement... or has been guilty of <span class="lh">infamous or disgraceful conduct</span> in a professional sense.'}
   ]
 };
 
@@ -793,12 +847,21 @@ window.GGM_DATA = {
         {t:'Conflict of Interest (COI)',d:'When a public servant has vested personal interests (e.g. post-employment benefits from a contracted company).'},
         {t:'Bribes',d:'Kickbacks for pseudo-trials, falsification of data, or speeding up registration.'}
       ]}
+    ],
+    warn: [
+      'GGM focuses equally on the "Value Approach" (Ethics) and the "Disciplinary Approach" (Sanctions/Ombudsman).'
     ]
   },
   flashcards: [
     {q:'What are the 4 Core Moral Values of GGM?',a:'Justice, Truth, Service to the common good, Trusteeship',ref:'GGM Framework'},
     {q:'What is Conflict of Interest (COI)?',a:'When a public servant has vested personal interests that compromise their official duties.',ref:'GGM Framework'},
     {q:'Name 3 of the 5 vulnerable areas in the pharmaceutical system.',a:'Registration, Inspection, Promotion, Selection, Procurement',ref:'GGM Framework'}
+  ],
+  law: [
+    {sec:'Appx 3 (I)',title:'Justice',body:'Justice relates to the exercise of impartial in determining the truth of facts... The governance and administration of any social enterprise must be realized within the framework provided by the <span class="lh">rule of law</span>.'},
+    {sec:'Appx 3 (II)',title:'Truth',body:'Faithfulness to truth is the basis of trustworthiness, integrity and honour... Decisions that affect the public interest should be substantiated by appropriate, reliable and <span class="lh">provable evidence</span>.'},
+    {sec:'Appx 3 (III)',title:'Service to the common good',body:'Personal and institutional commitment to the core moral value of serving the common good is a source of <span class="lk">intrinsic motivation</span>... Public services should be inclusive and should serve all equally.'},
+    {sec:'Appx 3 (IV)',title:'Trusteeship',body:'Good governance is based on public trust... Society expects public servants, as trustees of public resources, to be trustworthy in the use of the power, authority and resources entrusted to their charge.'}
   ]
 };
 
@@ -829,7 +892,8 @@ window.DUNAS_DATA = {
   flashcards: [
     {q:'What does QUM stand for in DUNas?',a:'Quality Use of Medicines',ref:'DUNas Framework'},
     {q:'What are the core components of DUNas?',a:'Quality/Safety/Efficacy, Access, QUM, and Partnership & Collaboration.',ref:'DUNas Framework'}
-  ]
+  ],
+  law: []
 };
 
 // ── CORE GAME ENGINE LOGIC ───────────────────────────────────────
@@ -869,10 +933,11 @@ function selectAppMode(mode){
 }
 
 function openModeSelect(actId){
+  // Handle combined ETHICS logic specifically for Game mode
   if (actId === 'ETHICS') {
-    // Allows ETHICS to merge DUNas, GGM, Ethics in game mode
+    // Passes through
   } else if(actId === 'SODA_CDCR') {
-    // Allows SODA_CDCR to merge in game mode
+    // Passes through
   } else if(!window[actId + '_DATA'] && actId !== 'ALL') {
     openComing(actId.toLowerCase());
     return;
@@ -933,6 +998,7 @@ function switchTab(t){
   if(t==='notes'){
     var html = '';
     
+    // If it's the dual layout structure
     if(actData.notes && actData.notes.act) {
       html += '<div class="split-layout">';
       
@@ -982,6 +1048,7 @@ function switchTab(t){
       }
       
     } else {
+      // Fallback single column if not using the new structure
       html += '<div style="padding:2rem;text-align:center;color:#6B7280;font-size:14px;"><i>Notes formatting requires update.</i></div>';
     }
     
@@ -1054,14 +1121,9 @@ function initQuiz(timingMode, sprintCount){
     var sQs = window.SODA_DATA ? shuffle([].concat(window.SODA_DATA.questions)) : [];
     var mQs = window.MASA_DATA ? shuffle([].concat(window.MASA_DATA.questions)) : [];
     var dQs = window.DDA_DATA ? shuffle([].concat(window.DDA_DATA.questions)) : [];
+    var eQs = window.ETHICS_DATA ? shuffle([].concat(window.ETHICS_DATA.questions)) : [];
     
-    // Combine ETHICS, GGM, and DUNas for the Ethics quota
-    var eQsTemp = [];
-    if(window.ETHICS_DATA) eQsTemp = eQsTemp.concat(window.ETHICS_DATA.questions);
-    if(window.GGM_DATA) eQsTemp = eQsTemp.concat(window.GGM_DATA.questions);
-    if(window.DUNAS_DATA) eQsTemp = eQsTemp.concat(window.DUNAS_DATA.questions);
-    var eQs = shuffle(eQsTemp);
-    
+    // Ideal PKUMF target (100 total): ROPA:20, POISON:35, SODA:15, MASA:10, DDA:10, ETHICS:10
     pool = pool.concat(rQs.slice(0, 20));
     pool = pool.concat(pQs.slice(0, 35));
     pool = pool.concat(sQs.slice(0, 15)); 
@@ -1076,12 +1138,9 @@ function initQuiz(timingMode, sprintCount){
     if(window.MASA_DATA) pool = pool.concat(window.MASA_DATA.questions);
     if(window.DDA_DATA) pool = pool.concat(window.DDA_DATA.questions);
     if(window.ETHICS_DATA) pool = pool.concat(window.ETHICS_DATA.questions);
-    if(window.GGM_DATA) pool = pool.concat(window.GGM_DATA.questions);
-    if(window.DUNAS_DATA) pool = pool.concat(window.DUNAS_DATA.questions);
     pool = shuffle(pool);
   } else if(G.selectedAct === 'SODA_CDCR') {
     if(window.SODA_DATA) pool = pool.concat(window.SODA_DATA.questions);
-    if(window.CDCR_DATA) pool = pool.concat(window.CDCR_DATA.questions);
     pool = shuffle(pool);
   } else if(G.selectedAct === 'ETHICS') {
     if(window.ETHICS_DATA) pool = pool.concat(window.ETHICS_DATA.questions);
@@ -1098,7 +1157,7 @@ function initQuiz(timingMode, sprintCount){
   } else if (timingMode === 'sprint'){
     var count = sprintCount || 10;
     G.lesQ = pool.slice(0, count);
-    G.timeRemaining = G.lesQ.length * 108; 
+    G.timeRemaining = G.lesQ.length * 108; // 1.8 mins = 108 secs per question
   } else if (timingMode === 'mock'){
     G.lesQ = pool; 
     G.timeRemaining = G.lesQ.length * 108; 
