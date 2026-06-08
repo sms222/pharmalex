@@ -103,11 +103,19 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
 .fc-back{font-size:14px;color:#111827;line-height:1.6}
 .fc-ref{background:#EFF6FF;color:#1D4ED8;border-radius:99px;padding:4px 12px;font-size:11px;font-weight:700;margin-top:1rem;display:inline-block}
 
+.law-row{border-bottom:1px solid #F3F4F6}
+.law-hdr{display:flex;justify-content:space-between;align-items:center;padding:12px 0;cursor:pointer;gap:8px}
+.law-sec{font-size:11px;background:#EFF6FF;color:#1D4ED8;border-radius:99px;padding:2px 10px;font-weight:600;flex-shrink:0}
+.law-title{font-size:13px;font-weight:600;color:#111827;flex:1}
+.law-body{font-size:13px;color:#6B7280;line-height:1.75;padding-bottom:12px;display:none}
+.law-body.open{display:block}
+
 /* Buttons */
 .btn{border:none;border-radius:14px;padding:13px;font-size:14px;font-weight:600;cursor:pointer;transition:all .15s;margin-bottom:.5rem; width:100%;}
 .btn-primary{background:#3B82F6;color:#fff}.btn-primary:hover{background:#2563EB}
 .btn-secondary{background:#F3F4F6;color:#374151}.btn-secondary:hover{background:#E5E7EB}
 .btn-success{background:#15803D;color:#fff}.btn-success:hover{background:#166534}
+.btn-outline{background:transparent;border:2px solid #E5E7EB;color:#374151}.btn-outline:hover{background:#F9FAFB;border-color:#D1D5DB}
 
 /* Testing Arena Layout */
 .les-hdr{display:flex;align-items:center;gap:10px;margin-bottom:1rem; max-width:480px; margin-left:auto; margin-right:auto;}
@@ -175,7 +183,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
         <span class="mode-icon">📖</span>
         <div class="mode-name">Learn Mode</div>
       </div>
-      <div class="mode-desc">Side-by-side regulatory reference cards, Ethics & GGM, exam tips, and study briefs. Zero testing pressure.</div>
+      <div class="mode-desc">Direct access to regulatory reference cards, Ethics & GGM, exam tips, and study briefs. Zero testing pressure.</div>
     </div>
 
     <div class="mode-card" onclick="selectAppMode('game')">
@@ -212,7 +220,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
       <div class="act-title">POISON</div>
       <div class="act-sub">Poisons Act 1952</div>
     </div>
-    <div class="act-btn" onclick="openModeSelect('SODA')">
+    <div class="act-btn" onclick="openModeSelect('SODA_CDCR')">
       <div class="act-icon">🧪</div>
       <div class="act-title">SODA + CDCR</div>
       <div class="act-sub">Sale of Drugs & Regs</div>
@@ -229,8 +237,8 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
     </div>
     <div class="act-btn" onclick="openModeSelect('ETHICS')">
       <div class="act-icon">⚖️</div>
-      <div class="act-title">ETHICS & GGM</div>
-      <div class="act-sub">Code of Conduct & NMP</div>
+      <div class="act-title">ETHICS & NMP</div>
+      <div class="act-sub">Code of Conduct & GGM</div>
     </div>
     <div class="act-btn full-width" onclick="openModeSelect('ALL')">
       <div class="act-icon">🎓</div>
@@ -299,12 +307,18 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
   </div>
   <div class="learn-menu-grid">
     <button class="btn btn-success" style="text-align:left;padding:16px" onclick="openActLearn('TIPS')">💡 PKUMF Exam Tips & Notes</button>
-    <button class="btn btn-primary" style="text-align:left;padding:16px" onclick="openActLearn('ROPA')">📝 Registration of Pharmacists Act 1951</button>
-    <button class="btn btn-primary" style="text-align:left;padding:16px" onclick="openActLearn('POISON')">☠️ Poisons Act 1952</button>
-    <button class="btn btn-primary" style="text-align:left;padding:16px" onclick="openActLearn('SODA')">🧪 Sale of Drugs Act 1952 + CDCR</button>
-    <button class="btn btn-primary" style="text-align:left;padding:16px" onclick="openActLearn('MASA')">📢 Medicine Ads Act 1956</button>
-    <button class="btn btn-primary" style="text-align:left;padding:16px" onclick="openActLearn('DDA')">💉 Dangerous Drugs Act 1952</button>
-    <button class="btn btn-primary" style="text-align:left;padding:16px" onclick="openActLearn('ETHICS')">⚖️ Ethics & Good Governance (GGM)</button>
+    <button class="btn btn-outline" style="text-align:left;padding:12px;margin-bottom:0" onclick="openActLearn('ROPA')">📝 Registration of Pharmacists Act 1951</button>
+    <button class="btn btn-outline" style="text-align:left;padding:12px;margin-bottom:0" onclick="openActLearn('POISON')">☠️ Poisons Act 1952</button>
+    <button class="btn btn-outline" style="text-align:left;padding:12px;margin-bottom:0" onclick="openActLearn('SODA')">🧪 Sale of Drugs Act 1952 + CDCR</button>
+    <button class="btn btn-outline" style="text-align:left;padding:12px;margin-bottom:0" onclick="openActLearn('MASA')">📢 Medicine Ads Act 1956</button>
+    <button class="btn btn-outline" style="text-align:left;padding:12px;margin-bottom:0" onclick="openActLearn('DDA')">💉 Dangerous Drugs Act 1952</button>
+    
+    <div style="margin-top:0.5rem; border-top:1px solid #E5E7EB; padding-top:0.5rem;">
+      <div style="font-size:11px;font-weight:700;color:#9CA3AF;text-transform:uppercase;margin-bottom:0.5rem">Professional Practice & Ethics</div>
+      <button class="btn btn-primary" style="text-align:left;padding:16px" onclick="openActLearn('ETHICS')">⚖️ Code of Ethics for Pharmacists</button>
+      <button class="btn btn-primary" style="text-align:left;padding:16px" onclick="openActLearn('DUNAS')">🇲🇾 National Medicine Policy (DUNas)</button>
+      <button class="btn btn-primary" style="text-align:left;padding:16px" onclick="openActLearn('GGM')">🛡️ Good Governance in Medicine</button>
+    </div>
   </div>
 </div>
 
@@ -319,9 +333,11 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
   <div class="tabs">
     <div class="tab on" id="tab-notes" onclick="switchTab('notes')">📝 Notes</div>
     <div class="tab" id="tab-flash" onclick="switchTab('flash')">🃏 Flashcards</div>
+    <div class="tab" id="tab-law" onclick="switchTab('law')">📖 Law text</div>
   </div>
   <div id="pane-notes" class="pane on"></div>
   <div id="pane-flash" class="pane"></div>
+  <div id="pane-law" class="pane"></div>
 </div>
 
 <div id="scr-lesson" class="scr">
@@ -395,7 +411,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
 
 window.TIPS_DATA = {
   actTitle: "PKUMF General Guidelines",
-  regTitle: "",
+  regTitle: "Study Tactics",
   questions: [],
   notes: {
     act: [
@@ -410,7 +426,9 @@ window.TIPS_DATA = {
         {t:'SODA',d:'Approx. 10-20 Questions'},
         {t:'MASA',d:'Approx. 10 Questions'},
         {t:'Ethics/GGM/NMP',d:'Approx. 10 Questions'}
-      ]},
+      ]}
+    ],
+    reg: [
       {title:'Study Strategies',items:[
         {t:'Act vs. Regulation',d:'Always understand the relationship between the primary Act and its secondary Regulations'},
         {t:'Locate Info',d:'Practice flipping the books and marking pages. Know what information lives in the Act versus the Regulations'},
@@ -608,7 +626,7 @@ window.SODA_DATA = {
 };
 
 window.MASA_DATA = {
-  actTitle: "Medicines (Advertisement & Sale) Act 1956",
+  actTitle: "Medicine Advertisements & Sale Act 1956",
   regTitle: "Medicine Advertisements Board Regs 1976",
   questions: [
     {act:'MASA',q:'This Act prohibits certain advertisement related to medical services which include the following materials:',opts:['A. Pamphlet or brochure','B. Label','C. Any announcement made orally','D. All of the above.'],ans:3,exp:'s.2 MASA 1956 defines advertisement broadly to include pamphlets, labels, and oral announcements.'},
@@ -651,16 +669,16 @@ window.MASA_DATA = {
       ]}
     ],
     warn: [
-      'Abortion ads are absolutely prohibited — the MAB has no power to approve them.',
+      'Abortion ads are absolutely prohibited — the MAB has no power to approve them under any circumstances.',
       'Authorized officers are appointed by the Minister, but prosecutions must be sanctioned by the Public Prosecutor.',
       'The quorum for a MAB meeting is very low: only 3 members are required.'
     ]
   },
   flashcards: [
-    {q:'Under MASA, can an advertisement for curing Asthma be approved by the MAB?',a:'No. Asthma is in the Schedule of 20 prohibited diseases.',ref:'s.3 MASA 1956'},
-    {q:'Who authorizes a pharmacist to be an "Authorized Officer" under MASA?',a:'The Minister',ref:'s.6A MASA 1956'},
-    {q:'Who must give written sanction before a prosecution under MASA can begin?',a:'The Public Prosecutor',ref:'s.6F(1) MASA 1956'},
-    {q:'What is the mandatory application fee for an advertisement approval by the MAB?',a:'RM300 (non-refundable)',ref:'Reg 8(3) MAB Regs 1976'},
+    {q:'Can you advertise a cure for Asthma to the general public?',a:'No (Asthma is listed in the s.3 Schedule)',ref:'MASA s.3'},
+    {q:'Are abortion ads ever permitted if approved by MAB?',a:'No, it is an absolute prohibition.',ref:'MASA s.4'},
+    {q:'What must be disclosed on a retailed medicine label?',a:'Active constituents and their quantitative particulars.',ref:'MASA s.6(1)'},
+    {q:'MAB application fee?',a:'RM300',ref:'MAB Regs r.8'},
     {q:'Who is the Chairman of the Medicine Advertisements Board?',a:'Director General of Health',ref:'Reg 3(1) MAB Regs 1976'},
     {q:'What is the quorum for a Medicine Advertisements Board meeting?',a:'Three members',ref:'Reg 3(2) MAB Regs 1976'},
     {q:'What details MUST be legibly displayed on a printed approved medicine advertisement?',a:'Approval serial number and expiry date',ref:'Reg 7(2) MAB Regs 1976'}
@@ -691,39 +709,111 @@ window.DDA_DATA = {
   flashcards: []
 };
 
+// New Module: ETHICS
 window.ETHICS_DATA = {
-  actTitle: "Code of Ethics 2018",
-  regTitle: "Good Governance in Medicine (GGM)",
+  actTitle: "Code of Ethics for Pharmacists 2018",
+  regTitle: "Disciplinary Guidelines (RPA s.17)",
   questions: [
-    {act:'NMP/GGM',q:'The following are the strategies to enhance partnerships for the healthcare industry as outlined in the National Medicine Policy (NMP) 3rd edition, EXCEPT:',opts:['A. enhancing multi-sectoral technical engagement towards better health service delivery.','B. developing human capital, capacity and capability.','C. promoting research and development among stakeholders.','D. strengthening pharmaceutical care practices in private health facilities.'],ans:3,exp:'Strengthening pharmaceutical care practices in private facilities is not specifically bucketed under industry partnership strategies in the NMP.'},
-    {act:'NMP/GGM',q:'Why does the pharmaceutical sector particularly vulnerable to corruption and unethical practices?',opts:['A. Low market interests.','B. Inappropriate incentive structures.','C. Less involvement by the government in its regulation.','D. Widely available information that helps in the assessment of quality, safety and efficacy of medicines.'],ans:1,exp:'Vulnerability factors include inappropriate incentive structures, high market volume, and information imbalance.'},
-    {act:'NMP/GGM',q:'Choose the values that conduct the behaviour of public servants, as described in the Framework for Good Governance in the Public Pharmaceutical Sector.',stmts:['i. Objectivity','ii. Accountability','iii. Honesty','iv. Openness'],opts:['A. i and iv only.','B. ii and iii only.','C. i, ii and iii only.','D. i, ii, iii and iv'],ans:3,exp:'Objectivity, Accountability, Honesty, and Openness are all explicit core values in the GGM Code of Conduct.'},
-    {act:'NMP/GGM',q:'Which of the following statements is FALSE based on the Code of Ethics for Pharmacists?',opts:['A. A pharmacist must accept diversity and respect cultural differences.','B. A pharmacist must disclose a patient’s profile to a medical doctor who is looking for a new customer.','C. A pharmacist must respect people’s dignity, privacy, and confidentiality.','D. A pharmacist must treat people fairly and ensure their views about belief, race and gender do not affect their professional services.'],ans:1,exp:'Disclosing patient profiles to a doctor for client prospecting is a severe breach of confidentiality and ethics.'},
-    {act:'NMP/GGM',q:'Which of the following principles are described in the Code of Ethics for Pharmacists?',stmts:['i. Develop professional knowledge and competence.','ii. Show respect to others.','iii. Make health professional as the first concern.','iv. Disregard patients’ choices in treatment.'],opts:['A. i and ii only.','B. ii and iii only.','C. i, ii and iii only.','D. i,iii and iv'],ans:2,exp:'Developing knowledge, showing respect, and placing the health professional/patient priority first are core principles. Disregarding patient choices is unethical.'}
+    {act:'ETHICS',q:'Which of the following statements is FALSE based on the Code of Ethics for Pharmacists?',opts:['A. A pharmacist must accept diversity and respect cultural differences.','B. A pharmacist must disclose a patient’s profile to a medical doctor who is looking for a new customer.','C. A pharmacist must respect people’s dignity, privacy, and confidentiality.','D. A pharmacist must treat people fairly and ensure their views about belief, race and gender do not affect their professional services.'],ans:1,exp:'Principle 3: Disclosing patient profiles to a doctor for client prospecting is a severe breach of confidentiality and ethics.'},
+    {act:'ETHICS',q:'Which of the following principles are described in the Code of Ethics for Pharmacists?',stmts:['i. Develop professional knowledge and competence.','ii. Show respect to others.','iii. Make health professional as the first concern.','iv. Disregard patients’ choices in treatment.'],opts:['A. i and ii only.','B. ii and iii only.','C. i, ii and iii only.','D. i,iii and iv'],ans:0,exp:'Principle 1 states patients (not health professionals) must be your first concern. Principle 4 says to respect patient choices, not disregard them.'}
   ],
   notes: {
     act: [
-      {title:'Code of Ethics for Pharmacists',items:[
-        {t:'Core Duty',d:'Make the patient/health professional your first concern.'},
-        {t:'Respect',d:'Show respect to others, accept diversity, and respect cultural differences.'},
-        {t:'Confidentiality',d:'Respect people\'s dignity, privacy, and confidentiality.'}
+      {title:'The 7 Principles',items:[
+        {t:'Principle 1',d:'Make patients your first concern.'},
+        {t:'Principle 2',d:'Use professional judgement in the interests of patients and the public.'},
+        {t:'Principle 3',d:'Show respect for others (accept diversity, protect privacy/confidentiality).'},
+        {t:'Principle 4',d:'Encourage patients and the public to participate in decisions about their care.'},
+        {t:'Principle 5',d:'Develop your professional knowledge and competence.'},
+        {t:'Principle 6',d:'Be ethical, honest and trustworthy (avoid conflicts of interest).'},
+        {t:'Principle 7',d:'Be responsible of your working practices.'}
       ]}
     ],
     reg: [
-      {title:'Good Governance in Medicine (GGM)',items:[
-        {t:'Objectives',d:'Inculcate integrity among public servants; promote transparency and accountability; minimize corruption.'},
+      {title:'Disciplinary Jurisdiction (RPA s.17)',items:[
+        {t:'Grounds for Action',d:'Fraudulent registration, conviction of an offence making them unfit, or guilty of infamous/disgraceful conduct in a professional sense.'},
+        {t:'Committee of Inquiry',d:'Comprises 5 fully registered pharmacists.'},
+        {t:'Punishments (s.18A)',d:'Removal from register, suspension from register, or reprimand.'}
+      ]}
+    ],
+    warn: [
+      'Disclosing confidential information without consent is a breach of Principle 3.',
+      'Exploiting vulnerability or lack of knowledge violates Principle 6.'
+    ]
+  },
+  flashcards: [
+    {q:'What is Principle 1 of the Code of Ethics?',a:'Make patients your first concern.',ref:'Code of Ethics 2018'},
+    {q:'What is Principle 6 of the Code of Ethics?',a:'Be ethical, honest and trustworthy.',ref:'Code of Ethics 2018'},
+    {q:'How many fully registered pharmacists make up a Committee of Inquiry?',a:'Five',ref:'Guidance on Code / Reg 15'},
+    {q:'What are the three punishments the Board can impose after an inquiry?',a:'Removal, Suspension, or Reprimand',ref:'RPA s.18A'}
+  ]
+};
+
+// New Module: GGM
+window.GGM_DATA = {
+  actTitle: "Good Governance in Medicine (GGM)",
+  regTitle: "Vulnerability & Unethical Practices",
+  questions: [
+    {act:'GGM',q:'Why is the pharmaceutical sector particularly vulnerable to corruption and unethical practices?',opts:['A. Low market interests.','B. Inappropriate incentive structures.','C. Less involvement by the government in its regulation.','D. Widely available information that helps in the assessment of quality, safety and efficacy of medicines.'],ans:1,exp:'Vulnerability factors include high market volume, information imbalance, and inappropriate incentive structures.'},
+    {act:'GGM',q:'Choose the values that conduct the behaviour of public servants, as described in the Framework for Good Governance in the Public Pharmaceutical Sector.',stmts:['i. Objectivity','ii. Accountability','iii. Honesty','iv. Openness'],opts:['A. i and iv only.','B. ii and iii only.','C. i, ii and iii only.','D. i, ii, iii and iv'],ans:3,exp:'Objectivity, Accountability, Honesty, and Openness are all explicit values in the GGM Code of Conduct.'}
+  ],
+  notes: {
+    act: [
+      {title:'GGM Framework Overview',items:[
+        {t:'Objective',d:'Inculcate integrity, promote transparency/accountability, raise awareness of corruption risks, and minimize corruption.'},
         {t:'4 Core Moral Values',d:'Justice, Truth, Service to the common good, and Trusteeship.'},
-        {t:'Code of Conduct Traits',d:'Selflessness, Integrity, Objectivity, Accountability, Openness, Honesty, and Leadership.'}
+        {t:'Code of Conduct Values',d:'Selflessness, Integrity, Objectivity, Accountability, Openness, Honesty, and Leadership.'}
+      ]}
+    ],
+    reg: [
+      {title:'Areas of Vulnerability',items:[
+        {t:'Drug Registration',d:'Queue jumping, falsified data acceptance, bias, or conflict of interest.'},
+        {t:'Inspection',d:'Manipulation of scheduling, bribery to alter compliance ratings, or collusion.'},
+        {t:'Promotion',d:'Biased advertorials, entertaining sales representatives, or unapproved sponsorships.'},
+        {t:'Selection',d:'Pharmaceutical companies dictating proformas, inappropriate selection based on bribery.'},
+        {t:'Procurement',d:'Bid rigging, theft of medicines, or ordering beyond actual needs.'}
       ]},
-      {title:'Vulnerability Areas in the Pharmaceutical System',items:[
-        {t:'Drug Registration',d:'Risk of queue jumping, falsified data acceptance, or conflict of interest.'},
-        {t:'Inspection',d:'Risk of manipulation in scheduling, bribery to alter ratings, or collusion.'},
-        {t:'Promotion',d:'Risk of biased advertorials, entertaining reps, and unapproved sponsorships.'},
-        {t:'Selection & Procurement',d:'Risk of pharmaceutical companies dictating proformas, bid rigging, or theft.'}
+      {title:'Unethical Practices',items:[
+        {t:'Conflict of Interest (COI)',d:'When a public servant has vested personal interests (e.g. post-employment benefits from a contracted company).'},
+        {t:'Bribes',d:'Kickbacks for pseudo-trials, falsification of data, or speeding up registration.'}
       ]}
     ]
   },
-  flashcards: []
+  flashcards: [
+    {q:'What are the 4 Core Moral Values of GGM?',a:'Justice, Truth, Service to the common good, Trusteeship',ref:'GGM Framework'},
+    {q:'What is Conflict of Interest (COI)?',a:'When a public servant has vested personal interests that compromise their official duties.',ref:'GGM Framework'},
+    {q:'Name 3 of the 5 vulnerable areas in the pharmaceutical system.',a:'Registration, Inspection, Promotion, Selection, Procurement',ref:'GGM Framework'}
+  ]
+};
+
+// New Module: DUNAS
+window.DUNAS_DATA = {
+  actTitle: "National Medicine Policy (DUNas)",
+  regTitle: "Governance & Strategies",
+  questions: [
+    {act:'DUNas',q:'The following are the strategies to enhance partnerships for the healthcare industry as outlined in the National Medicine Policy (NMP), EXCEPT:',opts:['A. enhancing multi-sectoral technical engagement towards better health service delivery.','B. developing human capital, capacity and capability.','C. promoting research and development among stakeholders.','D. strengthening pharmaceutical care practices in private health facilities.'],ans:3,exp:'Strengthening pharmaceutical care practices in private facilities is a specific operational goal, not broadly defined under the "enhancing partnerships" macro strategy in the NMP.'}
+  ],
+  notes: {
+    act: [
+      {title:'DUNas Core Components',items:[
+        {t:'Quality, Safety & Efficacy',d:'Ensuring all medicines in the market meet stringent regulatory standards.'},
+        {t:'Access to Medicines',d:'Ensuring equitable and timely supply of essential medicines at reasonable cost.'},
+        {t:'Quality Use of Medicines (QUM)',d:'Promoting rational prescribing and patient compliance.'},
+        {t:'Partnership & Collaboration',d:'Enhancing multi-sectoral engagement, developing human capital, and promoting R&D.'}
+      ]}
+    ],
+    reg: [
+      {title:'Governance in Medicines',items:[
+        {t:'Best Practices',d:'Emphasizing transparency and accountability within the healthcare industry to facilitate optimal health outcomes.'},
+        {t:'Supply Network',d:'Maintaining an efficient, integrated medicine management and supply network.'},
+        {t:'Monitoring',d:'Continuous monitoring of products in the market to ensure they conform to standards.'}
+      ]}
+    ]
+  },
+  flashcards: [
+    {q:'What does QUM stand for in DUNas?',a:'Quality Use of Medicines',ref:'DUNas Framework'},
+    {q:'What are the core components of DUNas?',a:'Quality/Safety/Efficacy, Access, QUM, and Partnership & Collaboration.',ref:'DUNas Framework'}
+  ]
 };
 
 // ── CORE GAME ENGINE LOGIC ───────────────────────────────────────
@@ -763,7 +853,12 @@ function selectAppMode(mode){
 }
 
 function openModeSelect(actId){
-  if(actId !== 'ALL' && !window[actId + '_DATA']) {
+  // Handle combined ETHICS logic specifically for Game mode
+  if (actId === 'ETHICS') {
+    // Passes through
+  } else if(actId === 'SODA_CDCR') {
+    // Passes through
+  } else if(!window[actId + '_DATA'] && actId !== 'ALL') {
     openComing(actId.toLowerCase());
     return;
   }
@@ -812,8 +907,10 @@ function renderHearts(id){
 function switchTab(t){
   G.activeTab=t;
   ['notes','flash','law'].forEach(function(x){
-    document.getElementById('tab-'+x).classList.toggle('on',x===t);
-    document.getElementById('pane-'+x).classList.toggle('on',x===t);
+    var el = document.getElementById('tab-'+x);
+    if(el) el.classList.toggle('on',x===t);
+    var pane = document.getElementById('pane-'+x);
+    if(pane) pane.classList.toggle('on',x===t);
   });
   
   var actData = window[G.selectedAct + '_DATA'] || {notes:{act:[], reg:[], warn:[]}, flashcards:[], law:[]};
@@ -826,7 +923,7 @@ function switchTab(t){
       
       // LEFT COLUMN: ACT
       html += '<div class="col-act act-theme">';
-      html += '<div class="col-hdr col-hdr-act">📖 ' + (actData.actTitle || 'The Act') + '</div>';
+      html += '<div class="col-hdr col-hdr-act">📖 ' + (actData.actTitle || 'Core Document') + '</div>';
       if(actData.notes.act.length === 0) html += '<div style="padding:1rem;color:#9CA3AF;font-size:13px;text-align:center;"><i>No notes available.</i></div>';
       actData.notes.act.forEach(function(sec){
         html+='<div class="note-section"><div class="note-title">'+sec.title+'</div>';
@@ -843,7 +940,7 @@ function switchTab(t){
       
       // RIGHT COLUMN: REGULATION
       html += '<div class="col-reg reg-theme">';
-      html += '<div class="col-hdr col-hdr-reg">📜 ' + (actData.regTitle || 'The Regulations') + '</div>';
+      html += '<div class="col-hdr col-hdr-reg">📜 ' + (actData.regTitle || 'Secondary Guidelines') + '</div>';
       if(!actData.notes.reg || actData.notes.reg.length === 0) html += '<div style="padding:1rem;color:#9CA3AF;font-size:13px;text-align:center;"><i>No notes available.</i></div>';
       if(actData.notes.reg) {
         actData.notes.reg.forEach(function(sec){
@@ -941,7 +1038,13 @@ function initQuiz(timingMode, sprintCount){
     var sQs = window.SODA_DATA ? shuffle([].concat(window.SODA_DATA.questions)) : [];
     var mQs = window.MASA_DATA ? shuffle([].concat(window.MASA_DATA.questions)) : [];
     var dQs = window.DDA_DATA ? shuffle([].concat(window.DDA_DATA.questions)) : [];
-    var eQs = window.ETHICS_DATA ? shuffle([].concat(window.ETHICS_DATA.questions)) : [];
+    
+    // Combine ETHICS, GGM, and DUNas for the Ethics quota
+    var eQsTemp = [];
+    if(window.ETHICS_DATA) eQsTemp = eQsTemp.concat(window.ETHICS_DATA.questions);
+    if(window.GGM_DATA) eQsTemp = eQsTemp.concat(window.GGM_DATA.questions);
+    if(window.DUNAS_DATA) eQsTemp = eQsTemp.concat(window.DUNAS_DATA.questions);
+    var eQs = shuffle(eQsTemp);
     
     pool = pool.concat(rQs.slice(0, 20));
     pool = pool.concat(pQs.slice(0, 35));
@@ -957,6 +1060,17 @@ function initQuiz(timingMode, sprintCount){
     if(window.MASA_DATA) pool = pool.concat(window.MASA_DATA.questions);
     if(window.DDA_DATA) pool = pool.concat(window.DDA_DATA.questions);
     if(window.ETHICS_DATA) pool = pool.concat(window.ETHICS_DATA.questions);
+    if(window.GGM_DATA) pool = pool.concat(window.GGM_DATA.questions);
+    if(window.DUNAS_DATA) pool = pool.concat(window.DUNAS_DATA.questions);
+    pool = shuffle(pool);
+  } else if(G.selectedAct === 'SODA_CDCR') {
+    if(window.SODA_DATA) pool = pool.concat(window.SODA_DATA.questions);
+    // CDCR specific questions are grouped under SODA_DATA in this refactor
+    pool = shuffle(pool);
+  } else if(G.selectedAct === 'ETHICS') {
+    if(window.ETHICS_DATA) pool = pool.concat(window.ETHICS_DATA.questions);
+    if(window.GGM_DATA) pool = pool.concat(window.GGM_DATA.questions);
+    if(window.DUNAS_DATA) pool = pool.concat(window.DUNAS_DATA.questions);
     pool = shuffle(pool);
   } else {
     pool = shuffle([].concat(window[G.selectedAct + '_DATA'].questions));
@@ -1018,6 +1132,11 @@ function updateScoreHUD(){
 function renderQ(){
   var q=G.lesQ[G.lesIdx],total=G.lesQ.length;
   G.answered=false;G.selAns=null;G.wasSkipped=false;
+  
+  if(!q) {
+      finishLesson(false);
+      return;
+  }
   
   document.getElementById('q-num').textContent='Question '+(G.lesIdx+1)+' of '+total;
   document.getElementById('q-act').textContent=q.act;
@@ -1113,7 +1232,7 @@ function finishLesson(timeOut){
   
   if(isCasual){
     var baseXP = G.correct * 10;
-    var bonus = (G.correct === total) ? 20 : 0;
+    var bonus = (G.correct === total && total > 0) ? 20 : 0;
     var totalEarnedXP = baseXP + bonus;
     G.xp += totalEarnedXP;
     
@@ -1127,8 +1246,8 @@ function finishLesson(timeOut){
     document.getElementById('r-pkumf').textContent = G.pkumfScore.toFixed(2) + ' / ' + total;
   }
   
-  document.getElementById('r-icon').textContent= timeOut ? '⏱️' : (G.correct===total?'🏆':'🎉');
-  document.getElementById('r-title').textContent= timeOut ? 'Time\'s Up!' : (G.correct===total?'Perfect!':'Session complete!');
+  document.getElementById('r-icon').textContent= timeOut ? '⏱️' : (G.correct===total && total>0 ?'🏆':'🎉');
+  document.getElementById('r-title').textContent= timeOut ? 'Time\'s Up!' : (G.correct===total && total>0 ?'Perfect!':'Session complete!');
   document.getElementById('r-sub').textContent=G.correct+' of '+total+' correct';
   
   document.getElementById('r-ok').textContent=G.correct;
