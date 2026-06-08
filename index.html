@@ -8,7 +8,7 @@
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
 body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:#f8fafc;color:#1a1a2e;min-height:100vh}
-.app{max-width:800px;margin:0 auto;padding:1.25rem 1rem;min-height:100vh} /* Widened for side-by-side */
+.app{max-width:800px;margin:0 auto;padding:1.25rem 1rem;min-height:100vh}
 .scr{display:none}.scr.on{display:block}
 
 /* Welcome & Dashboards */
@@ -91,7 +91,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
 .warn-container { margin-top: 1.5rem; border-top: 2px dashed #FECACA; padding-top: 1rem; }
 .warn-item{display:flex;gap:8px;background:#FEF2F2;border-left:4px solid #EF4444; border-radius:6px;padding:10px 12px;margin-bottom:.5rem;font-size:12.5px;color:#991B1B;line-height:1.5; font-weight: 500;}
 
-/* Flashcards & Law Text (kept central) */
+/* Flashcards & Law Text */
 .fc-nav{display:flex;justify-content:space-between;align-items:center;margin-bottom:.65rem; max-width:480px; margin: 0 auto 1rem;}
 .fc-ctr{font-size:12px;color:#9CA3AF}
 .fc-btn{background:none;border:1px solid #E5E7EB;border-radius:8px;padding:6px 14px;font-size:12px;cursor:pointer;color:#374151;transition:all .15s}
@@ -430,11 +430,11 @@ window.ROPA_DATA = {
     {act:'ROPA · s.3',q:'The following are members of the Pharmacy Board, EXCEPT:',opts:['A. eight registered pharmacists in the public service, appointed by the Minister.','B. three registered pharmacists from any higher educational institution offering a course in pharmacy, appointed by the Minister.','C. the Director of Pharmacy Board, ex officio.','D. The Director General of Health, ex officio.'],ans:2,exp:'s.3(1) RPA 1951: The Director of Pharmaceutical Services is an ex-officio member, not "Director of Pharmacy Board".'},
     {act:'Reg 2004',q:'Registration of Pharmacists Regulation 2004 is made by the:',opts:['A. Pharmacy Board and approved by the Minister.','B. Minister and passed by the Pharmacy Board.','C. Court.','D. Parliament.'],ans:0,exp:'s.22(2) RPA 1951: Regulations are made by the Board subject to the approval of the Minister.'},
     {act:'Reg 2004 · r.12',q:'A fully registered pharmacist, who failed to obtain an annual certificate prior to the commencement of 2025 and renewed his annual retention certificate on 21st February 2025 must have paid a fee of:',opts:['A. RM 50.00.','B. RM 50.00 + RM 100.00 (additional fee).','C. RM 200.00 + RM 100.00 (additional fee).','D. RM 200.00 + RM 300.00 (additional fee).'],ans:1,exp:'Reg 12(2) & 12(3) Reg 2004: A fully registered pharmacist pays an annual fee of RM50, plus a late renewal additional fee of RM100.'},
-    {act:'ROPA · s.6A',q:'Provisionally Registered Pharmacist (PRP) is required to obtain experience:',stmts:['i. at a government hospital only.','ii. for a term not more than two years.','iii. and to comply with Code of conduct for pharmacists and Body Corporate 2009.','iv. for a term not less than one year.'],opts:['A. iii and iv only','B. i, ii and iii only','C. ii and iii only','D. ii, iii and iv only'],ans:0,exp:'s.6A(2) RPA 1951: Must engage in employment for not less than one year. It is not limited strictly to government hospitals only.'},
+    {act:'ROPA · s.6A',q:'Provisionally Registered Pharmacist (PRP) is required to obtain experience:',stmts:['i. at a government hospital only.','ii. for a term not more than two years.','iii. and to comply with Code of conduct for pharmacists and Body Corporate 2009.','iv. for a term not less than one year.'],opts:['A. iii and iv only','B. i, ii and iii only','C. ii and iii only','D. ii, iii and iv only'],ans:0,exp:'s.6A(2) RPA 1951: Must engage in employment for not less than one year. It is not limited strictly to government hospitals only (private options exist).'},
     {act:'Reg 2004 · r.5',q:'All certificates issued under the Act are signed by:',opts:['A. the Registrar, who is the Director General of Health.','B. the Registrar, who is the Director of Pharmaceutical Services.','C. the Secretary of the Pharmacy Board.','D. the Chairman of the Pharmacy Board.'],ans:1,exp:'Reg 5 RPA 2004: All certificates shall be signed by the Registrar, who is the Director of Pharmaceutical Services.'},
     {act:'ROPA · s.13',q:'The following are TRUE regarding the superintendent of a body corporate:',stmts:['i. He shall be a registered pharmacist.','ii. He does not act in a similar capacity for any other body corporate firm on his own behalf.','iii. His name and registration number shall be recorded in the Register of Body Corporate.','iv. His certificate of registration shall be conspicuously exhibited in each set of premises where the business is carried out.'],opts:['A. i and ii only.','B. i, ii and iii only.','C. iii and iv only.','D. All of the above.'],ans:3,exp:'s.13(2) & (4) RPA 1951: The superintendent must be a registered pharmacist, not act similarly for another body corporate, and have their certificate conspicuously exhibited.'},
     {act:'ROPA · s.5',q:'According to Section 5 of the Act,',opts:['A. keeping a register of pharmacists is optional.','B. a register is kept by the Director of Pharmaceutical Services.','C. the Registrar is the Secretary of the Pharmacy Board.','D. maintenance of the register is the responsibility of the Pharmacy Board.'],ans:1,exp:'s.5 RPA 1951: The register of pharmacists shall be kept by the Director of Pharmaceutical Services (the Registrar).'},
-    {act:'ROPA · s.6A',q:'A provisionally registered pharmacist shall engage in employment as a pharmacist in the following approved premises which fulfil the criteria for training, EXCEPT:',opts:['A. a government-based general hospital.','B. a retail pharmacy.','C. a pharmaceutical manufacturer.','D. a veterinary clinic.'],ans:3,exp:'s.6A Second Schedule: Veterinary clinics are not listed as approved premises for gaining experience.'}
+    {act:'ROPA · s.6A',q:'A provisionally registered pharmacist shall engage in employment as a pharmacist in the following approved premises which fulfil the criteria for training, EXCEPT:',opts:['A. a government-based general hospital.','B. a retail pharmacy.','C. a pharmaceutical manufacturer.','D. a veterinary clinic.'],ans:3,exp:'s.6A Second Schedule: Veterinary clinics are not listed as approved premises for gaining experience for pharmacists.'}
   ],
   notes: {
     act: [
@@ -608,7 +608,7 @@ window.SODA_DATA = {
 };
 
 window.MASA_DATA = {
-  actTitle: "Medicine Advertisements & Sale Act 1956",
+  actTitle: "Medicines (Advertisement & Sale) Act 1956",
   regTitle: "Medicine Advertisements Board Regs 1976",
   questions: [
     {act:'MASA',q:'This Act prohibits certain advertisement related to medical services which include the following materials:',opts:['A. Pamphlet or brochure','B. Label','C. Any announcement made orally','D. All of the above.'],ans:3,exp:'s.2 MASA 1956 defines advertisement broadly to include pamphlets, labels, and oral announcements.'},
@@ -621,34 +621,49 @@ window.MASA_DATA = {
   ],
   notes: {
     act: [
-      {title:'Advertising Prohibitions (s.3 & s.4)',items:[
-        {t:'Absolute Prohibition',d:'Advertisements procuring miscarriage of women [s.4].'},
-        {t:'Specific Diseases',d:'Asthma, Cancer, Diabetes, Leprosy, Tuberculosis, Deafness [s.3 Schedule].'},
-        {t:'Skill or Service [s.4A]',d:'Cannot advertise skill/service treating ailments unless exempted (e.g., approved private hospital/clinic).'}
+      {title:'Prohibition of Advertisements — s.3, s.4, s.4A',items:[
+        {t:'Specific Diseases [s.3]',d:'Cannot advertise for prevention/treatment of 20 scheduled diseases (e.g., Asthma, Cancer, Diabetes, Hypertension, Kidney/Heart defects, Venereal disease).'},
+        {t:'Abortion [s.4]',d:'Absolute prohibition on advertising articles for procuring miscarriage.'},
+        {t:'Skill or Service [s.4A]',d:'Cannot advertise skills/services relating to treatment/diagnosis unless exempted (e.g., private hospitals/clinics approved by MAB).'},
+        {t:'General Medicine [s.4B]',d:'All other medicine/remedy ads must be approved by the MAB.'}
       ]},
-      {title:'Disclosure & Enforcement',items:[
-        {t:'Label Disclosure [s.6]',d:'Appropriate designation of active constituents and quantitative particulars must be written.'},
-        {t:'Authorized Officer [s.6A]',d:'Pharmacist in public service authorized by the Minister.'},
-        {t:'Sanction [s.6F]',d:'Prosecutions require written sanction of the Public Prosecutor.'}
+      {title:'Defences — s.3(2) & s.5(3)',items:[
+        {t:'Professional Circulation',d:'It is a defence if the ad was only circulated to doctors, dentists, nurses, midwives, or pharmacists.'}
+      ]},
+      {title:'Disclosure of Composition — s.6',items:[
+        {t:'Label Requirement',d:'Must be written in English or National language. Must state the appropriate designation of active constituents and quantitative particulars.'}
+      ]},
+      {title:'Enforcement & Prosecution — s.6A-6F',items:[
+        {t:'Authorized Officer',d:'A pharmacist in the public service authorized in writing by the Minister.'},
+        {t:'Sanction to Prosecute',d:'No prosecution shall be instituted without the written sanction of the Public Prosecutor.'}
       ]}
     ],
     reg: [
-      {title:'Medicine Advertisements Board (MAB)',items:[
-        {t:'Chairman',d:'Director-General of Health [Reg 3(1)]'},
-        {t:'Quorum',d:'3 members including Chairman [Reg 3(2)]'},
-        {t:'Application Fee',d:'RM300 (non-refundable) [Reg 8(3)]'},
-        {t:'Print Requirements',d:'Approval serial number and expiry date must be legibly displayed [Reg 7(2)]'}
+      {title:'Medicine Advertisements Board (MAB) — r.2-4',items:[
+        {t:'Chairman',d:'Director-General of Health. Alternate is the Senior Director of Pharmaceutical Services.'},
+        {t:'Quorum',d:'3 members including the Chairman or member presiding.'},
+        {t:'Secretary',d:'A pharmacist in public service appointed by the Minister. Non-voting member.'}
+      ]},
+      {title:'Approvals & Fees — r.5-8',items:[
+        {t:'Display Requirements',d:'Approval serial number and expiry date must be legibly displayed on print, hoarding, or illuminated signs.'},
+        {t:'Appeals',d:'Aggrieved persons may appeal to the Minister, whose decision is final.'},
+        {t:'Application Fee',d:'RM300 per application (non-refundable).'}
       ]}
     ],
     warn: [
-      'Abortion ads are absolutely prohibited — MAB cannot approve them under any circumstances.'
+      'Abortion ads are absolutely prohibited — the MAB has no power to approve them.',
+      'Authorized officers are appointed by the Minister, but prosecutions must be sanctioned by the Public Prosecutor.',
+      'The quorum for a MAB meeting is very low: only 3 members are required.'
     ]
   },
   flashcards: [
-    {q:'Can you advertise a cure for Asthma to the general public?',a:'No (Asthma is listed in the s.3 Schedule)',ref:'MASA s.3'},
-    {q:'Are abortion ads ever permitted if approved by MAB?',a:'No, it is an absolute prohibition.',ref:'MASA s.4'},
-    {q:'What must be disclosed on a retailed medicine label?',a:'Active constituents and their quantitative particulars.',ref:'MASA s.6(1)'},
-    {q:'MAB application fee?',a:'RM300',ref:'MAB Regs r.8'}
+    {q:'Under MASA, can an advertisement for curing Asthma be approved by the MAB?',a:'No. Asthma is in the Schedule of 20 prohibited diseases.',ref:'s.3 MASA 1956'},
+    {q:'Who authorizes a pharmacist to be an "Authorized Officer" under MASA?',a:'The Minister',ref:'s.6A MASA 1956'},
+    {q:'Who must give written sanction before a prosecution under MASA can begin?',a:'The Public Prosecutor',ref:'s.6F(1) MASA 1956'},
+    {q:'What is the mandatory application fee for an advertisement approval by the MAB?',a:'RM300 (non-refundable)',ref:'Reg 8(3) MAB Regs 1976'},
+    {q:'Who is the Chairman of the Medicine Advertisements Board?',a:'Director General of Health',ref:'Reg 3(1) MAB Regs 1976'},
+    {q:'What is the quorum for a Medicine Advertisements Board meeting?',a:'Three members',ref:'Reg 3(2) MAB Regs 1976'},
+    {q:'What details MUST be legibly displayed on a printed approved medicine advertisement?',a:'Approval serial number and expiry date',ref:'Reg 7(2) MAB Regs 1976'}
   ]
 };
 
@@ -806,7 +821,6 @@ function switchTab(t){
   if(t==='notes'){
     var html = '';
     
-    // If it's the dual layout structure
     if(actData.notes && actData.notes.act) {
       html += '<div class="split-layout">';
       
@@ -825,7 +839,7 @@ function switchTab(t){
         }
         html+='</div>';
       });
-      html += '</div>'; // end col-act
+      html += '</div>'; 
       
       // RIGHT COLUMN: REGULATION
       html += '<div class="col-reg reg-theme">';
@@ -844,9 +858,9 @@ function switchTab(t){
           html+='</div>';
         });
       }
-      html += '</div>'; // end col-reg
+      html += '</div>'; 
       
-      html += '</div>'; // end split-layout
+      html += '</div>'; 
       
       // WARNINGS ACROSS BOTTOM
       if(actData.notes.warn && actData.notes.warn.length > 0){
@@ -856,7 +870,6 @@ function switchTab(t){
       }
       
     } else {
-      // Fallback single column if not using the new structure
       html += '<div style="padding:2rem;text-align:center;color:#6B7280;font-size:14px;"><i>Notes formatting requires update.</i></div>';
     }
     
@@ -930,7 +943,6 @@ function initQuiz(timingMode, sprintCount){
     var dQs = window.DDA_DATA ? shuffle([].concat(window.DDA_DATA.questions)) : [];
     var eQs = window.ETHICS_DATA ? shuffle([].concat(window.ETHICS_DATA.questions)) : [];
     
-    // Attempting to match ideal PKUMF target ratios: ROPA:20, POISON:35, SODA:15, MASA:10, DDA:10, ETHICS:10
     pool = pool.concat(rQs.slice(0, 20));
     pool = pool.concat(pQs.slice(0, 35));
     pool = pool.concat(sQs.slice(0, 15)); 
