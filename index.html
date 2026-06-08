@@ -8,11 +8,11 @@
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
 body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:#f8fafc;color:#1a1a2e;min-height:100vh}
-.app{max-width:480px;margin:0 auto;padding:1.25rem 1rem;min-height:100vh}
+.app{max-width:800px;margin:0 auto;padding:1.25rem 1rem;min-height:100vh} /* Widened for side-by-side */
 .scr{display:none}.scr.on{display:block}
 
-/* Welcome Mode Selection */
-.welcome-box{text-align:center;padding:2.5rem 1rem 1rem}
+/* Welcome & Dashboards */
+.welcome-box{text-align:center;padding:2.5rem 1rem 1rem; max-width: 480px; margin: 0 auto;}
 .logo-title{font-size:28px;font-weight:800;color:#1E3A8A;letter-spacing:-0.03em;margin-bottom:4px}
 .logo-sub{font-size:13px;color:#6B7280;margin-bottom:2.5rem;font-weight:500}
 .mode-card{background:#fff;border:2px solid #E5E7EB;border-radius:20px;padding:1.5rem;margin-bottom:1.25rem;cursor:pointer;text-align:left;transition:all 0.2s;box-shadow:0 2px 4px rgba(0,0,0,.02)}
@@ -22,15 +22,13 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
 .mode-name{font-size:16px;font-weight:700;color:#111827}
 .mode-desc{font-size:12.5px;color:#6B7280;line-height:1.5}
 
-/* Top bar & Level Banner */
-.top-bar{display:flex;justify-content:space-between;align-items:center;margin-bottom:1rem}
+/* Top bar */
+.top-bar{display:flex;justify-content:space-between;align-items:center;margin-bottom:1rem; max-width:480px; margin-left:auto; margin-right:auto;}
 .xp-pill{display:flex;align-items:center;gap:4px;background:#EFF6FF;border-radius:99px;padding:5px 12px;font-size:12px;font-weight:600;color:#1D4ED8}
-.streak-pill{display:flex;align-items:center;gap:4px;background:#FFFBEB;border-radius:99px;padding:5px 12px;font-size:12px;font-weight:600;color:#92400E}
 .hearts{display:flex;gap:3px}
 .heart{font-size:14px;color:#EF4444}.heart.empty{color:#D1D5DB}
 
-/* Game Dashboard Grid */
-.dash-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:1.5rem}
+.dash-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:1.5rem; max-width:480px; margin-left:auto; margin-right:auto;}
 .act-btn{background:#fff;border:2px solid #E5E7EB;border-radius:16px;padding:16px 12px;text-align:center;cursor:pointer;transition:all 0.15s;box-shadow:0 1px 2px rgba(0,0,0,.02)}
 .act-btn:hover{border-color:#93C5FD;background:#EFF6FF;transform:translateY(-2px)}
 .act-btn.full-width{grid-column:1 / -1;background:#F5F3FF;border-color:#DDD6FE}
@@ -40,7 +38,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
 .act-sub{font-size:11px;color:#6B7280}
 
 /* Timing Mode Selection */
-.timing-opt{background:#fff;border:2px solid #E5E7EB;border-radius:14px;padding:14px;margin-bottom:12px;cursor:pointer;display:flex;align-items:center;gap:14px;transition:all 0.15s}
+.timing-opt{background:#fff;border:2px solid #E5E7EB;border-radius:14px;padding:14px;margin-bottom:12px;cursor:pointer;display:flex;align-items:center;gap:14px;transition:all 0.15s; max-width:480px; margin-left:auto; margin-right:auto;}
 .timing-opt:hover{border-color:#3B82F6;background:#F8FAFC}
 .timing-icon{font-size:24px;width:32px;text-align:center}
 .timing-info{flex:1}
@@ -53,7 +51,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
 .tag-green{background:#DCFCE7;color:#166534}
 
 /* Page header */
-.page-hdr{display:flex;align-items:center;gap:10px;margin-bottom:1rem}
+.page-hdr{display:flex;align-items:center;gap:10px;margin-bottom:1rem; max-width:800px;}
 .back-btn{background:none;border:none;cursor:pointer;color:#9CA3AF;font-size:18px;padding:4px 6px;border-radius:8px;line-height:1;display:flex;align-items:center;gap:4px}
 .back-btn:hover{background:#F3F4F6;color:#374151}
 .back-btn span{font-size:13px;font-weight:600}
@@ -67,45 +65,52 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
 .tab.on{color:#2563EB;border-bottom-color:#3B82F6;font-weight:600}
 .pane{display:none}.pane.on{display:block}
 
-/* Notes, Flashcards, Law Text Layouts */
-.note-section{margin-bottom:1.1rem}
-.note-title{font-size:12px;font-weight:600;color:#374151;margin-bottom:.5rem;display:flex;align-items:center;gap:5px}
-.note-card{background:#fff;border:1px solid #F3F4F6;border-radius:12px;padding:12px 14px;margin-bottom:.4rem}
-.note-item{display:flex;gap:8px;margin-bottom:.45rem;font-size:13px;line-height:1.55}
-.note-item:last-child{margin-bottom:0}
-.ndot{width:5px;height:5px;border-radius:50%;background:#60A5FA;margin-top:7px;flex-shrink:0}
-.nterm{font-weight:600;color:#111827}
-.nval{color:#6B7280}
-.warn-item{display:flex;gap:7px;background:#FEF2F2;border-radius:10px;padding:8px 12px;margin-bottom:.4rem;font-size:12px;color:#991B1B;line-height:1.5}
+/* Side-by-Side Law vs Regs Layout */
+.split-layout { display: flex; gap: 1.5rem; align-items: flex-start; }
+@media (max-width: 700px) { .split-layout { flex-direction: column; } }
+.col-act, .col-reg { flex: 1; min-width: 0; }
+.col-hdr { font-size: 14px; font-weight: 800; padding: 10px 14px; border-radius: 12px 12px 0 0; margin-bottom: 0.5rem; text-transform: uppercase; letter-spacing: 0.05em; }
+.col-hdr-act { background: #DBEAFE; color: #1E3A8A; }
+.col-hdr-reg { background: #D1FAE5; color: #065F46; }
 
-.fc-nav{display:flex;justify-content:space-between;align-items:center;margin-bottom:.65rem}
+/* Notes Styles */
+.note-section{margin-bottom:1.1rem}
+.note-title{font-size:12px;font-weight:700;margin-bottom:.5rem;display:flex;align-items:center;gap:5px}
+.act-theme .note-title { color: #1D4ED8; }
+.reg-theme .note-title { color: #047857; }
+.note-card{background:#fff;border-top:4px solid #F3F4F6; border-radius:8px; padding:12px 14px; margin-bottom:.6rem; box-shadow:0 1px 2px rgba(0,0,0,.03)}
+.act-theme .note-card { border-top-color: #3B82F6; background: #FAFAFA; }
+.reg-theme .note-card { border-top-color: #10B981; background: #FAFAFA; }
+.note-item{display:flex;gap:8px;margin-bottom:.5rem;font-size:12.5px;line-height:1.55}
+.note-item:last-child{margin-bottom:0}
+.act-theme .ndot { width:6px; height:6px; border-radius:50%; background:#60A5FA; margin-top:6px; flex-shrink:0; }
+.reg-theme .ndot { width:6px; height:6px; border-radius:50%; background:#34D399; margin-top:6px; flex-shrink:0; }
+.nterm{font-weight:700;color:#111827}
+.nval{color:#4B5563}
+
+.warn-container { margin-top: 1.5rem; border-top: 2px dashed #FECACA; padding-top: 1rem; }
+.warn-item{display:flex;gap:8px;background:#FEF2F2;border-left:4px solid #EF4444; border-radius:6px;padding:10px 12px;margin-bottom:.5rem;font-size:12.5px;color:#991B1B;line-height:1.5; font-weight: 500;}
+
+/* Flashcards & Law Text (kept central) */
+.fc-nav{display:flex;justify-content:space-between;align-items:center;margin-bottom:.65rem; max-width:480px; margin: 0 auto 1rem;}
 .fc-ctr{font-size:12px;color:#9CA3AF}
 .fc-btn{background:none;border:1px solid #E5E7EB;border-radius:8px;padding:6px 14px;font-size:12px;cursor:pointer;color:#374151;transition:all .15s}
 .fc-btn:disabled{opacity:0.3;cursor:default}
-.fc-card{background:#fff;border:1px solid #E5E7EB;border-radius:16px;padding:1.5rem 1.25rem;min-height:150px;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;cursor:pointer;box-shadow:0 1px 3px rgba(0,0,0,.05);width:100%}
-.fc-card.flipped{background:#F9FAFB}
-.fc-side{font-size:10px;font-weight:600;color:#9CA3AF;text-transform:uppercase;letter-spacing:.06em;margin-bottom:.65rem}
-.fc-front{font-size:15px;font-weight:600;color:#111827;line-height:1.5}
-.fc-back{font-size:13px;color:#111827;line-height:1.6}
-.fc-ref{background:#EFF6FF;color:#1D4ED8;border-radius:99px;padding:3px 12px;font-size:11px;font-weight:600;margin-top:.65rem;display:inline-block}
-
-.law-row{border-bottom:1px solid #F3F4F6}
-.law-hdr{display:flex;justify-content:space-between;align-items:center;padding:12px 0;cursor:pointer;gap:8px}
-.law-sec{font-size:11px;background:#EFF6FF;color:#1D4ED8;border-radius:99px;padding:2px 10px;font-weight:600;flex-shrink:0}
-.law-title{font-size:13px;font-weight:600;color:#111827;flex:1}
-.law-body{font-size:13px;color:#6B7280;line-height:1.75;padding-bottom:12px;display:none}
-.law-body.open{display:block}
-.lh{background:#FEF3C7;color:#92400E;border-radius:3px;padding:0 4px;font-weight:600;font-size:.9em}
-.lk{background:#EFF6FF;color:#1D4ED8;border-radius:3px;padding:0 4px;font-weight:600;font-size:.9em}
+.fc-card{background:#fff;border:1px solid #E5E7EB;border-radius:16px;padding:2rem 1.5rem;min-height:180px;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;cursor:pointer;box-shadow:0 2px 5px rgba(0,0,0,.05);width:100%; max-width:480px; margin: 0 auto;}
+.fc-card.flipped{background:#F8FAFC; border-color: #93C5FD;}
+.fc-side{font-size:11px;font-weight:700;color:#9CA3AF;text-transform:uppercase;letter-spacing:.06em;margin-bottom:1rem}
+.fc-front{font-size:16px;font-weight:600;color:#111827;line-height:1.5}
+.fc-back{font-size:14px;color:#111827;line-height:1.6}
+.fc-ref{background:#EFF6FF;color:#1D4ED8;border-radius:99px;padding:4px 12px;font-size:11px;font-weight:700;margin-top:1rem;display:inline-block}
 
 /* Buttons */
-.btn{width:100%;border:none;border-radius:14px;padding:13px;font-size:14px;font-weight:600;cursor:pointer;transition:all .15s;margin-bottom:.5rem}
+.btn{border:none;border-radius:14px;padding:13px;font-size:14px;font-weight:600;cursor:pointer;transition:all .15s;margin-bottom:.5rem; width:100%;}
 .btn-primary{background:#3B82F6;color:#fff}.btn-primary:hover{background:#2563EB}
 .btn-secondary{background:#F3F4F6;color:#374151}.btn-secondary:hover{background:#E5E7EB}
 .btn-success{background:#15803D;color:#fff}.btn-success:hover{background:#166534}
 
 /* Testing Arena Layout */
-.les-hdr{display:flex;align-items:center;gap:10px;margin-bottom:1rem}
+.les-hdr{display:flex;align-items:center;gap:10px;margin-bottom:1rem; max-width:480px; margin-left:auto; margin-right:auto;}
 .les-close{background:none;border:none;cursor:pointer;color:#9CA3AF;font-size:18px;padding:4px;line-height:1}
 .les-track{flex:1;height:8px;background:#E5E7EB;border-radius:4px;overflow:hidden}
 .les-fill{height:100%;background:#3B82F6;border-radius:4px;transition:width .3s}
@@ -113,47 +118,48 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
 .timer-pill{background:#FEF2F2;color:#991B1B;border-radius:99px;padding:4px 10px;font-size:12px;font-weight:700;display:flex;align-items:center;gap:4px}
 .score-pill{background:#EFF6FF;color:#1D4ED8;border-radius:99px;padding:4px 10px;font-size:12px;font-weight:700}
 
-.q-num{font-size:11px;font-weight:600;color:#9CA3AF;text-transform:uppercase;letter-spacing:.06em;margin-bottom:.35rem}
-.act-chip{display:inline-block;background:#EFF6FF;color:#1D4ED8;border-radius:99px;padding:3px 12px;font-size:11px;font-weight:600;margin-bottom:.75rem}
-.q-card{background:#fff;border:1px solid #E5E7EB;border-radius:16px;padding:14px 16px;margin-bottom:.85rem;box-shadow:0 1px 3px rgba(0,0,0,.05)}
-.q-text{font-size:14px;color:#111827;line-height:1.65;margin-bottom:.6rem}
-.stmts{background:#F9FAFB;border-radius:10px;padding:10px 12px;font-size:12px;color:#6B7280;line-height:1.75}
-.stmts div{margin-bottom:2px}.stmts div:last-child{margin-bottom:0}
+.lesson-wrapper { max-width: 480px; margin: 0 auto; }
+.q-num{font-size:11px;font-weight:700;color:#9CA3AF;text-transform:uppercase;letter-spacing:.06em;margin-bottom:.35rem}
+.act-chip{display:inline-block;background:#EFF6FF;color:#1D4ED8;border-radius:99px;padding:3px 12px;font-size:11px;font-weight:700;margin-bottom:.75rem}
+.q-card{background:#fff;border:1px solid #E5E7EB;border-radius:16px;padding:16px 18px;margin-bottom:.85rem;box-shadow:0 1px 3px rgba(0,0,0,.05)}
+.q-text{font-size:15px;font-weight:600; color:#111827;line-height:1.6;margin-bottom:.75rem}
+.stmts{background:#F8FAFC; border-left: 3px solid #93C5FD; border-radius:0 8px 8px 0;padding:12px;font-size:13px;color:#4B5563;line-height:1.6}
+.stmts div{margin-bottom:6px}.stmts div:last-child{margin-bottom:0}
 .opts{display:flex;flex-direction:column;gap:8px;margin-bottom:.85rem}
-.opt{background:#fff;border:2px solid #E5E7EB;border-radius:14px;padding:11px 14px;font-size:13px;color:#111827;cursor:pointer;text-align:left;display:flex;gap:9px;line-height:1.5;transition:all .15s;align-items:flex-start;width:100%}
+.opt{background:#fff;border:2px solid #E5E7EB;border-radius:14px;padding:12px 16px;font-size:14px;color:#111827;cursor:pointer;text-align:left;display:flex;gap:12px;line-height:1.5;transition:all .15s;align-items:flex-start;}
 .opt:hover:not(.locked){border-color:#93C5FD;background:#EFF6FF}
 .opt.correct{border-color:#16A34A;background:#F0FDF4;color:#166534}
 .opt.wrong{border-color:#DC2626;background:#FEF2F2;color:#991B1B}
 .opt.locked{cursor:default}
-.opt-lbl{font-weight:700;min-width:16px;font-size:12px;flex-shrink:0}
-.fb{border-radius:14px;padding:12px 14px;margin-bottom:.85rem}
+.opt-lbl{font-weight:800;min-width:18px;font-size:13px;flex-shrink:0; color:#6B7280;}
+.opt.correct .opt-lbl { color: #166534; }
+.opt.wrong .opt-lbl { color: #991B1B; }
+
+.fb{border-radius:14px;padding:14px 16px;margin-bottom:.85rem}
 .fb-ok{background:#F0FDF4;border:1px solid #86EFAC}
 .fb-bad{background:#FEF2F2;border:1px solid #FECACA}
-.fb-skip{background:#F9FAFB;border:1px solid #E5E7EB}
-.fb-title{font-size:13px;font-weight:600;margin-bottom:.3rem}
-.fb-title.ok{color:#166534}.fb-title.bad{color:#991B1B}.fb-title.skip{color:#6B7280}
-.fb-exp{font-size:12px;line-height:1.6}
-.fb-exp.ok{color:#15803D}.fb-exp.bad{color:#B91C1C}.fb-exp.skip{color:#6B7280}
+.fb-title{font-size:14px;font-weight:800;margin-bottom:.4rem}
+.fb-title.ok{color:#166534}.fb-title.bad{color:#991B1B}
+.fb-exp{font-size:13px;line-height:1.6}
+.fb-exp.ok{color:#15803D}.fb-exp.bad{color:#B91C1C}
 
 /* Results Card Layout */
-.res-card{background:#fff;border:1px solid #E5E7EB;border-radius:20px;padding:1.5rem;text-align:center;margin-bottom:1rem;box-shadow:0 1px 3px rgba(0,0,0,.05)}
-.res-icon{font-size:40px;margin-bottom:.65rem}
-.res-title{font-size:20px;font-weight:700;color:#111827;margin-bottom:.3rem}
-.res-sub{font-size:13px;color:#9CA3AF;margin-bottom:1rem}
-.xp-earned{display:inline-flex;align-items:center;gap:5px;background:#EFF6FF;border-radius:99px;padding:6px 16px;font-size:13px;font-weight:600;color:#1D4ED8}
-.pkumf-score{font-size:24px;font-weight:800;color:#1D4ED8;margin:1rem 0 0.5rem}
-.stats3{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:1rem}
-.scard{background:#F9FAFB;border-radius:12px;padding:10px;text-align:center}
-.sv{font-size:18px;font-weight:700;color:#111827}
-.sl{font-size:10px;color:#9CA3AF;margin-top:2px}
+.res-card{background:#fff;border:1px solid #E5E7EB;border-radius:20px;padding:2rem;text-align:center;margin-bottom:1.5rem;box-shadow:0 2px 5px rgba(0,0,0,.05); max-width:480px; margin-left:auto; margin-right:auto;}
+.res-icon{font-size:48px;margin-bottom:.75rem}
+.res-title{font-size:22px;font-weight:800;color:#111827;margin-bottom:.3rem}
+.res-sub{font-size:14px;color:#6B7280;margin-bottom:1rem}
+.xp-earned{display:inline-flex;align-items:center;gap:6px;background:#EFF6FF;border-radius:99px;padding:8px 20px;font-size:15px;font-weight:700;color:#1D4ED8}
+.pkumf-score{font-size:28px;font-weight:800;color:#1D4ED8;margin:1rem 0 0.5rem}
 
-.locked-center{text-align:center;padding:2rem 0}
-.timer-big{font-size:2rem;font-weight:700;color:#92400E;margin:.5rem 0}
+.locked-center{text-align:center;padding:3rem 0; max-width: 480px; margin: 0 auto;}
+.timer-big{font-size:2.5rem;font-weight:800;color:#92400E;margin:1rem 0}
 
-@keyframes pop{0%{opacity:0;transform:scale(.88)}100%{opacity:1;transform:scale(1)}}
+.learn-menu-grid { max-width: 480px; margin: 0 auto; display: flex; flex-direction: column; gap: 10px; }
+
+@keyframes pop{0%{opacity:0;transform:scale(.95)}100%{opacity:1;transform:scale(1)}}
 @keyframes shake{0%{transform:translateX(0)}20%{transform:translateX(-5px)}40%{transform:translateX(5px)}60%{transform:translateX(-3px)}80%{transform:translateX(3px)}100%{transform:translateX(0)}}
-.pop{animation:pop .22s ease}
-.shake{animation:shake .35s ease}
+.pop{animation:pop .2s ease}
+.shake{animation:shake .3s ease}
 </style>
 </head>
 <body>
@@ -169,7 +175,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
         <span class="mode-icon">📖</span>
         <div class="mode-name">Learn Mode</div>
       </div>
-      <div class="mode-desc">Direct access to regulatory reference cards, Ethics & GGM, exam tips, and study briefs. Zero testing pressure.</div>
+      <div class="mode-desc">Side-by-side regulatory reference cards, Ethics & GGM, exam tips, and study briefs. Zero testing pressure.</div>
     </div>
 
     <div class="mode-card" onclick="selectAppMode('game')">
@@ -177,7 +183,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
         <span class="mode-icon">⚡</span>
         <div class="mode-name">Game Mode & Testing</div>
       </div>
-      <div class="mode-desc">Free selection of subjects. Casual practice, Prorated timed sprints, or PKUMF Quota Mock Exams.</div>
+      <div class="mode-desc">Free selection of subjects. Casual practice, Prorated timed sprints, or Full PKUMF Quota Mock Exams.</div>
     </div>
   </div>
 </div>
@@ -188,7 +194,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
     <div class="xp-pill">⚡ <span id="dash-xp">0</span> XP</div>
     <div class="hearts" id="dash-hearts"></div>
   </div>
-  <div class="page-hdr" style="margin-bottom:1.5rem">
+  <div class="page-hdr" style="max-width:480px; margin-left:auto; margin-right:auto; margin-bottom:1.5rem">
     <div>
       <div class="page-title">Game Dashboard</div>
       <div class="page-sub">Select a subject to test your knowledge</div>
@@ -206,7 +212,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
       <div class="act-title">POISON</div>
       <div class="act-sub">Poisons Act 1952</div>
     </div>
-    <div class="act-btn" onclick="openModeSelect('SODA_CDCR')">
+    <div class="act-btn" onclick="openModeSelect('SODA')">
       <div class="act-icon">🧪</div>
       <div class="act-title">SODA + CDCR</div>
       <div class="act-sub">Sale of Drugs & Regs</div>
@@ -235,7 +241,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
 </div>
 
 <div id="scr-mode-select" class="scr">
-  <div class="page-hdr">
+  <div class="page-hdr" style="max-width:480px; margin: 0 auto 1.5rem;">
     <button class="back-btn" onclick="show('game-dash')">← <span>Back</span></button>
     <div>
       <div class="page-title" id="mode-act-title">Testing</div>
@@ -284,21 +290,20 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
 </div>
 
 <div id="scr-learn-menu" class="scr">
-  <div class="page-hdr">
+  <div class="page-hdr" style="max-width:480px; margin: 0 auto 1rem;">
     <button class="back-btn" onclick="show('welcome')">← <span>Home</span></button>
     <div>
       <div class="page-title">Learn Hub</div>
       <div class="page-sub">Select a statutory subject library</div>
     </div>
   </div>
-  <div style="display:flex;flex-direction:column;gap:10px;margin-top:1rem">
+  <div class="learn-menu-grid">
     <button class="btn btn-success" style="text-align:left;padding:16px" onclick="openActLearn('TIPS')">💡 PKUMF Exam Tips & Notes</button>
     <button class="btn btn-primary" style="text-align:left;padding:16px" onclick="openActLearn('ROPA')">📝 Registration of Pharmacists Act 1951</button>
-    <button class="btn btn-primary" style="text-align:left;padding:16px" onclick="openActLearn('SODA')">🧪 Sale of Drugs Act 1952 (SODA)</button>
-    <button class="btn btn-primary" style="text-align:left;padding:16px" onclick="openActLearn('CDCR')">💄 Control of Drugs & Cosmetics (CDCR)</button>
+    <button class="btn btn-primary" style="text-align:left;padding:16px" onclick="openActLearn('POISON')">☠️ Poisons Act 1952</button>
+    <button class="btn btn-primary" style="text-align:left;padding:16px" onclick="openActLearn('SODA')">🧪 Sale of Drugs Act 1952 + CDCR</button>
     <button class="btn btn-primary" style="text-align:left;padding:16px" onclick="openActLearn('MASA')">📢 Medicine Ads Act 1956</button>
-    <button class="btn btn-secondary" style="text-align:left;padding:16px;opacity:0.6" onclick="openComing('poison')">🔒 Poisons Act 1952 (Coming Soon)</button>
-    <button class="btn btn-secondary" style="text-align:left;padding:16px;opacity:0.6" onclick="openComing('dda')">🔒 Dangerous Drugs Act 1952 (Coming Soon)</button>
+    <button class="btn btn-primary" style="text-align:left;padding:16px" onclick="openActLearn('DDA')">💉 Dangerous Drugs Act 1952</button>
     <button class="btn btn-primary" style="text-align:left;padding:16px" onclick="openActLearn('ETHICS')">⚖️ Ethics & Good Governance (GGM)</button>
   </div>
 </div>
@@ -314,38 +319,37 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
   <div class="tabs">
     <div class="tab on" id="tab-notes" onclick="switchTab('notes')">📝 Notes</div>
     <div class="tab" id="tab-flash" onclick="switchTab('flash')">🃏 Flashcards</div>
-    <div class="tab" id="tab-law" onclick="switchTab('law')">📖 Law text</div>
   </div>
   <div id="pane-notes" class="pane on"></div>
   <div id="pane-flash" class="pane"></div>
-  <div id="pane-law" class="pane"></div>
 </div>
 
 <div id="scr-lesson" class="scr">
   <div class="les-hdr">
     <button class="les-close" onclick="exitLesson()">✕</button>
     <div class="les-track"><div class="les-fill" id="les-fill" style="width:0%"></div></div>
-    
     <div class="les-hud-box">
       <div class="score-pill" id="hud-score" style="display:none">Score: 0.00</div>
       <div class="timer-pill" id="hud-timer" style="display:none">⏱️ 00:00</div>
       <div class="les-hearts" id="hearts-les" style="display:none"></div>
     </div>
   </div>
-  <div class="q-num" id="q-num">Question 1 of 10</div>
-  <div class="act-chip" id="q-act">ACT · Sec</div>
-  <div class="q-card">
-    <div class="q-text" id="q-text"></div>
-    <div class="stmts" id="q-stmts" style="display:none"></div>
+  <div class="lesson-wrapper">
+    <div class="q-num" id="q-num">Question 1 of 10</div>
+    <div class="act-chip" id="q-act">ACT · Sec</div>
+    <div class="q-card">
+      <div class="q-text" id="q-text"></div>
+      <div class="stmts" id="q-stmts" style="display:none"></div>
+    </div>
+    <div class="opts" id="q-opts"></div>
+    <div class="fb" id="q-fb" style="display:none"></div>
+    <button class="btn btn-secondary" id="skip-btn" onclick="doSkip()">Skip (0 marks)</button>
+    <button class="btn btn-primary" id="cont-btn" onclick="doCont()" style="display:none">Continue</button>
   </div>
-  <div class="opts" id="q-opts"></div>
-  <div class="fb" id="q-fb" style="display:none"></div>
-  <button class="btn btn-secondary" id="skip-btn" onclick="doSkip()">Skip (0 marks)</button>
-  <button class="btn btn-primary" id="cont-btn" onclick="doCont()" style="display:none">Continue</button>
 </div>
 
 <div id="scr-result" class="scr">
-  <div class="page-hdr">
+  <div class="page-hdr" style="max-width:480px; margin: 0 auto 1rem;">
     <button class="back-btn" onclick="show('game-dash')">← <span>Exit</span></button>
     <div><div class="page-title">Result</div></div>
   </div>
@@ -367,11 +371,13 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
       <div class="scard"><div class="sv" id="r-skip">0</div><div class="sl">Skipped</div></div>
     </div>
   </div>
-  <button class="btn btn-secondary" onclick="show('game-dash')">Back to Dashboard</button>
+  <div style="max-width:480px; margin: 0 auto;">
+    <button class="btn btn-secondary" onclick="show('game-dash')">Back to Dashboard</button>
+  </div>
 </div>
 
 <div id="scr-locked" class="scr">
-  <div class="page-hdr">
+  <div class="page-hdr" style="max-width:480px; margin: 0 auto 1rem;">
     <button class="back-btn" onclick="show('game-dash')">← <span>Back</span></button>
     <div><div class="page-title">No hearts left</div></div>
   </div>
@@ -380,55 +386,44 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
     <div style="font-size:16px;font-weight:700;color:#111827;margin-bottom:.4rem">Hearts refilling...</div>
     <div style="font-size:13px;color:#9CA3AF;margin-bottom:.5rem">Wait 30 mins to play Casual Mode.<br>Or play Timed Modes (no hearts needed).</div>
     <div class="timer-big" id="refill-timer">30:00</div>
+    <button class="btn btn-secondary" onclick="show('game-dash')">Back to Dashboard</button>
   </div>
-  <button class="btn btn-secondary" onclick="show('game-dash')">Back to Dashboard</button>
-</div>
-
-<div id="scr-coming" class="scr">
-  <div class="page-hdr">
-    <button class="back-btn" onclick="goBackFromComing()">← <span>Back</span></button>
-    <div>
-      <div class="page-title" id="coming-title">POISON</div>
-      <div class="page-sub">Coming soon</div>
-    </div>
-  </div>
-  <div style="text-align:center;padding:2rem 0 1.5rem">
-    <div style="font-size:3rem;margin-bottom:.75rem">🚧</div>
-    <div style="font-size:16px;font-weight:700;color:#111827;margin-bottom:.4rem" id="coming-name">POISON</div>
-    <div style="font-size:13px;color:#9CA3AF" id="coming-acts"></div>
-  </div>
-  <button class="btn btn-secondary" style="margin-top:1rem" onclick="goBackFromComing()">Back</button>
 </div>
 
 </div><script>
 // ── DATA INJECTIONS ──────────────────────────────────────────────
 
 window.TIPS_DATA = {
+  actTitle: "PKUMF General Guidelines",
+  regTitle: "",
   questions: [],
-  notes: [
-    {title:'PKUMF Overview',items:[
-      {t:'Full Name',d:'Peperiksaan Kelayakan Untuk Mengamal Farmasi (PKUMF)'},
-      {t:'Exam Repeats',d:'Maximum of 3 repeat times allowed'}
-    ]},
-    {title:'Exam Question Breakdown',items:[
-      {t:'ROPA',d:'Approx. 20 Questions'},
-      {t:'POISON',d:'Approx. 30-40 Questions'},
-      {t:'Psychotropic',d:'Approx. 5-10 Questions'},
-      {t:'DDA',d:'Approx. 5-10 Questions'},
-      {t:'SODA',d:'Approx. 10-20 Questions'},
-      {t:'MASA',d:'Approx. 10 Questions'},
-      {t:'Ethics/GGM/NMP',d:'Approx. 10 Questions'}
-    ]},
-    {title:'Study Strategies',items:[
-      {t:'Act vs. Regulation',d:'Always understand the relationship between the primary Act and its secondary Regulations'},
-      {t:'Locate Info',d:'Practice flipping the books and marking pages. Know what information lives in the Act versus the Regulations'},
-      {t:'Time Management',d:'Always time your practice (1.8 minutes per question)'}
-    ]}
-  ],
-  flashcards: [], law: []
+  notes: {
+    act: [
+      {title:'PKUMF Overview',items:[
+        {t:'Full Name',d:'Peperiksaan Kelayakan Untuk Mengamal Farmasi (PKUMF)'},
+        {t:'Exam Repeats',d:'Maximum of 3 repeat times allowed'}
+      ]},
+      {title:'Exam Question Breakdown',items:[
+        {t:'ROPA',d:'Approx. 20 Questions'},
+        {t:'POISON',d:'Approx. 30-40 Questions'},
+        {t:'Psychotropic & DDA',d:'Approx. 10-20 Questions combined'},
+        {t:'SODA',d:'Approx. 10-20 Questions'},
+        {t:'MASA',d:'Approx. 10 Questions'},
+        {t:'Ethics/GGM/NMP',d:'Approx. 10 Questions'}
+      ]},
+      {title:'Study Strategies',items:[
+        {t:'Act vs. Regulation',d:'Always understand the relationship between the primary Act and its secondary Regulations'},
+        {t:'Locate Info',d:'Practice flipping the books and marking pages. Know what information lives in the Act versus the Regulations'},
+        {t:'Time Management',d:'Always time your practice (1.8 minutes per question)'}
+      ]}
+    ]
+  },
+  flashcards: []
 };
 
 window.ROPA_DATA = {
+  actTitle: "Registration of Pharmacists Act 1951",
+  regTitle: "Registration of Pharmacists Regulations 2004",
   questions: [
     {act:'ROPA · s.17',q:'The Pharmacy Board may remove the name of a registered pharmacist from the register, if he:',stmts:['i. is deceased.','ii. is of unsound mind.','iii. has permanently left Malaysia.','iv. fails to obtain an annual certificate prior to the commencement of any year.'],opts:['A. i, ii and iii only','B. i, ii and iv only','C. iii only','D. i, ii, iii and iv'],ans:0,exp:'s.17(1A) RPA 1951: The Board may remove without inquiry if the person is deceased, permanently left Malaysia, or is of unsound mind. Item iv falls under s.16(4).'},
     {act:'ROPA · s.6B',q:'A person is entitled to be a full registered pharmacist if he:',stmts:['i. has completed his term as a temporarily registered pharmacist.','ii. has gained experience as required under section 6A of the Act.','iii. has been exempted by the Board under subsection 6A(7) of the Act.','iv. has a qualification which the Minister is satisfied as adequate without consulting the Board.'],opts:['A. i and iii only','B. ii and iii only','C. ii and iv only','D. i, ii, iii and iv'],ans:1,exp:'s.6B(1) RPA 1951: Entitled to full registration if he has gained experience under s.6A or been exempted under s.6A(7).'},
@@ -441,163 +436,180 @@ window.ROPA_DATA = {
     {act:'ROPA · s.5',q:'According to Section 5 of the Act,',opts:['A. keeping a register of pharmacists is optional.','B. a register is kept by the Director of Pharmaceutical Services.','C. the Registrar is the Secretary of the Pharmacy Board.','D. maintenance of the register is the responsibility of the Pharmacy Board.'],ans:1,exp:'s.5 RPA 1951: The register of pharmacists shall be kept by the Director of Pharmaceutical Services (the Registrar).'},
     {act:'ROPA · s.6A',q:'A provisionally registered pharmacist shall engage in employment as a pharmacist in the following approved premises which fulfil the criteria for training, EXCEPT:',opts:['A. a government-based general hospital.','B. a retail pharmacy.','C. a pharmaceutical manufacturer.','D. a veterinary clinic.'],ans:3,exp:'s.6A Second Schedule: Veterinary clinics are not listed as approved premises for gaining experience.'}
   ],
-  notes: [
-    {title:'Board composition — s.3(1)',items:[
-      {t:'DG of Health',d:'Ex officio President — chairs all meetings he attends'},
-      {t:'Director of Pharmaceutical Services',d:'Ex officio member'},
-      {t:'Public service pharmacists',d:'8 members — appointed by Minister'},
-      {t:'HEI pharmacists',d:'3 members from higher education institutions — appointed by Minister'},
-      {t:'Non-public service',d:'2 members — appointed by Minister'},
-      {t:'Private practice',d:"3 members — nominated by private practice, appointed by Minister. Citizens only (no PRs)"}
-    ]},
-    {title:'Key penalties',items:[
-      {t:'Title offence [s.7(4)]',d:'≤RM500 + RM50/day continuing'},
-      {t:'Public service failure [s.11C(2)]',d:'≤RM50,000 fine on conviction + registration struck off'},
-      {t:'Fraudulent registration [s.20]',d:'≤1 year imprisonment OR ≤RM500 fine — Sessions Court'}
-    ]}
-  ],
+  notes: {
+    act: [
+      {title:'Board composition — s.3(1)',items:[
+        {t:'DG of Health',d:'Ex officio President — chairs all meetings he attends'},
+        {t:'Director of Pharmaceutical Services',d:'Ex officio member'},
+        {t:'Public service pharmacists',d:'8 members — appointed by Minister'},
+        {t:'HEI pharmacists',d:'3 members from higher education institutions — appointed by Minister'},
+        {t:'Non-public service',d:'2 members — appointed by Minister'},
+        {t:'Private practice',d:"3 members — nominated by private practice, appointed by Minister. Citizens only (no PRs)"}
+      ]},
+      {title:'Key penalties',items:[
+        {t:'Title offence [s.7(4)]',d:'≤RM500 + RM50/day continuing'},
+        {t:'Public service failure [s.11C(2)]',d:'≤RM50,000 fine on conviction + registration struck off'},
+        {t:'Fraudulent registration [s.20]',d:'≤1 year imprisonment OR ≤RM500 fine — Sessions Court'}
+      ]}
+    ],
+    reg: [
+      {title:'Committee of Inquiry — Reg 2004',items:[
+        {t:'Composition',d:'5 fully registered pharmacists with valid annual certificates [Reg 15(1)]'},
+        {t:'Quorum',d:'3 [Reg 15(4)]'},
+        {t:'Chairman',d:'Nominated by the Board [Reg 15(3)]'},
+        {t:'Decisions',d:'By majority [Reg 15(6)]'}
+      ]},
+      {title:'Fees',items:[
+        {t:'Full registration',d:'RM100 [Reg 8]'},
+        {t:'Annual retention',d:'RM50 (Pharmacist), RM200 (Body Corporate)'},
+        {t:'Late renewal',d:'RM100 additional (Pharmacist), RM300 additional (Body Corporate)'}
+      ]}
+    ],
+    warn: [
+      'President absent → members ELECT chairman — DPS is NOT automatic [s.4(2)]',
+      'Annual cert failure = REMOVED from register — not suspended [s.16(4)]'
+    ]
+  },
   flashcards: [
     {q:'Who keeps and maintains the register of pharmacists?',a:'Director of Pharmaceutical Services (the Registrar)',ref:'s.5 RPA 1951'},
     {q:'Quorum of the Pharmacy Board',a:'9 members',ref:'s.4(4) RPA 1951'},
     {q:'Fee for annual retention — body corporate',a:'RM200',ref:'Reg 12(2) RPA Reg 2004'},
     {q:'Committee of Inquiry — quorum',a:'3',ref:'Reg 15(4) RPA Reg 2004'}
-  ],
-  law: [
-    {sec:'s.4',title:'President and meetings',body:'DG Health = President. Absence → members <span class="lh">elect</span> chairman. Quorum: <span class="lh">9</span>.'},
-    {sec:'s.16',title:'Annual certificate',body:'Renew before year end + pay fee. Failure = <span class="lh">removed from register</span>. Restoration: application + <span class="lk">additional fee</span>.'}
-  ]
-};
-
-// ── SODA 1952 (SEPARATED FOR LEARNING) ───────────────────────────────────
-window.SODA_DATA = {
-  questions: [
-    {act:'SODA · s.2',q:'Under the Sale of Drugs Act 1952, "medicinal purpose" includes which of the following?',stmts:['i. Contraception','ii. Inducing anaesthesia','iii. Controlling body weight','iv. Cleaning the teeth and mucous membranes'],opts:['A. i, ii and iii only','B. ii, iii and iv only','C. i and iv only','D. All of the above'],ans:0,exp:'s.2 SODA 1952: Medicinal purpose explicitly includes contraception, inducing anaesthesia, and controlling body weight. Teeth cleaning fits the statutory definition of a cosmetic.'},
-    {act:'SODA · s.4',q:'An officer under the Sale of Drugs Act 1952 may seize any drug which appears to be unwholesome. What happens if no complaint is made within forty-eight hours of the seizure?',opts:['A. The drug is returned to the owner','B. The drug becomes the property of the Government and shall be destroyed','C. The officer must apply to the Magistrate for a destruction order','D. The drug is sold at auction'],ans:1,exp:'s.4(4) SODA 1952: If no complaint is filed within 48 hours, the article becomes the property of the Government and shall be destroyed or disposed of.'},
-    {act:'SODA · s.7',q:'When an officer purchases a sample of a drug for analysis under the Sale of Drugs Act 1952, he must divide the sample into how many parts?',opts:['A. Two','B. Three','C. Four','D. Five'],ans:1,exp:'s.7(2) SODA 1952: The officer must divide the sample into three parts, marking and sealing or fastening up each part.'},
-    {act:'SODA · s.12',q:'What is the general penalty for a first offence committed by a body corporate under the Sale of Drugs Act 1952 where no penalty is expressly provided?',opts:['A. Fine not exceeding RM25,000','B. Fine not exceeding RM50,000','C. Fine not exceeding RM100,000','D. Fine not exceeding RM500,000'],ans:1,exp:'s.12(2) SODA 1952: A body corporate found guilty of an offence where no penalty is expressly specified shall be liable to a fine ≤ RM50,000.'}
-  ],
-  notes: [
-    {title:'Statutory Definitions — s.2',items:[
-      {t:'Drug',d:'Any substance intended or claimed capable of being used on humans or animals internally or externally for a medicinal purpose.'},
-      {t:'Medicinal Purpose',d:'Includes diagnosing, contraception, inducing anaesthesia, and controlling body weight.'},
-      {t:'Appliance',d:'Utensils, machinery, apparatus, or instruments used for making, keeping, preparing, or supplying any drug.'}
-    ]},
-    {title:'Appointments & Authority — s.3',items:[
-      {t:'Analysts',d:'Appointed by the Yang di-Pertuan Agong.'},
-      {t:'Officers & Inspectors',d:'Appointed by the Chief Minister of the respective State.'},
-      {t:'Legal Status',d:'All are deemed public servants under the Penal Code.'}
-    ]},
-    {title:'Enforcement Timelines & Procedures',items:[
-      {t:'Seizure Appeal [s.4]',d:'Claims against seized items must be made to a Magistrate within 48 hours. If no complaint is made, the drug becomes Government property and shall be destroyed.'},
-      {t:'Sample Division [s.7]',d:'An officer must divide procured samples into exactly 3 parts: one for the seller, one for the analyst, one retained.'},
-      {t:'Court Deadlines [s.18]',d:'Proceedings cannot be instituted after 60 days from the time of purchasing the sample. Summons cannot be returnable in less than 14 days.'},
-      {t:'Warranty Defence [s.20]',d:'Defendant must deliver a copy of the written warranty to the prosecutor within 7 days of receiving the summons to rely on it as a defence.'}
-    ]},
-    {title:'Penalties under SODA — s.12',items:[
-      {t:'Individuals',d:'First Offence: Fine ≤ RM25,000 and/or ≤ 3 years prison. Subsequent: Fine ≤ RM50,000 and/or ≤ 5 years prison.'},
-      {t:'Body Corporate',d:'First Offence: Fine ≤ RM50,000. Subsequent: Fine ≤ RM100,000.'}
-    ]},
-    {title:'Exam Traps ⚠️',warn:[
-      'Analysts are appointed by the YDPA, but Inspectors are appointed by the Chief Minister. Do not mix these up!',
-      'The prosecution window strictly closes 60 days after the sample is taken.',
-      'A copy of the analyst\'s certificate can NEVER be displayed or used as an advertisement.'
-    ]}
-  ],
-  flashcards: [
-    {q:'Who appoints Analysts under the Sale of Drugs Act 1952?',a:'The Yang di-Pertuan Agong',ref:'s.3(1) SODA 1952'},
-    {q:'Who appoints Officers and Inspectors under SODA?',a:'The Chief Minister',ref:'s.3(2) SODA 1952'},
-    {q:'If a drug is seized, how many hours do you have to complain to a Magistrate before it becomes Government property?',a:'48 hours',ref:'s.4(3) SODA 1952'},
-    {q:'Can an inspector force a pharmacy to open a sealed package to sell just a fraction of it as a sample?',a:'No, for retail unopened packages, the inspector must buy the whole package',ref:'s.5(3) SODA 1952'},
-    {q:'How many parts must an official drug sample be divided into?',a:'Three parts (Seller, Analyst, Retained)',ref:'s.7(2) SODA 1952'},
-    {q:'What is the maximum time allowed to institute proceedings after a sample is purchased?',a:'60 days',ref:'s.18(4) SODA 1952'},
-    {q:'What is the general fine limit for a FIRST offence by a Body Corporate under SODA?',a:'RM50,000',ref:'s.12(2) SODA 1952'}
-  ],
-  law: [
-    {sec:'s.2',title:'Medicinal Purpose Definition',body:'Includes alleviating, treating, curing or preventing a disease; diagnosing; contraception; inducing anaesthesia; controlling body weight; general maintenance of health.'},
-    {sec:'s.4',title:'Seizure Mechanics',body:'Officers may seize unwholesome items or destroy decayed items. Complaints must be directed to a Magistrate within 48 hours. If no complaint, items become Government property.'},
-    {sec:'s.7',title:'Sampling Routine',body:'Procuring inspectors must notify the seller, divide the sample into 3 parts, mark and seal them, and deliver one part to the seller, one to the analyst, and retain the third.'},
-    {sec:'s.12',title:'General Sanctions',body:'Non-Corporate First: ≤ RM25,000 / 3 years. Subsequent: ≤ RM50,000 / 5 years. Corporate First: ≤ RM50,000 fine. Subsequent Corporate: ≤ RM100,000 fine.'},
-    {sec:'s.18',title:'Court Rules',body:'Proceedings in summary manner in Sessions or First Class Magistrate Court. Summons requires ≥ 14 days returnable period. Proceedings strictly invalid after 60 days from sample procurement.'},
-    {sec:'s.20',title:'Warranty Defence',body:'A written warranty is a good defence if the defendant delivers a copy to the prosecutor within 7 days of receiving the summons.'}
-  ]
-};
-
-// ── CDCR 1984 (SEPARATED FOR LEARNING) ───────────────────────────────────
-window.CDCR_DATA = {
-  questions: [
-    {act:'CDCR · r.7',q:'Under the Control of Drugs and Cosmetics Regulations 1984, which of the following actions is prohibited regarding a registered product?',stmts:['i. Mixing it with another registered product','ii. Labelling it with an additional name other than the registered name','iii. Possessing written information describing an unapproved indication','iv. Mixing it with a substance not intended for reconstitution'],opts:['A. i and ii only','B. ii and iv only','C. i, ii and iii only','D. All of the above'],ans:3,exp:'Reg 7(1A) & 7(1B) CDCR 1984: All these acts are explicitly prohibited, including possessing documents describing unapproved indications.'},
-    {act:'CDCR · r.8',q:'What is the processing fee for an application to register a product OTHER than a traditional medicine under the CDCR 1984?',opts:['A. RM50','B. RM200','C. RM500','D. RM1,000'],ans:3,exp:'Reg 8(2)(c) CDCR 1984: A processing fee of RM1000.00 is required for products other than traditional medicines.'},
-    {act:'CDCR · r.12',q:'Which licence under the CDCR 1984 is restricted to including ONLY ONE product?',opts:['A. Manufacturer\'s licence','B. Wholesaler\'s licence','C. Import licence','D. Clinical trial import licence'],ans:3,exp:'Reg 12(2) CDCR 1984: Any number of registered products may be included in standard licenses, but a clinical trial import licence includes only one product.'},
-    {act:'CDCR · r.15',q:'Who is exempted from holding a manufacturing license when dispensing a drug for a specific patient\'s medical treatment?',stmts:['i. A pharmacist in a retail pharmacy','ii. A fully registered medical practitioner','iii. A veterinary practitioner','iv. A person acting in the course of duties in a Government hospital'],opts:['A. i and ii only','B. i, ii and iii only','C. ii, iii and iv only','D. All of the above'],ans:3,exp:'Reg 15(2) CDCR 1984: Retail pharmacists, registered medical/dental/veterinary practitioners, and public/estate hospital staff are fully exempted when dispensing for specific care.'},
-    {act:'CDCR · r.18A',q:'For a notified cosmetic, the person responsible for placing it in the market must:',stmts:['i. Maintain proper records','ii. Report serious adverse events to the Director of Pharmaceutical Services','iii. Recall the product immediately if it contravenes guidelines','iv. Apply for a clinical trial import licence'],opts:['A. i, ii and iii only','B. i and ii only','C. ii, iii and iv only','D. All of the above'],ans:0,exp:'Reg 18A(9), (11), & (13) CDCR 1984: Responsible entities must report adverse events, keep files, and recall non-compliant lots. Clinical trial frameworks apply strictly to non-registered drug investigations.'},
-    {act:'CDCR · Sch. (Tab II)',q:'Which of the following substances is PROHIBITED in traditional medicine under the CDCR 1984?',opts:['A. Caffeine','B. Paracetamol','C. Any poison within the meaning of the Poisons Act 1952','D. All of the above'],ans:3,exp:'Table II CDCR 1984: Caffeine, Nicotinamide, Paracetamol, and generic Poisons under the Poisons Act 1952 are prohibited inside traditional medicine lines.'}
-  ],
-  notes: [
-    {title:'Drug Control Authority (DCA) — r.3',items:[
-      {t:'Ex-Officio Members',d:'Director-General of Health (Chairman), Director of Pharmaceutical Services (Alt Chairman), Director of NPCB.'},
-      {t:'Appointed Members',d:'8 members appointed by Minister: 1 public physician, 1 public pharmacist, 3 local university experts, 2 medical practitioners, 1 public veterinary practitioner.'},
-      {t:'Quorum',d:'4 members, including the Chairman, form a quorum.'},
-      {t:'Secretary',d:'A pharmacist in public service appointed by Minister; acts as Secretary but is NOT a member of the Authority.'}
-    ]},
-    {title:'Licensing & Registration Fees — CDCR',items:[
-      {t:'Traditional Medicine Reg.',d:'RM500 processing fee.'},
-      {t:'Other Products Reg.',d:'RM1,000 processing fee.'},
-      {t:'Manufacturer Licence',d:'RM1,000 processing fee.'},
-      {t:'Wholesaler / Import Licence',d:'RM500 processing fee.'},
-      {t:'Clinical Trial Import',d:'Valid for max 3 years. Can only include ONE product.'}
-    ]},
-    {title:'Cosmetics Control — r.18A',items:[
-      {t:'Requirement',d:'Must be a "notified cosmetic" with the DPS.'},
-      {t:'Personal Exemption',d:'Importing for personal/family use is exempt if the quantity does not exceed 1 month\'s reasonable use.'},
-      {t:'Reporting',d:'Responsible person MUST report serious or high incidences of adverse events to the DPS.'}
-    ]},
-    {title:'Traditional Medicine Restrictions — Tables I & II',items:[
-      {t:'Heavy Metal Limits',d:'Lead (Pb): ≤ 10.0 ppm | Arsenic (As): ≤ 5.0 ppm | Mercury (Hg): ≤ 0.5 ppm | Cadmium (Cd): ≤ 0.3 ppm.'},
-      {t:'Prohibited Additions',d:'Caffeine, Nicotinamide, Paracetamol, and any Poison under the Poisons Act 1952.'}
-    ]},
-    {title:'Exam Traps ⚠️',warn:[
-      'Clinical Trial Import Licences (Form 4) are strictly limited to exactly ONE product. All other licences can hold multiple products.',
-      'Caffeine and Paracetamol are strictly prohibited chemical additions in traditional medicines.'
-    ]}
-  ],
-  flashcards: [
-    {q:'What is the minimum quorum for a meeting of the Drug Control Authority?',a:'Four members',ref:'Reg 5(4) CDCR 1984'},
-    {q:'Is the Secretary of the DCA allowed to vote in meetings?',a:'No, the Secretary is not a member of the Authority',ref:'Reg 3(7) CDCR 1984'},
-    {q:'What is the processing fee for a Manufacturer’s Licence under CDCR?',a:'RM1,000',ref:'Reg 13(1) CDCR 1984'},
-    {q:'What is the maximum validity period for a Clinical Trial Import Licence?',a:'Three years',ref:'Reg 12(5) CDCR 1984'},
-    {q:'How many products can be included in a Clinical Trial Import Licence?',a:'Only one product',ref:'Reg 12(2) CDCR 1984'},
-    {q:'For how long must an importer or wholesaler maintain records of transactions?',a:'Not less than 5 years',ref:'Reg 27(1) CDCR 1984'},
-    {q:'What is the maximum permitted proportion of Lead in a traditional medicine?',a:'10.0 ppm (or 10.0 mg/kg)',ref:'Table I CDCR 1984'},
-    {q:'What is the maximum permitted proportion of Mercury in a traditional medicine?',a:'0.5 ppm (or 0.5 mg/kg)',ref:'Table I CDCR 1984'},
-    {q:'Name three specific synthetic substances completely prohibited in traditional medicines.',a:'Caffeine, Nicotinamide, Paracetamol',ref:'Table II CDCR 1984'},
-    {q:'How many days do you have to appeal a DCA decision to the Minister?',a:'14 days',ref:'Reg 18 CDCR 1984'}
-  ],
-  law: [
-    {sec:'Reg 3',title:'DCA Constitution',body:'DG Health (Chair), DPS (Alt Chair), NPCB Director, plus 8 appointed members (public physician, public pharmacist, 3 academic experts, 2 doctors, 1 vet). Secretary is a non-member public pharmacist.'},
-    {sec:'Reg 12',title:'Licence Profiles',body:'Manufacturer (Form 2), Wholesaler (Form 3), Clinical Trial Import (Form 4), Import (Form 5). Clinical trial holds 3-year ceiling and max 1 product constraint.'},
-    {sec:'Reg 18A',title:'Cosmetics Regulations',body:'Restricted to notified items. DPS holds authority to order batch recalls. Records must be maintained and serious adverse events reported immediately.'},
-    {sec:'Tab I & II',title:'Traditional Remedy Limits',body:'Max heavy metal ppm caps: Arsenic 5.0, Cadmium 0.3, Lead 10.0, Mercury 0.5. Synthetic additions like Caffeine, Nicotinamide, or Paracetamol are prohibited.'}
   ]
 };
 
 window.POISON_DATA = {
+  actTitle: "Poisons Act 1952",
+  regTitle: "Poisons & Psychotropic Regulations",
   questions: [
     {act:'POISON',q:'Group A poisons include:',stmts:['i. bambuterol in all preparations.','ii. Amidopyrine; its salts, in all preparations.','iii. Carbadox in all preparations for use in animal feeds only.','iv. Teicoplanin in all preparations.'],opts:['A. i and ii only.','B. i, iii and iv only.','C. ii and iv only.','D. i, ii, iii and iv'],ans:0,exp:'Poisons Act First Schedule: Bambuterol and Amidopyrine fall under Group A.'},
-    {act:'POISON',q:'The Licensing Officer is authorized to issue:',stmts:['i. a Type A Licence (S26 PA 1952)','ii. an authorization to export psychotropic substances (R6 PR 1952)','iii. a permit to purchase, store and use sodium hydroxide 9%','iv. a written consent to alter the package of psychotropic subtances in transit (R10 PR 1952)'],opts:['A. i, ii and iv only.','B. i and iii only.','C. ii and iv only.','D. i, ii, iii and iv only.'],ans:0,exp:'Sodium hydroxide 9% is not a poison (refer First Schedule). The Licensing Officer issues Type A, export authorizations, and transit packaging consents.'},
-    {act:'POISON',q:'Powers of Drug Enforcement Officer given under the Act include:',stmts:['i. Investigating any commission of offences.','ii. Arresting the suspected offenders.','iii. Entering any premises where offence under the Act has been committed or believed to have been committed.','iv. Seizing material or articles which may furnish evidence for the commission of an offence.'],opts:['A. i and ii only.','B. i, iii and iv only.','C. iii and iv only.','D. i, ii, iii and iv'],ans:1,exp:'s.31A & 31B PA 1952: Officers investigate, enter premises, and seize materials. They do not hold independent arrest powers under this specific sub-clause setup.'},
-    {act:'POISON',q:'The following statement(s) is/are TRUE of the fees under the Act:',stmts:['i. RM 100 for a permit to purchase, store, and use sodium hydroxide 12%.','ii. RM 300 for a Type A licence to import vaccine for COVID-19.','iii. RM 300 for a Type B licence to import, store and sell by wholesale ammonia gas 10% as specified in the licence.','iv. RM 200 for an import authorization of psychotropic substance.'],opts:['A. i only.','B. i and iii only.','C. ii and iv only.','D. i, ii, iii and iv'],ans:0,exp:'Fee schedules limit Type A/B specific variations. Source specifies A as the answer.'},
+    {act:'POISON',q:'The Licensing Officer is authorized to issue:',stmts:['i. a Type A Licence (S26 PA 1952)','ii. an authorization to export psychotropic substances (R6 P(PS)R 1989)','iii. a permit to purchase, store and use sodium hydroxide 9%','iv. a written consent to alter the package of psychotropic subtances in transit (R10 P(PS)R 1989)'],opts:['A. i, ii and iv only.','B. i and iii only.','C. ii and iv only.','D. i, ii, iii and iv only.'],ans:0,exp:'Sodium hydroxide 9% is not a poison (refer First Schedule). The Licensing Officer issues Type A, export authorizations, and transit packaging consents.'},
+    {act:'POISON',q:'Powers of Drug Enforcement Officer given under the Act include:',stmts:['i. Investigating any commission of offences.','ii. Arresting the suspected offenders.','iii. Entering any premises where offence under the Act has been committed or believed to have been committed.','iv. Seizing material or articles which may furnish evidence for the commission of an offence.'],opts:['A. i and ii only.','B. i, iii and iv only.','C. iii and iv only.','D. i, ii, iii and iv'],ans:3,exp:'s.31AA & 31B PA 1952: Authorized officers have all powers of a police officer (including arrest) and can enter, search, and seize.'},
+    {act:'POISON',q:'The following statement(s) is/are TRUE of the fees under the Act:',stmts:['i. RM 100 for a permit to purchase, store, and use sodium hydroxide 12%.','ii. RM 300 for a Type A licence to import vaccine for COVID-19.','iii. RM 300 for a Type B licence to import, store and sell by wholesale ammonia gas 10% as specified in the licence.','iv. RM 200 for an import authorization of psychotropic substance.'],opts:['A. i only.','B. i and iii only.','C. ii and iv only.','D. i, ii, iii and iv'],ans:3,exp:'Fees prescribed: Type A (RM300), Type B (RM300), Psychotropic Import (RM200), Sodium Hydroxide Permit (RM100). All are correct.'},
     {act:'POISON',q:'The following statement(s) is/are TRUE regarding wholesale of poisons:',stmts:['i. A sale to any person who intends to sell again is a wholesale.','ii. All licenced pharmacists are licenced wholesaler.','iii. A sale by a Type B licence holder to a professional person for the purpose of such person’s profession and not for resale is a wholesale.','iv. A written order is required to be sent within seven days after the purchaser has affixed his signature in a Poison Wholesale Sales Book.'],opts:['A. i and ii only.','B. i and iii only.','C. ii and iv only.','D. i, ii, iii and iv'],ans:1,exp:'Wholesale includes sale to resellers, and sale by Type B holders to professionals for their profession (not for resale).'},
     {act:'POISON',q:'According to Section 7 of the Act, the following are exempted from the provisions of the act EXCEPT:',opts:['A. surgical dressing','B. lacquer','C. propellant','D. antimony'],ans:3,exp:'s.7 PA 1952 exemptions generally cover industrial/commercial articles like surgical dressings, lacquers, and propellants. Antimony is a controlled substance.'},
-    {act:'POISON',q:'According to Section 20 of the Poison Act 1952, choose the CORRECT statement(s) regarding the sale and supply of Group A poison.',stmts:['i. A licenced wholesaler may sell by wholesale to a licenced pharmacist or another licence wholesaler.','ii. The seller or supplier shall enter or cause to be entered in the Prescription Book on the day of sale.','iii. A retail sale by a licensed pharmacist shall be recorded in the Poisons Book.','iv. A licenced wholesaler may immediately export to a purchaser outside Malaysia.'],opts:['A. i and ii only.','B. iii only.','C. i and iv only.','D. i, ii, iii and iv'],ans:2,exp:'s.20 PA 1952: Licenced wholesalers can sell to pharmacists/wholesalers and may export.'},
+    {act:'POISON',q:'According to Section 20 of the Poison Act 1952, choose the CORRECT statement(s) regarding the sale and supply of Group A poison.',stmts:['i. A licenced wholesaler may sell by wholesale to a licenced pharmacist or another licence wholesaler.','ii. The seller or supplier shall enter or cause to be entered in the Prescription Book on the day of sale.','iii. A retail sale by a licensed pharmacist shall be recorded in the Poisons Book.','iv. A licenced wholesaler may immediately export to a purchaser outside Malaysia.'],opts:['A. i and ii only.','B. iii only.','C. i and iv only.','D. i, ii, iii and iv'],ans:2,exp:'s.20 PA 1952: Licenced wholesalers can sell to pharmacists/wholesalers and may export immediately.'},
     {act:'POISON',q:'Where any poison is sold or supplied as a dispensed medicine, or as an ingredient in a dispensed medicine, the container of such medicine shall be labelled, in a conspicuous and distinct manner, with:',stmts:['i. the name and address of the supplier.','ii. the name of the patient.','iii. a reference to the serial number of the entry in the prescription book.','iv. the name and address of the purchaser.'],opts:['A. i, ii and iii only.','B. i and iii only.','C. ii and iii only.','D. i, ii and iv'],ans:0,exp:'Containers for dispensed medicine must have supplier name/address, patient name, and prescription book serial reference.'},
     {act:'POISON',q:'The supply of mefenamic acid capsules to an outpatient of any public hospital shall only be done in accordance with a prescription of a:',stmts:['i. medical assistant authorized in writing by the Minister.','ii. medical assistant authorized in writing by the Director General of Health.','iii. registered medical practitioner.','iv. registered dentist.'],opts:['A. iii and iv only','B. i and iii only.','C. ii and iii only.','D. ii, iii and iv only.'],ans:3,exp:'Supply can be via prescription from a registered medical practitioner, dentist, or a medical assistant authorized by the DG of Health.'},
     {act:'POISON',q:'A licensed pharmacist commits an offence under the Poisons (Psychotropic Substances) Regulations 1989. While under investigation, his Type A licence issued under the Poisons Act 1952 is cancelled by the Licensing Officer. This decision may be repealed by the:',opts:['A. Director of Pharmaceutical Services','B. Licensing officer','C. Director General of Health','D. Minister or Health'],ans:3,exp:'Appeals against Licensing Officer cancellations go to the Minister of Health.'},
     {act:'POISON',q:'The requirement for a prescription of clobazam tablet 5mg tablet includes:',stmts:['i. in writing, signed and dated by the prescriber.','ii. should not be written wholly or partly in code.','iii. supply within 90 days from the date of the prescription.','iv. keeping the prescription for 2 years.'],opts:['A. i only.','B. ii and iii only.','C. i, ii and iv only.','D. i, ii, iii and iv'],ans:3,exp:'P(PS)R Reg 11: Must be written/signed/dated, not in code, supplied within 90 days, and kept for 2 years.'}
   ],
-  notes: [], flashcards: [], law: []
+  notes: {
+    act: [
+      {title:'Poisons Board Constitution — s.3',items:[
+        {t:'Ex-officio',d:'Director General of Health (Chairman)'},
+        {t:'Government Appointees',d:'1 Pharmacist, 1 Chemist Dept officer, 1 Agri Dept officer, 1 Vet Dept officer'},
+        {t:'Other Nominees',d:'8 persons not in government service (e.g. MMA, MPS, Chambers of Commerce)'}
+      ]},
+      {title:'Licensing Profiles — s.26',items:[
+        {t:'Type A',d:'Issued to a pharmacist to import, store, and deal wholesale/retail in all poisons.'},
+        {t:'Type B',d:'Issued to fit/proper persons or corporate officers to wholesale specific non-Group A poisons.'},
+        {t:'Type E',d:'Issued for importing, storing and using Sodium Hydroxide.'}
+      ]},
+      {title:'Poison Groupings — s.20-23',items:[
+        {t:'Group A',d:'Strictly wholesale. Cannot be sold retail.'},
+        {t:'Group B',d:'Retail sale only on prescription (max 3 repeats). Keep Rx for 2 years.'},
+        {t:'Group C',d:'Retail by Rx, OR by pharmacist logging it as a dispensed medicine.'},
+        {t:'Group D',d:'Retail by pharmacist to a known person, recorded in Poisons Book with signature.'}
+      ]}
+    ],
+    reg: [
+      {title:'Poisons Regulations 1952',items:[
+        {t:'Storage (r.5-7)',d:'Unbroken case, locked cupboard, or distinguishable container. Part II agri poisons separated from food.'},
+        {t:'Labelling (r.9-12)',d:'Must have "Poison" in red. Dispensed medicines must say "Controlled Medicine" / "Ubat Terkawal".'}
+      ]},
+      {title:'Psychotropic Regulations 1989',items:[
+        {t:'Import/Export (r.7)',d:'Fee is RM200. Needs authorization.'},
+        {t:'Permit to Purchase (r.15)',d:'Fee is RM300.'},
+        {t:'Registers (r.19-21)',d:'Prescription Register, Supply Register, Production Register. Must be kept for 2 years.'}
+      ]},
+      {title:'Compounding Regulations 2023',items:[
+        {t:'Max Compound',d:'Up to 50% of the maximum fine.'},
+        {t:'Payment Window',d:'Valid for 30 days.'}
+      ]}
+    ],
+    warn: [
+      'Sodium Hydroxide at 9% is NOT a poison. Only 12% and above requires a Type E licence/permit.',
+      'A Type B licence holder CANNOT engage in retail business.',
+      'Prescriptions for Psychotropics expire after 90 days.'
+    ]
+  },
+  flashcards: [
+    {q:'Who is the Chairman of the Poisons Board?',a:'The Director General of Health',ref:'s.4(1) PA 1952'},
+    {q:'Which Poison Group strictly prohibits retail sale?',a:'Group A',ref:'s.20 PA 1952'},
+    {q:'How long must a Prescription Book or Poisons Book be preserved?',a:'For five years from the date of the last entry',ref:'Reg 27A PR 1952'},
+    {q:'What is the fee for an import authorization of a psychotropic substance?',a:'RM200',ref:'Reg 7 P(PS)R 1989'},
+    {q:'A prescription for a psychotropic substance is valid for how many days?',a:'90 days',ref:'Reg 11(3)(d) P(PS)R 1989'}
+  ]
+};
+
+window.SODA_DATA = {
+  actTitle: "Sale of Drugs Act 1952",
+  regTitle: "Control of Drugs & Cosmetics Regs 1984",
+  questions: [
+    {act:'SODA · CDCR',q:'Which of the following statements is TRUE regarding the rejection or cancellation of product registration under the Act and Regulations?',opts:['A. The Drug Control Authority can cancel the registration of any product at any time but must give reason of such cancellation.','B. Cancellation of the registration of any product shall similarly and at the same time affect any license issued under the Act and Regulations related to that product.','C. Where a license relates to several registered products, suspension/cancellation of one product affects the position of other registered products listed in the license.','D. All of the above.'],ans:1,exp:'Reg 11(2) CDCR 1984: Cancellation of registration similarly and at the same time affects any license issued relating to that product.'},
+    {act:'SODA · CDCR',q:'The following is/are the function and/or power of the Director of Pharmaceutical Services under the Regulations:',stmts:['i. Issue a written consent to any person who brings any product to Malaysia in transit.','ii. Keep and maintain a register of registered product.','iii. Exempt any person to manufacture any product solely for the purpose of medical treatment of a life-threatening illness.','iv. Issue a certificate on any matter relating to any product if required by any importing country.'],opts:['A. i and ii only.','B. i, iii and iv only.','C. iii and iv only.','D. All of the above.'],ans:1,exp:'Keeping the register is the statutory duty of the Secretary, not the DPS. DPS handles transit consent, life-threatening exemptions, and export certificates.'},
+    {act:'SODA · CDCR',q:'The register of products kept and maintained by The Secretary of Drug Control Authority must contain:',stmts:['i. The name under which the product is registered.','ii. The content and quantity of the active ingredients.','iii. The name and the address of the manufacturer.','iv. The name and address of the product registration holder.'],opts:['A. i, ii and iii only.','B. ii, iii and iv only.','C. i, iii and iv only.','D. i, ii, iii and iv only.'],ans:3,exp:'Reg 9(2) CDCR 1984: The register must contain product name, active ingredients, manufacturer info, and registration holder info.'},
+    {act:'SODA · CDCR',q:'The following substances are prohibited in a traditional medicine preparation:',stmts:['i. Paracetamol','ii. Dexamethasone','iii. Caffeine','iv. Naturally-occurring theophylline in tea'],opts:['A. i, ii and iii only.','B. ii, iii and iv only.','C. iii and iv only.','D. iv only.'],ans:0,exp:'Table II CDCR 1984: Paracetamol, Dexamethasone (Poison), and Caffeine are prohibited. Naturally-occurring theophylline is not expressly banned as an isolated additive here.'},
+    {act:'SODA · CDCR',q:'Which of the following are offences under Sale of Drugs Act 1952?',stmts:['i. Selling non-registered Tongkat Ali capsules.','ii. Supplying a mixture of totally new traditional medicine product from a registered Tongkat Ali product with a registered Kacip Fatimah product.','iii. Possessing 1000 bottles of Tongkat Ali product which registration has been suspended by the Drug Control Authority.'],opts:['A. i, ii and iii only.','B. i and iii only.','C. i and ii only.','D. ii and iii only.'],ans:0,exp:'Reg 7 CDCR 1984: All three are explicit offences: selling unregistered, unauthorized mixing of two registered products, and possessing suspended products.'}
+  ],
+  notes: {
+    act: [
+      {title:'Statutory Definitions — s.2',items:[
+        {t:'Drug',d:'Any substance intended or claimed capable of being used on humans or animals internally or externally for a medicinal purpose.'},
+        {t:'Medicinal Purpose',d:'Includes diagnosing, contraception, inducing anaesthesia, and controlling body weight.'}
+      ]},
+      {title:'Appointments & Authority — s.3',items:[
+        {t:'Analysts',d:'Appointed by the Yang di-Pertuan Agong.'},
+        {t:'Officers & Inspectors',d:'Appointed by the Chief Minister of the respective State.'}
+      ]},
+      {title:'Enforcement & Penalties',items:[
+        {t:'Seizure Appeal [s.4]',d:'Claims against seized items must be made to a Magistrate within 48 hours. If no complaint, drug becomes Government property.'},
+        {t:'Sample Division [s.7]',d:'An officer must divide procured samples into exactly 3 parts: seller, analyst, retained.'},
+        {t:'Court Deadlines [s.18]',d:'Proceedings cannot be instituted after 60 days from purchase. Summons cannot be returnable in < 14 days.'},
+        {t:'Body Corporate Penalty',d:'First Offence: Fine ≤ RM50,000. Subsequent: Fine ≤ RM100,000.'}
+      ]}
+    ],
+    reg: [
+      {title:'Drug Control Authority (DCA) — r.3',items:[
+        {t:'Ex-Officio Members',d:'Director-General of Health (Chairman), DPS (Alt Chairman), Director of NPCB.'},
+        {t:'Appointed Members',d:'8 members (physician, pharmacist, 3 uni experts, 2 doctors, 1 vet).'},
+        {t:'Secretary',d:'A public service pharmacist; acts as Secretary but is NOT a voting member.'}
+      ]},
+      {title:'Licensing & Registration Fees',items:[
+        {t:'Traditional Medicine Reg.',d:'RM500 processing fee.'},
+        {t:'Other Products Reg.',d:'RM1,000 processing fee.'},
+        {t:'Manufacturer Licence',d:'RM1,000 processing fee.'},
+        {t:'Clinical Trial Import',d:'Valid for max 3 years. Can only include ONE product.'}
+      ]},
+      {title:'Cosmetics Control — r.18A',items:[
+        {t:'Requirement',d:'Must be a "notified cosmetic". Responsible person MUST report serious adverse events to the DPS.'}
+      ]},
+      {title:'Traditional Medicine Restrictions',items:[
+        {t:'Heavy Metal Limits',d:'Lead (Pb): ≤ 10.0 ppm | Arsenic (As): ≤ 5.0 ppm | Mercury (Hg): ≤ 0.5 ppm | Cadmium (Cd): ≤ 0.3 ppm.'},
+        {t:'Prohibited Additions',d:'Caffeine, Nicotinamide, Paracetamol, and any Poison under the Poisons Act.'}
+      ]}
+    ],
+    warn: [
+      'Analysts are appointed by the YDPA, but Inspectors are appointed by the Chief Minister. Do not mix these up!',
+      'The prosecution window strictly closes 60 days after the sample is taken.'
+    ]
+  },
+  flashcards: [
+    {q:'Who appoints Analysts under the Sale of Drugs Act 1952?',a:'The Yang di-Pertuan Agong',ref:'s.3(1) SODA 1952'},
+    {q:'Who appoints Officers and Inspectors under SODA?',a:'The Chief Minister',ref:'s.3(2) SODA 1952'},
+    {q:'If a drug is seized, how many hours do you have to complain to a Magistrate before it becomes Government property?',a:'48 hours',ref:'s.4(3) SODA 1952'},
+    {q:'How many parts must an official drug sample be divided into?',a:'Three parts (Seller, Analyst, Retained)',ref:'s.7(2) SODA 1952'},
+    {q:'What is the maximum time allowed to institute proceedings after a sample is purchased?',a:'60 days',ref:'s.18(4) SODA 1952'},
+    {q:'What is the minimum quorum for a meeting of the Drug Control Authority?',a:'Four members',ref:'Reg 5(4) CDCR 1984'},
+    {q:'How many products can be included in a Clinical Trial Import Licence?',a:'Only one product',ref:'Reg 12(2) CDCR 1984'},
+    {q:'Name three specific synthetic substances completely prohibited in traditional medicines.',a:'Caffeine, Nicotinamide, Paracetamol',ref:'Table II CDCR 1984'}
+  ]
 };
 
 window.MASA_DATA = {
+  actTitle: "Medicine Advertisements & Sale Act 1956",
+  regTitle: "Medicine Advertisements Board Regs 1976",
   questions: [
     {act:'MASA',q:'This Act prohibits certain advertisement related to medical services which include the following materials:',opts:['A. Pamphlet or brochure','B. Label','C. Any announcement made orally','D. All of the above.'],ans:3,exp:'s.2 MASA 1956 defines advertisement broadly to include pamphlets, labels, and oral announcements.'},
     {act:'MASA',q:'A traditional practitioner advertises his service related to the treatment of hypertension.',opts:['A. This action contravenes Section 3.','B. This action contravenes Section 4A.','C. This is allowed if it is approved by the Medicine Advertisement Board.','D. This is allowed if it is approved by the Minister.'],ans:1,exp:'It contravenes Section 4A because it refers to a skill or service relating to treatment.'},
@@ -607,62 +619,96 @@ window.MASA_DATA = {
     {act:'MASA',q:'An advertisement relating to the following may be approved by Medicine Advertisements Board for the public: I. Registered supplements to relieve symptoms of osteoarthritis. II. Herbal medicine to improve the conditions of human kidney function. III. Services relating to the treatment of mental disorders by a private hospital. IV. Services relating to the treatment of osteoarthritis by a traditional practitioner.',opts:['A. I only','B. I and III only','C. II and III only','D. All of the above'],ans:1,exp:'Kidney function improvement and mental disorder treatments are generally barred or heavily restricted. I and III follow standard MAB service exemptions.'},
     {act:'MASA',q:'The advertisement approval is issued: I. by the Board. II. by the chairman of the Board. III. according to the language to be used. IV. to a website which is registered in another country.',opts:['A. I only','B. III only','C. I and III only','D. II and IV only'],ans:2,exp:'Approvals are issued by the Board (MAB) and must be assessed according to the language used.'}
   ],
-  notes: [
-    {title:'Advertising Prohibitions (s.3 & s.4)',items:[
-      {t:'Absolute Prohibition',d:'Advertisements procuring miscarriage of women [s.4].'},
-      {t:'Specific Diseases',d:'Asthma, Cancer, Diabetes, Leprosy, Tuberculosis, Deafness [s.3 Schedule].'}
-    ]},
-    {title:'Medicine Advertisements Board (MAB)',items:[
-      {t:'Chairman',d:'Director-General of Health [Reg 3(1)]'},
-      {t:'Quorum',d:'3 members including Chairman [Reg 3(2)]'},
-      {t:'Application Fee',d:'RM300 (non-refundable) [Reg 8(3)]'},
-      {t:'Print Requirements',d:'Approval serial number and expiry date must be legibly displayed [Reg 7(2)]'}
-    ]}
-  ],
+  notes: {
+    act: [
+      {title:'Advertising Prohibitions (s.3 & s.4)',items:[
+        {t:'Absolute Prohibition',d:'Advertisements procuring miscarriage of women [s.4].'},
+        {t:'Specific Diseases',d:'Asthma, Cancer, Diabetes, Leprosy, Tuberculosis, Deafness [s.3 Schedule].'},
+        {t:'Skill or Service [s.4A]',d:'Cannot advertise skill/service treating ailments unless exempted (e.g., approved private hospital/clinic).'}
+      ]},
+      {title:'Disclosure & Enforcement',items:[
+        {t:'Label Disclosure [s.6]',d:'Appropriate designation of active constituents and quantitative particulars must be written.'},
+        {t:'Authorized Officer [s.6A]',d:'Pharmacist in public service authorized by the Minister.'},
+        {t:'Sanction [s.6F]',d:'Prosecutions require written sanction of the Public Prosecutor.'}
+      ]}
+    ],
+    reg: [
+      {title:'Medicine Advertisements Board (MAB)',items:[
+        {t:'Chairman',d:'Director-General of Health [Reg 3(1)]'},
+        {t:'Quorum',d:'3 members including Chairman [Reg 3(2)]'},
+        {t:'Application Fee',d:'RM300 (non-refundable) [Reg 8(3)]'},
+        {t:'Print Requirements',d:'Approval serial number and expiry date must be legibly displayed [Reg 7(2)]'}
+      ]}
+    ],
+    warn: [
+      'Abortion ads are absolutely prohibited — MAB cannot approve them under any circumstances.'
+    ]
+  },
   flashcards: [
     {q:'Can you advertise a cure for Asthma to the general public?',a:'No (Asthma is listed in the s.3 Schedule)',ref:'MASA s.3'},
     {q:'Are abortion ads ever permitted if approved by MAB?',a:'No, it is an absolute prohibition.',ref:'MASA s.4'},
     {q:'What must be disclosed on a retailed medicine label?',a:'Active constituents and their quantitative particulars.',ref:'MASA s.6(1)'},
     {q:'MAB application fee?',a:'RM300',ref:'MAB Regs r.8'}
-  ],
-  law: [
-    {sec:'s.3',title:'Prohibition relating to certain diseases',body:'No person shall take any part in the publication of any advertisement... for the purpose of prevention or treatment of the diseases and conditions specified in the Schedule (e.g., Cancer, Diabetes, Asthma).'},
-    {sec:'s.4',title:'Prohibition relating to abortion',body:'No person shall take any part in the publication of any advertisement... for procuring the miscarriage of women.'}
   ]
 };
 
 window.DDA_DATA = {
+  actTitle: "Dangerous Drugs Act 1952",
+  regTitle: "Dangerous Drugs Regulations 1952",
   questions: [
     {act:'DDA',q:'The Dangerous Drugs Act 1952 and its regulations are applicable for the importation of:',stmts:['i. pholcodine.','ii. dihydrocodeine.','iii. morphine powder B.P.','iv. buprenorphine.'],opts:['A. i, ii and iii only.','B. i, ii and iv only.','C. i, iii and iv only.','D. ii, iii and iv only.'],ans:0,exp:'Buprenorphine is regulated as a psychotropic, whereas pholcodine, dihydrocodeine (raw), and morphine are dangerous drugs.'},
     {act:'DDA',q:'Any person who is found in possession of the following substances otherwise than in accordance with the authority of the Dangerous Drugs Act 1952 shall be presumed until the contrary is proved to be trafficking the said drug:',stmts:['i. 41 grammes of cocaine.','ii. 250 grammes of cannabis.','iii. 900 grammes of raw opium.','iv. a mixture containing 25 grammes of amphetamine and 25 grammes of methamphetamine.'],opts:['A. i, ii and iii only.','B. i, ii and iv only.','C. i, iii and iv only.','D. ii, iii and iv only.'],ans:1,exp:'Trafficking thresholds: Cocaine >40g, Cannabis >200g, Amphetamine mix >50g. Raw opium threshold is higher.'},
     {act:'DDA',q:'The supply of registered morphine tablets in a government health clinic for medical treatment shall be recorded in:',opts:['A. Day Book for Dangerous Drugs.','B. Prescription Book for dispensed medicines.','C. Prescription Register for Psychotropic substances.','D. Poison Book for Group D Poisons.'],ans:1,exp:'For medical treatment in a health clinic, dispensing is recorded in the Prescription Book.'},
     {act:'DDA',q:'The following substances/ products are classified as dangerous drugs.',opts:['A. Morphine pulv., N-ethyl MDA, cannabis and heroin.','B. Morphine pulv., amphetamine, cannabis and diazepam.','C. Morphine pulv., dextromethorphan, cannabis and heroin.','D. Morphine injection, dextromethorphan, cannabis and heroin.'],ans:0,exp:'Morphine, N-ethyl MDA, cannabis, and heroin are all strictly Dangerous Drugs. Diazepam and amphetamines are generally scheduled under Psychotropics/Poisons.'}
   ],
-  notes: [], flashcards: [], law: []
+  notes: {
+    act: [
+      {title:'Dangerous Drugs Basics',items:[
+        {t:'Schedule 1',d:'Contains the list of Dangerous Drugs (e.g., Morphine, Cannabis, Heroin).'}
+      ]}
+    ],
+    reg: [
+      {title:'DDA Regulations',items:[
+        {t:'Third Schedule Exemption',d:'Lists products exempted from DDR, requiring them to be in dosage/product form.'}
+      ]}
+    ]
+  },
+  flashcards: []
 };
 
 window.ETHICS_DATA = {
+  actTitle: "Code of Ethics 2018",
+  regTitle: "Good Governance in Medicine (GGM)",
   questions: [
     {act:'NMP/GGM',q:'The following are the strategies to enhance partnerships for the healthcare industry as outlined in the National Medicine Policy (NMP) 3rd edition, EXCEPT:',opts:['A. enhancing multi-sectoral technical engagement towards better health service delivery.','B. developing human capital, capacity and capability.','C. promoting research and development among stakeholders.','D. strengthening pharmaceutical care practices in private health facilities.'],ans:3,exp:'Strengthening pharmaceutical care practices in private facilities is not specifically bucketed under industry partnership strategies in the NMP.'},
-    {act:'NMP/GGM',q:'Why does the pharmaceutical sector particularly vulnerable to corruption and unethical practices?',opts:['A. Low market interests.','B. Inappropriate incentive structures.','C. Less involvement by the government in its regulation.','D. Widely available information that helps in the assessment of quality, safety and efficacy of medicines.'],ans:1,exp:'Vulnerability factors include inappropriate incentive structures, high market value, and information imbalance.'},
+    {act:'NMP/GGM',q:'Why does the pharmaceutical sector particularly vulnerable to corruption and unethical practices?',opts:['A. Low market interests.','B. Inappropriate incentive structures.','C. Less involvement by the government in its regulation.','D. Widely available information that helps in the assessment of quality, safety and efficacy of medicines.'],ans:1,exp:'Vulnerability factors include inappropriate incentive structures, high market volume, and information imbalance.'},
     {act:'NMP/GGM',q:'Choose the values that conduct the behaviour of public servants, as described in the Framework for Good Governance in the Public Pharmaceutical Sector.',stmts:['i. Objectivity','ii. Accountability','iii. Honesty','iv. Openness'],opts:['A. i and iv only.','B. ii and iii only.','C. i, ii and iii only.','D. i, ii, iii and iv'],ans:3,exp:'Objectivity, Accountability, Honesty, and Openness are all explicit core values in the GGM Code of Conduct.'},
     {act:'NMP/GGM',q:'Which of the following statements is FALSE based on the Code of Ethics for Pharmacists?',opts:['A. A pharmacist must accept diversity and respect cultural differences.','B. A pharmacist must disclose a patient’s profile to a medical doctor who is looking for a new customer.','C. A pharmacist must respect people’s dignity, privacy, and confidentiality.','D. A pharmacist must treat people fairly and ensure their views about belief, race and gender do not affect their professional services.'],ans:1,exp:'Disclosing patient profiles to a doctor for client prospecting is a severe breach of confidentiality and ethics.'},
     {act:'NMP/GGM',q:'Which of the following principles are described in the Code of Ethics for Pharmacists?',stmts:['i. Develop professional knowledge and competence.','ii. Show respect to others.','iii. Make health professional as the first concern.','iv. Disregard patients’ choices in treatment.'],opts:['A. i and ii only.','B. ii and iii only.','C. i, ii and iii only.','D. i,iii and iv'],ans:2,exp:'Developing knowledge, showing respect, and placing the health professional/patient priority first are core principles. Disregarding patient choices is unethical.'}
   ],
-  notes: [
-    {title:'Good Governance in Medicine (GGM)',items:[
-      {t:'Objectives',d:'Inculcate integrity among public servants; promote transparency and accountability; raise awareness of corruption risks; minimize corruption in the public pharmaceutical sector.'},
-      {t:'4 Core Moral Values',d:'Justice, Truth, Service to the common good, and Trusteeship.'},
-      {t:'Code of Conduct Traits',d:'Selflessness, Integrity, Objectivity, Accountability, Openness, Honesty, and Leadership.'}
-    ]},
-    {title:'Vulnerability Areas in the Pharmaceutical System',items:[
-      {t:'Drug Registration',d:'Risk of queue jumping, falsified data acceptance, or conflict of interest in approvals.'},
-      {t:'Inspection',d:'Risk of manipulation in scheduling, bribery to alter compliance ratings, or collusion.'},
-      {t:'Promotion',d:'Risk of biased advertorials, entertaining sales representatives, and unapproved sponsorships.'},
-      {t:'Selection & Procurement',d:'Risk of pharmaceutical companies dictating proformas, inappropriate incentives, bid rigging, or theft of medicines.'}
-    ]}
-  ],
-  flashcards: [], law: []
+  notes: {
+    act: [
+      {title:'Code of Ethics for Pharmacists',items:[
+        {t:'Core Duty',d:'Make the patient/health professional your first concern.'},
+        {t:'Respect',d:'Show respect to others, accept diversity, and respect cultural differences.'},
+        {t:'Confidentiality',d:'Respect people\'s dignity, privacy, and confidentiality.'}
+      ]}
+    ],
+    reg: [
+      {title:'Good Governance in Medicine (GGM)',items:[
+        {t:'Objectives',d:'Inculcate integrity among public servants; promote transparency and accountability; minimize corruption.'},
+        {t:'4 Core Moral Values',d:'Justice, Truth, Service to the common good, and Trusteeship.'},
+        {t:'Code of Conduct Traits',d:'Selflessness, Integrity, Objectivity, Accountability, Openness, Honesty, and Leadership.'}
+      ]},
+      {title:'Vulnerability Areas in the Pharmaceutical System',items:[
+        {t:'Drug Registration',d:'Risk of queue jumping, falsified data acceptance, or conflict of interest.'},
+        {t:'Inspection',d:'Risk of manipulation in scheduling, bribery to alter ratings, or collusion.'},
+        {t:'Promotion',d:'Risk of biased advertorials, entertaining reps, and unapproved sponsorships.'},
+        {t:'Selection & Procurement',d:'Risk of pharmaceutical companies dictating proformas, bid rigging, or theft.'}
+      ]}
+    ]
+  },
+  flashcards: []
 };
 
 // ── CORE GAME ENGINE LOGIC ───────────────────────────────────────
@@ -702,9 +748,7 @@ function selectAppMode(mode){
 }
 
 function openModeSelect(actId){
-  if(actId === 'SODA_CDCR') {
-    // Keep this check to allow the combined option to flow to timing select
-  } else if(!window[actId + '_DATA'] && actId !== 'ALL') {
+  if(actId !== 'ALL' && !window[actId + '_DATA']) {
     openComing(actId.toLowerCase());
     return;
   }
@@ -719,7 +763,11 @@ function openActLearn(actId){
     return;
   }
   G.selectedAct = actId;
-  document.getElementById('node-title').textContent = actId === 'TIPS' ? 'Exam Tips' : actId;
+  var actData = window[actId + '_DATA'];
+  
+  document.getElementById('node-title').textContent = actData.actTitle || actId;
+  document.getElementById('node-sub').textContent = actData.regTitle || 'Reference Materials';
+  
   G.activeTab = 'notes';
   switchTab('notes');
   show('node');
@@ -753,25 +801,66 @@ function switchTab(t){
     document.getElementById('pane-'+x).classList.toggle('on',x===t);
   });
   
-  var actData = window[G.selectedAct + '_DATA'] || {notes:[], flashcards:[], law:[]};
+  var actData = window[G.selectedAct + '_DATA'] || {notes:{act:[], reg:[], warn:[]}, flashcards:[], law:[]};
   
   if(t==='notes'){
-    var html='';
-    actData.notes.forEach(function(sec){
-      html+='<div class="note-section"><div class="note-title"><span style="color:#60A5FA">🔖</span>'+sec.title+'</div>';
-      if(sec.items){
-        html+='<div class="note-card">';
-        sec.items.forEach(function(it){
-          html+='<div class="note-item"><div class="ndot"></div><div><span class="nterm">'+it.t+':</span> <span class="nval">'+it.d+'</span></div></div>';
-        });
+    var html = '';
+    
+    // If it's the dual layout structure
+    if(actData.notes && actData.notes.act) {
+      html += '<div class="split-layout">';
+      
+      // LEFT COLUMN: ACT
+      html += '<div class="col-act act-theme">';
+      html += '<div class="col-hdr col-hdr-act">📖 ' + (actData.actTitle || 'The Act') + '</div>';
+      if(actData.notes.act.length === 0) html += '<div style="padding:1rem;color:#9CA3AF;font-size:13px;text-align:center;"><i>No notes available.</i></div>';
+      actData.notes.act.forEach(function(sec){
+        html+='<div class="note-section"><div class="note-title">'+sec.title+'</div>';
+        if(sec.items){
+          html+='<div class="note-card">';
+          sec.items.forEach(function(it){
+            html+='<div class="note-item"><div class="ndot"></div><div><span class="nterm">'+it.t+':</span> <span class="nval">'+it.d+'</span></div></div>';
+          });
+          html+='</div>';
+        }
         html+='</div>';
+      });
+      html += '</div>'; // end col-act
+      
+      // RIGHT COLUMN: REGULATION
+      html += '<div class="col-reg reg-theme">';
+      html += '<div class="col-hdr col-hdr-reg">📜 ' + (actData.regTitle || 'The Regulations') + '</div>';
+      if(!actData.notes.reg || actData.notes.reg.length === 0) html += '<div style="padding:1rem;color:#9CA3AF;font-size:13px;text-align:center;"><i>No notes available.</i></div>';
+      if(actData.notes.reg) {
+        actData.notes.reg.forEach(function(sec){
+          html+='<div class="note-section"><div class="note-title">'+sec.title+'</div>';
+          if(sec.items){
+            html+='<div class="note-card">';
+            sec.items.forEach(function(it){
+              html+='<div class="note-item"><div class="ndot"></div><div><span class="nterm">'+it.t+':</span> <span class="nval">'+it.d+'</span></div></div>';
+            });
+            html+='</div>';
+          }
+          html+='</div>';
+        });
       }
-      if(sec.warn){
-        sec.warn.forEach(function(w){ html+='<div class="warn-item"><span style="flex-shrink:0;margin-top:1px">⚠️</span><span>'+w+'</span></div>'; });
+      html += '</div>'; // end col-reg
+      
+      html += '</div>'; // end split-layout
+      
+      // WARNINGS ACROSS BOTTOM
+      if(actData.notes.warn && actData.notes.warn.length > 0){
+        html += '<div class="warn-container">';
+        actData.notes.warn.forEach(function(w){ html+='<div class="warn-item"><span style="flex-shrink:0;margin-top:1px">⚠️</span><span>'+w+'</span></div>'; });
+        html += '</div>';
       }
-      html+='</div>';
-    });
-    document.getElementById('pane-notes').innerHTML = html || '<div style="padding:2rem;text-align:center;color:#6B7280;font-size:14px;"><i>No notes available for this section.</i></div>';
+      
+    } else {
+      // Fallback single column if not using the new structure
+      html += '<div style="padding:2rem;text-align:center;color:#6B7280;font-size:14px;"><i>Notes formatting requires update.</i></div>';
+    }
+    
+    document.getElementById('pane-notes').innerHTML = html;
   }
   
   if(t==='flash'){
@@ -781,20 +870,24 @@ function switchTab(t){
   
   if(t==='law'){
     var html='';
-    actData.law.forEach(function(sec,i){
-      var open=G.lawOpen[i];
-      html+='<div class="law-row"><div class="law-hdr" onclick="toggleLaw('+i+')">';
-      html+='<span class="law-sec">'+sec.sec+'</span><span class="law-title">'+sec.title+'</span>';
-      html+='<div class="law-body'+(open?' open':'')+'">'+sec.body+'</div></div>';
-    });
-    document.getElementById('pane-law').innerHTML = html || '<div style="padding:2rem;text-align:center;color:#6B7280;font-size:14px;"><i>No law text available for this section.</i></div>';
+    if(actData.law && actData.law.length > 0) {
+      actData.law.forEach(function(sec,i){
+        var open=G.lawOpen[i];
+        html+='<div class="law-row"><div class="law-hdr" onclick="toggleLaw('+i+')">';
+        html+='<span class="law-sec">'+sec.sec+'</span><span class="law-title">'+sec.title+'</span>';
+        html+='<div class="law-body'+(open?' open':'')+'">'+sec.body+'</div></div>';
+      });
+    } else {
+      html = '<div style="padding:2rem;text-align:center;color:#6B7280;font-size:14px;"><i>No raw law text extracted for this module yet.</i></div>';
+    }
+    document.getElementById('pane-law').innerHTML = html;
   }
 }
 
 function renderFlash(){
   var actData = window[G.selectedAct + '_DATA'];
   if(!actData || !actData.flashcards || actData.flashcards.length === 0){
-    document.getElementById('pane-flash').innerHTML = '<div style="padding:2rem;text-align:center;color:#6B7280;font-size:14px;"><i>No flashcards available for this section.</i></div>';
+    document.getElementById('pane-flash').innerHTML = '<div style="padding:3rem 1rem;text-align:center;color:#6B7280;font-size:14px;background:#fff;border-radius:16px;border:1px solid #E5E7EB;"><i>No flashcards available for this section yet.</i></div>';
     return;
   }
   
@@ -833,15 +926,14 @@ function initQuiz(timingMode, sprintCount){
     var rQs = window.ROPA_DATA ? shuffle([].concat(window.ROPA_DATA.questions)) : [];
     var pQs = window.POISON_DATA ? shuffle([].concat(window.POISON_DATA.questions)) : [];
     var sQs = window.SODA_DATA ? shuffle([].concat(window.SODA_DATA.questions)) : [];
-    var cQs = window.CDCR_DATA ? shuffle([].concat(window.CDCR_DATA.questions)) : [];
     var mQs = window.MASA_DATA ? shuffle([].concat(window.MASA_DATA.questions)) : [];
     var dQs = window.DDA_DATA ? shuffle([].concat(window.DDA_DATA.questions)) : [];
     var eQs = window.ETHICS_DATA ? shuffle([].concat(window.ETHICS_DATA.questions)) : [];
     
+    // Attempting to match ideal PKUMF target ratios: ROPA:20, POISON:35, SODA:15, MASA:10, DDA:10, ETHICS:10
     pool = pool.concat(rQs.slice(0, 20));
     pool = pool.concat(pQs.slice(0, 35));
-    pool = pool.concat(sQs.slice(0, 8)); // Splitting SODA/CDCR quota
-    pool = pool.concat(cQs.slice(0, 7)); // Splitting SODA/CDCR quota
+    pool = pool.concat(sQs.slice(0, 15)); 
     pool = pool.concat(mQs.slice(0, 10));
     pool = pool.concat(dQs.slice(0, 10));
     pool = pool.concat(eQs.slice(0, 10));
@@ -850,14 +942,9 @@ function initQuiz(timingMode, sprintCount){
     if(window.ROPA_DATA) pool = pool.concat(window.ROPA_DATA.questions);
     if(window.POISON_DATA) pool = pool.concat(window.POISON_DATA.questions);
     if(window.SODA_DATA) pool = pool.concat(window.SODA_DATA.questions);
-    if(window.CDCR_DATA) pool = pool.concat(window.CDCR_DATA.questions);
     if(window.MASA_DATA) pool = pool.concat(window.MASA_DATA.questions);
     if(window.DDA_DATA) pool = pool.concat(window.DDA_DATA.questions);
     if(window.ETHICS_DATA) pool = pool.concat(window.ETHICS_DATA.questions);
-    pool = shuffle(pool);
-  } else if(G.selectedAct === 'SODA_CDCR') {
-    if(window.SODA_DATA) pool = pool.concat(window.SODA_DATA.questions);
-    if(window.CDCR_DATA) pool = pool.concat(window.CDCR_DATA.questions);
     pool = shuffle(pool);
   } else {
     pool = shuffle([].concat(window[G.selectedAct + '_DATA'].questions));
