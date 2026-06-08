@@ -95,10 +95,14 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
 .law-title{font-size:13px;font-weight:600;color:#111827;flex:1}
 .law-body{font-size:13px;color:#6B7280;line-height:1.75;padding-bottom:12px;display:none}
 .law-body.open{display:block}
+.lh{background:#FEF3C7;color:#92400E;border-radius:3px;padding:0 4px;font-weight:600;font-size:.9em}
+.lk{background:#EFF6FF;color:#1D4ED8;border-radius:3px;padding:0 4px;font-weight:600;font-size:.9em}
 
+/* Buttons */
 .btn{width:100%;border:none;border-radius:14px;padding:13px;font-size:14px;font-weight:600;cursor:pointer;transition:all .15s;margin-bottom:.5rem}
 .btn-primary{background:#3B82F6;color:#fff}.btn-primary:hover{background:#2563EB}
 .btn-secondary{background:#F3F4F6;color:#374151}.btn-secondary:hover{background:#E5E7EB}
+.btn-success{background:#15803D;color:#fff}.btn-success:hover{background:#166534}
 
 /* Testing Arena Layout */
 .les-hdr{display:flex;align-items:center;gap:10px;margin-bottom:1rem}
@@ -202,10 +206,10 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
       <div class="act-title">POISON</div>
       <div class="act-sub">Poisons Act 1952</div>
     </div>
-    <div class="act-btn" onclick="openModeSelect('SODA')">
+    <div class="act-btn" onclick="openModeSelect('SODA_CDCR')">
       <div class="act-icon">🧪</div>
-      <div class="act-title">SODA</div>
-      <div class="act-sub">Sale of Drugs Act 1952</div>
+      <div class="act-title">SODA + CDCR</div>
+      <div class="act-sub">Sale of Drugs & Regs</div>
     </div>
     <div class="act-btn" onclick="openModeSelect('MASA')">
       <div class="act-icon">📢</div>
@@ -290,10 +294,11 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
   <div style="display:flex;flex-direction:column;gap:10px;margin-top:1rem">
     <button class="btn btn-success" style="text-align:left;padding:16px" onclick="openActLearn('TIPS')">💡 PKUMF Exam Tips & Notes</button>
     <button class="btn btn-primary" style="text-align:left;padding:16px" onclick="openActLearn('ROPA')">📝 Registration of Pharmacists Act 1951</button>
-    <button class="btn btn-primary" style="text-align:left;padding:16px" onclick="openActLearn('POISON')">☠️ Poisons Act 1952</button>
-    <button class="btn btn-primary" style="text-align:left;padding:16px" onclick="openActLearn('SODA')">🧪 Sale of Drugs Act 1952 + CDCR</button>
+    <button class="btn btn-primary" style="text-align:left;padding:16px" onclick="openActLearn('SODA')">🧪 Sale of Drugs Act 1952 (SODA)</button>
+    <button class="btn btn-primary" style="text-align:left;padding:16px" onclick="openActLearn('CDCR')">💄 Control of Drugs & Cosmetics (CDCR)</button>
     <button class="btn btn-primary" style="text-align:left;padding:16px" onclick="openActLearn('MASA')">📢 Medicine Ads Act 1956</button>
-    <button class="btn btn-primary" style="text-align:left;padding:16px" onclick="openActLearn('DDA')">💉 Dangerous Drugs Act 1952</button>
+    <button class="btn btn-secondary" style="text-align:left;padding:16px;opacity:0.6" onclick="openComing('poison')">🔒 Poisons Act 1952 (Coming Soon)</button>
+    <button class="btn btn-secondary" style="text-align:left;padding:16px;opacity:0.6" onclick="openComing('dda')">🔒 Dangerous Drugs Act 1952 (Coming Soon)</button>
     <button class="btn btn-primary" style="text-align:left;padding:16px" onclick="openActLearn('ETHICS')">⚖️ Ethics & Good Governance (GGM)</button>
   </div>
 </div>
@@ -379,6 +384,22 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
   <button class="btn btn-secondary" onclick="show('game-dash')">Back to Dashboard</button>
 </div>
 
+<div id="scr-coming" class="scr">
+  <div class="page-hdr">
+    <button class="back-btn" onclick="goBackFromComing()">← <span>Back</span></button>
+    <div>
+      <div class="page-title" id="coming-title">POISON</div>
+      <div class="page-sub">Coming soon</div>
+    </div>
+  </div>
+  <div style="text-align:center;padding:2rem 0 1.5rem">
+    <div style="font-size:3rem;margin-bottom:.75rem">🚧</div>
+    <div style="font-size:16px;font-weight:700;color:#111827;margin-bottom:.4rem" id="coming-name">POISON</div>
+    <div style="font-size:13px;color:#9CA3AF" id="coming-acts"></div>
+  </div>
+  <button class="btn btn-secondary" style="margin-top:1rem" onclick="goBackFromComing()">Back</button>
+</div>
+
 </div><script>
 // ── DATA INJECTIONS ──────────────────────────────────────────────
 
@@ -447,30 +468,13 @@ window.ROPA_DATA = {
   ]
 };
 
-window.POISON_DATA = {
-  questions: [
-    {act:'POISON',q:'Group A poisons include:',stmts:['i. bambuterol in all preparations.','ii. Amidopyrine; its salts, in all preparations.','iii. Carbadox in all preparations for use in animal feeds only.','iv. Teicoplanin in all preparations.'],opts:['A. i and ii only.','B. i, iii and iv only.','C. ii and iv only.','D. i, ii, iii and iv'],ans:0,exp:'Poisons Act First Schedule: Bambuterol and Amidopyrine fall under Group A.'},
-    {act:'POISON',q:'The Licensing Officer is authorized to issue:',stmts:['i. a Type A Licence (S26 PA 1952)','ii. an authorization to export psychotropic substances (R6 PR 1952)','iii. a permit to purchase, store and use sodium hydroxide 9%','iv. a written consent to alter the package of psychotropic subtances in transit (R10 PR 1952)'],opts:['A. i, ii and iv only.','B. i and iii only.','C. ii and iv only.','D. i, ii, iii and iv only.'],ans:0,exp:'Sodium hydroxide 9% is not a poison (refer First Schedule). The Licensing Officer issues Type A, export authorizations, and transit packaging consents.'},
-    {act:'POISON',q:'Powers of Drug Enforcement Officer given under the Act include:',stmts:['i. Investigating any commission of offences.','ii. Arresting the suspected offenders.','iii. Entering any premises where offence under the Act has been committed or believed to have been committed.','iv. Seizing material or articles which may furnish evidence for the commission of an offence.'],opts:['A. i and ii only.','B. i, iii and iv only.','C. iii and iv only.','D. i, ii, iii and iv'],ans:1,exp:'s.31A & 31B PA 1952: Officers investigate, enter premises, and seize materials. They do not hold independent arrest powers under this specific sub-clause setup.'},
-    {act:'POISON',q:'The following statement(s) is/are TRUE of the fees under the Act:',stmts:['i. RM 100 for a permit to purchase, store, and use sodium hydroxide 12%.','ii. RM 300 for a Type A licence to import vaccine for COVID-19.','iii. RM 300 for a Type B licence to import, store and sell by wholesale ammonia gas 10% as specified in the licence.','iv. RM 200 for an import authorization of psychotropic substance.'],opts:['A. i only.','B. i and iii only.','C. ii and iv only.','D. i, ii, iii and iv'],ans:0,exp:'Fee schedules limit Type A/B specific variations. Source specifies A as the answer.'},
-    {act:'POISON',q:'The following statement(s) is/are TRUE regarding wholesale of poisons:',stmts:['i. A sale to any person who intends to sell again is a wholesale.','ii. All licenced pharmacists are licenced wholesaler.','iii. A sale by a Type B licence holder to a professional person for the purpose of such person’s profession and not for resale is a wholesale.','iv. A written order is required to be sent within seven days after the purchaser has affixed his signature in a Poison Wholesale Sales Book.'],opts:['A. i and ii only.','B. i and iii only.','C. ii and iv only.','D. i, ii, iii and iv'],ans:1,exp:'Wholesale includes sale to resellers, and sale by Type B holders to professionals for their profession (not for resale).'},
-    {act:'POISON',q:'According to Section 7 of the Act, the following are exempted from the provisions of the act EXCEPT:',opts:['A. surgical dressing','B. lacquer','C. propellant','D. antimony'],ans:3,exp:'s.7 PA 1952 exemptions generally cover industrial/commercial articles like surgical dressings, lacquers, and propellants. Antimony is a controlled substance.'},
-    {act:'POISON',q:'According to Section 20 of the Poison Act 1952, choose the CORRECT statement(s) regarding the sale and supply of Group A poison.',stmts:['i. A licenced wholesaler may sell by wholesale to a licenced pharmacist or another licence wholesaler.','ii. The seller or supplier shall enter or cause to be entered in the Prescription Book on the day of sale.','iii. A retail sale by a licensed pharmacist shall be recorded in the Poisons Book.','iv. A licenced wholesaler may immediately export to a purchaser outside Malaysia.'],opts:['A. i and ii only.','B. iii only.','C. i and iv only.','D. i, ii, iii and iv'],ans:2,exp:'s.20 PA 1952: Licenced wholesalers can sell to pharmacists/wholesalers and may export.'},
-    {act:'POISON',q:'Where any poison is sold or supplied as a dispensed medicine, or as an ingredient in a dispensed medicine, the container of such medicine shall be labelled, in a conspicuous and distinct manner, with:',stmts:['i. the name and address of the supplier.','ii. the name of the patient.','iii. a reference to the serial number of the entry in the prescription book.','iv. the name and address of the purchaser.'],opts:['A. i, ii and iii only.','B. i and iii only.','C. ii and iii only.','D. i, ii and iv'],ans:0,exp:'Containers for dispensed medicine must have supplier name/address, patient name, and prescription book serial reference.'},
-    {act:'POISON',q:'The supply of mefenamic acid capsules to an outpatient of any public hospital shall only be done in accordance with a prescription of a:',stmts:['i. medical assistant authorized in writing by the Minister.','ii. medical assistant authorized in writing by the Director General of Health.','iii. registered medical practitioner.','iv. registered dentist.'],opts:['A. iii and iv only','B. i and iii only.','C. ii and iii only.','D. ii, iii and iv only.'],ans:3,exp:'Supply can be via prescription from a registered medical practitioner, dentist, or a medical assistant authorized by the DG of Health.'},
-    {act:'POISON',q:'A licensed pharmacist commits an offence under the Poisons (Psychotropic Substances) Regulations 1989. While under investigation, his Type A licence issued under the Poisons Act 1952 is cancelled by the Licensing Officer. This decision may be repealed by the:',opts:['A. Director of Pharmaceutical Services','B. Licensing officer','C. Director General of Health','D. Minister or Health'],ans:3,exp:'Appeals against Licensing Officer cancellations go to the Minister of Health.'},
-    {act:'POISON',q:'The requirement for a prescription of clobazam tablet 5mg tablet includes:',stmts:['i. in writing, signed and dated by the prescriber.','ii. should not be written wholly or partly in code.','iii. supply within 90 days from the date of the prescription.','iv. keeping the prescription for 2 years.'],opts:['A. i only.','B. ii and iii only.','C. i, ii and iv only.','D. i, ii, iii and iv'],ans:3,exp:'P(PS)R Reg 11: Must be written/signed/dated, not in code, supplied within 90 days, and kept for 2 years.'}
-  ],
-  notes: [], flashcards: [], law: []
-};
-
+// ── SODA 1952 (SEPARATED FOR LEARNING) ───────────────────────────────────
 window.SODA_DATA = {
   questions: [
-    {act:'SODA · CDCR',q:'Which of the following statements is TRUE regarding the rejection or cancellation of product registration under the Act and Regulations?',opts:['A. The Drug Control Authority can cancel the registration of any product at any time but must give reason of such cancellation.','B. Cancellation of the registration of any product shall similarly and at the same time affect any license issued under the Act and Regulations related to that product.','C. Where a license relates to several registered products, suspension/cancellation of one product affects the position of other registered products listed in the license.','D. All of the above.'],ans:1,exp:'Reg 11(2) CDCR 1984: Cancellation of registration similarly and at the same time affects any license issued relating to that product.'},
-    {act:'SODA · CDCR',q:'The following is/are the function and/or power of the Director of Pharmaceutical Services under the Regulations:',stmts:['i. Issue a written consent to any person who brings any product to Malaysia in transit.','ii. Keep and maintain a register of registered product.','iii. Exempt any person to manufacture any product solely for the purpose of medical treatment of a life-threatening illness.','iv. Issue a certificate on any matter relating to any product if required by any importing country.'],opts:['A. i and ii only.','B. i, iii and iv only.','C. iii and iv only.','D. All of the above.'],ans:1,exp:'Keeping the register is the statutory duty of the Secretary, not the DPS. DPS handles transit consent, life-threatening exemptions, and export certificates.'},
-    {act:'SODA · CDCR',q:'The register of products kept and maintained by The Secretary of Drug Control Authority must contain:',stmts:['i. The name under which the product is registered.','ii. The content and quantity of the active ingredients.','iii. The name and the address of the manufacturer.','iv. The name and address of the product registration holder.'],opts:['A. i, ii and iii only.','B. ii, iii and iv only.','C. i, iii and iv only.','D. i, ii, iii and iv only.'],ans:3,exp:'Reg 9(2) CDCR 1984: The register must contain product name, active ingredients, manufacturer info, and registration holder info.'},
-    {act:'SODA · CDCR',q:'The following substances are prohibited in a traditional medicine preparation:',stmts:['i. Paracetamol','ii. Dexamethasone','iii. Caffeine','iv. Naturally-occurring theophylline in tea'],opts:['A. i, ii and iii only.','B. ii, iii and iv only.','C. iii and iv only.','D. iv only.'],ans:0,exp:'Table II CDCR 1984: Paracetamol, Dexamethasone (Poison), and Caffeine are prohibited. Naturally-occurring theophylline is not expressly banned as an isolated additive here.'},
-    {act:'SODA · CDCR',q:'Which of the following are offences under Sale of Drugs Act 1952?',stmts:['i. Selling non-registered Tongkat Ali capsules.','ii. Supplying a mixture of totally new traditional medicine product from a registered Tongkat Ali product with a registered Kacip Fatimah product.','iii. Possessing 1000 bottles of Tongkat Ali product which registration has been suspended by the Drug Control Authority.'],opts:['A. i, ii and iii only.','B. i and iii only.','C. i and ii only.','D. ii and iii only.'],ans:0,exp:'Reg 7 CDCR 1984: All three are explicit offences: selling unregistered, unauthorized mixing of two registered products, and possessing suspended products.'}
+    {act:'SODA · s.2',q:'Under the Sale of Drugs Act 1952, "medicinal purpose" includes which of the following?',stmts:['i. Contraception','ii. Inducing anaesthesia','iii. Controlling body weight','iv. Cleaning the teeth and mucous membranes'],opts:['A. i, ii and iii only','B. ii, iii and iv only','C. i and iv only','D. All of the above'],ans:0,exp:'s.2 SODA 1952: Medicinal purpose explicitly includes contraception, inducing anaesthesia, and controlling body weight. Teeth cleaning fits the statutory definition of a cosmetic.'},
+    {act:'SODA · s.4',q:'An officer under the Sale of Drugs Act 1952 may seize any drug which appears to be unwholesome. What happens if no complaint is made within forty-eight hours of the seizure?',opts:['A. The drug is returned to the owner','B. The drug becomes the property of the Government and shall be destroyed','C. The officer must apply to the Magistrate for a destruction order','D. The drug is sold at auction'],ans:1,exp:'s.4(4) SODA 1952: If no complaint is filed within 48 hours, the article becomes the property of the Government and shall be destroyed or disposed of.'},
+    {act:'SODA · s.7',q:'When an officer purchases a sample of a drug for analysis under the Sale of Drugs Act 1952, he must divide the sample into how many parts?',opts:['A. Two','B. Three','C. Four','D. Five'],ans:1,exp:'s.7(2) SODA 1952: The officer must divide the sample into three parts, marking and sealing or fastening up each part.'},
+    {act:'SODA · s.12',q:'What is the general penalty for a first offence committed by a body corporate under the Sale of Drugs Act 1952 where no penalty is expressly provided?',opts:['A. Fine not exceeding RM25,000','B. Fine not exceeding RM50,000','C. Fine not exceeding RM100,000','D. Fine not exceeding RM500,000'],ans:1,exp:'s.12(2) SODA 1952: A body corporate found guilty of an offence where no penalty is expressly specified shall be liable to a fine ≤ RM50,000.'}
   ],
   notes: [
     {title:'Statutory Definitions — s.2',items:[
@@ -493,6 +497,42 @@ window.SODA_DATA = {
       {t:'Individuals',d:'First Offence: Fine ≤ RM25,000 and/or ≤ 3 years prison. Subsequent: Fine ≤ RM50,000 and/or ≤ 5 years prison.'},
       {t:'Body Corporate',d:'First Offence: Fine ≤ RM50,000. Subsequent: Fine ≤ RM100,000.'}
     ]},
+    {title:'Exam Traps ⚠️',warn:[
+      'Analysts are appointed by the YDPA, but Inspectors are appointed by the Chief Minister. Do not mix these up!',
+      'The prosecution window strictly closes 60 days after the sample is taken.',
+      'A copy of the analyst\'s certificate can NEVER be displayed or used as an advertisement.'
+    ]}
+  ],
+  flashcards: [
+    {q:'Who appoints Analysts under the Sale of Drugs Act 1952?',a:'The Yang di-Pertuan Agong',ref:'s.3(1) SODA 1952'},
+    {q:'Who appoints Officers and Inspectors under SODA?',a:'The Chief Minister',ref:'s.3(2) SODA 1952'},
+    {q:'If a drug is seized, how many hours do you have to complain to a Magistrate before it becomes Government property?',a:'48 hours',ref:'s.4(3) SODA 1952'},
+    {q:'Can an inspector force a pharmacy to open a sealed package to sell just a fraction of it as a sample?',a:'No, for retail unopened packages, the inspector must buy the whole package',ref:'s.5(3) SODA 1952'},
+    {q:'How many parts must an official drug sample be divided into?',a:'Three parts (Seller, Analyst, Retained)',ref:'s.7(2) SODA 1952'},
+    {q:'What is the maximum time allowed to institute proceedings after a sample is purchased?',a:'60 days',ref:'s.18(4) SODA 1952'},
+    {q:'What is the general fine limit for a FIRST offence by a Body Corporate under SODA?',a:'RM50,000',ref:'s.12(2) SODA 1952'}
+  ],
+  law: [
+    {sec:'s.2',title:'Medicinal Purpose Definition',body:'Includes alleviating, treating, curing or preventing a disease; diagnosing; contraception; inducing anaesthesia; controlling body weight; general maintenance of health.'},
+    {sec:'s.4',title:'Seizure Mechanics',body:'Officers may seize unwholesome items or destroy decayed items. Complaints must be directed to a Magistrate within 48 hours. If no complaint, items become Government property.'},
+    {sec:'s.7',title:'Sampling Routine',body:'Procuring inspectors must notify the seller, divide the sample into 3 parts, mark and seal them, and deliver one part to the seller, one to the analyst, and retain the third.'},
+    {sec:'s.12',title:'General Sanctions',body:'Non-Corporate First: ≤ RM25,000 / 3 years. Subsequent: ≤ RM50,000 / 5 years. Corporate First: ≤ RM50,000 fine. Subsequent Corporate: ≤ RM100,000 fine.'},
+    {sec:'s.18',title:'Court Rules',body:'Proceedings in summary manner in Sessions or First Class Magistrate Court. Summons requires ≥ 14 days returnable period. Proceedings strictly invalid after 60 days from sample procurement.'},
+    {sec:'s.20',title:'Warranty Defence',body:'A written warranty is a good defence if the defendant delivers a copy to the prosecutor within 7 days of receiving the summons.'}
+  ]
+};
+
+// ── CDCR 1984 (SEPARATED FOR LEARNING) ───────────────────────────────────
+window.CDCR_DATA = {
+  questions: [
+    {act:'CDCR · r.7',q:'Under the Control of Drugs and Cosmetics Regulations 1984, which of the following actions is prohibited regarding a registered product?',stmts:['i. Mixing it with another registered product','ii. Labelling it with an additional name other than the registered name','iii. Possessing written information describing an unapproved indication','iv. Mixing it with a substance not intended for reconstitution'],opts:['A. i and ii only','B. ii and iv only','C. i, ii and iii only','D. All of the above'],ans:3,exp:'Reg 7(1A) & 7(1B) CDCR 1984: All these acts are explicitly prohibited, including possessing documents describing unapproved indications.'},
+    {act:'CDCR · r.8',q:'What is the processing fee for an application to register a product OTHER than a traditional medicine under the CDCR 1984?',opts:['A. RM50','B. RM200','C. RM500','D. RM1,000'],ans:3,exp:'Reg 8(2)(c) CDCR 1984: A processing fee of RM1000.00 is required for products other than traditional medicines.'},
+    {act:'CDCR · r.12',q:'Which licence under the CDCR 1984 is restricted to including ONLY ONE product?',opts:['A. Manufacturer\'s licence','B. Wholesaler\'s licence','C. Import licence','D. Clinical trial import licence'],ans:3,exp:'Reg 12(2) CDCR 1984: Any number of registered products may be included in standard licenses, but a clinical trial import licence includes only one product.'},
+    {act:'CDCR · r.15',q:'Who is exempted from holding a manufacturing license when dispensing a drug for a specific patient\'s medical treatment?',stmts:['i. A pharmacist in a retail pharmacy','ii. A fully registered medical practitioner','iii. A veterinary practitioner','iv. A person acting in the course of duties in a Government hospital'],opts:['A. i and ii only','B. i, ii and iii only','C. ii, iii and iv only','D. All of the above'],ans:3,exp:'Reg 15(2) CDCR 1984: Retail pharmacists, registered medical/dental/veterinary practitioners, and public/estate hospital staff are fully exempted when dispensing for specific care.'},
+    {act:'CDCR · r.18A',q:'For a notified cosmetic, the person responsible for placing it in the market must:',stmts:['i. Maintain proper records','ii. Report serious adverse events to the Director of Pharmaceutical Services','iii. Recall the product immediately if it contravenes guidelines','iv. Apply for a clinical trial import licence'],opts:['A. i, ii and iii only','B. i and ii only','C. ii, iii and iv only','D. All of the above'],ans:0,exp:'Reg 18A(9), (11), & (13) CDCR 1984: Responsible entities must report adverse events, keep files, and recall non-compliant lots. Clinical trial frameworks apply strictly to non-registered drug investigations.'},
+    {act:'CDCR · Sch. (Tab II)',q:'Which of the following substances is PROHIBITED in traditional medicine under the CDCR 1984?',opts:['A. Caffeine','B. Paracetamol','C. Any poison within the meaning of the Poisons Act 1952','D. All of the above'],ans:3,exp:'Table II CDCR 1984: Caffeine, Nicotinamide, Paracetamol, and generic Poisons under the Poisons Act 1952 are prohibited inside traditional medicine lines.'}
+  ],
+  notes: [
     {title:'Drug Control Authority (DCA) — r.3',items:[
       {t:'Ex-Officio Members',d:'Director-General of Health (Chairman), Director of Pharmaceutical Services (Alt Chairman), Director of NPCB.'},
       {t:'Appointed Members',d:'8 members appointed by Minister: 1 public physician, 1 public pharmacist, 3 local university experts, 2 medical practitioners, 1 public veterinary practitioner.'},
@@ -516,20 +556,11 @@ window.SODA_DATA = {
       {t:'Prohibited Additions',d:'Caffeine, Nicotinamide, Paracetamol, and any Poison under the Poisons Act 1952.'}
     ]},
     {title:'Exam Traps ⚠️',warn:[
-      'Analysts are appointed by the YDPA, but Inspectors are appointed by the Chief Minister. Do not mix these up!',
-      'The prosecution window strictly closes 60 days after the sample is taken.',
-      'A copy of the analyst\'s certificate can NEVER be displayed or used as an advertisement.',
-      'Clinical Trial Import Licences (Form 4) are strictly limited to exactly ONE product. All other licences can hold multiple products.'
+      'Clinical Trial Import Licences (Form 4) are strictly limited to exactly ONE product. All other licences can hold multiple products.',
+      'Caffeine and Paracetamol are strictly prohibited chemical additions in traditional medicines.'
     ]}
   ],
   flashcards: [
-    {q:'Who appoints Analysts under the Sale of Drugs Act 1952?',a:'The Yang di-Pertuan Agong',ref:'s.3(1) SODA 1952'},
-    {q:'Who appoints Officers and Inspectors under SODA?',a:'The Chief Minister',ref:'s.3(2) SODA 1952'},
-    {q:'If a drug is seized, how many hours do you have to complain to a Magistrate before it becomes Government property?',a:'48 hours',ref:'s.4(3) SODA 1952'},
-    {q:'Can an inspector force a pharmacy to open a sealed package to sell just a fraction of it as a sample?',a:'No, for retail unopened packages, the inspector must buy the whole package',ref:'s.5(3) SODA 1952'},
-    {q:'How many parts must an official drug sample be divided into?',a:'Three parts (Seller, Analyst, Retained)',ref:'s.7(2) SODA 1952'},
-    {q:'What is the maximum time allowed to institute proceedings after a sample is purchased?',a:'60 days',ref:'s.18(4) SODA 1952'},
-    {q:'What is the general fine limit for a FIRST offence by a Body Corporate under SODA?',a:'RM50,000',ref:'s.12(2) SODA 1952'},
     {q:'What is the minimum quorum for a meeting of the Drug Control Authority?',a:'Four members',ref:'Reg 5(4) CDCR 1984'},
     {q:'Is the Secretary of the DCA allowed to vote in meetings?',a:'No, the Secretary is not a member of the Authority',ref:'Reg 3(7) CDCR 1984'},
     {q:'What is the processing fee for a Manufacturer’s Licence under CDCR?',a:'RM1,000',ref:'Reg 13(1) CDCR 1984'},
@@ -542,12 +573,6 @@ window.SODA_DATA = {
     {q:'How many days do you have to appeal a DCA decision to the Minister?',a:'14 days',ref:'Reg 18 CDCR 1984'}
   ],
   law: [
-    {sec:'s.2',title:'Medicinal Purpose Definition',body:'Includes alleviating, treating, curing or preventing a disease; diagnosing; contraception; inducing anaesthesia; controlling body weight; general maintenance of health.'},
-    {sec:'s.4',title:'Seizure Mechanics',body:'Officers may seize unwholesome items or destroy decayed items. Complaints must be directed to a Magistrate within 48 hours. If no complaint, items become Government property.'},
-    {sec:'s.7',title:'Sampling Routine',body:'Procuring inspectors must notify the seller, divide the sample into 3 parts, mark and seal them, and deliver one part to the seller, one to the analyst, and retain the third.'},
-    {sec:'s.12',title:'General Sanctions',body:'Non-Corporate First: ≤ RM25,000 / 3 years. Subsequent: ≤ RM50,000 / 5 years. Corporate First: ≤ RM50,000 fine. Subsequent Corporate: ≤ RM100,000 fine.'},
-    {sec:'s.18',title:'Court Rules',body:'Proceedings in summary manner in Sessions or First Class Magistrate Court. Summons requires ≥ 14 days returnable period. Proceedings strictly invalid after 60 days from sample procurement.'},
-    {sec:'s.20',title:'Warranty Defence',body:'A written warranty is a good defence if the defendant delivers a copy to the prosecutor within 7 days of receiving the summons.'},
     {sec:'Reg 3',title:'DCA Constitution',body:'DG Health (Chair), DPS (Alt Chair), NPCB Director, plus 8 appointed members (public physician, public pharmacist, 3 academic experts, 2 doctors, 1 vet). Secretary is a non-member public pharmacist.'},
     {sec:'Reg 12',title:'Licence Profiles',body:'Manufacturer (Form 2), Wholesaler (Form 3), Clinical Trial Import (Form 4), Import (Form 5). Clinical trial holds 3-year ceiling and max 1 product constraint.'},
     {sec:'Reg 18A',title:'Cosmetics Regulations',body:'Restricted to notified items. DPS holds authority to order batch recalls. Records must be maintained and serious adverse events reported immediately.'},
@@ -555,12 +580,19 @@ window.SODA_DATA = {
   ]
 };
 
-window.DDA_DATA = {
+window.POISON_DATA = {
   questions: [
-    {act:'DDA',q:'The Dangerous Drugs Act 1952 and its regulations are applicable for the importation of:',stmts:['i. pholcodine.','ii. dihydrocodeine.','iii. morphine powder B.P.','iv. buprenorphine.'],opts:['A. i, ii and iii only.','B. i, ii and iv only.','C. i, iii and iv only.','D. ii, iii and iv only.'],ans:0,exp:'Buprenorphine is regulated as a psychotropic, whereas pholcodine, dihydrocodeine (raw), and morphine are dangerous drugs.'},
-    {act:'DDA',q:'Any person who is found in possession of the following substances otherwise than in accordance with the authority of the Dangerous Drugs Act 1952 shall be presumed until the contrary is proved to be trafficking the said drug:',stmts:['i. 41 grammes of cocaine.','ii. 250 grammes of cannabis.','iii. 900 grammes of raw opium.','iv. a mixture containing 25 grammes of amphetamine and 25 grammes of methamphetamine.'],opts:['A. i, ii and iii only.','B. i, ii and iv only.','C. i, iii and iv only.','D. ii, iii and iv only.'],ans:1,exp:'Trafficking thresholds: Cocaine >40g, Cannabis >200g, Amphetamine mix >50g. Raw opium threshold is higher.'},
-    {act:'DDA',q:'The supply of registered morphine tablets in a government health clinic for medical treatment shall be recorded in:',opts:['A. Day Book for Dangerous Drugs.','B. Prescription Book for dispensed medicines.','C. Prescription Register for Psychotropic substances.','D. Poison Book for Group D Poisons.'],ans:1,exp:'For medical treatment in a health clinic, dispensing is recorded in the Prescription Book.'},
-    {act:'DDA',q:'The following substances/ products are classified as dangerous drugs.',opts:['A. Morphine pulv., N-ethyl MDA, cannabis and heroin.','B. Morphine pulv., amphetamine, cannabis and diazepam.','C. Morphine pulv., dextromethorphan, cannabis and heroin.','D. Morphine injection, dextromethorphan, cannabis and heroin.'],ans:0,exp:'Morphine, N-ethyl MDA, cannabis, and heroin are all strictly Dangerous Drugs. Diazepam and amphetamines are generally scheduled under Psychotropics/Poisons.'}
+    {act:'POISON',q:'Group A poisons include:',stmts:['i. bambuterol in all preparations.','ii. Amidopyrine; its salts, in all preparations.','iii. Carbadox in all preparations for use in animal feeds only.','iv. Teicoplanin in all preparations.'],opts:['A. i and ii only.','B. i, iii and iv only.','C. ii and iv only.','D. i, ii, iii and iv'],ans:0,exp:'Poisons Act First Schedule: Bambuterol and Amidopyrine fall under Group A.'},
+    {act:'POISON',q:'The Licensing Officer is authorized to issue:',stmts:['i. a Type A Licence (S26 PA 1952)','ii. an authorization to export psychotropic substances (R6 PR 1952)','iii. a permit to purchase, store and use sodium hydroxide 9%','iv. a written consent to alter the package of psychotropic subtances in transit (R10 PR 1952)'],opts:['A. i, ii and iv only.','B. i and iii only.','C. ii and iv only.','D. i, ii, iii and iv only.'],ans:0,exp:'Sodium hydroxide 9% is not a poison (refer First Schedule). The Licensing Officer issues Type A, export authorizations, and transit packaging consents.'},
+    {act:'POISON',q:'Powers of Drug Enforcement Officer given under the Act include:',stmts:['i. Investigating any commission of offences.','ii. Arresting the suspected offenders.','iii. Entering any premises where offence under the Act has been committed or believed to have been committed.','iv. Seizing material or articles which may furnish evidence for the commission of an offence.'],opts:['A. i and ii only.','B. i, iii and iv only.','C. iii and iv only.','D. i, ii, iii and iv'],ans:1,exp:'s.31A & 31B PA 1952: Officers investigate, enter premises, and seize materials. They do not hold independent arrest powers under this specific sub-clause setup.'},
+    {act:'POISON',q:'The following statement(s) is/are TRUE of the fees under the Act:',stmts:['i. RM 100 for a permit to purchase, store, and use sodium hydroxide 12%.','ii. RM 300 for a Type A licence to import vaccine for COVID-19.','iii. RM 300 for a Type B licence to import, store and sell by wholesale ammonia gas 10% as specified in the licence.','iv. RM 200 for an import authorization of psychotropic substance.'],opts:['A. i only.','B. i and iii only.','C. ii and iv only.','D. i, ii, iii and iv'],ans:0,exp:'Fee schedules limit Type A/B specific variations. Source specifies A as the answer.'},
+    {act:'POISON',q:'The following statement(s) is/are TRUE regarding wholesale of poisons:',stmts:['i. A sale to any person who intends to sell again is a wholesale.','ii. All licenced pharmacists are licenced wholesaler.','iii. A sale by a Type B licence holder to a professional person for the purpose of such person’s profession and not for resale is a wholesale.','iv. A written order is required to be sent within seven days after the purchaser has affixed his signature in a Poison Wholesale Sales Book.'],opts:['A. i and ii only.','B. i and iii only.','C. ii and iv only.','D. i, ii, iii and iv'],ans:1,exp:'Wholesale includes sale to resellers, and sale by Type B holders to professionals for their profession (not for resale).'},
+    {act:'POISON',q:'According to Section 7 of the Act, the following are exempted from the provisions of the act EXCEPT:',opts:['A. surgical dressing','B. lacquer','C. propellant','D. antimony'],ans:3,exp:'s.7 PA 1952 exemptions generally cover industrial/commercial articles like surgical dressings, lacquers, and propellants. Antimony is a controlled substance.'},
+    {act:'POISON',q:'According to Section 20 of the Poison Act 1952, choose the CORRECT statement(s) regarding the sale and supply of Group A poison.',stmts:['i. A licenced wholesaler may sell by wholesale to a licenced pharmacist or another licence wholesaler.','ii. The seller or supplier shall enter or cause to be entered in the Prescription Book on the day of sale.','iii. A retail sale by a licensed pharmacist shall be recorded in the Poisons Book.','iv. A licenced wholesaler may immediately export to a purchaser outside Malaysia.'],opts:['A. i and ii only.','B. iii only.','C. i and iv only.','D. i, ii, iii and iv'],ans:2,exp:'s.20 PA 1952: Licenced wholesalers can sell to pharmacists/wholesalers and may export.'},
+    {act:'POISON',q:'Where any poison is sold or supplied as a dispensed medicine, or as an ingredient in a dispensed medicine, the container of such medicine shall be labelled, in a conspicuous and distinct manner, with:',stmts:['i. the name and address of the supplier.','ii. the name of the patient.','iii. a reference to the serial number of the entry in the prescription book.','iv. the name and address of the purchaser.'],opts:['A. i, ii and iii only.','B. i and iii only.','C. ii and iii only.','D. i, ii and iv'],ans:0,exp:'Containers for dispensed medicine must have supplier name/address, patient name, and prescription book serial reference.'},
+    {act:'POISON',q:'The supply of mefenamic acid capsules to an outpatient of any public hospital shall only be done in accordance with a prescription of a:',stmts:['i. medical assistant authorized in writing by the Minister.','ii. medical assistant authorized in writing by the Director General of Health.','iii. registered medical practitioner.','iv. registered dentist.'],opts:['A. iii and iv only','B. i and iii only.','C. ii and iii only.','D. ii, iii and iv only.'],ans:3,exp:'Supply can be via prescription from a registered medical practitioner, dentist, or a medical assistant authorized by the DG of Health.'},
+    {act:'POISON',q:'A licensed pharmacist commits an offence under the Poisons (Psychotropic Substances) Regulations 1989. While under investigation, his Type A licence issued under the Poisons Act 1952 is cancelled by the Licensing Officer. This decision may be repealed by the:',opts:['A. Director of Pharmaceutical Services','B. Licensing officer','C. Director General of Health','D. Minister or Health'],ans:3,exp:'Appeals against Licensing Officer cancellations go to the Minister of Health.'},
+    {act:'POISON',q:'The requirement for a prescription of clobazam tablet 5mg tablet includes:',stmts:['i. in writing, signed and dated by the prescriber.','ii. should not be written wholly or partly in code.','iii. supply within 90 days from the date of the prescription.','iv. keeping the prescription for 2 years.'],opts:['A. i only.','B. ii and iii only.','C. i, ii and iv only.','D. i, ii, iii and iv'],ans:3,exp:'P(PS)R Reg 11: Must be written/signed/dated, not in code, supplied within 90 days, and kept for 2 years.'}
   ],
   notes: [], flashcards: [], law: []
 };
@@ -597,6 +629,16 @@ window.MASA_DATA = {
     {sec:'s.3',title:'Prohibition relating to certain diseases',body:'No person shall take any part in the publication of any advertisement... for the purpose of prevention or treatment of the diseases and conditions specified in the Schedule (e.g., Cancer, Diabetes, Asthma).'},
     {sec:'s.4',title:'Prohibition relating to abortion',body:'No person shall take any part in the publication of any advertisement... for procuring the miscarriage of women.'}
   ]
+};
+
+window.DDA_DATA = {
+  questions: [
+    {act:'DDA',q:'The Dangerous Drugs Act 1952 and its regulations are applicable for the importation of:',stmts:['i. pholcodine.','ii. dihydrocodeine.','iii. morphine powder B.P.','iv. buprenorphine.'],opts:['A. i, ii and iii only.','B. i, ii and iv only.','C. i, iii and iv only.','D. ii, iii and iv only.'],ans:0,exp:'Buprenorphine is regulated as a psychotropic, whereas pholcodine, dihydrocodeine (raw), and morphine are dangerous drugs.'},
+    {act:'DDA',q:'Any person who is found in possession of the following substances otherwise than in accordance with the authority of the Dangerous Drugs Act 1952 shall be presumed until the contrary is proved to be trafficking the said drug:',stmts:['i. 41 grammes of cocaine.','ii. 250 grammes of cannabis.','iii. 900 grammes of raw opium.','iv. a mixture containing 25 grammes of amphetamine and 25 grammes of methamphetamine.'],opts:['A. i, ii and iii only.','B. i, ii and iv only.','C. i, iii and iv only.','D. ii, iii and iv only.'],ans:1,exp:'Trafficking thresholds: Cocaine >40g, Cannabis >200g, Amphetamine mix >50g. Raw opium threshold is higher.'},
+    {act:'DDA',q:'The supply of registered morphine tablets in a government health clinic for medical treatment shall be recorded in:',opts:['A. Day Book for Dangerous Drugs.','B. Prescription Book for dispensed medicines.','C. Prescription Register for Psychotropic substances.','D. Poison Book for Group D Poisons.'],ans:1,exp:'For medical treatment in a health clinic, dispensing is recorded in the Prescription Book.'},
+    {act:'DDA',q:'The following substances/ products are classified as dangerous drugs.',opts:['A. Morphine pulv., N-ethyl MDA, cannabis and heroin.','B. Morphine pulv., amphetamine, cannabis and diazepam.','C. Morphine pulv., dextromethorphan, cannabis and heroin.','D. Morphine injection, dextromethorphan, cannabis and heroin.'],ans:0,exp:'Morphine, N-ethyl MDA, cannabis, and heroin are all strictly Dangerous Drugs. Diazepam and amphetamines are generally scheduled under Psychotropics/Poisons.'}
+  ],
+  notes: [], flashcards: [], law: []
 };
 
 window.ETHICS_DATA = {
@@ -640,6 +682,14 @@ var G = {
   answered:false, selAns:null, wasSkipped:false
 };
 
+function shuffle(array) {
+  for (var i = array.length - 1; i > 0; i--) {
+    var j = Math.floor(Math.random() * (i + 1));
+    var temp = array[i]; array[i] = array[j]; array[j] = temp;
+  }
+  return array;
+}
+
 function show(id){
   document.querySelectorAll('.scr').forEach(function(s){s.classList.remove('on');});
   document.getElementById('scr-'+id).classList.add('on');
@@ -652,7 +702,9 @@ function selectAppMode(mode){
 }
 
 function openModeSelect(actId){
-  if(!window[actId + '_DATA'] && actId !== 'ALL') {
+  if(actId === 'SODA_CDCR') {
+    // Keep this check to allow the combined option to flow to timing select
+  } else if(!window[actId + '_DATA'] && actId !== 'ALL') {
     openComing(actId.toLowerCase());
     return;
   }
@@ -719,7 +771,7 @@ function switchTab(t){
       }
       html+='</div>';
     });
-    document.getElementById('pane-notes').innerHTML = html || '<i>No notes available for this section.</i>';
+    document.getElementById('pane-notes').innerHTML = html || '<div style="padding:2rem;text-align:center;color:#6B7280;font-size:14px;"><i>No notes available for this section.</i></div>';
   }
   
   if(t==='flash'){
@@ -735,7 +787,7 @@ function switchTab(t){
       html+='<span class="law-sec">'+sec.sec+'</span><span class="law-title">'+sec.title+'</span>';
       html+='<div class="law-body'+(open?' open':'')+'">'+sec.body+'</div></div>';
     });
-    document.getElementById('pane-law').innerHTML = html || '<i>No law text available for this section.</i>';
+    document.getElementById('pane-law').innerHTML = html || '<div style="padding:2rem;text-align:center;color:#6B7280;font-size:14px;"><i>No law text available for this section.</i></div>';
   }
 }
 
@@ -765,15 +817,6 @@ function prevFC(){if(G.fcIdx>0){G.fcIdx--;G.fcFlipped=false;renderFlash();}}
 
 function toggleLaw(i){G.lawOpen[i]=!G.lawOpen[i];switchTab('law');}
 
-// ── Quiz Engine ───────────────────────────────────────────────────
-function shuffle(array) {
-  for (var i = array.length - 1; i > 0; i--) {
-    var j = Math.floor(Math.random() * (i + 1));
-    var temp = array[i]; array[i] = array[j]; array[j] = temp;
-  }
-  return array;
-}
-
 function initQuiz(timingMode, sprintCount){
   G.timingMode = timingMode;
   G.initialHearts = G.hearts;
@@ -787,30 +830,34 @@ function initQuiz(timingMode, sprintCount){
   var pool = [];
   
   if(G.selectedAct === 'ALL' && timingMode === 'mock') {
-    // Exact PKUMF Weightage Ratio logic
     var rQs = window.ROPA_DATA ? shuffle([].concat(window.ROPA_DATA.questions)) : [];
     var pQs = window.POISON_DATA ? shuffle([].concat(window.POISON_DATA.questions)) : [];
     var sQs = window.SODA_DATA ? shuffle([].concat(window.SODA_DATA.questions)) : [];
+    var cQs = window.CDCR_DATA ? shuffle([].concat(window.CDCR_DATA.questions)) : [];
     var mQs = window.MASA_DATA ? shuffle([].concat(window.MASA_DATA.questions)) : [];
     var dQs = window.DDA_DATA ? shuffle([].concat(window.DDA_DATA.questions)) : [];
     var eQs = window.ETHICS_DATA ? shuffle([].concat(window.ETHICS_DATA.questions)) : [];
     
-    // Ideal PKUMF target (100 total): ROPA:20, POISON:35, SODA:15, MASA:10, DDA:10, ETHICS:10
     pool = pool.concat(rQs.slice(0, 20));
     pool = pool.concat(pQs.slice(0, 35));
-    pool = pool.concat(sQs.slice(0, 15));
+    pool = pool.concat(sQs.slice(0, 8)); // Splitting SODA/CDCR quota
+    pool = pool.concat(cQs.slice(0, 7)); // Splitting SODA/CDCR quota
     pool = pool.concat(mQs.slice(0, 10));
     pool = pool.concat(dQs.slice(0, 10));
     pool = pool.concat(eQs.slice(0, 10));
     pool = shuffle(pool);
   } else if(G.selectedAct === 'ALL') {
-    // Normal flat merge for non-mock modes
     if(window.ROPA_DATA) pool = pool.concat(window.ROPA_DATA.questions);
     if(window.POISON_DATA) pool = pool.concat(window.POISON_DATA.questions);
     if(window.SODA_DATA) pool = pool.concat(window.SODA_DATA.questions);
+    if(window.CDCR_DATA) pool = pool.concat(window.CDCR_DATA.questions);
     if(window.MASA_DATA) pool = pool.concat(window.MASA_DATA.questions);
     if(window.DDA_DATA) pool = pool.concat(window.DDA_DATA.questions);
     if(window.ETHICS_DATA) pool = pool.concat(window.ETHICS_DATA.questions);
+    pool = shuffle(pool);
+  } else if(G.selectedAct === 'SODA_CDCR') {
+    if(window.SODA_DATA) pool = pool.concat(window.SODA_DATA.questions);
+    if(window.CDCR_DATA) pool = pool.concat(window.CDCR_DATA.questions);
     pool = shuffle(pool);
   } else {
     pool = shuffle([].concat(window[G.selectedAct + '_DATA'].questions));
@@ -822,7 +869,7 @@ function initQuiz(timingMode, sprintCount){
   } else if (timingMode === 'sprint'){
     var count = sprintCount || 10;
     G.lesQ = pool.slice(0, count);
-    G.timeRemaining = G.lesQ.length * 108; // 1.8 mins = 108 secs per question
+    G.timeRemaining = G.lesQ.length * 108; 
   } else if (timingMode === 'mock'){
     G.lesQ = pool; 
     G.timeRemaining = G.lesQ.length * 108; 
