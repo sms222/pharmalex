@@ -75,7 +75,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
 
 /* Notes Styles */
 .note-section{margin-bottom:1.1rem}
-.note-title{font-size:12px;font-weight:700;margin-bottom:.5rem;display:flex;align-items:center;gap:5px}
+.note-title{font-size:12px;font-weight:800;margin-bottom:.5rem;display:flex;align-items:center;gap:5px; text-transform:uppercase; letter-spacing:0.02em;}
 .act-theme .note-title { color: #1D4ED8; }
 .reg-theme .note-title { color: #047857; }
 .note-card{background:#fff;border-top:4px solid #F3F4F6; border-radius:8px; padding:12px 14px; margin-bottom:.6rem; box-shadow:0 1px 2px rgba(0,0,0,.03)}
@@ -185,7 +185,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
         <span class="mode-icon">📖</span>
         <div class="mode-name">Learn Mode</div>
       </div>
-      <div class="mode-desc">Side-by-side regulatory reference cards, Ethics & GGM, exam tips, and study briefs. Zero testing pressure.</div>
+      <div class="mode-desc">Side-by-side regulatory reference cards, Open-Book Navigation Guides, and exam tips. Zero testing pressure.</div>
     </div>
 
     <div class="mode-card" onclick="selectAppMode('game')">
@@ -308,7 +308,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
     </div>
   </div>
   <div class="learn-menu-grid">
-    <button class="btn btn-success" style="text-align:left;padding:16px" onclick="openActLearn('TIPS')">💡 PKUMF Exam Tips & Notes</button>
+    <button class="btn btn-success" style="text-align:left;padding:16px" onclick="openActLearn('TIPS')">💡 PKUMF Exam Tips & Book Navigation</button>
     <button class="btn btn-outline" style="text-align:left;padding:12px;margin-bottom:0" onclick="openActLearn('ROPA')">📝 Registration of Pharmacists Act 1951</button>
     <button class="btn btn-outline" style="text-align:left;padding:12px;margin-bottom:0" onclick="openActLearn('POISON')">☠️ Poisons Act 1952</button>
     <button class="btn btn-outline" style="text-align:left;padding:12px;margin-bottom:0" onclick="openActLearn('SODA')">🧪 Sale of Drugs Act 1952 + CDCR</button>
@@ -448,9 +448,9 @@ window.TIPS_DATA = {
     ],
     reg: [
       {title:'Study Strategies',items:[
-        {t:'Act vs. Regulation',d:'Always understand the relationship between the primary Act and its secondary Regulations'},
-        {t:'Locate Info',d:'Practice flipping the books and marking pages. Know what information lives in the Act versus the Regulations'},
-        {t:'Time Management',d:'Always time your practice (1.8 minutes per question)'}
+        {t:'Act vs. Regulation',d:'Always understand the relationship between the primary Act and its secondary Regulations.'},
+        {t:'Locate Info (Open-Book)',d:'Because this is an open-book exam, you do not need to memorize every single line. Practice flipping the books and tagging the main Schedules. Many questions simply test if you know WHICH Schedule or Section to look at.'},
+        {t:'Time Management',d:'Always time your practice (1.8 minutes per question).'}
       ]}
     ]
   },
@@ -474,6 +474,10 @@ window.ROPA_DATA = {
   ],
   notes: {
     act: [
+      {title:'Open-Book Navigation (Where to look)',items:[
+        {t:'First Schedule',d:'List of Registrable Qualifications (Degrees). Note: This is amended by the Minister, not the Board.'},
+        {t:'Second Schedule',d:'List of approved Premises for PRP employment (Government clinics, private hospitals, retail pharmacies, etc).'}
+      ]},
       {title:'Board composition — s.3(1)',items:[
         {t:'DG of Health',d:'Ex officio President — chairs all meetings he attends'},
         {t:'Director of Pharmaceutical Services',d:'Ex officio member'},
@@ -554,6 +558,11 @@ window.POISON_DATA = {
   ],
   notes: {
     act: [
+      {title:'Act Schedules (Open-Book Guide)',items:[
+        {t:'First Schedule (Poisons List)',d:'Master list of all poisons, divided into Groups A, B, C, D and Parts I & II. This is where you verify drug classifications.'},
+        {t:'Second Schedule',d:'Articles absolutely exempted from the Poisons Act (e.g., surgical dressings, adhesives, fireworks, paints, matches).'},
+        {t:'Third Schedule',d:'Master list of Psychotropic Substances.'}
+      ]},
       {title:'Poisons Board Constitution — s.3',items:[
         {t:'Ex-officio',d:'Director General of Health (Chairman)'},
         {t:'Government Appointees',d:'1 Pharmacist, 1 Chemist Dept officer, 1 Agri Dept officer, 1 Vet Dept officer'},
@@ -576,6 +585,12 @@ window.POISON_DATA = {
       ]}
     ],
     reg: [
+      {title:'Psychotropic Regs (Open-Book Forms)',items:[
+        {t:'Form A',d:'Import Authorization for Psychotropics.'},
+        {t:'Form B',d:'Export Authorization for Psychotropics.'},
+        {t:'Form E',d:'Register of Psychotropic Substances (Manufactured, Imported, Exported).'},
+        {t:'Form F',d:'Prescription Register for Psychotropics.'}
+      ]},
       {title:'Poisons Regulations 1952',items:[
         {t:'Storage (r.5-7)',d:'Unbroken case, locked cupboard, or distinguishable container. Part II agri poisons separated from food.'},
         {t:'Labelling (r.9-12)',d:'Must have "Poison" in red. Dispensed medicines must say "Controlled Medicine" / "Ubat Terkawal".'},
@@ -654,6 +669,10 @@ window.SODA_DATA = {
   ],
   notes: {
     act: [
+      {title:'SODA Navigation (Open-Book Guide)',items:[
+        {t:'Section 10',d:'The exact list of offences (e.g., selling adulterated drugs, false labeling, unpermitted additions).'},
+        {t:'Section 20',d:'The rules and timelines for the Written Warranty defence.'}
+      ]},
       {title:'Statutory Definitions — s.2',items:[
         {t:'Drug',d:'Any substance intended or claimed capable of being used on humans or animals internally or externally for a medicinal purpose.'},
         {t:'Medicinal Purpose',d:'Includes diagnosing, contraception, inducing anaesthesia, and controlling body weight.'}
@@ -671,6 +690,10 @@ window.SODA_DATA = {
       ]}
     ],
     reg: [
+      {title:'CDCR Tables (Open-Book Guide)',items:[
+        {t:'Table I',d:'Maximum permitted heavy metal limits in traditional medicines (Lead, Arsenic, Mercury, Cadmium).'},
+        {t:'Table II',d:'Substances strictly prohibited in traditional medicines (Caffeine, Paracetamol, etc.).'}
+      ]},
       {title:'Drug Control Authority (DCA) — r.3',items:[
         {t:'Ex-Officio Members',d:'Director-General of Health (Chairman), DPS (Alt Chairman), Director of NPCB.'},
         {t:'Appointed Members',d:'8 members (physician, pharmacist, 3 uni experts, 2 doctors, 1 vet).'},
@@ -742,8 +765,11 @@ window.MASA_DATA = {
   ],
   notes: {
     act: [
+      {title:'The Schedule (Open-Book Guide)',items:[
+        {t:'s.3 Schedule',d:'The definitive list of 20 diseases/conditions for which you CANNOT advertise a remedy (e.g., Asthma, Cancer, Diabetes).'}
+      ]},
       {title:'Prohibition of Advertisements — s.3, s.4, s.4A',items:[
-        {t:'Specific Diseases [s.3]',d:'Cannot advertise for prevention/treatment of 20 scheduled diseases (e.g., Asthma, Cancer, Diabetes, Hypertension, Kidney/Heart defects, Venereal disease).'},
+        {t:'Specific Diseases [s.3]',d:'Cannot advertise for prevention/treatment of 20 scheduled diseases.'},
         {t:'Abortion [s.4]',d:'Absolute prohibition on advertising articles for procuring miscarriage.'},
         {t:'Skill or Service [s.4A]',d:'Cannot advertise skills/services relating to treatment/diagnosis unless exempted (e.g., private hospitals/clinics approved by MAB).'},
         {t:'General Medicine [s.4B]',d:'All other medicine/remedy ads must be approved by the MAB.'}
@@ -812,6 +838,10 @@ window.DDA_DATA = {
   ],
   notes: {
     act: [
+      {title:'Key Sections & Schedules (Open-Book)',items:[
+        {t:'First Schedule',d:'Master list of Dangerous Drugs, divided into Parts I to IV.'},
+        {t:'Section 37(da)',d:'The critical list of exact weight thresholds for trafficking presumptions.'}
+      ]},
       {title:'Dangerous Drugs Classification',items:[
         {t:'Part I',d:'Raw Opium, Coca Leaves, Poppy-Straw, Cannabis.'},
         {t:'Part II',d:'Prepared Opium, Cannabis, Cannabis resin.'},
@@ -1040,7 +1070,6 @@ function selectAppMode(mode){
 }
 
 function openModeSelect(actId){
-  // Handle combined ETHICS logic specifically for Game mode
   if (actId === 'ETHICS') {
     // Passes through
   } else if(actId === 'SODA_CDCR') {
